@@ -1,0 +1,22 @@
+<%
+var options = htmlWebpackPlugin.options;
+var isMobileApp = options.isMobile;
+%>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+
+    <title>ActiveBook react</title>
+  </head>
+
+  <body>
+    <div id="root"></div>
+  </body>
+
+  <% if (isMobileApp) { %>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+  <% } %>
+</html>
