@@ -17,7 +17,11 @@ import { Nav } from './components/Nav';
 
 import styles from './Toolbar.scss';
 
-export const Toolbar = () => {
+export type ToolbarProps = {
+  sbMode?: boolean;
+};
+
+export const Toolbar = ({ sbMode }: ToolbarProps) => {
   const dispatch = useDispatch();
   const fontSize = useSelector(configSelectors.fontSize);
 
@@ -50,13 +54,17 @@ export const Toolbar = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.toolbar}>
-        <Item onClick={bookmarkClickHandler}>
-          <BookmarkIcon />
-        </Item>
+        {!sbMode && (
+          <>
+            <Item onClick={bookmarkClickHandler}>
+              <BookmarkIcon />
+            </Item>
 
-        <Item>
-          <Nav />
-        </Item>
+            <Item>
+              <Nav />
+            </Item>
+          </>
+        )}
 
         <Item onClick={fontSmallClickHandler}>
           <FontSmallIcon />

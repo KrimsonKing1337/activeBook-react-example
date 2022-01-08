@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 
 import { ConnectedRouter } from 'connected-react-router';
 import { history, store } from 'store';
+// todo: исправить в es-lint порядок, pageOfBooks воспринимается некорректно
+import { Page2 } from 'pagesOfBook/Page2';
 
 import { AppWrapper } from 'components/AppWrapper';
 
@@ -20,16 +22,29 @@ export const App = ({ children }: AppProps) => {
     hideAddressBarInMobileDevices();
   }, []);
 
+  // todo: сделать все страницы либо через ленивую загрузку, либо по-обычному
+  const Page1 = React.lazy(() => import('pagesOfBook/Page1'));
+
   return (
     <Provider store={store}>
       <ConnectedRouter history={history}>
-        <Switch>
-          <Route path={'/'}>
-            <AppWrapper>
+        <AppWrapper>
+          <Switch>
+            <Route exact path={'/'}>
               {children}
-            </AppWrapper>
-          </Route>
-        </Switch>
+            </Route>
+
+            <Route exact path={'/page-1'}>
+              <Suspense fallback={null}>
+                <Page1 />
+              </Suspense>
+            </Route>
+
+            <Route exact path={'/page-2'}>
+              <Page2 />
+            </Route>
+          </Switch>
+        </AppWrapper>
       </ConnectedRouter>
     </Provider>
   );

@@ -1,8 +1,10 @@
 import React from 'react';
 
+import { PageWrapper } from 'components/PageWrapper';
+
 export const Page1 = () => {
   return (
-    <>
+    <PageWrapper>
       <p>
         Звенел будильник.
         Но он уже не спал, поэтому довольно быстро нажал на кнопку выключения.
@@ -25,6 +27,6 @@ export const Page1 = () => {
       <p>
         Покончив с завтраком, он выключил телевизор, оделся и стал спускаться к машине.
       </p>
-    </>
+    </PageWrapper>
   );
 };

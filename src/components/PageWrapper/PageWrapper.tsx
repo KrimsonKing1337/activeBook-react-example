@@ -20,10 +20,12 @@ import styles from './PageWrapper.scss';
 export type PageWrapperProps = {
   title?: string;
   subtitle?: string;
+  withoutToolbar?: boolean;
+  sbMode?: boolean;
   children: React.ReactNode;
 };
 
-export const PageWrapper = ({ title, subtitle, children }: PageWrapperProps) => {
+export const PageWrapper = ({ title, subtitle, withoutToolbar, sbMode, children }: PageWrapperProps) => {
   const inverseColorIsActive = useSelector(effectsSelectors.inverseColorIsActive);
   const isLoading = useSelector(mainSelectors.isLoading);
 
@@ -48,7 +50,9 @@ export const PageWrapper = ({ title, subtitle, children }: PageWrapperProps) => 
 
         <BackgroundEffects />
 
-        <Toolbar />
+        {!withoutToolbar && (
+          <Toolbar sbMode={sbMode} />
+        )}
 
         <Menu />
 

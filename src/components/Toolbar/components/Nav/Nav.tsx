@@ -1,6 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import classNames from 'classnames';
+import { store } from 'store';
+
+import { nextPage, prevPage } from 'store/main/actions';
+import { mainSelectors } from 'store/main/reducer';
 
 import ArrowLeft from 'assets/img/toolbar/i-arrow-left.svg';
 import ArrowRight from 'assets/img/toolbar/i-arrow-right.svg';
@@ -10,6 +15,8 @@ import { Item } from 'components/Toolbar/components/Item';
 import styles from './Nav.scss';
 
 export const Nav = () => {
+  const page = useSelector(mainSelectors.page);
+
   const inputRef = useRef<HTMLInputElement>(null);
   const [goToWithInputIsHide, setGoToWithInputIsHide] = useState(true);
   const [inputValue, setInputValue] = useState('');
@@ -17,6 +24,14 @@ export const Nav = () => {
   useEffect(() => {
     inputRef.current?.focus();
   });
+
+  function prevClickHandler() {
+    store.dispatch(prevPage());
+  }
+
+  function nextClickHandler() {
+    store.dispatch(nextPage());
+  }
 
   function pageNumberClickHandler() {
     setGoToWithInputIsHide(false);
@@ -57,15 +72,15 @@ export const Nav = () => {
   return (
     <>
       <div className={goToWithArrowsClassNames}>
-        <Item>
+        <Item onClick={prevClickHandler}>
           <ArrowLeft />
         </Item>
 
         <div className={styles.pageNumber} onClick={pageNumberClickHandler}>
-          1 из 135
+          {page} из 135
         </div>
 
-        <Item>
+        <Item onClick={nextClickHandler}>
           <ArrowRight />
         </Item>
       </div>

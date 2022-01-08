@@ -5,6 +5,9 @@ import { App } from 'components/App';
 
 /// #if env.sb
 import { EffectExamples } from 'pages/EffectExamples';
+/// #else
+// eslint-disable-next-line
+import { Page0 } from 'pagesOfBook/Page0';
 /// #endif
 
 import { getIsMobile } from 'utils/getIsMobile';
@@ -34,4 +37,6 @@ if (module.hot) {
 
 /// #if env.sb
 init(<EffectExamples />);
+/// #else
+init(<Page0 />);
 /// #endif

@@ -1,6 +1,8 @@
 export type MenuActiveState = null | 'menu' | 'tableOfContents';
 
 export interface MainState {
+  route: string;
+  page: number;
   menuActiveState: MenuActiveState;
   bookmarksIsOpen: boolean;
   isLoading: boolean;
@@ -9,6 +11,8 @@ export interface MainState {
 }
 
 export const initialState: MainState = {
+  route: '/',
+  page: 0,
   menuActiveState: null,
   bookmarksIsOpen: false,
   isLoading: false,
