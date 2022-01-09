@@ -6,7 +6,7 @@ import classNames from 'classnames';
 
 import { setAll as setAllVolume } from 'store/volume/actions';
 import { setAll as setAllConfig } from 'store/config/actions';
-import { setIsFlashlightAvailable, setIsVibrationAvailable } from 'store/main/actions';
+import { setIsFlashlightAvailable, setIsVibrationAvailable, setMenuActiveState } from 'store/main/actions';
 import { volumeSelectors } from 'store/volume/reducer';
 import { configSelectors } from 'store/config/reducer';
 import { mainSelectors } from 'store/main/reducer';
@@ -23,11 +23,26 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
   const config = useSelector(configSelectors.all);
   const volume = useSelector(volumeSelectors.all);
   const isLoading = useSelector(mainSelectors.isLoading);
+  const menuActiveState = useSelector(mainSelectors.menuActiveState);
 
   // сбрасываю адресную строку
   useEffect(() => {
     history.push('/');
   }, []);
+
+  useEffect(() => {
+    const unlisten = history.listen((location) => {
+      if (!location.hash && menuActiveState !== null) {
+        dispatch(setMenuActiveState(null));
+      }
+
+      if (location.hash && menuActiveState === 'tableOfContents') {
+        dispatch(setMenuActiveState(null));
+      }
+    });
+
+    return () => unlisten();
+  }, [menuActiveState]);
 
   useEffect(() => {
     const canVibrate = !!navigator.vibrate;

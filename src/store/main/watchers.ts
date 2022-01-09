@@ -1,5 +1,7 @@
 import { push } from 'connected-react-router';
+import { Location } from 'history';
 import { put, select, takeLatest } from 'redux-saga/effects';
+import { RootState } from 'store';
 
 import { mainSelectors } from './reducer';
 import { MainState } from './initialState';
@@ -15,7 +17,7 @@ import {
 export function* watchSetBookmarksIsOpen(action: SetBookmarksIsOpenAction) {
   const { payload } = action;
 
-  const path = payload ? '/bookmarks' : '/';
+  const path = payload ? '#bookmarks' : '/';
 
   yield put(push(path));
 }
@@ -23,15 +25,23 @@ export function* watchSetBookmarksIsOpen(action: SetBookmarksIsOpenAction) {
 export function* watchSetMenuActiveState(action: SetMenuIsOpenAction) {
   const { payload } = action;
 
-  let path = '/';
+  const location: Location = yield select((state: RootState) => state.router.location);
 
-  if (payload === 'tableOfContents') {
-    path = 'table-of-contents';
-  } else if (payload === 'menu') {
-    path = 'menu';
+  if (!location.hash && payload === null) {
+    return;
   }
 
-  yield put(push(path));
+  let path = window.location.pathname;
+
+  if (payload === 'tableOfContents') {
+    path = '#table-of-contents';
+  } else if (payload === 'menu') {
+    path = '#menu';
+  }
+
+  yield put(push(path as string));
+
+  yield true;
 }
 
 export function* watchSetRoute(action: SetRouteAction) {
@@ -69,7 +79,6 @@ export function* watchNextPage() {
   yield put(setPage(newPageNumber));
 }
 
-// todo: реализовать модалку через роутер, сейчас сломалась
 export function* watchMainActions() {
   yield takeLatest(actionsTypes.SET_BOOKMARKS_IS_OPEN, watchSetBookmarksIsOpen);
   yield takeLatest(actionsTypes.SET_MENU_ACTIVE_STATE, watchSetMenuActiveState);
