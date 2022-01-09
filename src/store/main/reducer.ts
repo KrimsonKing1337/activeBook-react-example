@@ -46,6 +46,8 @@ export function mainReducer(state = initialState, action: MainActions): MainStat
 }
 
 export const mainSelectors = {
+  // не придумал куда лучше впихнуть, а отдельную сущность под один селектор не захотел создавать
+  location: (state: RootState) => state.router.location,
   page: (state: RootState) => state.main.page,
   route: (state: RootState) => state.main.route,
   menuActiveState: (state: RootState) => state.main.menuActiveState,

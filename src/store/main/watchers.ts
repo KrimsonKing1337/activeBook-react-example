@@ -1,7 +1,6 @@
 import { push } from 'connected-react-router';
 import { Location } from 'history';
 import { put, select, takeLatest } from 'redux-saga/effects';
-import { RootState } from 'store';
 
 import { mainSelectors } from './reducer';
 import { MainState } from './initialState';
@@ -17,7 +16,13 @@ import {
 export function* watchSetBookmarksIsOpen(action: SetBookmarksIsOpenAction) {
   const { payload } = action;
 
-  const path = payload ? '#bookmarks' : '/';
+  const location: Location = yield select(mainSelectors.location);
+
+  if (!location.hash && !payload) {
+    return;
+  }
+
+  const path = payload ? '#bookmarks' : window.location.pathname;
 
   yield put(push(path));
 }
@@ -25,7 +30,7 @@ export function* watchSetBookmarksIsOpen(action: SetBookmarksIsOpenAction) {
 export function* watchSetMenuActiveState(action: SetMenuIsOpenAction) {
   const { payload } = action;
 
-  const location: Location = yield select((state: RootState) => state.router.location);
+  const location: Location = yield select(mainSelectors.location);
 
   if (!location.hash && payload === null) {
     return;
@@ -40,8 +45,6 @@ export function* watchSetMenuActiveState(action: SetMenuIsOpenAction) {
   }
 
   yield put(push(path as string));
-
-  yield true;
 }
 
 export function* watchSetRoute(action: SetRouteAction) {

@@ -6,7 +6,12 @@ import classNames from 'classnames';
 
 import { setAll as setAllVolume } from 'store/volume/actions';
 import { setAll as setAllConfig } from 'store/config/actions';
-import { setIsFlashlightAvailable, setIsVibrationAvailable, setMenuActiveState } from 'store/main/actions';
+import {
+  setBookmarkIsOpen,
+  setIsFlashlightAvailable,
+  setIsVibrationAvailable,
+  setMenuActiveState,
+} from 'store/main/actions';
 import { volumeSelectors } from 'store/volume/reducer';
 import { configSelectors } from 'store/config/reducer';
 import { mainSelectors } from 'store/main/reducer';
@@ -24,12 +29,14 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
   const volume = useSelector(volumeSelectors.all);
   const isLoading = useSelector(mainSelectors.isLoading);
   const menuActiveState = useSelector(mainSelectors.menuActiveState);
+  const bookmarksIsOpen = useSelector(mainSelectors.bookmarksIsOpen);
 
   // сбрасываю адресную строку
   useEffect(() => {
     history.push('/');
   }, []);
 
+  // закрываю модалки, если пользователь сделал navigator.goBack
   useEffect(() => {
     const unlisten = history.listen((location) => {
       if (!location.hash && menuActiveState !== null) {
@@ -39,10 +46,14 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
       if (location.hash && menuActiveState === 'tableOfContents') {
         dispatch(setMenuActiveState(null));
       }
+
+      if (!location.hash && bookmarksIsOpen) {
+        dispatch(setBookmarkIsOpen(false));
+      }
     });
 
     return () => unlisten();
-  }, [menuActiveState]);
+  }, [menuActiveState, bookmarksIsOpen]);
 
   useEffect(() => {
     const canVibrate = !!navigator.vibrate;
