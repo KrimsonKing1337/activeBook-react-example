@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
+import { Howl } from 'howler';
 
 import { PageWrapper } from 'components/PageWrapper';
 
 export const Page1 = () => {
+
+  // todo: добавить fadeIn / fadeOut
+  useEffect(() => {
+    const loopSound = new Howl({
+      src: ['assets/audios/single.mp3'],
+      loop: true,
+    });
+
+    loopSound.play();
+
+    return () => loopSound.stop().unload();
+  }, []);
+
   return (
     <PageWrapper>
       <p>

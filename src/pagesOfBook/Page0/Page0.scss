@@ -1,0 +1,18 @@
+@import "~styles/__variables.scss";
+
+.startReading {
+  width: 100%;
+
+  color: #fd0006;
+  font-family: "Roboto", serif;
+  font-size: 22px;
+  text-align: center;
+
+  cursor: pointer;
+
+  transition: text-shadow $transitionDefault;
+
+  &:hover {
+    text-shadow: 1px 1px 30px rgb(255 255 255 / 75%);
+  }
+}
