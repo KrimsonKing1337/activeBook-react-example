@@ -8,16 +8,15 @@ export const Page1 = () => {
 
   // todo: добавить fadeIn / fadeOut
   useEffect(() => {
-    const loopSound = new HowlWrapper({
-      src: ['assets/audios/single.mp3'],
-      loop: true,
+    const alarmSoundHowlInst = new HowlWrapper({
+      src: ['assets/book_data/audios/sounds/alarm-clock.mp3'],
     });
 
     (async () => {
-      await loopSound.play();
+      await alarmSoundHowlInst.play();
     })();
 
-    return () => loopSound.unload();
+    return () => alarmSoundHowlInst.unload();
   }, []);
 
   return (

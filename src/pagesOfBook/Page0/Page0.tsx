@@ -8,28 +8,29 @@ import { HowlWrapper } from 'utils/book/HowlWrapper';
 import styles from './Page0.scss';
 
 export const Page0 = () => {
-  const [singleSound, setSingleSound] = useState<HowlWrapper>();
+  const [welcomeSound, setWelcomeSound] = useState<HowlWrapper>();
 
   useEffect(() => {
-    const singleSound = new HowlWrapper({
-      src: ['assets/audios/single.mp3'],
+    const swordSoundHowlInst = new HowlWrapper({
+      src: ['assets/book_data/audios/sounds/sword.mp3'],
     });
 
-    setSingleSound(singleSound);
+    setWelcomeSound(swordSoundHowlInst);
 
-    return () => singleSound.unload();
+    return () => swordSoundHowlInst.unload();
   }, []);
 
   async function play() {
-    if (!singleSound) {
+    if (!welcomeSound) {
       return;
     }
 
-    await singleSound.play();
+    await welcomeSound.play();
 
     goToPage(1);
   }
 
+  // todo: flashlight, vibration
   function clickHandler() {
     play();
   }

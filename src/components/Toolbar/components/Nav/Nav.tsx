@@ -26,11 +26,11 @@ export const Nav = () => {
   });
 
   function prevClickHandler() {
-    goNextPage();
+    goPrevPage();
   }
 
   function nextClickHandler() {
-    goPrevPage();
+    goNextPage();
   }
 
   function pageNumberClickHandler() {

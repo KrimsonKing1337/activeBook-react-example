@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
 
+import { HowlWrapper } from 'utils/book/HowlWrapper';
+
 export const Page2 = () => {
+  // todo: добавить type = oneShot (ваншот - это обычно короткий звук, который должен прозвучать до конца)
+  useEffect(() => {
+    const carDoorCloseEngineStartSoundHowlInst = new HowlWrapper({
+      src: ['assets/book_data/audios/sounds/car-door-close-engine-start.mp3'],
+    });
+
+    (async () => {
+      await carDoorCloseEngineStartSoundHowlInst.play();
+    })();
+
+    return () => carDoorCloseEngineStartSoundHowlInst.unload();
+  }, []);
+
   return (
     <PageWrapper>
       <p>
