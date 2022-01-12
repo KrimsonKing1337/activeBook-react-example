@@ -2,15 +2,15 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import classNames from 'classnames';
-import { store } from 'store';
 
-import { nextPage, prevPage } from 'store/main/actions';
 import { mainSelectors } from 'store/main/reducer';
 
 import ArrowLeft from 'assets/img/toolbar/i-arrow-left.svg';
 import ArrowRight from 'assets/img/toolbar/i-arrow-right.svg';
 
 import { Item } from 'components/Toolbar/components/Item';
+
+import { goNextPage, goPrevPage } from 'utils/book/goToPage';
 
 import styles from './Nav.scss';
 
@@ -26,11 +26,11 @@ export const Nav = () => {
   });
 
   function prevClickHandler() {
-    store.dispatch(prevPage());
+    goNextPage();
   }
 
   function nextClickHandler() {
-    store.dispatch(nextPage());
+    goPrevPage();
   }
 
   function pageNumberClickHandler() {

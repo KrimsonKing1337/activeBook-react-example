@@ -1,24 +1,18 @@
 import React, { useEffect, useState } from 'react';
 
-import { store } from 'store';
-import { Howl } from 'howler';
-
-import { setPage } from 'store/main/actions';
-
 import { PageWrapper } from 'components/PageWrapper';
+
+import { goToPage } from 'utils/book/goToPage';
+import { HowlWrapper } from 'utils/book/HowlWrapper';
 
 import styles from './Page0.scss';
 
 export const Page0 = () => {
-  const [singleSound, setSingleSound] = useState<Howl>();
+  const [singleSound, setSingleSound] = useState<HowlWrapper>();
 
-  // todo: промисифицировать onend(), должно быть singleSound.play().then(...)
   useEffect(() => {
-    const singleSound = new Howl({
+    const singleSound = new HowlWrapper({
       src: ['assets/audios/single.mp3'],
-      onend() {
-        goToPage1();
-      },
     });
 
     setSingleSound(singleSound);
@@ -26,16 +20,14 @@ export const Page0 = () => {
     return () => singleSound.unload();
   }, []);
 
-  function goToPage1() {
-    store.dispatch(setPage(1));
-  }
-
-  function play() {
+  async function play() {
     if (!singleSound) {
       return;
     }
 
-    singleSound.play();
+    await singleSound.play();
+
+    goToPage(1);
   }
 
   function clickHandler() {
