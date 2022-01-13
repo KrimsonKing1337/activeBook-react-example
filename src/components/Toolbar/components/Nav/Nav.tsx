@@ -10,7 +10,7 @@ import ArrowRight from 'assets/img/toolbar/i-arrow-right.svg';
 
 import { Item } from 'components/Toolbar/components/Item';
 
-import { goNextPage, goPrevPage } from 'utils/book/goToPage';
+import { goNextPage, goPrevPage, goToPage } from 'utils/book/goToPage';
 
 import styles from './Nav.scss';
 
@@ -38,7 +38,15 @@ export const Nav = () => {
   }
 
   function buttonClickHandler() {
-    setGoToWithInputIsHide(true); // todo
+    setGoToWithInputIsHide(true);
+
+    const pageNumber = parseInt(inputValue);
+
+    if (page === pageNumber) {
+      return;
+    }
+
+    goToPage(pageNumber);
   }
 
   function inputBlurHandler() {
@@ -101,7 +109,8 @@ export const Nav = () => {
           />
         </div>
 
-        <button className={styles.button} onClick={buttonClickHandler}>
+        {/* onClick отрабатывает позже onBlur у input-а выше, поэтому используется onMouseDown */}
+        <button className={styles.button} onMouseDown={buttonClickHandler}>
           Перейти
         </button>
       </div>
