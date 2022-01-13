@@ -17,7 +17,9 @@ export const Page0 = () => {
 
     setWelcomeSound(swordSoundHowlInst);
 
-    return () => swordSoundHowlInst.unload();
+    return () => {
+      swordSoundHowlInst.unload();
+    };
   }, []);
 
   async function play() {

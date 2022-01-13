@@ -5,8 +5,6 @@ import { PageWrapper } from 'components/PageWrapper';
 import { HowlWrapper } from 'utils/book/HowlWrapper';
 
 export const Page1 = () => {
-
-  // todo: добавить fadeIn / fadeOut
   useEffect(() => {
     const alarmSoundHowlInst = new HowlWrapper({
       src: ['assets/book_data/audios/sounds/alarm-clock.mp3'],
@@ -16,7 +14,13 @@ export const Page1 = () => {
       await alarmSoundHowlInst.play();
     })();
 
-    return () => alarmSoundHowlInst.unload();
+    setTimeout(() => {
+      alarmSoundHowlInst.stop();
+    }, 5000);
+
+    return () => {
+      alarmSoundHowlInst.unload(true);
+    };
   }, []);
 
   return (

@@ -15,7 +15,9 @@ export const Page2 = () => {
       await carDoorCloseEngineStartSoundHowlInst.play();
     })();
 
-    return () => carDoorCloseEngineStartSoundHowlInst.unload();
+    return () => {
+      carDoorCloseEngineStartSoundHowlInst.unload(true);
+    };
   }, []);
 
   return (
