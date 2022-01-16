@@ -34,7 +34,7 @@
       {
         "rules": {
           "ordered-imports": [
-            true,
+            false,
             {
               "module-source-path": "full",
               "grouped-imports": true,

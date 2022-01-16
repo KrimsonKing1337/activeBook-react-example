@@ -4,6 +4,8 @@ import { PageWrapper } from 'components/PageWrapper';
 
 import { goToPage } from 'utils/book/goToPage';
 import { HowlWrapper } from 'utils/book/HowlWrapper';
+import { off as flashlightOff, on as flashlightOn } from 'utils/book/flashlight';
+import { on as vibrationOn } from 'utils/book/vibration';
 
 import styles from './Page0.scss';
 
@@ -18,6 +20,7 @@ export const Page0 = () => {
     setWelcomeSound(swordSoundHowlInst);
 
     return () => {
+      flashlightOff();
       swordSoundHowlInst.unload();
     };
   }, []);
@@ -27,6 +30,8 @@ export const Page0 = () => {
       return;
     }
 
+    vibrationOn(1000);
+    flashlightOn();
     await welcomeSound.play();
 
     goToPage(1);
