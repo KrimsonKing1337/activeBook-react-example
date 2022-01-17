@@ -1,27 +1,45 @@
 import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { audioEffectsSelectors } from 'store/effects/audio/reducer';
+import { setAudio } from 'store/effects/audio/actions';
 
 import { PageWrapper } from 'components/PageWrapper';
 
 import { HowlWrapper } from 'utils/book/HowlWrapper';
 
 export const Page1 = () => {
+  const dispatch = useDispatch();
+
+  const audioInst = useSelector(audioEffectsSelectors.audioInst);
+
   useEffect(() => {
     const alarmSoundHowlInst = new HowlWrapper({
       src: ['assets/book_data/audios/sounds/alarm-clock.mp3'],
     });
 
+    dispatch(setAudio(alarmSoundHowlInst));
+  }, []);
+
+  useEffect(() => {
+    if (!audioInst || audioInst.isUnloading) {
+      return;
+    }
+
     (async () => {
-      await alarmSoundHowlInst.play();
+      await audioInst.play();
     })();
 
-    setTimeout(() => {
-      alarmSoundHowlInst.stop();
+    const timer = setTimeout(() => {
+      audioInst.stop();
     }, 5000);
 
     return () => {
-      alarmSoundHowlInst.unload(true);
+      clearTimeout(timer);
+
+      audioInst.unload(true);
     };
-  }, []);
+  }, [audioInst]);
 
   return (
     <PageWrapper>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import { setInverseColorActiveState } from 'store/effects/actions';
+import { setInverseColorActiveState } from 'store/effects/common/actions';
 
 import { Toggle } from 'components/Toggle';
 

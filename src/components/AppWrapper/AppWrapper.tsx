@@ -60,9 +60,15 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
 
     dispatch(setIsVibrationAvailable(canVibrate));
 
-    (window as any).plugins?.flashlight.available((isAvailable: boolean) => {
-      dispatch(setIsFlashlightAvailable(isAvailable));
-    });
+    const flashlight = (window as any).plugins?.flashlight;
+
+    if (flashlight) {
+      flashlight.available((isAvailable: boolean) => {
+        dispatch(setIsFlashlightAvailable(isAvailable));
+      });
+    } else {
+      dispatch(setIsFlashlightAvailable(false));
+    }
   }, []);
 
   useEffect(() => {

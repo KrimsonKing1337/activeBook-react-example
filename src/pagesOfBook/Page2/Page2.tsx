@@ -1,24 +1,40 @@
 import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { audioEffectsSelectors } from 'store/effects/audio/reducer';
+import { setAudio } from 'store/effects/audio/actions';
 
 import { PageWrapper } from 'components/PageWrapper';
 
 import { HowlWrapper } from 'utils/book/HowlWrapper';
 
 export const Page2 = () => {
+  const dispatch = useDispatch();
+
+  const audioInst = useSelector(audioEffectsSelectors.audioInst);
+
   // todo: добавить type = oneShot (ваншот - это обычно короткий звук, который должен прозвучать до конца)
   useEffect(() => {
     const carDoorCloseEngineStartSoundHowlInst = new HowlWrapper({
       src: ['assets/book_data/audios/sounds/car-door-close-engine-start.mp3'],
     });
 
+    dispatch(setAudio(carDoorCloseEngineStartSoundHowlInst));
+  }, []);
+
+  useEffect(() => {
+    if (!audioInst || audioInst.isUnloading) {
+      return;
+    }
+
     (async () => {
-      await carDoorCloseEngineStartSoundHowlInst.play();
+      await audioInst.play();
     })();
 
     return () => {
-      carDoorCloseEngineStartSoundHowlInst.unload(true);
+      audioInst.unload(true);
     };
-  }, []);
+  }, [audioInst]);
 
   return (
     <PageWrapper>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { effectsSelectors } from 'store/effects/reducer';
+import { effectsSelectors } from 'store/effects/common/reducer';
 
 import { Dots } from './components/Dots';
 import { Video } from './components/Video';

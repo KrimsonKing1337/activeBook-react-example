@@ -1,4 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { mainSelectors } from 'store/main/reducer';
+import { setAudio } from 'store/effects/audio/actions';
+import { audioEffectsSelectors } from 'store/effects/audio/reducer';
 
 import { PageWrapper } from 'components/PageWrapper';
 
@@ -10,36 +15,48 @@ import { on as vibrationOn } from 'utils/book/vibration';
 import styles from './Page0.scss';
 
 export const Page0 = () => {
-  const [welcomeSound, setWelcomeSound] = useState<HowlWrapper>();
+  const dispatch = useDispatch();
+
+  const isVibrationAvailable = useSelector(mainSelectors.isVibrationAvailable);
+  const isFlashlightAvailable = useSelector(mainSelectors.isFlashlightAvailable);
+  const audioInst = useSelector(audioEffectsSelectors.audioInst);
 
   useEffect(() => {
     const swordSoundHowlInst = new HowlWrapper({
       src: ['assets/book_data/audios/sounds/sword.mp3'],
     });
 
-    setWelcomeSound(swordSoundHowlInst);
+    dispatch(setAudio(swordSoundHowlInst));
 
     return () => {
-      flashlightOff();
+      if (isFlashlightAvailable) {
+        flashlightOff(); // todo: вынести проверку на isFlashlightAvailable в flashlightOn/off
+      }
+
       swordSoundHowlInst.unload();
     };
   }, []);
 
-  async function play() {
-    if (!welcomeSound) {
+  async function go() {
+    if (!audioInst) {
       return;
     }
 
-    vibrationOn(1000);
-    flashlightOn();
-    await welcomeSound.play();
+    if (isVibrationAvailable) {
+      vibrationOn(1000); // todo: вынести проверку на isVibrationAvailable в vibrationOn/off
+    }
+
+    if (isFlashlightAvailable) {
+      flashlightOn(); // todo: вынести проверку на isFlashlightAvailable в flashlightOn/off
+    }
+
+    await audioInst.play();
 
     goToPage(1);
   }
 
-  // todo: flashlight, vibration
   function clickHandler() {
-    play();
+    go();
   }
 
   return (

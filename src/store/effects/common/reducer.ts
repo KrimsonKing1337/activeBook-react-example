@@ -1,4 +1,4 @@
-import { RootState } from 'store';
+import { RootState } from 'store/index';
 
 import { actionsTypes, EffectsActions } from './actions';
 import { EffectsState, initialState } from './initialState';

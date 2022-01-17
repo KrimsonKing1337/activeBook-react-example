@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import classNames from 'classnames';
 
-import { effectsSelectors } from 'store/effects/reducer';
+import { effectsSelectors } from 'store/effects/common/reducer';
 import { mainSelectors } from 'store/main/reducer';
 
 import { Toolbar } from 'components/Toolbar';
