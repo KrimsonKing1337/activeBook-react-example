@@ -24,7 +24,7 @@ export function init(component: React.ReactNode) {
   const isMobile = getIsMobile();
 
   if (isMobile) {
-    document.addEventListener('deviceready', initApp, false);
+    document.addEventListener('deviceready', () => initApp(component), false);
   } else {
     initApp(component);
   }

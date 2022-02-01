@@ -18,7 +18,7 @@ export const Page0 = () => {
   const isFlashlightAvailable = useSelector(mainSelectors.isFlashlightAvailable);
 
   const audioInst = useAudio({
-    src: 'assets/book_data/audios/sounds/sword.mp3',
+    src: '/assets/book_data/audios/sounds/sword.mp3',
     fadeOutWhenUnload: false,
   });
 

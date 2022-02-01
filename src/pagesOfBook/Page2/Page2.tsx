@@ -7,7 +7,7 @@ import { useAudio } from 'hooks/effects/audio';
 export const Page2 = () => {
   // todo: добавить type = oneShot (ваншот - это обычно короткий звук, который должен прозвучать до конца)
   const audioInst = useAudio({
-    src: 'assets/book_data/audios/sounds/car-door-close-engine-start.mp3',
+    src: '/assets/book_data/audios/sounds/car-door-close-engine-start.mp3',
   });
 
   useEffect(() => {

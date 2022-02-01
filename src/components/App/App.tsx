@@ -5,6 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 import { history, store } from 'store';
 // todo: исправить в es-lint порядок, pageOfBooks воспринимается некорректно
+import { Page1 } from 'pagesOfBook/Page1';
 import { Page2 } from 'pagesOfBook/Page2';
 
 import { AppWrapper } from 'components/AppWrapper';
@@ -23,7 +24,8 @@ export const App = ({ children }: AppProps) => {
   }, []);
 
   // todo: сделать все страницы либо через ленивую загрузку, либо по-обычному
-  const Page1 = React.lazy(() => import('pagesOfBook/Page1'));
+  // todo: в кордове проблемы с подгрузкой компонента через ленивую загрузку
+  // const Page1 = React.lazy(() => import('pagesOfBook/Page1'));
 
   return (
     <Provider store={store}>

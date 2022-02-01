@@ -6,7 +6,7 @@ import { useAudio } from 'hooks/effects/audio';
 
 export const Page1 = () => {
   const audioInst = useAudio({
-    src: 'assets/book_data/audios/sounds/alarm-clock.mp3',
+    src: '/assets/book_data/audios/sounds/alarm-clock.mp3',
   });
 
   useEffect(() => {
