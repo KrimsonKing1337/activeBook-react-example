@@ -1,37 +1,26 @@
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-
-import { mainSelectors } from 'store/main/reducer';
 
 import { PageWrapper } from 'components/PageWrapper';
 
 import { useAudio } from 'hooks/effects/audio';
+import { useFlashlight } from 'hooks/effects/flashlight';
+import { useVibration } from 'hooks/effects/vibration';
 
 import { goToPage } from 'utils/book/goToPage';
-import { off as flashlightOff, on as flashlightOn } from 'utils/book/flashlight';
-import { on as vibrationOn } from 'utils/book/vibration';
 
 import styles from './Page0.scss';
 
 export const Page0 = () => {
-  const isVibrationAvailable = useSelector(mainSelectors.isVibrationAvailable);
-  const isFlashlightAvailable = useSelector(mainSelectors.isFlashlightAvailable);
-
   const audioInst = useAudio({
     src: '/assets/book_data/audios/sounds/sword.mp3',
     fadeOutWhenUnload: false,
   });
 
-  useEffect(() => {
-    console.log('___ isVibrationAvailable', isVibrationAvailable);
-  }, []);
+  const { flashlightOff, flashlightOn } = useFlashlight();
+  const { vibrationOn } = useVibration();
 
   useEffect(() => {
-    return () => {
-      if (isFlashlightAvailable) {
-        flashlightOff(); // todo: вынести проверку на isFlashlightAvailable в flashlightOn/off
-      }
-    };
+    return () => flashlightOff();
   }, []);
 
   async function go() {
@@ -39,13 +28,9 @@ export const Page0 = () => {
       return;
     }
 
-    if (isVibrationAvailable) {
-      vibrationOn(1000); // todo: вынести проверку на isVibrationAvailable в vibrationOn/off
-    }
+    vibrationOn(1000);
 
-    if (isFlashlightAvailable) {
-      flashlightOn(); // todo: вынести проверку на isFlashlightAvailable в flashlightOn/off
-    }
+    flashlightOn();
 
     await audioInst.play();
 
