@@ -7,12 +7,15 @@ import { setAudio as setAudioEffect } from 'store/effects/audio/actions';
 
 import { HowlWrapper } from 'utils/book/HowlWrapper';
 
+type AudioType = 'oneShot' | 'loop' | undefined;
+
 type UseAudioProps = {
   src: string;
   fadeOutWhenUnload?: boolean;
+  type?: AudioType;
 };
 
-export function useAudio({ src, fadeOutWhenUnload = true }: UseAudioProps) {
+export function useAudio({ src, fadeOutWhenUnload = true, type }: UseAudioProps) {
   const dispatch = useDispatch();
 
   const [audio, setAudio] = useState<HowlWrapper>();
@@ -35,7 +38,19 @@ export function useAudio({ src, fadeOutWhenUnload = true }: UseAudioProps) {
     setAudio(audioInst);
 
     return () => {
-      audioInst.unload(fadeOutWhenUnload);
+      (async () => {
+        if (!type) {
+          audioInst.unload(fadeOutWhenUnload);
+
+          return;
+        }
+
+        if (type === 'oneShot') {
+          await audioInst.waitTillTheEnd();
+
+          audioInst.unload(fadeOutWhenUnload);
+        }
+      })();
     };
   }, [audioInst]);
 

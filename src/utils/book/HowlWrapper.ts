@@ -10,6 +10,7 @@ export class HowlWrapper {
 
   public readonly howlInst: Howl;
   public isUnloading = false;
+  public isPlaying = false;
 
   constructor({ src, loop }: HowlWrapperOptions) {
     this.howlInst = new Howl({
@@ -19,12 +20,18 @@ export class HowlWrapper {
   }
 
   async play(withFadeIn = false) {
+    this.isPlaying = true;
+
     if (withFadeIn) {
       await this.fadeIn();
     }
 
     return new Promise<void>((resolve) => {
-      this.howlInst.once('end', () => resolve());
+      this.howlInst.once('end', () => {
+        this.isPlaying = false;
+
+        resolve();
+      });
 
       this.howlInst.play();
     });
@@ -36,6 +43,8 @@ export class HowlWrapper {
     }
 
     this.howlInst.pause();
+
+    this.isPlaying = false;
   }
 
   async stop(withFadeOut = false) {
@@ -44,6 +53,8 @@ export class HowlWrapper {
     }
 
     this.howlInst.stop();
+
+    this.isPlaying = false;
   }
 
   async unload(withFadeOut = false) {
@@ -54,6 +65,8 @@ export class HowlWrapper {
     }
 
     this.howlInst.unload();
+
+    this.isPlaying = false;
   }
 
   fade(from: number, to: number, dur: number) {
@@ -84,5 +97,21 @@ export class HowlWrapper {
 
   state() {
     return this.howlInst.state();
+  }
+
+  waitTillTheEnd() {
+    return new Promise<void>((resolve) => {
+      if (this.isPlaying) {
+        const interval = setInterval(() => {
+          if (!this.isPlaying) {
+            clearInterval(interval);
+
+            resolve();
+          }
+        }, 10);
+      } else {
+        resolve();
+      }
+    });
   }
 }
