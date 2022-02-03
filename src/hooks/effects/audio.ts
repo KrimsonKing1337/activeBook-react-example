@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { audioEffectsSelectors } from 'store/effects/audio/reducer';
 import { setAudio as setAudioEffect } from 'store/effects/audio/actions';
 
-import { HowlWrapper } from 'utils/book/HowlWrapper';
+import { HowlWrapper } from 'utils/effects/audio/HowlWrapper';
 
 type AudioType = 'oneShot' | 'loop' | undefined;
 

@@ -10,7 +10,7 @@ import ArrowRight from 'assets/img/toolbar/i-arrow-right.svg';
 
 import { Item } from 'components/Toolbar/components/Item';
 
-import { goNextPage, goPrevPage, goToPage } from 'utils/book/goToPage';
+import { goNextPage, goPrevPage, goToPage } from 'utils/goToPage';
 
 import styles from './Nav.scss';
 

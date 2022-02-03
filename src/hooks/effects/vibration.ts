@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 
 import { mainSelectors } from 'store/main/reducer';
 
-import { off, on } from 'utils/book/vibration';
+import { off, on } from 'utils/effects/vibration';
 
 export function useVibration() {
   const isVibrationAvailable = useSelector(mainSelectors.isVibrationAvailable);

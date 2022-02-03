@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 
 import { mainSelectors } from 'store/main/reducer';
 
-import { off, on } from 'utils/book/flashlight';
+import { off, on } from 'utils/effects/flashlight';
 
 export function useFlashlight() {
   const isFlashlightAvailable = useSelector(mainSelectors.isFlashlightAvailable);

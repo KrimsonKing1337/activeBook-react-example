@@ -6,7 +6,7 @@ import { useAudio } from 'hooks/effects/audio';
 import { useFlashlight } from 'hooks/effects/flashlight';
 import { useVibration } from 'hooks/effects/vibration';
 
-import { goToPage } from 'utils/book/goToPage';
+import { goToPage } from 'utils/goToPage';
 
 import styles from './Page0.scss';
 
