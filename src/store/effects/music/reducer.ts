@@ -25,12 +25,12 @@ export function musicEffectsReducer(state = initialState, action: MusicEffectsAc
   }
 }
 
-export const audioEffectsSelectors = {
-  howlInst1: (state: RootState) => state.audioEffects.howlInst1,
-  howlInst2: (state: RootState) => state.audioEffects.howlInst2,
-  lastInstIndex: (state: RootState) => state.audioEffects.lastInstIndex,
+export const musicEffectsSelectors = {
+  howlInst1: (state: RootState) => state.musicEffects.howlInst1,
+  howlInst2: (state: RootState) => state.musicEffects.howlInst2,
+  lastInstIndex: (state: RootState) => state.musicEffects.lastInstIndex,
   musicInst: (state: RootState) => {
-    const { howlInst1, howlInst2, lastInstIndex } = state.audioEffects;
+    const { howlInst1, howlInst2, lastInstIndex } = state.musicEffects;
 
     if (lastInstIndex === 1) {
       return howlInst1;

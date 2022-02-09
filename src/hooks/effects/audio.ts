@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { audioEffectsSelectors } from 'store/effects/audio/reducer';
 import { setAudio as setAudioEffect } from 'store/effects/audio/actions';
