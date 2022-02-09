@@ -10,6 +10,7 @@ import { configReducer, watchConfigActions } from './config';
 import { volumeReducer } from './volume';
 import { effectsReducer } from './effects/common';
 import { audioEffectsReducer, watchAudioEffectsActions } from './effects/audio';
+import { musicEffectsReducer, watchMusicEffectsActions } from './effects/music';
 
 export const history = createBrowserHistory();
 
@@ -25,6 +26,7 @@ const makeRootReducer = (history: ConnectedRouterProps['history']) => {
     volume: volumeReducer,
     effects: effectsReducer,
     audioEffects: audioEffectsReducer,
+    musicEffects: musicEffectsReducer,
   });
 };
 
@@ -38,3 +40,4 @@ sagaMiddleware.run(watchIncrementActions);
 sagaMiddleware.run(watchConfigActions);
 sagaMiddleware.run(watchMainActions);
 sagaMiddleware.run(watchAudioEffectsActions);
+sagaMiddleware.run(watchMusicEffectsActions);
