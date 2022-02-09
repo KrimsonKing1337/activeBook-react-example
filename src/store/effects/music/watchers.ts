@@ -1,6 +1,6 @@
 import { put, select, takeLatest } from 'redux-saga/effects';
 
-import { audioEffectsSelectors } from './reducer';
+import { musicEffectsSelectors } from './reducer';
 import {
   actionsTypes,
   setHowlInst1,
@@ -13,7 +13,7 @@ import { LastInstIndex } from './initialState';
 export function* watchSetAudio(action: SetMusic) {
   const { payload } = action;
 
-  const lastInstIndex: LastInstIndex = yield select(audioEffectsSelectors.lastInstIndex);
+  const lastInstIndex: LastInstIndex = yield select(musicEffectsSelectors.lastInstIndex);
 
   if (lastInstIndex === 1) {
     yield put(setHowlInst2(payload));

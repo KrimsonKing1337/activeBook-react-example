@@ -47,6 +47,8 @@ export function useAudio({
 
     setAudio(audioInst);
 
+    console.log('___ audioInst', audioInst);
+
     if (playOnLoad) {
       audioInst.play();
     }

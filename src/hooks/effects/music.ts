@@ -6,15 +6,11 @@ import { setMusic as setMusicEffect } from 'store/effects/music/actions';
 
 import { HowlWrapper } from 'utils/effects/audio/HowlWrapper';
 
-type UseAudioProps = {
+type UseMusicProps = {
   src: string;
-  fadeOutWhenUnload?: boolean;
 };
 
-export function useMusic({
-  src,
-  fadeOutWhenUnload = true,
-}: UseAudioProps) {
+export function useMusic({ src }: UseMusicProps) {
   const dispatch = useDispatch();
 
   const [music, setMusic] = useState<HowlWrapper>();
@@ -36,9 +32,9 @@ export function useMusic({
 
     setMusic(musicInst);
 
-    return () => {
-      musicInst.unload(fadeOutWhenUnload);
-    };
+    console.log('___ musicInst', musicInst);
+
+    musicInst.play();
   }, [musicInst]);
 
   return music;

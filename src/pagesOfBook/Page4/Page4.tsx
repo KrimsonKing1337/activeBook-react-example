@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+
+import { musicEffectsSelectors } from 'store/effects/music/reducer';
 
 import { PageWrapper } from 'components/PageWrapper';
 
@@ -9,6 +12,12 @@ export const Page4 = () => {
     src: '/assets/book_data/audios/sounds/electric-gate-close.mp3',
     playOnLoad: true,
   });
+
+  const musicInst = useSelector(musicEffectsSelectors.musicInst);
+
+  useEffect(() => {
+    musicInst?.unload(true);
+  }, [musicInst]);
 
   return (
     <PageWrapper>

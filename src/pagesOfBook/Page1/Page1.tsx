@@ -3,12 +3,17 @@ import React from 'react';
 import { PageWrapper } from 'components/PageWrapper';
 
 import { useAudio } from 'hooks/effects/audio';
+import { useMusic } from 'hooks/effects/music';
 
 export const Page1 = () => {
   useAudio({
     src: '/assets/book_data/audios/sounds/alarm-clock.mp3',
     playOnLoad: true,
     stopBy: 5000,
+  });
+
+  useMusic({
+    src: '/assets/book_data/audios/music/Sergey_Eybog_-_A_Promise_From_Distant_Days.mp3',
   });
 
   return (
