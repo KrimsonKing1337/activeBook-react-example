@@ -12,7 +12,7 @@ import {
   setIsVibrationAvailable,
   setMenuActiveState,
 } from 'store/main/actions';
-import { volumeSelectors } from 'store/volume/reducer';
+import { volumeSelectors } from 'store/volume/selectors';
 import { configSelectors } from 'store/config/selectors';
 import { mainSelectors } from 'store/main/selectors';
 

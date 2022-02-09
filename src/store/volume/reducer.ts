@@ -1,5 +1,3 @@
-import { RootState } from 'store';
-
 import { actionsTypes, VolumeActions } from './actions';
 import { initialState, VolumeState } from './initialState';
 
@@ -30,10 +28,3 @@ export function volumeReducer(state = initialState, action: VolumeActions): Volu
     return state;
   }
 }
-
-export const volumeSelectors = {
-  all: (state: RootState) => state.volume,
-  common: (state: RootState) => state.volume.common,
-  bg: (state: RootState) => state.volume.bg,
-  other: (state: RootState) => state.volume.other,
-};
