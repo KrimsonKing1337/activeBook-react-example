@@ -2,7 +2,7 @@ import { push } from 'connected-react-router';
 import { Location } from 'history';
 import { put, select, takeLatest } from 'redux-saga/effects';
 
-import { mainSelectors } from './reducer';
+import { mainSelectors } from './selectors';
 import { MainState } from './initialState';
 import {
   actionsTypes,

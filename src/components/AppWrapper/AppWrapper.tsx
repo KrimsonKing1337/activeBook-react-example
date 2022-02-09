@@ -14,7 +14,7 @@ import {
 } from 'store/main/actions';
 import { volumeSelectors } from 'store/volume/reducer';
 import { configSelectors } from 'store/config/selectors';
-import { mainSelectors } from 'store/main/reducer';
+import { mainSelectors } from 'store/main/selectors';
 
 import styles from './AppWrapper.scss';
 

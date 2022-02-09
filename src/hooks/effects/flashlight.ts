@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 
-import { mainSelectors } from 'store/main/reducer';
+import { mainSelectors } from 'store/main/selectors';
 
 import { off, on } from 'utils/effects/flashlight';
 

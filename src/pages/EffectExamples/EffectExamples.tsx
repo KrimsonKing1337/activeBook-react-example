@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { mainSelectors } from 'store/main/reducer';
+import { mainSelectors } from 'store/main/selectors';
 
 import { PageWrapper } from 'components/PageWrapper';
 

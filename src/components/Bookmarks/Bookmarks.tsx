@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 
 import classNames from 'classnames';
 
-import { mainSelectors } from 'store/main/reducer';
+import { mainSelectors } from 'store/main/selectors';
 import { setBookmarkIsOpen } from 'store/main/actions';
 
 import { Header } from 'components/Header';
