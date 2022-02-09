@@ -1,13 +1,13 @@
 import { ConfigState } from './initialState';
 
 export const actionsTypes = {
-  SET_ALL_CONFIG: 'SET_ALL_CONFIG',
-  SET_THEME: 'SET_THEME',
-  SET_VIBRATION: 'SET_VIBRATION',
-  SET_FLASHLIGHT: 'SET_FLASHLIGHT',
-  SET_INVERSE_COLOR: 'SET_INVERSE_COLOR',
-  SET_FONT_SIZE: 'SET_FONT_SIZE',
-  SET_LINE_HEIGHT: 'SET_LINE_HEIGHT',
+  SET_ALL_CONFIG: '@config/SET_ALL_CONFIG',
+  SET_THEME: '@config/SET_THEME',
+  SET_VIBRATION: '@config/SET_VIBRATION',
+  SET_FLASHLIGHT: '@config/SET_FLASHLIGHT',
+  SET_INVERSE_COLOR: '@config/SET_INVERSE_COLOR',
+  SET_FONT_SIZE: '@config/SET_FONT_SIZE',
+  SET_LINE_HEIGHT: '@config/SET_LINE_HEIGHT',
 } as const;
 
 export type SetAll = {

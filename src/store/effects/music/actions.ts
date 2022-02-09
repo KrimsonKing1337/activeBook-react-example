@@ -1,10 +1,10 @@
 import { HowlInst, LastInstIndex } from './initialState';
 
 export const actionsTypes = {
-  SET_MUSIC: '@music/SET_MUSIC',
-  SET_HOWL_INST1: '@music/SET_HOWL_INST1',
-  SET_HOWL_INST2: '@music/SET_HOWL_INST2',
-  SET_LAST_INST_INDEX: '@music/SET_LAST_INST_INDEX',
+  SET_MUSIC: '@effects/music/SET_MUSIC',
+  SET_HOWL_INST1: '@effects/music/SET_HOWL_INST1',
+  SET_HOWL_INST2: '@effects/music/SET_HOWL_INST2',
+  SET_LAST_INST_INDEX: '@effects/music/SET_LAST_INST_INDEX',
 } as const;
 
 export type SetMusic = {

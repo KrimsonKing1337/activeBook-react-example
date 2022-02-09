@@ -1,10 +1,10 @@
 import { VolumeState } from './initialState';
 
 export const actionsTypes = {
-  SET_ALL: 'SET_ALL',
-  SET_COMMON: 'SET_COMMON',
-  SET_BG: 'SET_BG',
-  SET_OTHER: 'SET_OTHER',
+  SET_ALL: '@volume/SET_ALL',
+  SET_COMMON: '@volume/SET_COMMON',
+  SET_BG: '@volume/SET_BG',
+  SET_OTHER: '@volume/SET_OTHER',
 } as const;
 
 export type SetAll = {
