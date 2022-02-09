@@ -4,7 +4,7 @@ export const actionsTypes = {
   SET_AUDIO: 'SET_AUDIO',
   SET_HOWL_INST1: 'SET_HOWL_INST1',
   SET_HOWL_INST2: 'SET_HOWL_INST2',
-  SET_LAST_INST_INDEX: 'SET_HOWL_INST_INDEX',
+  SET_LAST_INST_INDEX: 'SET_LAST_INST_INDEX',
 } as const;
 
 export type SetAudio = {

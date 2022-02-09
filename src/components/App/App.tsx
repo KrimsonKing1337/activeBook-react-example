@@ -7,6 +7,8 @@ import { history, store } from 'store';
 // todo: исправить в es-lint порядок, pageOfBooks воспринимается некорректно
 import { Page1 } from 'pagesOfBook/Page1';
 import { Page2 } from 'pagesOfBook/Page2';
+import { Page3 } from 'pagesOfBook/Page3';
+import { Page4 } from 'pagesOfBook/Page4';
 
 import { AppWrapper } from 'components/AppWrapper';
 
@@ -44,6 +46,14 @@ export const App = ({ children }: AppProps) => {
 
             <Route exact path={'/page-2'}>
               <Page2 />
+            </Route>
+
+            <Route exact path={'/page-3'}>
+              <Page3 />
+            </Route>
+
+            <Route exact path={'/page-4'}>
+              <Page4 />
             </Route>
           </Switch>
         </AppWrapper>

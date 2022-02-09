@@ -13,9 +13,10 @@ type UseAudioProps = {
   src: string;
   fadeOutWhenUnload?: boolean;
   type?: AudioType;
+  loop?: boolean;
 };
 
-export function useAudio({ src, fadeOutWhenUnload = true, type }: UseAudioProps) {
+export function useAudio({ src, fadeOutWhenUnload = true, type, loop = false }: UseAudioProps) {
   const dispatch = useDispatch();
 
   const [audio, setAudio] = useState<HowlWrapper>();
@@ -25,6 +26,7 @@ export function useAudio({ src, fadeOutWhenUnload = true, type }: UseAudioProps)
   useEffect(() => {
     const howlInst = new HowlWrapper({
       src: [src],
+      loop,
     });
 
     dispatch(setAudioEffect(howlInst));
