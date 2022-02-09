@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { configSelectors } from 'store/config/reducer';
+import { configSelectors } from 'store/config/selectors';
 
-import { PageWrapperProps } from '../../PageWrapper';
+import { PageWrapperProps } from 'components/PageWrapper/PageWrapper';
 
 import styles from './Narrative.scss';
 

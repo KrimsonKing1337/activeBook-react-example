@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import classNames from 'classnames';
 
-import { configSelectors } from 'store/config/reducer';
+import { configSelectors } from 'store/config/selectors';
 import { setLineHeight } from 'store/config/actions';
 
 import { Label } from 'components/Label';

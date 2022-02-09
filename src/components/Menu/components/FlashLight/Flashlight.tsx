@@ -2,9 +2,9 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { setFlashlight } from 'store/config/actions';
-import { configSelectors } from 'store/config/reducer';
+import { configSelectors } from 'store/config/selectors';
 
-import { Toggle } from '../../../Toggle';
+import { Toggle } from 'components/Toggle';
 
 export const Flashlight = () => {
   const dispatch = useDispatch();

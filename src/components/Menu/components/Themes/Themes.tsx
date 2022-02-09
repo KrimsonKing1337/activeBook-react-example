@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
-import { configSelectors } from 'store/config/reducer';
+import { configSelectors } from 'store/config/selectors';
 import { setTheme } from 'store/config/actions';
 import { Theme } from 'store/config/initialState';
 

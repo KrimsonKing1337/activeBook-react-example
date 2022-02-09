@@ -13,7 +13,7 @@ import {
   setMenuActiveState,
 } from 'store/main/actions';
 import { volumeSelectors } from 'store/volume/reducer';
-import { configSelectors } from 'store/config/reducer';
+import { configSelectors } from 'store/config/selectors';
 import { mainSelectors } from 'store/main/reducer';
 
 import styles from './AppWrapper.scss';
