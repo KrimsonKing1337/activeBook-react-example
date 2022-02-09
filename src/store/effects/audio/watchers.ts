@@ -1,6 +1,6 @@
 import { put, select, takeLatest } from 'redux-saga/effects';
 
-import { audioEffectsSelectors } from './reducer';
+import { audioEffectsSelectors } from './selectors';
 import {
   actionsTypes,
   SetAudio,
