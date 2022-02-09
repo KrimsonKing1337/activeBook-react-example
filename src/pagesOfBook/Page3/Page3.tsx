@@ -1,22 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
 
 import { useAudio } from 'hooks/effects/audio';
 
 export const Page3 = () => {
-  const audioInst = useAudio({
+  useAudio({
     src: '/assets/book_data/audios/sounds/people-and-cameras-ambient.mp3',
     loop: true,
+    playOnLoad: true,
   });
-
-  useEffect(() => {
-    if (!audioInst) {
-      return;
-    }
-
-    audioInst.play();
-  }, [audioInst]);
 
   return (
     <PageWrapper>

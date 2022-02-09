@@ -1,22 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
 
 import { useAudio } from 'hooks/effects/audio';
 
 export const Page2 = () => {
-  // todo: добавить type = oneShot (ваншот - это обычно короткий звук, который должен прозвучать до конца)
-  const audioInst = useAudio({
+  useAudio({
     src: '/assets/book_data/audios/sounds/car-door-close-engine-start.mp3',
+    playOnLoad: true,
   });
-
-  useEffect(() => {
-    if (!audioInst) {
-      return;
-    }
-
-    audioInst.play();
-  }, [audioInst]);
 
   return (
     <PageWrapper>

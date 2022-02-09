@@ -1,29 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
 
 import { useAudio } from 'hooks/effects/audio';
 
 export const Page1 = () => {
-  const audioInst = useAudio({
+  useAudio({
     src: '/assets/book_data/audios/sounds/alarm-clock.mp3',
+    playOnLoad: true,
+    stopBy: 5000,
   });
-
-  useEffect(() => {
-    if (!audioInst) {
-      return;
-    }
-
-    audioInst.play();
-
-    const timer = setTimeout(() => {
-      audioInst.stop();
-    }, 5000);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [audioInst]);
 
   return (
     <PageWrapper>

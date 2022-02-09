@@ -14,9 +14,18 @@ type UseAudioProps = {
   fadeOutWhenUnload?: boolean;
   type?: AudioType;
   loop?: boolean;
+  playOnLoad?: boolean;
+  stopBy?: number;
 };
 
-export function useAudio({ src, fadeOutWhenUnload = true, type, loop = false }: UseAudioProps) {
+export function useAudio({
+  src,
+  fadeOutWhenUnload = true,
+  type,
+  loop = false,
+  playOnLoad = false,
+  stopBy = 0,
+}: UseAudioProps) {
   const dispatch = useDispatch();
 
   const [audio, setAudio] = useState<HowlWrapper>();
@@ -39,6 +48,18 @@ export function useAudio({ src, fadeOutWhenUnload = true, type, loop = false }: 
 
     setAudio(audioInst);
 
+    if (playOnLoad) {
+      audioInst.play();
+    }
+
+    let timer: NodeJS.Timer | null = null;
+
+    if (stopBy) {
+      timer = setTimeout(() => {
+        audioInst.stop();
+      }, 5000);
+    }
+
     return () => {
       (async () => {
         if (!type) {
@@ -51,6 +72,10 @@ export function useAudio({ src, fadeOutWhenUnload = true, type, loop = false }: 
           await audioInst.waitTillTheEnd();
 
           audioInst.unload(fadeOutWhenUnload);
+        }
+
+        if (timer) {
+          clearTimeout(timer);
         }
       })();
     };
