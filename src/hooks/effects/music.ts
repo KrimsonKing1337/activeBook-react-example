@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { musicEffectsSelectors } from 'store/effects/music/reducer';
+import { musicEffectsSelectors } from 'store/effects/music/selectors';
 import { setMusic as setMusicEffect } from 'store/effects/music/actions';
 
 import { HowlWrapper } from 'utils/effects/audio/HowlWrapper';
@@ -31,8 +31,6 @@ export function useMusic({ src }: UseMusicProps) {
     }
 
     setMusic(musicInst);
-
-    console.log('___ musicInst', musicInst);
 
     musicInst.play();
   }, [musicInst]);

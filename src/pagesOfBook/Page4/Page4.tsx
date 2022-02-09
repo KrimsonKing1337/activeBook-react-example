@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-import { musicEffectsSelectors } from 'store/effects/music/reducer';
+import { musicEffectsSelectors } from 'store/effects/music/selectors';
 
 import { PageWrapper } from 'components/PageWrapper';
 
