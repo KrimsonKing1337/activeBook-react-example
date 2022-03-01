@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 
 import { configSelectors } from 'store/config/selectors';
@@ -14,8 +14,15 @@ export const Narrative = ({ title, subtitle, children }: PageWrapperProps) => {
   const narrativeStyle = { fontSize: `${fontSize}%` };
   const textStyle = { lineHeight: `${lineHeight * 1.5}%` };
 
+  const narrativeRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // переводим фокус на прокручиваемый элемент для возможности прокрутки с помощью стрелок вверх и вниз
+    narrativeRef.current?.focus();
+  }, []);
+
   return (
-    <div className={styles.narrative} style={narrativeStyle}>
+    <div ref={narrativeRef} className={styles.narrative} style={narrativeStyle} tabIndex={0}>
       {title && (
         <div className={styles.title}>
           { title }

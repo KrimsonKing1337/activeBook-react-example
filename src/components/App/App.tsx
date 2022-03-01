@@ -8,6 +8,7 @@ import { AppWrapper } from 'components/AppWrapper';
 
 import { addTouchSupportForCssHover } from 'utils/touch/addTouchSupportForCssHover';
 import { hideAddressBarInMobileDevices } from 'utils/hideAddressBarInMobileDevices';
+import { addKeyboardControl } from 'utils/keyboardControl';
 
 import { Routes } from './Routes';
 
@@ -18,6 +19,7 @@ type AppProps = {
 export const App = ({ children }: AppProps) => {
   useEffect(() => {
     addTouchSupportForCssHover();
+    addKeyboardControl();
     hideAddressBarInMobileDevices();
   }, []);
 
