@@ -15,23 +15,41 @@
   @include scrollbar();
 }
 
-.title {
-  padding-bottom: 7px;
-
-  font-size: 1.5em; //24px;
-  line-height: 1.2;
-}
-
-.subtitle {
-  padding-bottom: 16px;
-
-  font-size: 0.75em; //12px;
-
-  font-weight: 100;
-  font-style: italic;
-}
-
 .text {
+  header {
+    padding-bottom: 16px;
+
+    font-size: 1.5em; //24px;
+    font-weight: bold;
+    line-height: 1.2;
+
+    text-transform: uppercase;
+  }
+
+  article {
+    padding-bottom: 16px;
+
+    font-size: 0.875em; //12px;
+
+    font-weight: 100;
+    font-style: italic;
+    line-height: 1.2;
+  }
+
+  h1 {
+    padding-bottom: 7px;
+
+    font-size: 1.5em; //24px;
+    line-height: 1.2;
+  }
+
+  h2 {
+    padding-bottom: 16px;
+
+    font-size: 0.75em; //12px;
+    font-style: italic;
+  }
+
   p {
     padding-top: 16px;
 

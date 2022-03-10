@@ -4,11 +4,13 @@
   width: 100%;
 
   color: #fd0006;
-  font-family: "Roboto", serif;
-  font-size: 22px;
+  font-size: 1em;
+  font-weight: bold;
   text-align: center;
 
   cursor: pointer;
+
+  opacity: 0.85;
 
   transition: text-shadow $transitionDefault;
 

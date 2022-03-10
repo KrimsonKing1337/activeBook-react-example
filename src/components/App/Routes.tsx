@@ -5,6 +5,10 @@ import { Page1 } from 'pagesOfBook/Page1';
 import { Page2 } from 'pagesOfBook/Page2';
 import { Page3 } from 'pagesOfBook/Page3';
 import { Page4 } from 'pagesOfBook/Page4';
+import { Page5 } from 'pagesOfBook/Page5';
+import { Page6 } from 'pagesOfBook/Page6';
+import { Page7 } from 'pagesOfBook/Page7';
+import { Page8 } from 'pagesOfBook/Page8';
 
 type RoutesProps = {
   children: React.ReactNode;
@@ -37,6 +41,22 @@ export const Routes = ({ children }: RoutesProps) => {
 
       <Route exact path={'/page-4'}>
         <Page4 />
+      </Route>
+
+      <Route exact path={'/page-5'}>
+        <Page5 />
+      </Route>
+
+      <Route exact path={'/page-6'}>
+        <Page6 />
+      </Route>
+
+      <Route exact path={'/page-7'}>
+        <Page7 />
+      </Route>
+
+      <Route exact path={'/page-8'}>
+        <Page8 />
       </Route>
     </Switch>
   );

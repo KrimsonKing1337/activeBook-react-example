@@ -42,13 +42,19 @@ export const Page0 = () => {
   }
 
   return (
-    <PageWrapper
-      withoutToolbar
-      title={'Заглянуть за..'}
-      subtitle={'Предисловие: все описываемые персонажи события вымышлены, совпадения с реальными — чистая случайность.'}>
-      <p className={styles.startReading} onClick={clickHandler}>
+    <PageWrapper withoutToolbar>
+      <header>
+        Заглянуть за..
+      </header>
+
+      <article>
+        Предисловие: все описываемые персонажи события вымышлены, совпадения с реальными — чистая случайность.
+      </article>
+
+      <div className={styles.startReading} onClick={clickHandler}>
         Начать читать
-      </p>
+      </div>
+
       <p />
       <p />
       <p>

@@ -33,8 +33,16 @@ export const EffectExamples = () => {
   const isFlashlightAvailable = useSelector(mainSelectors.isFlashlightAvailable);
 
   return (
-    <PageWrapper title={'Эффекты'} subtitle={'Здесь можно посмотреть все возможные эффекты'} sbMode>
+    <PageWrapper sbMode>
       <div className={'EffectsWrapper'}>
+        <h1>
+          Эффекты
+        </h1>
+
+        <h2>
+          Здесь можно посмотреть все возможные эффекты
+        </h2>
+
         <FishText />
 
         <SideShadow />

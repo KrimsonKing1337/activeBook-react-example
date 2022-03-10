@@ -18,14 +18,12 @@ import { Narrative } from './components/Narrative';
 import styles from './PageWrapper.scss';
 
 export type PageWrapperProps = {
-  title?: string;
-  subtitle?: string;
   withoutToolbar?: boolean;
   sbMode?: boolean;
   children: React.ReactNode;
 };
 
-export const PageWrapper = ({ title, subtitle, withoutToolbar, sbMode, children }: PageWrapperProps) => {
+export const PageWrapper = ({ withoutToolbar, sbMode, children }: PageWrapperProps) => {
   const inverseColorIsActive = useSelector(effectsSelectors.inverseColorIsActive);
   const isLoading = useSelector(mainSelectors.isLoading);
 
@@ -42,7 +40,7 @@ export const PageWrapper = ({ title, subtitle, withoutToolbar, sbMode, children 
   return (
     <div className={pageWrapperClassNames}>
       <div className={mainContendClassNames}>
-        <Narrative title={title} subtitle={subtitle}>
+        <Narrative>
           {children}
         </Narrative>
 
