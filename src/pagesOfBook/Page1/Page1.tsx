@@ -14,6 +14,10 @@ export const Page1 = () => {
 
   useMusic({
     src: '/assets/book_data/audios/music/Sergey_Eybog_-_A_Promise_From_Distant_Days.mp3',
+    range: {
+      from: 1,
+      to: 3,
+    },
   });
 
   return (
