@@ -16,6 +16,7 @@ import styles from './Nav.scss';
 
 export const Nav = () => {
   const page = useSelector(mainSelectors.page);
+  const pages = useSelector(mainSelectors.pages);
 
   const inputRef = useRef<HTMLInputElement>(null);
   const [goToWithInputIsHide, setGoToWithInputIsHide] = useState(true);
@@ -24,6 +25,24 @@ export const Nav = () => {
   useEffect(() => {
     inputRef.current?.focus();
   });
+
+  useEffect(() => {
+    const keypressHandler = (e: KeyboardEvent) => {
+      const { key } = e;
+
+      if (key !== 'Enter' || goToWithInputIsHide) {
+        return;
+      }
+
+      go();
+    };
+
+    document.addEventListener('keypress', keypressHandler);
+
+    return () => {
+      document.removeEventListener('keypress', keypressHandler);
+    };
+  }, [goToWithInputIsHide, inputValue]);
 
   function prevClickHandler() {
     goPrevPage();
@@ -37,16 +56,24 @@ export const Nav = () => {
     setGoToWithInputIsHide(false);
   }
 
-  function buttonClickHandler() {
-    setGoToWithInputIsHide(true);
+  function go() {
+    let pageNumber = parseInt(inputValue);
 
-    const pageNumber = parseInt(inputValue);
-
-    if (page === pageNumber) {
+    if (isNaN(pageNumber) || page === pageNumber) {
       return;
     }
 
+    if (pageNumber > pages) {
+      pageNumber = pages;
+    }
+
+    setGoToWithInputIsHide(true);
+
     goToPage(pageNumber);
+  }
+
+  function buttonClickHandler() {
+    go();
   }
 
   function inputBlurHandler() {
