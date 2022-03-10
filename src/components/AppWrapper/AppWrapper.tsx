@@ -16,6 +16,8 @@ import { volumeSelectors } from 'store/volume/selectors';
 import { configSelectors } from 'store/config/selectors';
 import { mainSelectors } from 'store/main/selectors';
 
+import { Achievement } from 'components/Achievement';
+
 import styles from './AppWrapper.scss';
 
 type AppWrapperProps = {
@@ -106,8 +108,12 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
   });
 
   return (
-    <div className={appWrapperClassNames}>
-      {children}
-    </div>
+    <>
+      <div className={appWrapperClassNames}>
+        {children}
+      </div>
+
+      <Achievement />
+    </>
   );
 };

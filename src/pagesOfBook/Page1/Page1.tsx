@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
 
 import { useAudio } from 'hooks/effects/audio';
 import { useMusic } from 'hooks/effects/music';
 
+import { play as playAchievement } from 'utils/effects/achievement';
+
 export const Page1 = () => {
+  useEffect(() => {
+    playAchievement('Первая страница');
+  }, []);
+
   useAudio({
     src: '/assets/book_data/audios/sounds/alarm-clock.mp3',
     playOnLoad: true,

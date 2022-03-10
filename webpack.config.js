@@ -62,6 +62,7 @@ module.exports = (env = {}, argv) => {
           options: {
             modules: {
               localIdentName: '[name]__[local]__[hash:base64:5]',
+              auto: (resourcePath) => !resourcePath.includes('react-toastify'),
             },
           },
         },
