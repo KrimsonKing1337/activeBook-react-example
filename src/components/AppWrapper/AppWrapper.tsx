@@ -18,9 +18,6 @@ import { mainSelectors } from 'store/main/selectors';
 
 import { Achievement } from 'components/Achievement';
 
-import { konamiCodeHandler } from 'utils/effects/konamiCodeHandler';
-import { play as achievementPlay } from 'utils/effects/achievement';
-
 import styles from './AppWrapper.scss';
 
 type AppWrapperProps = {
@@ -35,18 +32,6 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
   const isLoading = useSelector(mainSelectors.isLoading);
   const menuActiveState = useSelector(mainSelectors.menuActiveState);
   const bookmarksIsOpen = useSelector(mainSelectors.bookmarksIsOpen);
-
-  useEffect(() => {
-    const cb = () => achievementPlay('Retro gaming rules!');
-
-    const handler = konamiCodeHandler(cb);
-
-    document.addEventListener('keydown', handler, false);
-
-    return () => {
-      document.removeEventListener('keydown', handler);
-    };
-  }, []);
 
   // сбрасываю адресную строку
   useEffect(() => {

@@ -7,6 +7,8 @@ import { useFlashlight } from 'hooks/effects/flashlight';
 import { useVibration } from 'hooks/effects/vibration';
 
 import { goToPage } from 'utils/goToPage';
+import { play as achievementPlay } from 'utils/effects/achievement';
+import { konamiCodeHandler } from 'utils/effects/konamiCodeHandler';
 
 import styles from './Page0.scss';
 
@@ -21,6 +23,18 @@ export const Page0 = () => {
 
   useEffect(() => {
     return () => flashlightOff();
+  }, []);
+
+  useEffect(() => {
+    const cb = () => achievementPlay('Retro gaming rules!');
+
+    const handler = konamiCodeHandler(cb);
+
+    document.addEventListener('keydown', handler, false);
+
+    return () => {
+      document.removeEventListener('keydown', handler);
+    };
   }, []);
 
   async function go() {
