@@ -64,6 +64,10 @@ export function* watchSetPage(action: SetPageAction) {
 export function* watchPrevPage() {
   const page: MainState['page'] = yield select(mainSelectors.page);
 
+  if (page === 0) {
+    return;
+  }
+
   const newPageNumber = page - 1;
 
   if (newPageNumber < 1) {
@@ -75,9 +79,17 @@ export function* watchPrevPage() {
 
 export function* watchNextPage() {
   const page: MainState['page'] = yield select(mainSelectors.page);
+  const pages: MainState['pages'] = yield select(mainSelectors.pages);
 
-  // todo: сделать получение общего кол-ва страниц, далее проверка аналогична watchPrevPage;
+  if (page === 0) {
+    return;
+  }
+
   const newPageNumber = page + 1;
+
+  if (newPageNumber > pages) {
+    return;
+  }
 
   yield put(setPage(newPageNumber));
 }
