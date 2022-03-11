@@ -2,6 +2,9 @@ import { push } from 'connected-react-router';
 import { Location } from 'history';
 import { put, select, takeLatest } from 'redux-saga/effects';
 
+import { HowlInst } from 'store/effects/music/initialState';
+import { musicEffectsSelectors } from 'store/effects/music/selectors';
+
 import { mainSelectors } from './selectors';
 import { MainState } from './initialState';
 import {
@@ -57,6 +60,24 @@ export function* watchSetPage(action: SetPageAction) {
   const { payload } = action;
 
   const path = `/page-${payload}`;
+
+  const page: MainState['page'] = yield select(mainSelectors.page);
+  const musicInst: HowlInst = yield select(musicEffectsSelectors.musicInst);
+
+  /**
+   * убиваем инстанс музыки, если мы вне диапазона его воспроизведения
+   * */
+  if (musicInst && !musicInst.isUnloading) {
+    const { range } = musicInst;
+
+    if (range) {
+      const { from, to } = range;
+
+      if (page < from || page > to) {
+        musicInst.unload();
+      }
+    }
+  }
 
   yield put(push(path));
 }

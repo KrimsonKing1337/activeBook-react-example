@@ -3,11 +3,8 @@ import React from 'react';
 import { PageWrapper } from 'components/PageWrapper';
 
 import { useAudio } from 'hooks/effects/audio';
-import { useMusicUnload } from 'hooks/effects/music';
 
 export const Page4 = () => {
-  useMusicUnload();
-
   useAudio({
     src: '/assets/book_data/audios/sounds/electric-gate-close.mp3',
     playOnLoad: true,

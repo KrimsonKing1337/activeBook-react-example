@@ -3,6 +3,10 @@ import { Howl, HowlOptions } from 'howler';
 type HowlWrapperOptions = {
   src: HowlOptions['src'],
   loop?: HowlOptions['loop'],
+  range?: {
+    from: number;
+    to: number;
+  }
 };
 
 export class HowlWrapper {
@@ -11,12 +15,15 @@ export class HowlWrapper {
   public readonly howlInst: Howl;
   public isUnloading = false;
   public isPlaying = false;
+  public range: HowlWrapperOptions['range'] = undefined;
 
-  constructor({ src, loop }: HowlWrapperOptions) {
+  constructor({ src, loop, range }: HowlWrapperOptions) {
     this.howlInst = new Howl({
       src,
       loop,
     });
+
+    this.range = range;
   }
 
   async play(withFadeIn = false) {
