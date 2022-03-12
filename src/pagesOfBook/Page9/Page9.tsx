@@ -14,6 +14,7 @@ export const Page9 = () => {
 
   useSideShadow({
     color: 'red',
+    speed: 850,
   });
 
   return (

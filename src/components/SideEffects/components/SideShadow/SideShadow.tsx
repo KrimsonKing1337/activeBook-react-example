@@ -1,10 +1,16 @@
 import React, { useEffect, useRef } from 'react';
+import { useSelector } from 'react-redux';
+
+import { sideShadowEffectSelectors } from 'store/effects/sideShadow/selectors';
 
 import { setCssVariable } from 'utils/setCssVariable';
 
 import styles from './SideShadow.scss';
 
 export const SideShadow = () => {
+  const color = useSelector(sideShadowEffectSelectors.color);
+  const speed = useSelector(sideShadowEffectSelectors.speed);
+
   const sideShadowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -18,16 +24,19 @@ export const SideShadow = () => {
       setCssVariable('--text-shadow-color', shadowColor);
     };
 
-    if (sideShadowElement) {
-      sideShadowElement.addEventListener('animationiteration', changeTextShadowColor);
+    if (color === 'police') {
+      sideShadowElement?.addEventListener('animationiteration', changeTextShadowColor);
     }
 
+    const animationSpeed = `${speed}ms`;
+
+    setCssVariable('--text-shadow-color', color);
+    setCssVariable('--text-shadow-animation-speed', animationSpeed);
+
     return () => {
-      if (sideShadowElement) {
-        sideShadowElement.removeEventListener('animationiteration', changeTextShadowColor);
-      }
+      sideShadowElement?.removeEventListener('animationiteration', changeTextShadowColor);
     };
-  }, []);
+  }, [color, speed]);
 
   return (
     <div ref={sideShadowRef} className={styles.sideShadow} />

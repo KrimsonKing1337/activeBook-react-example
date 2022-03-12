@@ -5,8 +5,9 @@
   margin-top: -30px; //box-shadow width
 
   box-shadow: inset 0 0 30px var(--text-shadow-color);
+  // todo: var(--text-shadow-animation) не работает
   // animation: var(--text-shadow-animation) var(--text-shadow-animation-speed) ease infinite;
-  animation: blink 1000ms ease infinite;
+  animation: blink var(--text-shadow-animation-speed) ease infinite;
 
   will-change: opacity;
 
