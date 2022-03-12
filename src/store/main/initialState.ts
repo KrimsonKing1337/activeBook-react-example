@@ -14,7 +14,7 @@ export interface MainState {
 export const initialState: MainState = {
   route: '/',
   page: 0,
-  pages: 9,
+  pages: 10,
   menuActiveState: null,
   bookmarksIsOpen: false,
   isLoading: false,
