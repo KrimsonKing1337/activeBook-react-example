@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
 
@@ -13,6 +13,8 @@ import { konamiCodeHandler } from 'utils/effects/konamiCodeHandler';
 import styles from './Page0.scss';
 
 export const Page0 = () => {
+  const [ lastPage, setLastPage ] = useState(1);
+
   const audioInst = useAudio({
     src: '/assets/book_data/audios/sounds/sword.mp3',
     fadeOutWhenUnload: false,
@@ -37,6 +39,16 @@ export const Page0 = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const lastPageAsJSON = localStorage.getItem('lastPage');
+
+    if (lastPageAsJSON) {
+      const page = JSON.parse(lastPageAsJSON);
+
+      setLastPage(page);
+    }
+  }, []);
+
   async function go() {
     if (!audioInst) {
       return;
@@ -48,12 +60,14 @@ export const Page0 = () => {
 
     await audioInst.play();
 
-    goToPage(1);
+    goToPage(lastPage);
   }
 
   function clickHandler() {
     go();
   }
+
+  const label = lastPage > 1 ? 'Продолжить читать' : 'Начать читать';
 
   return (
     <PageWrapper withoutToolbar>
@@ -66,7 +80,7 @@ export const Page0 = () => {
       </article>
 
       <div className={styles.startReading} onClick={clickHandler}>
-        Начать читать
+        {label}
       </div>
 
       <p />

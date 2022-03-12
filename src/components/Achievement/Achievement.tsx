@@ -7,7 +7,7 @@ import './Achievement.scss';
 export const Achievement = () => {
   return (
     <ToastContainer
-      position="bottom-center"
+      position="top-center"
       autoClose={5000}
       hideProgressBar={true}
       newestOnTop={false}
