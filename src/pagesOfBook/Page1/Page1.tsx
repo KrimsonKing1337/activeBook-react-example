@@ -9,7 +9,7 @@ import { play as playAchievement } from 'utils/effects/achievement';
 
 export const Page1 = () => {
   useEffect(() => {
-    playAchievement('Первая страница');
+    playAchievement('Приключение начинается', 'firstMove');
   }, []);
 
   useAudio({

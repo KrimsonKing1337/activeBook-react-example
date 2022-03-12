@@ -28,7 +28,7 @@ export const Page0 = () => {
   }, []);
 
   useEffect(() => {
-    const cb = () => achievementPlay('Retro gaming rules!');
+    const cb = () => achievementPlay('Retro gaming rules!', 'konami');
 
     const handler = konamiCodeHandler(cb);
 
@@ -60,7 +60,9 @@ export const Page0 = () => {
 
     await audioInst.play();
 
-    goToPage(lastPage);
+    const pageToGo = lastPage > 0 ? lastPage : 1;
+
+    goToPage(pageToGo);
   }
 
   function clickHandler() {
