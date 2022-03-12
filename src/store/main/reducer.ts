@@ -23,6 +23,11 @@ export function mainReducer(state = initialState, action: MainActions): MainStat
       ...state,
       bookmarksIsOpen: action.payload,
     };
+  case actionsTypes.SET_BOOKMARKS:
+    return {
+      ...state,
+      bookmarks: action.payload,
+    };
   case actionsTypes.SET_IS_LOADING:
     return {
       ...state,

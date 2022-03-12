@@ -5,53 +5,15 @@ import { useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 
 import { mainSelectors } from 'store/main/selectors';
-import { setBookmarkIsOpen } from 'store/main/actions';
+import { setBookmarkIsOpen, setBookmarks as setBookmarksInStore } from 'store/main/actions';
 
 import { Header } from 'components/Header';
 import { Overflow } from 'components/Overflow';
 
-import { Item, ItemProps } from './Item';
+import { Item } from './Item';
+import { useBookmarks } from './hooks';
 
 import styles from './Bookmarks.scss';
-
-const items: ItemProps[] = [
-  {
-    pageNumber: '1',
-  },
-  {
-    pageNumber: '5',
-  },
-  {
-    pageNumber: '10',
-  },
-  {
-    pageNumber: '17',
-  },
-  {
-    pageNumber: '20',
-  },
-  {
-    pageNumber: '29',
-  },
-  {
-    pageNumber: '34',
-  },
-  {
-    pageNumber: '36',
-  },
-  {
-    pageNumber: '41',
-  },
-  {
-    pageNumber: '50',
-  },
-  {
-    pageNumber: '61',
-  },
-  {
-    pageNumber: '76',
-  },
-];
 
 const IS_OPEN_LOCATION = '/bookmarks';
 const IS_CLOSE_LOCATION = '/';
@@ -63,12 +25,10 @@ export const Bookmarks = () => {
   const { pathname } = useLocation();
 
   const isOpen = useSelector(mainSelectors.bookmarksIsOpen);
+  const page = useSelector(mainSelectors.page);
 
   const [prevLocationPath, setPrevLocationPath] = useState(IS_CLOSE_LOCATION);
-
-  const closeButtonClickHandler = () => {
-    dispatch(setBookmarkIsOpen(false));
-  };
+  const { bookmarks, setBookmarks } = useBookmarks();
 
   useEffect(() => {
     if (!prevLocationPath.includes(IS_OPEN_LOCATION) && !pathname.includes(IS_OPEN_LOCATION)) {
@@ -84,16 +44,36 @@ export const Bookmarks = () => {
     }
   }, [pathname]);
 
+  useEffect(() => {
+    dispatch(setBookmarksInStore(bookmarks));
+  }, [bookmarks]);
+
+  const closeButtonClickHandler = () => {
+    dispatch(setBookmarkIsOpen(false));
+  };
+
+  const addButtonClickHandler = () => {
+    setBookmarks([...bookmarks, page]);
+  };
+
+  const deleteHandler = (bookmark: number) => {
+    const index = bookmarks.indexOf(bookmark);
+
+    bookmarks.splice(index, 1);
+
+    setBookmarks([...bookmarks]);
+  };
+
   return (
     <Overflow isOpen={isOpen}>
       <Header label={'Закладки'} />
 
       <div className={styles.itemsWrapper}>
-        {items.map((itemCur, index) => <Item key={index} {...itemCur} />)}
+        {bookmarks.map((itemCur, index) => <Item key={index} pageNumber={itemCur} onDelete={deleteHandler} />)}
       </div>
 
       <div className={styles.footer}>
-        <button className={buttonAddClassNames}>
+        <button className={buttonAddClassNames} onClick={addButtonClickHandler}>
           Добавить
         </button>
 

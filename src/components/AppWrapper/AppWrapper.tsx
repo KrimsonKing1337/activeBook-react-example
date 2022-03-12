@@ -34,6 +34,7 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
   const menuActiveState = useSelector(mainSelectors.menuActiveState);
   const bookmarksIsOpen = useSelector(mainSelectors.bookmarksIsOpen);
   const page = useSelector(mainSelectors.page);
+  const bookmarks = useSelector(mainSelectors.bookmarks);
 
   // сбрасываю адресную строку
   useEffect(() => {
@@ -95,16 +96,18 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
       const configAsJson = JSON.stringify(config);
       const volumeAsJson = JSON.stringify(volume);
       const pageAsJson = JSON.stringify(page);
+      const bookmarksAsJson = JSON.stringify(bookmarks);
 
       localStorage.setItem('config', configAsJson);
       localStorage.setItem('volume', volumeAsJson);
       localStorage.setItem('lastPage', pageAsJson);
+      localStorage.setItem('bookmarks', bookmarksAsJson);
     };
 
     window.addEventListener('beforeunload', listener);
 
     return () => window.removeEventListener('beforeunload', listener);
-  }, [config, volume, page]);
+  }, [config, volume, page, bookmarks]);
 
   const appWrapperClassNames = classNames({
     [styles.appWrapper]: true,

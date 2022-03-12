@@ -8,6 +8,7 @@ export const mainSelectors = {
   route: (state: RootState) => state.main.route,
   menuActiveState: (state: RootState) => state.main.menuActiveState,
   bookmarksIsOpen: (state: RootState) => state.main.bookmarksIsOpen,
+  bookmarks: (state: RootState) => state.main.bookmarks,
   isLoading: (state: RootState) => state.main.isLoading,
   isVibrationAvailable: (state: RootState) => state.main.isVibrationAvailable,
   isFlashlightAvailable: (state: RootState) => state.main.isFlashlightAvailable,
