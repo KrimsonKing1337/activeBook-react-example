@@ -12,7 +12,9 @@ export const Page9 = () => {
     loop: true,
   });
 
-  useSideShadow();
+  useSideShadow({
+    color: 'red',
+  });
 
   return (
     <PageWrapper>

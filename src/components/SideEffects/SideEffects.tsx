@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { effectsSelectors } from 'store/effects/common/selectors';
+import { sideShadowEffectSelectors } from 'store/effects/sideShadow/selectors';
 
 import { SideShadow } from './components/SideShadow';
 import { SideText } from './components/SideText';
@@ -10,7 +11,7 @@ import styles from './SideEffects.scss';
 import sideTextStyles from './components/SideText/SideText.scss';
 
 export const SideEffects = () => {
-  const sideShadowIsActive = useSelector(effectsSelectors.sideShadowIsActive);
+  const sideShadowIsActive = useSelector(sideShadowEffectSelectors.isActive);
   const sideTextIsActive = useSelector(effectsSelectors.sideTextIsActive);
 
   return (
