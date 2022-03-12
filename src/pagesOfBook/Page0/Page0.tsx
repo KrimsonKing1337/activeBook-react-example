@@ -69,7 +69,7 @@ export const Page0 = () => {
     go();
   }
 
-  const label = lastPage > 1 ? 'Продолжить читать' : 'Начать читать';
+  const label = lastPage > 0 ? 'Продолжить читать' : 'Начать читать';
 
   return (
     <PageWrapper withoutToolbar>

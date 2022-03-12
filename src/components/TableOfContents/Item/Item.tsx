@@ -1,16 +1,29 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+
+import { mainSelectors } from 'store/main/selectors';
+
+import { goToPage } from 'utils/goToPage';
 
 import styles from './Item.scss';
 
 export type ItemProps = {
   title: string;
   subtitle: string;
-  pageNumber: string;
+  pageNumber: number;
 };
 
 export const Item = ({ title, subtitle, pageNumber }: ItemProps) => {
+  const pages = useSelector(mainSelectors.pages);
+
+  function clickHandler() {
+    const n = pageNumber > pages ? pages : pageNumber;
+
+    goToPage(n);
+  }
+
   return (
-    <div className={styles.item}>
+    <div className={styles.item} onClick={clickHandler}>
       <div className={styles.title}>
         { title }
       </div>
