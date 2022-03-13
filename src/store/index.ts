@@ -12,6 +12,7 @@ import { effectsReducer } from './effects/common';
 import { audioEffectsReducer, watchAudioEffectsActions } from './effects/audio';
 import { musicEffectsReducer, watchMusicEffectsActions } from './effects/music';
 import { sideShadowReducer } from './effects/sideShadow';
+import { bookmarksReducer } from './bookmarks';
 
 export const history = createBrowserHistory();
 
@@ -29,6 +30,7 @@ const makeRootReducer = (history: ConnectedRouterProps['history']) => {
     audioEffects: audioEffectsReducer,
     musicEffects: musicEffectsReducer,
     sideShadowEffect: sideShadowReducer,
+    bookmarks: bookmarksReducer,
   });
 };
 
