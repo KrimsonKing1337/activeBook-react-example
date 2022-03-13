@@ -18,16 +18,6 @@ export function mainReducer(state = initialState, action: MainActions): MainStat
       ...state,
       menuActiveState: action.payload,
     };
-  case actionsTypes.SET_BOOKMARKS_IS_OPEN:
-    return {
-      ...state,
-      bookmarksIsOpen: action.payload,
-    };
-  case actionsTypes.SET_BOOKMARKS:
-    return {
-      ...state,
-      bookmarks: action.payload,
-    };
   case actionsTypes.SET_IS_LOADING:
     return {
       ...state,

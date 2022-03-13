@@ -24,9 +24,9 @@ export type SetBookmarks = {
   payload: BookmarksState['bookmarks'];
 };
 
-export function setBookmarks(value: SetActiveState['payload']): SetActiveState {
+export function setBookmarks(value: SetBookmarks['payload']): SetBookmarks {
   return {
-    type: actionsTypes.SET_ACTIVE_STATE,
+    type: actionsTypes.SET_BOOKMARKS,
     payload: value,
   };
 }

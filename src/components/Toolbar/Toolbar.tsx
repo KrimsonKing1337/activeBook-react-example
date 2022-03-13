@@ -1,8 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setBookmarkIsOpen, setMenuActiveState } from 'store/main/actions';
+import { setMenuActiveState } from 'store/main/actions';
 import { setFontSize } from 'store/config/actions';
+import { setBookmarksActiveState } from 'store/bookmarks/actions';
 import { configSelectors } from 'store/config/selectors';
 
 import BookmarkIcon from 'assets/img/toolbar/i-bookmark.svg';
@@ -36,7 +37,7 @@ export const Toolbar = ({ sbMode }: ToolbarProps) => {
   };
 
   const bookmarkClickHandler = () => {
-    dispatch(setBookmarkIsOpen(true));
+    dispatch(setBookmarksActiveState(true));
   };
 
   const etcIconClickHandler = () => {

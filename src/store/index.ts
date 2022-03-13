@@ -12,7 +12,7 @@ import { effectsReducer } from './effects/common';
 import { audioEffectsReducer, watchAudioEffectsActions } from './effects/audio';
 import { musicEffectsReducer, watchMusicEffectsActions } from './effects/music';
 import { sideShadowReducer } from './effects/sideShadow';
-import { bookmarksReducer } from './bookmarks';
+import { bookmarksReducer, watchBookmarksActions } from './bookmarks';
 
 export const history = createBrowserHistory();
 
@@ -45,3 +45,4 @@ sagaMiddleware.run(watchConfigActions);
 sagaMiddleware.run(watchMainActions);
 sagaMiddleware.run(watchAudioEffectsActions);
 sagaMiddleware.run(watchMusicEffectsActions);
+sagaMiddleware.run(watchBookmarksActions);

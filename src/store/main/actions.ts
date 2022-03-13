@@ -6,8 +6,6 @@ export const actionsTypes = {
   PREV_PAGE: '@main/PREV_PAGE',
   NEXT_PAGE: '@main/NEXT_PAGE',
   SET_MENU_ACTIVE_STATE: '@main/SET_MENU_ACTIVE_STATE',
-  SET_BOOKMARKS_IS_OPEN: '@main/SET_BOOKMARKS_IS_OPEN',
-  SET_BOOKMARKS: '@main/SET_BOOKMARKS',
   SET_IS_LOADING: '@main/SET_IS_LOADING',
   SET_IS_VIBRATION_AVAILABLE: '@main/SET_IS_VIBRATION_AVAILABLE',
   SET_IS_FLASHLIGHT_AVAILABLE: '@main/SET_IS_FLASHLIGHT_AVAILABLE',
@@ -69,30 +67,6 @@ export function setMenuActiveState(value: SetMenuIsOpenAction['payload']): SetMe
   };
 }
 
-export type SetBookmarksIsOpenAction = {
-  type: typeof actionsTypes.SET_BOOKMARKS_IS_OPEN;
-  payload: boolean;
-};
-
-export function setBookmarkIsOpen(value: SetBookmarksIsOpenAction['payload']): SetBookmarksIsOpenAction {
-  return {
-    type: actionsTypes.SET_BOOKMARKS_IS_OPEN,
-    payload: value,
-  };
-}
-
-export type SetBookmarksAction = {
-  type: typeof actionsTypes.SET_BOOKMARKS;
-  payload: number[];
-};
-
-export function setBookmarks(value: SetBookmarksAction['payload']): SetBookmarksAction {
-  return {
-    type: actionsTypes.SET_BOOKMARKS,
-    payload: value,
-  };
-}
-
 export type SetIsLoadingAction = {
   type: typeof actionsTypes.SET_IS_LOADING;
   payload: boolean;
@@ -132,8 +106,6 @@ export function setIsFlashlightAvailable(value: SetIsFlashlightAvailableAction['
 export type MainActions = SetRouteAction
   | SetPageAction
   | SetMenuIsOpenAction
-  | SetBookmarksIsOpenAction
-  | SetBookmarksAction
   | SetIsLoadingAction
   | SetIsVibrationAvailableAction
   | SetIsFlashlightAvailableAction;
