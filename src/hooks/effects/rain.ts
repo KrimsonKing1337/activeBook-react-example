@@ -7,87 +7,25 @@ import { useFlashlight } from './flashlight';
 let letItBe = false;
 
 async function play(flashlightOn: (n: number) => void) {
-  //#region1
+  const flash = async (sleepAfter: number) => {
+    if (!letItBe) return;
+
+    await flashlightOn(125);
+
+    await sleep(150);
+
+    await flashlightOn(150);
+
+    await sleep(sleepAfter);
+  };
+
   await sleep(1890);
 
-  if (!letItBe) return;
-
-  await flashlightOn(125);
-
-  await sleep(150);
-  //#endregion1
-
-  //#region2
-  if (!letItBe) return;
-
-  await flashlightOn(150);
-
-  await sleep(7435);
-  //#endregion2
-
-  //#region3
-  if (!letItBe) return;
-
-  await flashlightOn(125);
-
-  await sleep(150);
-  //#endregion3
-
-  //#region4
-  if (!letItBe) return;
-
-  await flashlightOn(150);
-
-  await sleep(3170);
-  //#endregion4
-
-  //#region5
-  if (!letItBe) return;
-
-  await flashlightOn(125);
-
-  await sleep(150);
-  //#endregion5
-
-  //#region6
-  if (!letItBe) return;
-
-  await flashlightOn(150);
-
-  await sleep(8253);
-  //#endregion6
-
-  //#region7
-  if (!letItBe) return;
-
-  await flashlightOn(125);
-
-  await sleep(150);
-  //#endregion7
-
-  //#region8
-  if (!letItBe) return;
-
-  await flashlightOn(150);
-
-  await sleep(4775);
-  //#endregion8
-
-  //#region9
-  if (!letItBe) return;
-
-  await flashlightOn(125);
-
-  await sleep(150);
-  //#endregion9
-
-  //#region10
-  if (!letItBe) return;
-
-  await flashlightOn(150);
-
-  await sleep(7897);
-  //#endregion10
+  await flash(7435);
+  await flash(3170);
+  await flash(8253);
+  await flash(4775);
+  await flash(7897);
 }
 
 export function useRain() {
