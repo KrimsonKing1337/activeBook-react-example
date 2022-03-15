@@ -2,8 +2,18 @@ import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
 
-// todo: эффект дождя с грозой
+import { useAudio } from 'hooks/effects/audio';
+import { useRain } from 'hooks/effects/rain';
+
 export const Page12 = () => {
+  useAudio({
+    src: '/assets/book_data/audios/sounds/rain-and-thunder.mp3',
+    loop: true,
+    playOnLoad: true,
+  });
+
+  useRain();
+
   return (
     <PageWrapper>
       <p>

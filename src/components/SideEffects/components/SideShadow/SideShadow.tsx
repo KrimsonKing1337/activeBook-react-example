@@ -32,6 +32,7 @@ export const SideShadow = () => {
 
     setCssVariable('--text-shadow-color', color);
     setCssVariable('--text-shadow-animation-speed', animationSpeed);
+    setCssVariable('--text-shadow-animation', 'blink');
 
     return () => {
       sideShadowElement?.removeEventListener('animationiteration', changeTextShadowColor);

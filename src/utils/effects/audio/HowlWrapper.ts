@@ -21,6 +21,9 @@ export class HowlWrapper {
     this.howlInst = new Howl({
       src,
       loop,
+      onend() {
+        console.log('___ finished!');
+      },
     });
 
     this.range = range;
