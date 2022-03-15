@@ -11,7 +11,7 @@ export function useFlashlight(withSideShadow = false) {
   const isFlashlightAvailable = useSelector(mainSelectors.isFlashlightAvailable);
 
   const { sideShadowOn, sideShadowOff } = useSideShadow({
-    color: '#fff',
+    color: '#fff', // todo: применимо только для тёмной темы. у других тем другие значения
     isActiveDefault: false,
     speed: 150,
   });
