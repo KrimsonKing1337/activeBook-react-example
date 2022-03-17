@@ -11,7 +11,7 @@ import FontSmallIcon from 'assets/img/toolbar/i-font-small.svg';
 import FontBigIcon from 'assets/img/toolbar/i-font-big.svg';
 import EtcIcon from 'assets/img/toolbar/i-etc.svg';
 
-import { getNewValueForNarrativeTextStyle } from 'utils/getNewValueForNarrativeTextStyle';
+import { getNewValueForNarrativeTextStyle } from 'utils/styles/getNewValueForNarrativeTextStyle';
 
 import { Item } from './components/Item';
 import { Nav } from './components/Nav';

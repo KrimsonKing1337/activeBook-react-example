@@ -8,7 +8,7 @@ import { setLineHeight } from 'store/config/actions';
 
 import { Label } from 'components/Label';
 
-import { getNewValueForNarrativeTextStyle } from 'utils/getNewValueForNarrativeTextStyle';
+import { getNewValueForNarrativeTextStyle } from 'utils/styles/getNewValueForNarrativeTextStyle';
 
 import styles from './LineHeight.scss';
 

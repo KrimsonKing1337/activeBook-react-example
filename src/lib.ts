@@ -1,5 +1,5 @@
 export * from './index';
-export { getIsMobile } from 'utils/getIsMobile';
+export { getIsMobile } from 'utils/mobile/getIsMobile';
 
 /*
 bundle.min.d.ts
