@@ -7,7 +7,7 @@ import { App } from 'components/App';
 import { EffectExamples } from 'pages/EffectExamples';
 /// #else
 // eslint-disable-next-line
-import { Page0 } from 'pagesOfBook/Page0';
+import { Page0 } from 'book_pages/Page0';
 /// #endif
 
 import { getIsMobile } from 'utils/mobile/getIsMobile';
