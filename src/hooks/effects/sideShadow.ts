@@ -12,11 +12,11 @@ export type useSideShadowProps = {
 export function useSideShadow({ isActiveDefault = true, color, speed = 1000 }: useSideShadowProps) {
   const dispatch = useDispatch();
 
-  const sideShadowOn = () => {
+  const on = () => {
     dispatch(setSideShadowActiveState(true));
   };
 
-  const sideShadowOff = () => {
+  const off = () => {
     dispatch(setSideShadowActiveState(false));
   };
 
@@ -26,9 +26,9 @@ export function useSideShadow({ isActiveDefault = true, color, speed = 1000 }: u
     dispatch(setSideShadowActiveState(isActiveDefault));
 
     return () => {
-      sideShadowOff();
+      off();
     };
   }, []);
 
-  return { sideShadowOn, sideShadowOff };
+  return { sideShadowOn: on, sideShadowOff: off };
 }
