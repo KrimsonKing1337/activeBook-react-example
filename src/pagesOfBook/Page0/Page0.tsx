@@ -6,7 +6,7 @@ import { useAudio } from 'hooks/effects/audio';
 import { useFlashlight } from 'hooks/effects/flashlight';
 import { useVibration } from 'hooks/effects/vibration';
 
-import { goToPage } from 'utils/goToPage';
+import { goToPage } from 'utils/control/goToPage';
 import { play as achievementPlay } from 'utils/effects/achievement';
 import { konamiCodeHandler } from 'utils/effects/konamiCodeHandler';
 

@@ -8,7 +8,7 @@ import { AppWrapper } from 'components/AppWrapper';
 
 import { addTouchSupportForCssHover } from 'utils/touch/addTouchSupportForCssHover';
 import { hideAddressBarInMobileDevices } from 'utils/hideAddressBarInMobileDevices';
-import { addKeyboardControl } from 'utils/keyboardControl';
+import { addKeyboardControl } from 'utils/control/keyboardControl';
 
 import { Routes } from './Routes';
 

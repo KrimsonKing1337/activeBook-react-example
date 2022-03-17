@@ -3,7 +3,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
-import { goToPage } from 'utils/goToPage';
+import { goToPage } from 'utils/control/goToPage';
 
 import styles from './Item.scss';
 

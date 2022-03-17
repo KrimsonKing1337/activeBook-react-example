@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { mainSelectors } from 'store/main/selectors';
 
-import { goToPage } from 'utils/goToPage';
+import { goToPage } from 'utils/control/goToPage';
 
 import styles from './Item.scss';
 
