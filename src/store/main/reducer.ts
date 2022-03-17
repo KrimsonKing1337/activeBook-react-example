@@ -1,7 +1,8 @@
-import { actionsTypes, MainActions } from './actions';
-import { initialState, MainState } from './initialState';
+import { State } from './@types';
+import { Actions, actionsTypes } from './actions';
+import { initialState } from './initialState';
 
-export function mainReducer(state = initialState, action: MainActions): MainState {
+export function reducer(state = initialState, action: Actions): State {
   switch (action.type) {
   case actionsTypes.SET_ROUTE:
     return {

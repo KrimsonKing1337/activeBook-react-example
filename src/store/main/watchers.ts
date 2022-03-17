@@ -2,20 +2,20 @@ import { push } from 'connected-react-router';
 import { Location } from 'history';
 import { put, select, takeLatest } from 'redux-saga/effects';
 
-import { HowlInst } from 'store/effects/music/initialState';
+import { HowlInst } from 'store/effects/music/@types';
 import { musicEffectsSelectors } from 'store/effects/music/selectors';
 
+import { State } from './@types';
 import { mainSelectors } from './selectors';
-import { MainState } from './initialState';
 import {
   actionsTypes,
-  SetMenuIsOpenAction,
+  SetMenuActiveState,
   setPage,
   SetPageAction,
   SetRouteAction,
 } from './actions';
 
-export function* watchSetMenuActiveState(action: SetMenuIsOpenAction) {
+export function* watchSetMenuActiveState(action: SetMenuActiveState) {
   const { payload } = action;
 
   const location: Location = yield select(mainSelectors.location);
@@ -46,7 +46,7 @@ export function* watchSetPage(action: SetPageAction) {
 
   const path = `/page-${payload}`;
 
-  const page: MainState['page'] = yield select(mainSelectors.page);
+  const page: State['page'] = yield select(mainSelectors.page);
   const musicInst: HowlInst = yield select(musicEffectsSelectors.musicInst);
 
   /**
@@ -68,7 +68,7 @@ export function* watchSetPage(action: SetPageAction) {
 }
 
 export function* watchPrevPage() {
-  const page: MainState['page'] = yield select(mainSelectors.page);
+  const page: State['page'] = yield select(mainSelectors.page);
 
   if (page === 0) {
     return;
@@ -84,8 +84,8 @@ export function* watchPrevPage() {
 }
 
 export function* watchNextPage() {
-  const page: MainState['page'] = yield select(mainSelectors.page);
-  const pages: MainState['pages'] = yield select(mainSelectors.pages);
+  const page: State['page'] = yield select(mainSelectors.page);
+  const pages: State['pages'] = yield select(mainSelectors.pages);
 
   if (page === 0) {
     return;
@@ -100,7 +100,7 @@ export function* watchNextPage() {
   yield put(setPage(newPageNumber));
 }
 
-export function* watchMainActions() {
+export function* watchActions() {
   yield takeLatest(actionsTypes.SET_MENU_ACTIVE_STATE, watchSetMenuActiveState);
   yield takeLatest(actionsTypes.SET_ROUTE, watchSetRoute);
   yield takeLatest(actionsTypes.SET_PAGE, watchSetPage);

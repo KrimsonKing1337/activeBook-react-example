@@ -1,16 +1,6 @@
-export type MenuActiveState = null | 'menu' | 'tableOfContents';
+import { State } from './@types';
 
-export interface MainState {
-  route: string;
-  page: number;
-  pages: number;
-  menuActiveState: MenuActiveState;
-  isLoading: boolean;
-  isVibrationAvailable: boolean;
-  isFlashlightAvailable: boolean;
-}
-
-export const initialState: MainState = {
+export const initialState: State = {
   route: '/',
   page: 0,
   pages: 12,
