@@ -1,13 +1,6 @@
-export interface EffectsState {
-  sideShadowIsActive: boolean;
-  sideTextIsActive: boolean;
-  backgroundVideoIsActive: boolean;
-  backgroundImgIsActive: boolean;
-  inverseColorIsActive: boolean;
-  dotsIsActive: boolean;
-}
+import { State } from './@types';
 
-export const initialState: EffectsState = {
+export const initialState: State = {
   sideShadowIsActive: false,
   sideTextIsActive: false,
   backgroundVideoIsActive: false,

@@ -1,7 +1,8 @@
-import { actionsTypes, EffectsActions } from './actions';
-import { EffectsState, initialState } from './initialState';
+import { State } from './@types';
+import { Actions, actionsTypes } from './actions';
+import { initialState } from './initialState';
 
-export function effectsReducer(state = initialState, action: EffectsActions): EffectsState {
+export function reducer(state = initialState, action: Actions): State {
   switch (action.type) {
   case actionsTypes.SET_SIDE_SHADOW_ACTIVE_STATE:
     return {
