@@ -12,7 +12,7 @@ type UseAudioProps = {
   src: string;
   fadeOutWhenUnload?: boolean;
   type?: AudioType;
-  loop?: boolean;
+  loop?: boolean; // todo: убрать этот проп, завязываться на type: 'loop'
   playOnLoad?: boolean;
   stopBy?: number;
 };

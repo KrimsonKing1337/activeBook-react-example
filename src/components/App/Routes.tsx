@@ -17,6 +17,7 @@ import { Page13 } from 'book_pages/Page13';
 import { Page14 } from 'book_pages/Page14';
 import { Page15 } from 'book_pages/Page15';
 import { Page16 } from 'book_pages/Page16';
+import { Page17 } from 'book_pages/Page17';
 
 type RoutesProps = {
   children: React.ReactNode;
@@ -97,6 +98,10 @@ export const Routes = ({ children }: RoutesProps) => {
 
       <Route exact path={'/page-16'}>
         <Page16 />
+      </Route>
+
+      <Route exact path={'/page-17'}>
+        <Page17 />
       </Route>
     </Switch>
   );
