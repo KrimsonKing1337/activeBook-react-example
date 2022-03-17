@@ -1,27 +1,27 @@
-import { BookmarksState } from './initialState';
+import type { State } from './@types';
 
-const nameSpace = '@effects/bookmarks';
+const NAMESPACE = '@bookmarks';
 
 export const actionsTypes = {
-  SET_ACTIVE_STATE: `${nameSpace}/SET_ACTIVE_STATE`,
-  SET_BOOKMARKS: `${nameSpace}/SET_BOOKMARKS`,
+  SET_IS_OPEN: `${NAMESPACE}/SET_IS_OPEN`,
+  SET_BOOKMARKS: `${NAMESPACE}/SET_BOOKMARKS`,
 } as const;
 
-export type SetActiveState = {
-  type: typeof actionsTypes.SET_ACTIVE_STATE;
-  payload: BookmarksState['isActive'];
+export type SetIsOpen = {
+  type: typeof actionsTypes.SET_IS_OPEN;
+  payload: State['isOpen'];
 };
 
-export function setBookmarksActiveState(value: SetActiveState['payload']): SetActiveState {
+export function setIsOpen(value: SetIsOpen['payload']): SetIsOpen {
   return {
-    type: actionsTypes.SET_ACTIVE_STATE,
+    type: actionsTypes.SET_IS_OPEN,
     payload: value,
   };
 }
 
 export type SetBookmarks = {
   type: typeof actionsTypes.SET_BOOKMARKS;
-  payload: BookmarksState['bookmarks'];
+  payload: State['bookmarks'];
 };
 
 export function setBookmarks(value: SetBookmarks['payload']): SetBookmarks {
@@ -31,4 +31,4 @@ export function setBookmarks(value: SetBookmarks['payload']): SetBookmarks {
   };
 }
 
-export type BookmarksActions = SetActiveState | SetBookmarks;
+export type Actions = SetIsOpen | SetBookmarks;

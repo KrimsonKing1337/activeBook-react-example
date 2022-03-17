@@ -3,19 +3,19 @@ import { SideShadowState } from './initialState';
 const nameSpace = '@effects/sideShadow';
 
 export const actionsTypes = {
-  SET_ACTIVE_STATE: `${nameSpace}/SET_ACTIVE_STATE`,
+  SET_IS_OPEN: `${nameSpace}/SET_ACTIVE_STATE`,
   SET_COLOR: `${nameSpace}/SET_COLOR`,
   SET_SPEED: `${nameSpace}/SET_SPEED`,
 } as const;
 
 export type SetActiveState = {
-  type: typeof actionsTypes.SET_ACTIVE_STATE;
+  type: typeof actionsTypes.SET_IS_OPEN;
   payload: SideShadowState['isActive'];
 };
 
 export function setSideShadowActiveState(value: SetActiveState['payload']): SetActiveState {
   return {
-    type: actionsTypes.SET_ACTIVE_STATE,
+    type: actionsTypes.SET_IS_OPEN,
     payload: value,
   };
 }

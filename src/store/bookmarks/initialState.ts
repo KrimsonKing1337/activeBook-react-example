@@ -1,9 +1,6 @@
-export interface BookmarksState {
-  isActive: boolean;
-  bookmarks: number[];
-}
+import { State } from './@types';
 
-export const initialState: BookmarksState = {
-  isActive: false,
+export const initialState: State = {
+  isOpen: false,
   bookmarks: [],
 };

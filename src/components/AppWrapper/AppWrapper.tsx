@@ -15,7 +15,7 @@ import { volumeSelectors } from 'store/volume/selectors';
 import { configSelectors } from 'store/config/selectors';
 import { mainSelectors } from 'store/main/selectors';
 import { bookmarksSelectors } from 'store/bookmarks/selectors';
-import { setBookmarksActiveState } from 'store/bookmarks/actions';
+import { setIsOpen as bookmarksSetIsOpen } from 'store/bookmarks/actions';
 
 import { Achievement } from 'components/Achievement';
 
@@ -33,7 +33,7 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
   const volume = useSelector(volumeSelectors.all);
   const isLoading = useSelector(mainSelectors.isLoading);
   const menuActiveState = useSelector(mainSelectors.menuActiveState);
-  const bookmarksIsOpen = useSelector(bookmarksSelectors.isActive);
+  const bookmarksIsOpen = useSelector(bookmarksSelectors.isOpen);
   const page = useSelector(mainSelectors.page);
   const bookmarks = useSelector(bookmarksSelectors.bookmarks);
 
@@ -54,7 +54,7 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
       }
 
       if (!location.hash && bookmarksIsOpen) {
-        dispatch(setBookmarksActiveState(false));
+        dispatch(bookmarksSetIsOpen(false));
       }
     });
 

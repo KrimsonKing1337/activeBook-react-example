@@ -5,12 +5,11 @@ import { useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 
 import { mainSelectors } from 'store/main/selectors';
-import { setBookmarksActiveState } from 'store/bookmarks/actions';
+import { setIsOpen } from 'store/bookmarks/actions';
+import { bookmarksSelectors } from 'store/bookmarks/selectors';
 
 import { Header } from 'components/Header';
 import { Overflow } from 'components/Overflow';
-
-import { bookmarksSelectors } from '../../store/bookmarks/selectors';
 
 import { Item } from './Item';
 import { useBookmarks } from './hooks';
@@ -26,7 +25,7 @@ export const Bookmarks = () => {
   const dispatch = useDispatch();
   const { pathname } = useLocation();
 
-  const isOpen = useSelector(bookmarksSelectors.isActive);
+  const isOpen = useSelector(bookmarksSelectors.isOpen);
   const page = useSelector(mainSelectors.page);
 
   const [prevLocationPath, setPrevLocationPath] = useState(IS_CLOSE_LOCATION);
@@ -39,7 +38,7 @@ export const Bookmarks = () => {
 
     if (prevLocationPath !== pathname) {
       if (pathname === IS_CLOSE_LOCATION) {
-        dispatch(setBookmarksActiveState(false));
+        dispatch(setIsOpen(false));
       }
 
       setPrevLocationPath(pathname);
@@ -47,7 +46,7 @@ export const Bookmarks = () => {
   }, [pathname]);
 
   const closeButtonClickHandler = () => {
-    dispatch(setBookmarksActiveState(false));
+    dispatch(setIsOpen(false));
   };
 
   const addButtonClickHandler = () => {

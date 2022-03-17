@@ -4,12 +4,9 @@ import { put, select, takeLatest } from 'redux-saga/effects';
 
 import { mainSelectors } from 'store/main/selectors';
 
-import {
-  actionsTypes,
-  SetActiveState,
-} from './actions';
+import { actionsTypes, SetIsOpen } from './actions';
 
-export function* watchSetBookmarksIsOpen(action: SetActiveState) {
+export function* watchSetIsOpen(action: SetIsOpen) {
   const { payload } = action;
 
   const location: Location = yield select(mainSelectors.location);
@@ -23,6 +20,6 @@ export function* watchSetBookmarksIsOpen(action: SetActiveState) {
   yield put(push(path));
 }
 
-export function* watchBookmarksActions() {
-  yield takeLatest(actionsTypes.SET_ACTIVE_STATE, watchSetBookmarksIsOpen);
+export function* watchActions() {
+  yield takeLatest(actionsTypes.SET_IS_OPEN, watchSetIsOpen);
 }

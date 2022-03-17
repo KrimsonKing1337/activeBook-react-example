@@ -1,6 +1,6 @@
 import { RootState } from 'store';
 
 export const bookmarksSelectors = {
-  isActive: (state: RootState) => state.bookmarks.isActive,
+  isOpen: (state: RootState) => state.bookmarks.isOpen,
   bookmarks: (state: RootState) => state.bookmarks.bookmarks,
 };
