@@ -1,13 +1,13 @@
-import { Theme } from 'store/config/initialState';
+import { Theme } from 'store/config/@types';
 
 import { setCssVariable } from './setCssVariable';
 
 type Option = {
-  [key: string]: any;
   main: string;
   secondary: string;
   hover: string;
   bg: string;
+  [key: string]: any;
 };
 
 type Config = Record<Theme, Option>;
