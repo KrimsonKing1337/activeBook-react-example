@@ -1,15 +1,6 @@
-import { HowlWrapper } from 'utils/effects/audio/HowlWrapper';
+import { State } from './@types';
 
-export type HowlInst = HowlWrapper | null;
-export type LastInstIndex = 1 | 2;
-
-export interface AudioEffectsState {
-  howlInst1: HowlInst,
-  howlInst2: HowlInst,
-  lastInstIndex: LastInstIndex,
-}
-
-export const initialState: AudioEffectsState = {
+export const initialState: State = {
   howlInst1: null,
   howlInst2: null,
   lastInstIndex: 2, // чтобы первая запись произошла в howlInst1
