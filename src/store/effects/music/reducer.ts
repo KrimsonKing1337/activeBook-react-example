@@ -1,7 +1,8 @@
-import { actionsTypes, MusicEffectsActions } from './actions';
-import { initialState, MusicEffectsState } from './initialState';
+import { State } from './@types';
+import { Actions, actionsTypes } from './actions';
+import { initialState } from './initialState';
 
-export function musicEffectsReducer(state = initialState, action: MusicEffectsActions): MusicEffectsState {
+export function reducer(state = initialState, action: Actions): State {
   switch (action.type) {
   case actionsTypes.SET_HOWL_INST1:
     return {

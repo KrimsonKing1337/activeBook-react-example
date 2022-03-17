@@ -1,5 +1,6 @@
 import { put, select, takeLatest } from 'redux-saga/effects';
 
+import { LastInstIndex } from './@types';
 import { musicEffectsSelectors } from './selectors';
 import {
   actionsTypes,
@@ -8,9 +9,8 @@ import {
   setLastInstIndex,
   SetMusic,
 } from './actions';
-import { LastInstIndex } from './initialState';
 
-export function* watchSetAudio(action: SetMusic) {
+export function* watchSetMusic(action: SetMusic) {
   const { payload } = action;
 
   const lastInstIndex: LastInstIndex = yield select(musicEffectsSelectors.lastInstIndex);
@@ -26,6 +26,6 @@ export function* watchSetAudio(action: SetMusic) {
   }
 }
 
-export function* watchMusicEffectsActions() {
-  yield takeLatest(actionsTypes.SET_MUSIC, watchSetAudio);
+export function* watchActions() {
+  yield takeLatest(actionsTypes.SET_MUSIC, watchSetMusic);
 }
