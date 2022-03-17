@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 
 import { mainSelectors } from 'store/main/selectors';
 
-import { off, on } from 'utils/effects/flashlight';
+import { off as flashlightOff, on as flashlightOn } from 'utils/effects/flashlight';
 import { sleep } from 'utils/sleep';
 
 import { useSideShadow } from './sideShadow';
@@ -16,30 +16,30 @@ export function useFlashlight(withSideShadow = false) {
     speed: 150,
   });
 
-  const flashlightOn = async (duration?: number) => {
+  const on = async (duration?: number) => {
     if (withSideShadow) {
       sideShadowOn();
     }
 
     if (isFlashlightAvailable) {
-      on();
+      flashlightOn();
     }
 
     if (duration) {
       await sleep(duration);
 
-      flashlightOff();
+      off();
       sideShadowOff();
     }
   };
 
-  const flashlightOff = () => {
+  const off = () => {
     sideShadowOff();
 
     if (isFlashlightAvailable) {
-      off();
+      flashlightOff();
     }
   };
 
-  return { flashlightOff, flashlightOn };
+  return { flashlightOff: off, flashlightOn: on };
 }
