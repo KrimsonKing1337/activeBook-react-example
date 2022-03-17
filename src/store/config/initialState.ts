@@ -1,15 +1,6 @@
-export type Theme = 'dark' | 'darkBlue' | 'orange' | 'black';
+import { State } from './@types';
 
-export interface ConfigState {
-  theme: Theme;
-  vibration: boolean;
-  flashlight: boolean;
-  inverseColor: boolean;
-  fontSize: number;
-  lineHeight: number;
-}
-
-export const initialState: ConfigState = {
+export const initialState: State = {
   theme: 'dark',
   vibration: true,
   flashlight: true,

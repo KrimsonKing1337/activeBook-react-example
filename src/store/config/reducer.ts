@@ -1,7 +1,8 @@
+import { State } from './@types';
 import { actionsTypes, ConfigActions } from './actions';
-import { ConfigState, initialState } from './initialState';
+import { initialState } from './initialState';
 
-export function configReducer(state = initialState, action: ConfigActions): ConfigState {
+export function reducer(state = initialState, action: ConfigActions): State {
   switch (action.type) {
   case actionsTypes.SET_ALL_CONFIG:
     return action.payload;

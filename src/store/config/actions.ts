@@ -1,18 +1,20 @@
-import { ConfigState } from './initialState';
+import { State } from './@types';
+
+const NAMESPACE = '@config';
 
 export const actionsTypes = {
-  SET_ALL_CONFIG: '@config/SET_ALL_CONFIG',
-  SET_THEME: '@config/SET_THEME',
-  SET_VIBRATION: '@config/SET_VIBRATION',
-  SET_FLASHLIGHT: '@config/SET_FLASHLIGHT',
-  SET_INVERSE_COLOR: '@config/SET_INVERSE_COLOR',
-  SET_FONT_SIZE: '@config/SET_FONT_SIZE',
-  SET_LINE_HEIGHT: '@config/SET_LINE_HEIGHT',
+  SET_ALL_CONFIG: `${NAMESPACE}/SET_ALL_CONFIG`,
+  SET_THEME: `${NAMESPACE}/SET_THEME`,
+  SET_VIBRATION: `${NAMESPACE}/SET_VIBRATION`,
+  SET_FLASHLIGHT: `${NAMESPACE}/SET_FLASHLIGHT`,
+  SET_INVERSE_COLOR: `${NAMESPACE}/SET_INVERSE_COLOR`,
+  SET_FONT_SIZE: `${NAMESPACE}/SET_FONT_SIZE`,
+  SET_LINE_HEIGHT: `${NAMESPACE}/SET_LINE_HEIGHT`,
 } as const;
 
 export type SetAll = {
   type: typeof actionsTypes.SET_ALL_CONFIG;
-  payload: ConfigState;
+  payload: State;
 };
 
 export function setAll(value: SetAll['payload']): SetAll {
@@ -24,7 +26,7 @@ export function setAll(value: SetAll['payload']): SetAll {
 
 export type SetTheme = {
   type: typeof actionsTypes.SET_THEME;
-  payload: ConfigState['theme'];
+  payload: State['theme'];
 }
 
 export function setTheme(value: SetTheme['payload']): SetTheme {
@@ -36,7 +38,7 @@ export function setTheme(value: SetTheme['payload']): SetTheme {
 
 export type SetVibration = {
   type: typeof actionsTypes.SET_VIBRATION;
-  payload: ConfigState['vibration'];
+  payload: State['vibration'];
 }
 
 export function setVibration(value: SetVibration['payload']): SetVibration {
@@ -48,7 +50,7 @@ export function setVibration(value: SetVibration['payload']): SetVibration {
 
 export type SetFlashlight = {
   type: typeof actionsTypes.SET_FLASHLIGHT;
-  payload: ConfigState['flashlight'];
+  payload: State['flashlight'];
 }
 
 export function setFlashlight(value: SetFlashlight['payload']): SetFlashlight {
@@ -60,7 +62,7 @@ export function setFlashlight(value: SetFlashlight['payload']): SetFlashlight {
 
 export type SetInverseColor = {
   type: typeof actionsTypes.SET_INVERSE_COLOR;
-  payload: ConfigState['inverseColor'];
+  payload: State['inverseColor'];
 }
 
 export function setInverseColor(value: SetInverseColor['payload']): SetInverseColor {
@@ -72,7 +74,7 @@ export function setInverseColor(value: SetInverseColor['payload']): SetInverseCo
 
 export type SetFontSize = {
   type: typeof actionsTypes.SET_FONT_SIZE;
-  payload: ConfigState['fontSize'];
+  payload: State['fontSize'];
 }
 
 export function setFontSize(value: SetFontSize['payload']): SetFontSize {
@@ -84,7 +86,7 @@ export function setFontSize(value: SetFontSize['payload']): SetFontSize {
 
 export type SetLineHeight = {
   type: typeof actionsTypes.SET_LINE_HEIGHT;
-  payload: ConfigState['lineHeight'];
+  payload: State['lineHeight'];
 }
 
 export function setLineHeight(value: SetLineHeight['payload']): SetLineHeight {
@@ -94,7 +96,7 @@ export function setLineHeight(value: SetLineHeight['payload']): SetLineHeight {
   };
 }
 
-export type ConfigActions = SetAll
+export type Actions = SetAll
   | SetTheme
   | SetVibration
   | SetFlashlight

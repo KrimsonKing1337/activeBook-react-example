@@ -4,19 +4,19 @@ import { setThemeCss } from 'utils/styles/setThemeCss';
 
 import { actionsTypes, SetAll, SetTheme } from './actions';
 
-export function* watchConfigSetAll(action: SetAll) {
+export function* watchSetAll(action: SetAll) {
   const { payload } = action;
 
   yield call(() => setThemeCss(payload.theme));
 }
 
-export function* watchConfigSetTheme(action: SetTheme) {
+export function* watchSetTheme(action: SetTheme) {
   const { payload } = action;
 
   yield call(() => setThemeCss(payload));
 }
 
-export function* watchConfigActions() {
-  yield takeLatest(actionsTypes.SET_ALL_CONFIG, watchConfigSetAll);
-  yield takeLatest(actionsTypes.SET_THEME, watchConfigSetTheme);
+export function* watchActions() {
+  yield takeLatest(actionsTypes.SET_ALL_CONFIG, watchSetAll);
+  yield takeLatest(actionsTypes.SET_THEME, watchSetTheme);
 }
