@@ -1,15 +1,18 @@
-import { VolumeState } from './initialState';
+import { State } from './@types';
+
+const NAMESPACE = '@volume';
 
 export const actionsTypes = {
-  SET_ALL: '@volume/SET_ALL',
-  SET_COMMON: '@volume/SET_COMMON',
-  SET_BG: '@volume/SET_BG',
-  SET_OTHER: '@volume/SET_OTHER',
+  SET_ALL: `${NAMESPACE}/SET_ALL`,
+  SET_COMMON: `${NAMESPACE}/SET_COMMON`,
+  SET_BG: `${NAMESPACE}/SET_BG`,
+  SET_OTHER: `${NAMESPACE}/SET_OTHER`,
 } as const;
 
+//#region setAll
 export type SetAll = {
   type: typeof actionsTypes.SET_ALL;
-  payload: VolumeState;
+  payload: State;
 };
 
 export function setAll(value: SetAll['payload']): SetAll {
@@ -18,10 +21,12 @@ export function setAll(value: SetAll['payload']): SetAll {
     payload: value,
   };
 }
+//#endregion setAll
 
+//#region setCommon
 export type SetCommon = {
   type: typeof actionsTypes.SET_COMMON;
-  payload: VolumeState['common'];
+  payload: State['common'];
 };
 
 export function setCommon(value: SetCommon['payload']): SetCommon {
@@ -30,10 +35,12 @@ export function setCommon(value: SetCommon['payload']): SetCommon {
     payload: value,
   };
 }
+//#endregion setCommon
 
+//#region setBg
 export type SetBg = {
   type: typeof actionsTypes.SET_BG;
-  payload: VolumeState['bg'];
+  payload: State['bg'];
 };
 
 export function setBg(value: SetBg['payload']): SetBg {
@@ -42,10 +49,12 @@ export function setBg(value: SetBg['payload']): SetBg {
     payload: value,
   };
 }
+//#endregion setBg
 
+//#region setOther
 export type SetOther = {
   type: typeof actionsTypes.SET_OTHER;
-  payload: VolumeState['other'];
+  payload: State['other'];
 };
 
 export function setOther(value: SetOther['payload']): SetOther {
@@ -54,5 +63,6 @@ export function setOther(value: SetOther['payload']): SetOther {
     payload: value,
   };
 }
+//#endregion setOther
 
-export type VolumeActions = SetAll | SetCommon | SetBg | SetOther;
+export type Actions = SetAll | SetCommon | SetBg | SetOther;

@@ -1,7 +1,8 @@
-import { actionsTypes, VolumeActions } from './actions';
-import { initialState, VolumeState } from './initialState';
+import { State } from './@types';
+import { Actions, actionsTypes } from './actions';
+import { initialState } from './initialState';
 
-export function volumeReducer(state = initialState, action: VolumeActions): VolumeState {
+export function reducer(state = initialState, action: Actions): State {
   switch (action.type) {
   case actionsTypes.SET_ALL: {
     return action.payload;

@@ -1,10 +1,6 @@
-export interface VolumeState {
-  common: number,
-  bg: number,
-  other: number
-}
+import { State } from './@types';
 
-export const initialState: VolumeState = {
+export const initialState: State = {
   common: 100,
   bg: 100,
   other: 100,

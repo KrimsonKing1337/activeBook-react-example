@@ -1,2 +1,2 @@
-export type { VolumeActions } from './actions';
-export { volumeReducer } from './reducer';
+export type { Actions as VolumeActions } from './actions';
+export { reducer as volumeReducer } from './reducer';
