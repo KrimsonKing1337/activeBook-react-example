@@ -2,26 +2,26 @@ import { useSelector } from 'react-redux';
 
 import { mainSelectors } from 'store/main/selectors';
 
-import { off, on } from 'utils/effects/vibration';
+import { off as vibrationOff, on as vibrationOn } from 'utils/effects/vibration';
 
 export function useVibration() {
   const isVibrationAvailable = useSelector(mainSelectors.isVibrationAvailable);
 
-  const vibrationOn = (n: number) => {
+  const on = (n: number) => {
     if (!isVibrationAvailable) {
       return;
     }
 
-    on(n);
+    vibrationOn(n);
   };
 
-  const vibrationOff = () => {
+  const off = () => {
     if (!isVibrationAvailable) {
       return;
     }
 
-    off();
+    vibrationOff();
   };
 
-  return { vibrationOff, vibrationOn };
+  return { vibrationOff: off, vibrationOn: on };
 }
