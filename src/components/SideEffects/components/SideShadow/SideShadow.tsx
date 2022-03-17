@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { sideShadowEffectSelectors } from 'store/effects/sideShadow/selectors';
 
-import { setCssVariable } from 'utils/setCssVariable';
+import { setCssVariable } from 'utils/styles/setCssVariable';
 
 import styles from './SideShadow.scss';
 

@@ -2,8 +2,18 @@ import { Theme } from 'store/config/initialState';
 
 import { setCssVariable } from './setCssVariable';
 
+type Option = {
+  [key: string]: any;
+  main: string;
+  secondary: string;
+  hover: string;
+  bg: string;
+};
+
+type Config = Record<Theme, Option>;
+
 export function setThemeCss(theme: Theme) {
-  const voc: any = {
+  const voc: Config = {
     dark: {
       main: '#a3a3a3',
       secondary: '#828282',

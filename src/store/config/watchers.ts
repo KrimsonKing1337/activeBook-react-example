@@ -1,6 +1,6 @@
 import { call, takeLatest } from 'redux-saga/effects';
 
-import { setThemeCss } from 'utils/setThemeCss';
+import { setThemeCss } from 'utils/styles/setThemeCss';
 
 import { actionsTypes, SetAll, SetTheme } from './actions';
 
