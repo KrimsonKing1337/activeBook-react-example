@@ -3,7 +3,7 @@ import React from 'react';
 import { PageWrapper } from 'components/PageWrapper';
 
 import { useAudio } from 'hooks/effects/audio';
-import { useRain } from 'hooks/effects/rain';
+import { useRain } from 'hooks/effects/flashlight/rain';
 
 export const Page12 = () => {
   useAudio({

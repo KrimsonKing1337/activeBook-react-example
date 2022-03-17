@@ -2,10 +2,10 @@ import { useSelector } from 'react-redux';
 
 import { mainSelectors } from 'store/main/selectors';
 
+import { useSideShadow } from 'hooks/effects/sideShadow';
+
 import { off as flashlightOff, on as flashlightOn } from 'utils/effects/flashlight';
 import { sleep } from 'utils/sleep';
-
-import { useSideShadow } from './sideShadow';
 
 export function useFlashlight(withSideShadow = false) {
   const isFlashlightAvailable = useSelector(mainSelectors.isFlashlightAvailable);
