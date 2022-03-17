@@ -44,19 +44,19 @@ export const Nav = () => {
     };
   }, [goToWithInputIsHide, inputValue]);
 
-  function prevClickHandler() {
+  const prevClickHandler = () => {
     goPrevPage();
-  }
+  };
 
-  function nextClickHandler() {
+  const nextClickHandler = () => {
     goNextPage();
-  }
+  };
 
-  function pageNumberClickHandler() {
+  const pageNumberClickHandler = () => {
     setGoToWithInputIsHide(false);
-  }
+  };
 
-  function go() {
+  const go = () => {
     let pageNumber = parseInt(inputValue);
 
     if (isNaN(pageNumber) || page === pageNumber) {
@@ -70,19 +70,19 @@ export const Nav = () => {
     setGoToWithInputIsHide(true);
 
     goToPage(pageNumber);
-  }
+  };
 
-  function buttonClickHandler() {
+  const buttonClickHandler = () => {
     go();
-  }
+  };
 
-  function inputBlurHandler() {
+  const inputBlurHandler = () => {
     setGoToWithInputIsHide(true);
-  }
+  };
 
-  function inputChangeHandler(e: React.ChangeEvent<HTMLInputElement>) {
+  const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
-  }
+  };
 
   const goToWithArrowsClassNames = classNames({
     [styles.goToWithArrows]: true,

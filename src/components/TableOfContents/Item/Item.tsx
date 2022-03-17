@@ -16,11 +16,11 @@ export type ItemProps = {
 export const Item = ({ title, subtitle, pageNumber }: ItemProps) => {
   const pages = useSelector(mainSelectors.pages);
 
-  function clickHandler() {
+  const clickHandler = () => {
     const n = pageNumber > pages ? pages : pageNumber;
 
     goToPage(n);
-  }
+  };
 
   return (
     <div className={styles.item} onClick={clickHandler}>

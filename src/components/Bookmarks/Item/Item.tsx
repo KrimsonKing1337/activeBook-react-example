@@ -13,15 +13,15 @@ export type ItemProps = {
 };
 
 export const Item = ({ pageNumber, onDelete }: ItemProps) => {
-  function clickHandler() {
+  const clickHandler = () => {
     goToPage(pageNumber);
-  }
+  };
 
-  function deleteIconClickHandler(e: React.MouseEvent) {
+  const deleteIconClickHandler = (e: React.MouseEvent) => {
     e.stopPropagation();
 
     onDelete(pageNumber);
-  }
+  };
 
   return (
     <div className={styles.item} onClick={clickHandler}>

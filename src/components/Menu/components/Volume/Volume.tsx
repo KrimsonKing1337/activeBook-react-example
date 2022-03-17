@@ -12,6 +12,7 @@ import styles from './Volume.scss';
 
 export const Volume = () => {
   const dispatch = useDispatch();
+
   const commonVolume = useSelector(volumeSelectors.common);
   const bgVolume = useSelector(volumeSelectors.bg);
   const otherVolume = useSelector(volumeSelectors.other);
