@@ -1,9 +1,10 @@
-import { actionsTypes, SideShadowActions } from './actions';
-import { initialState, SideShadowState } from './initialState';
+import { State } from './@types';
+import { Actions, actionsTypes } from './actions';
+import { initialState } from './initialState';
 
-export function sideShadowReducer(state = initialState, action: SideShadowActions): SideShadowState {
+export function reducer(state = initialState, action: Actions): State {
   switch (action.type) {
-  case actionsTypes.SET_IS_OPEN:
+  case actionsTypes.SET_ACTIVE_STATE:
     return {
       ...state,
       isActive: action.payload,

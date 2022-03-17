@@ -1,10 +1,6 @@
-export interface SideShadowState {
-  isActive: boolean;
-  color: string;
-  speed: number;
-}
+import { State } from './@types';
 
-export const initialState: SideShadowState = {
+export const initialState: State = {
   isActive: false,
   color: 'red',
   speed: 1000,

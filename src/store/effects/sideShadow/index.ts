@@ -1,2 +1,2 @@
-export type { SideShadowActions } from './actions';
-export { sideShadowReducer } from './reducer';
+export type { Actions as SideShadowActions } from './actions';
+export { reducer as sideShadowReducer } from './reducer';

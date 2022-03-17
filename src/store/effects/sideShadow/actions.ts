@@ -1,47 +1,53 @@
-import { SideShadowState } from './initialState';
+import { State } from './@types';
 
-const nameSpace = '@effects/sideShadow';
+const NAMESPACE = '@effects/sideShadow';
 
 export const actionsTypes = {
-  SET_IS_OPEN: `${nameSpace}/SET_ACTIVE_STATE`,
-  SET_COLOR: `${nameSpace}/SET_COLOR`,
-  SET_SPEED: `${nameSpace}/SET_SPEED`,
+  SET_ACTIVE_STATE: `${NAMESPACE}/SET_ACTIVE_STATE`,
+  SET_COLOR: `${NAMESPACE}/SET_COLOR`,
+  SET_SPEED: `${NAMESPACE}/SET_SPEED`,
 } as const;
 
+//#region setActiveState
 export type SetActiveState = {
-  type: typeof actionsTypes.SET_IS_OPEN;
-  payload: SideShadowState['isActive'];
+  type: typeof actionsTypes.SET_ACTIVE_STATE;
+  payload: State['isActive'];
 };
 
-export function setSideShadowActiveState(value: SetActiveState['payload']): SetActiveState {
+export function setActiveState(value: SetActiveState['payload']): SetActiveState {
   return {
-    type: actionsTypes.SET_IS_OPEN,
+    type: actionsTypes.SET_ACTIVE_STATE,
     payload: value,
   };
 }
+//#endregion setActiveState
 
+//#region setColor
 export type SetColor = {
   type: typeof actionsTypes.SET_COLOR,
-  payload: SideShadowState['color'],
+  payload: State['color'],
 }
 
-export function setSideShadowColor(value: SetColor['payload']): SetColor {
+export function setColor(value: SetColor['payload']): SetColor {
   return {
     type: actionsTypes.SET_COLOR,
     payload: value,
   };
 }
+//#endregion setColor
 
+//#region setSpeed
 export type SetSpeed = {
   type: typeof actionsTypes.SET_SPEED,
-  payload: SideShadowState['speed'],
+  payload: State['speed'],
 };
 
-export function setSideShadowSpeed(value: SetSpeed['payload']): SetSpeed {
+export function setSpeed(value: SetSpeed['payload']): SetSpeed {
   return {
     type: actionsTypes.SET_SPEED,
     payload: value,
   };
 }
+//#endregion setSpeed
 
-export type SideShadowActions = SetActiveState | SetColor | SetSpeed;
+export type Actions = SetActiveState | SetColor | SetSpeed;

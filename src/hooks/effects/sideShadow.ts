@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
-import { setSideShadowActiveState, setSideShadowColor, setSideShadowSpeed } from 'store/effects/sideShadow/actions';
+import { setActiveState, setColor, setSpeed } from 'store/effects/sideShadow/actions';
 
 export type useSideShadowProps = {
   isActiveDefault?: boolean;
@@ -13,17 +13,17 @@ export function useSideShadow({ isActiveDefault = true, color, speed = 1000 }: u
   const dispatch = useDispatch();
 
   const on = () => {
-    dispatch(setSideShadowActiveState(true));
+    dispatch(setActiveState(true));
   };
 
   const off = () => {
-    dispatch(setSideShadowActiveState(false));
+    dispatch(setActiveState(false));
   };
 
   useEffect(() => {
-    dispatch(setSideShadowColor(color));
-    dispatch(setSideShadowSpeed(speed));
-    dispatch(setSideShadowActiveState(isActiveDefault));
+    dispatch(setColor(color));
+    dispatch(setSpeed(speed));
+    dispatch(setActiveState(isActiveDefault));
 
     return () => {
       off();
