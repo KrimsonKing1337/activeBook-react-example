@@ -19,9 +19,9 @@ export function play(text: string, id: string, save = true) {
     }
   };
 
-  const achievementsAsJSON = localStorage.getItem('achievements');
+  const achievementsAsJson = localStorage.getItem('achievements');
 
-  if (!achievementsAsJSON) {
+  if (!achievementsAsJson) {
     show();
 
     const achievementsForWrite = JSON.stringify({
@@ -33,7 +33,7 @@ export function play(text: string, id: string, save = true) {
     return;
   }
 
-  const achievements = JSON.parse(achievementsAsJSON);
+  const achievements = JSON.parse(achievementsAsJson);
 
   if (achievements[id] === true) {
     return;
