@@ -19,18 +19,16 @@ type ModalMode = 'media' |  null;
 export type ModalProps = {
   children: React.ReactNode;
   isOpen: boolean;
-  closeFunction: Func;
+  onClose: Func;
   mode?: ModalMode;
   hideExpandButton?: boolean;
   hideCropButton?: boolean;
-  onClose: Func;
 };
 
 export const Modal = ({
   children,
   onClose,
   isOpen,
-  closeFunction,
   mode = null,
   hideExpandButton = false,
   hideCropButton = false,
@@ -154,7 +152,7 @@ export const Modal = ({
   }, [isOpen]);
 
   const close = () => {
-    closeFunction();
+    onClose();
     history.push(IS_CLOSE_LOCATION);
 
     onClose();

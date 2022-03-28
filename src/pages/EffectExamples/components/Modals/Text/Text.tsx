@@ -23,7 +23,7 @@ export const Text = () => {
 
   return (
     <>
-      <Modal isOpen={modalIsActive} closeFunction={modalOnClose}>
+      <Modal isOpen={modalIsActive} onClose={modalOnClose}>
         <div>
           Товарищи! начало повседневной работы по формированию позиции играет важную роль в формировании систем
           массового участия. С другой стороны дальнейшее развитие различных форм деятельности играет важную роль в

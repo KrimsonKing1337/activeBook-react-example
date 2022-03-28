@@ -1,12 +1,28 @@
 import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
+import { EasterEgg as EasterEggComponent } from 'components/EasterEgg';
+
+import { ModalWithVideoEasterEgg } from './components/ModalWithVideoEasterEgg';
+import { useModalWithVideoEasterEgg } from './components/ModalWithVideoEasterEgg/hooks';
 
 export const Page20 = () => {
-  // todo: вот это поворот
+  const { setModalIsActive, modalIsActive, videoRef } = useModalWithVideoEasterEgg();
+
+  const EasterEgg = (
+    <EasterEggComponent onClick={() => setModalIsActive(true)}>
+      «Вот это поворот»,
+    </EasterEggComponent>
+  );
 
   return (
     <PageWrapper>
+      <ModalWithVideoEasterEgg
+        isActive={modalIsActive}
+        setModalIsActive={setModalIsActive}
+        videoRef={videoRef}
+      />
+
       <h1>
         Глава 5.
       </h1>
@@ -27,7 +43,7 @@ export const Page20 = () => {
         По всем показателям, прямо перед кораблём находилась граница Вселенной!
       </p>
       <p>
-        <a href="#" className="easter-egg" data-effect-target="wow-turn">«Вот это поворот»,</a> — мелькнуло в голове.
+        {EasterEgg} — мелькнуло в голове.
       </p>
       <p>
         И это было довольно странно, учитывая, что до границы лететь, по подсчётам, ещё неделю как минимум.

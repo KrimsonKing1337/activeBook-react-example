@@ -25,7 +25,7 @@ export const Video = () => {
     <>
       <Modal
         isOpen={modalIsActive}
-        closeFunction={modalOnClose}
+        onClose={modalOnClose}
         mode={'media'}
       >
         {/* todo: видеоплеер, controls тут мешают элементам управления модалки */}

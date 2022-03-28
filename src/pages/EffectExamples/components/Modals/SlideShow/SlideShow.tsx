@@ -26,7 +26,7 @@ export const SlideShow = () => {
     <>
       <Modal
         isOpen={modalIsActive}
-        closeFunction={modalOnClose}
+        onClose={modalOnClose}
         mode={'media'}
         hideCropButton={true}
       >

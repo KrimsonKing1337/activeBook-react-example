@@ -9,8 +9,8 @@ import classNames from 'classnames';
 
 import styles from './Modal.scss';
 
-const IS_OPEN_LOCATION = '/modal';
-const IS_CLOSE_LOCATION = '/';
+const IS_OPEN_HASH = '#/modal';
+const IS_CLOSE_HASH = '';
 
 type Func = () => void;
 
@@ -19,7 +19,8 @@ type ModalMode = 'media' | null;
 export type ModalProps = {
   children: React.ReactNode;
   isOpen: boolean;
-  closeFunction: Func;
+  onOpen?: Func;
+  onClose?: Func;
   mode?: ModalMode;
   hideExpandButton?: boolean;
   hideCropButton?: boolean;
@@ -31,7 +32,7 @@ type ModalState = {
   componentUuid: string;
   isFullScreen: boolean;
   isCrop: boolean;
-  prevLocationPath: string;
+  prevLocationHash: string;
   isZooming: boolean;
 };
 
@@ -67,7 +68,7 @@ class ModalComponent extends React.Component<Props, ModalState> {
       componentUuid: '',
       isFullScreen: false,
       isCrop: false,
-      prevLocationPath: IS_CLOSE_LOCATION,
+      prevLocationHash: IS_CLOSE_HASH,
       isZooming: false,
     };
   }
@@ -82,15 +83,19 @@ class ModalComponent extends React.Component<Props, ModalState> {
   }
 
   componentDidUpdate(prevProps: Props) {
-    const { isOpen, location } = this.props;
-    const { pathname } = location;
+    const { isOpen, location, onOpen } = this.props;
+    const { hash } = location;
 
     if (isOpen !== prevProps.isOpen && isOpen) {
       this.setStyleLeftForIcons();
       this.setHistory();
+
+      if (onOpen) {
+        onOpen();
+      }
     }
 
-    if (pathname !== prevProps.location.pathname) {
+    if (hash !== prevProps.location.hash) {
       this.navigatorBackHandler();
     }
   }
@@ -141,7 +146,7 @@ class ModalComponent extends React.Component<Props, ModalState> {
     const { history } = this.props;
     const { componentUuid } = this.state;
 
-    const path = `${IS_OPEN_LOCATION}/${componentUuid}`;
+    const path = `${IS_OPEN_HASH}/${componentUuid}`;
 
     history.push(path);
   }
@@ -174,11 +179,18 @@ class ModalComponent extends React.Component<Props, ModalState> {
   };
 
   close = () => {
-    const { closeFunction, history } = this.props;
+    const { onClose, history } = this.props;
 
-    closeFunction();
+    const locationWithoutHash = {
+      ...history.location,
+      hash: '',
+    };
 
-    history.push(IS_CLOSE_LOCATION);
+    history.push(locationWithoutHash);
+
+    if (onClose) {
+      onClose();
+    }
   }
 
   overflowClickHandler = () => this.close();
@@ -232,24 +244,24 @@ class ModalComponent extends React.Component<Props, ModalState> {
   * */
   navigatorBackHandler = () => {
     const { location } = this.props;
-    const { componentUuid, prevLocationPath } = this.state;
+    const { componentUuid, prevLocationHash } = this.state;
 
-    const { pathname } = location;
+    const { hash } = location;
 
     if (!componentUuid) {
       return;
     }
 
-    if (!prevLocationPath.includes(componentUuid) && !pathname.includes(componentUuid)) {
+    if (!prevLocationHash.includes(componentUuid) && !hash.includes(componentUuid)) {
       return;
     }
 
-    if (prevLocationPath !== pathname) {
-      if (pathname === IS_CLOSE_LOCATION) {
+    if (prevLocationHash !== hash) {
+      if (hash === IS_CLOSE_HASH) {
         this.close();
       }
 
-      this.setState({ prevLocationPath: pathname });
+      this.setState({ prevLocationHash: hash });
     }
   };
 

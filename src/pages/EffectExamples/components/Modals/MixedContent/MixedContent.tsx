@@ -23,7 +23,7 @@ export const MixedContent = () => {
 
   return (
     <>
-      <Modal isOpen={modalIsActive} closeFunction={modalOnClose}>
+      <Modal isOpen={modalIsActive} onClose={modalOnClose}>
         <div>
           <img src="/assets/img/cinemagraph.gif" alt="" />
 

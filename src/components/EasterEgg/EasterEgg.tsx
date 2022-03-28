@@ -9,8 +9,8 @@ export type EasterEggProps = {
 
 export const EasterEgg = ({ children, ...rest }: EasterEggProps) => {
   return (
-    <div className={styles.easterEgg} {...rest}>
+    <span className={styles.easterEgg} {...rest}>
       {children}
-    </div>
+    </span>
   );
 };

@@ -15,7 +15,7 @@ export type ModalDialogProps = ModalProps & {
 const defaultFunc = () => {};
 
 export const ModalDialog = ({
-  closeFunction = defaultFunc,
+  onClose = defaultFunc,
   onConfirm = defaultFunc,
   onCancel = defaultFunc,
   children,
@@ -28,7 +28,7 @@ export const ModalDialog = ({
   };
 
   return (
-    <Modal closeFunction={closeHandler} {...rest}>
+    <Modal onClose={closeHandler} {...rest}>
       <div className={styles.wrapper}>
         <div className={'ModalDialogDesc'}>
           {children}

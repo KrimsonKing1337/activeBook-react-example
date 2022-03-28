@@ -14,7 +14,7 @@ export const EasterEgg = () => {
     <Item>
       <Modal
         isOpen={modalIsActive}
-        closeFunction={modalOnClose}
+        onClose={modalOnClose}
         hideExpandButton={true}
       >
         Вы нашли пасхалку! Вот вам ачивка

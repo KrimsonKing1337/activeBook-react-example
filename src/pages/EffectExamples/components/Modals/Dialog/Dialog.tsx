@@ -25,7 +25,7 @@ export const Dialog = () => {
     <>
       <ModalDialog
         isOpen={modalIsActive}
-        closeFunction={modalOnClose}
+        onClose={modalOnClose}
         onConfirm={modalOnClose}
         onCancel={modalOnClose}
         hideExpandButton={true}

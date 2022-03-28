@@ -26,7 +26,7 @@ export const SlideShowMixedContent = () => {
     <>
       <Modal
         isOpen={modalIsActive}
-        closeFunction={modalOnClose}
+        onClose={modalOnClose}
       >
         <SlideShow isVisible={modalIsActive} mode={'modal'}>
           <img src="/assets/img/1.jpg" alt="" />
