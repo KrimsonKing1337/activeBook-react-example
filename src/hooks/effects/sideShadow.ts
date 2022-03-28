@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
 import { setActiveState, setColor, setSpeed } from 'store/effects/sideShadow/actions';
+import { initialState } from 'store/effects/sideShadow/initialState';
 
 export type useSideShadowProps = {
   isActiveDefault?: boolean;
@@ -9,7 +10,7 @@ export type useSideShadowProps = {
   speed?: number;
 };
 
-export function useSideShadow({ isActiveDefault = true, color, speed = 1000 }: useSideShadowProps) {
+export function useSideShadow({ isActiveDefault = true, color, speed = initialState.speed }: useSideShadowProps) {
   const dispatch = useDispatch();
 
   const on = () => {

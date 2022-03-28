@@ -12,6 +12,7 @@ import { effectsReducer } from './effects/common';
 import { audioEffectsReducer, watchAudioEffectsActions } from './effects/audio';
 import { musicEffectsReducer, watchMusicEffectsActions } from './effects/music';
 import { sideShadowReducer, watchSideShadowActions } from './effects/sideShadow';
+import { sideTextReducer, watchSideTextActions } from './effects/sideText';
 import { bookmarksReducer, watchBookmarksActions } from './bookmarks';
 
 export const history = createBrowserHistory();
@@ -30,6 +31,7 @@ const makeRootReducer = (history: ConnectedRouterProps['history']) => {
     audioEffects: audioEffectsReducer,
     musicEffects: musicEffectsReducer,
     sideShadowEffect: sideShadowReducer,
+    sideTextEffect: sideTextReducer,
     bookmarks: bookmarksReducer,
   });
 };
@@ -47,3 +49,4 @@ sagaMiddleware.run(watchAudioEffectsActions);
 sagaMiddleware.run(watchMusicEffectsActions);
 sagaMiddleware.run(watchBookmarksActions);
 sagaMiddleware.run(watchSideShadowActions);
+sagaMiddleware.run(watchSideTextActions);

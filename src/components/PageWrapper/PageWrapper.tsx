@@ -18,12 +18,12 @@ import { Narrative } from './components/Narrative';
 import styles from './PageWrapper.scss';
 
 export type PageWrapperProps = {
+  children: React.ReactNode;
   withoutToolbar?: boolean;
   sbMode?: boolean;
-  children: React.ReactNode;
 };
 
-export const PageWrapper = ({ withoutToolbar, sbMode, children }: PageWrapperProps) => {
+export const PageWrapper = ({ children, withoutToolbar, sbMode }: PageWrapperProps) => {
   const inverseColorIsActive = useSelector(effectsSelectors.inverseColorIsActive);
   const isLoading = useSelector(mainSelectors.isLoading);
 
