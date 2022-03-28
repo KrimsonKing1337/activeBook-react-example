@@ -16,7 +16,7 @@ const getPageComponents = () => {
 
   const arr = [];
 
-  for (let i = 1; i <= pages; i++) {
+  for (let i = 0; i < pages; i++) {
     const PageComponent = require(`book_pages/Page${i}`)[`Page${i}`];
 
     arr.push(PageComponent);
