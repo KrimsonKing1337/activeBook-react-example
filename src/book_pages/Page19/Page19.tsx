@@ -1,9 +1,14 @@
 import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
+import { ExternalLink as ExtLink } from 'components/ExternalLink/ExternalLink';
 
 export const Page19 = () => {
-  // todo: ссылку на статью в вики про Уиллиса сделать со стилями
+  const Link = (
+    <ExtLink href="https://ru.wikipedia.org/wiki/%D0%A3%D0%BB%D0%B8%D1%81%D1%81_(%D1%80%D0%BE%D0%BC%D0%B0%D0%BD)">
+      Уиллиса
+    </ExtLink>
+  );
 
   return (
     <PageWrapper>
@@ -27,8 +32,8 @@ export const Page19 = () => {
         Сотни и тысячи книг ждали своей очереди в памяти устройства.
       </p>
       <p>
-        Лететь долго, нужно выбрать произведение соответствующей длины. Выбор пал на Уиллиса
-        за авторством Джеймса Джойса, любимую книгу Джона Кеннеди.
+        Лететь долго, нужно выбрать произведение соответствующей длины. Выбор пал на {Link} за авторством
+        Джеймса Джойса, любимую книгу Джона Кеннеди.
       </p>
       <p>
         Бесконечный хаос мыслей отступил (даже про то смотрит ли она или нет).

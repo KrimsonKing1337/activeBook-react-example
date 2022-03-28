@@ -1,0 +1,15 @@
+@import "~styles/__mixins.scss";
+
+.link {
+  display: inline-flex;
+
+  color: #09f;
+
+  opacity: 0.85;
+
+  transition: text-shadow ease 0.3s 0s;
+
+  &:hover {
+    @include text-shadow-dark;
+  }
+}
