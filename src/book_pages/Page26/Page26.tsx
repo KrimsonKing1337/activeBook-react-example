@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
+import { Action } from 'components/Action';
 
 import { useAudio } from 'hooks/effects/audio';
 import { useVibration } from 'hooks/effects/vibration';
@@ -30,8 +31,7 @@ export const Page26 = () => {
         Пробилась совсем крошечная часть корабля.
       </p>
       <p>
-        Медленно, но верно, Егор пробивался
-        <a href="#" className="action" data-effect-target="over-the-garden-wall">за ту сторону изгороди.</a>
+        Медленно, но верно, Егор пробивался <Action>за ту сторону изгороди.</Action>
       </p>
       <p>
         Было удивительно, что такой способ вообще работал.

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
+import { Action } from 'components/Action';
 
 import { useAudio } from 'hooks/effects/audio';
 import { useFlashlight } from 'hooks/effects/flashlight';
@@ -9,8 +10,6 @@ import { useVibration } from 'hooks/effects/vibration';
 import { goToPage } from 'utils/control/goToPage';
 import { play as achievementPlay } from 'utils/effects/achievement';
 import { konamiCodeHandler } from 'utils/effects/konamiCodeHandler';
-
-import styles from './Page0.scss';
 
 export const Page0 = () => {
   const [ lastPage, setLastPage ] = useState(1);
@@ -81,9 +80,9 @@ export const Page0 = () => {
         Предисловие: все описываемые персонажи события вымышлены, совпадения с реальными — чистая случайность.
       </article>
 
-      <div className={styles.startReading} onClick={clickHandler}>
+      <Action fullWidth onClick={clickHandler}>
         {label}
-      </div>
+      </Action>
 
       <p />
       <p />
