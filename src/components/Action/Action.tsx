@@ -18,6 +18,7 @@ export const Action = ({ children, fullWidth = false, ...props }: ActionProps) =
 
   return (
     <div className={actionClassNames} {...props}>
+      {' '}
       {children}
     </div>
   );
