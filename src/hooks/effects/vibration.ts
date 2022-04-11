@@ -20,6 +20,8 @@ export function useVibration() {
     }
 
     vibrationOn(n);
+
+    console.log(`___ vibrated: ${n}`);
   };
 
   const off = () => {
