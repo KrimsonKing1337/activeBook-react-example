@@ -17,6 +17,8 @@ export function useFlashlight(withSideShadow = false) {
   });
 
   const on = async (duration?: number) => {
+    console.log('___ flashlight on');
+
     if (withSideShadow) {
       sideShadowOn();
     }
@@ -34,6 +36,8 @@ export function useFlashlight(withSideShadow = false) {
   };
 
   const off = () => {
+    console.log('___ flashlight off');
+
     sideShadowOff();
 
     if (isFlashlightAvailable) {

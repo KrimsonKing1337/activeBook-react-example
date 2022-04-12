@@ -2,8 +2,11 @@ import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
 
-// todo: инвертные цвета + flashlight with duration = infinity;
+import { useWelcomeOutside } from './hook';
+
 export const Page30 = () => {
+  useWelcomeOutside();
+
   return (
     <PageWrapper>
       <p>
