@@ -28,6 +28,7 @@ export function useMusic({ src, loop = true, range }: UseMusicProps) {
 
   const isInRange = page >= from && page <= to;
 
+  // todo: где-то здесь ошибка, задваивается музыка
   useEffect(() => {
     if (isInRange && musicInst?.isPlaying) {
       return;

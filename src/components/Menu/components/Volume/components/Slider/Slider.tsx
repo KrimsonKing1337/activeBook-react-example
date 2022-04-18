@@ -21,7 +21,7 @@ export const Slider = ({ onChange, value }: SliderProps) => {
       className={styles.slider}
       thumbClassName={styles.thumb}
       trackClassName={styles.track}
-      onAfterChange={changeHandler}
+      onChange={changeHandler}
     />
   );
 };

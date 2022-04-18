@@ -1,12 +1,22 @@
 import { Howl, HowlOptions } from 'howler';
+import { store } from 'store';
+
+type AudioType = 'oneShot' | 'loop' | undefined;
 
 type HowlWrapperOptions = {
   src: HowlOptions['src'],
   loop?: HowlOptions['loop'],
+  type?: AudioType;
   range?: {
     from: number;
     to: number;
   }
+};
+
+type HowlerOptions = {
+  src: HowlOptions['src'],
+  loop?: HowlOptions['loop'],
+  volume?: HowlOptions['volume'],
 };
 
 export class HowlWrapper {
@@ -15,15 +25,31 @@ export class HowlWrapper {
   public readonly howlInst: Howl;
   public isUnloading = false;
   public isPlaying = false;
+  public type: AudioType = undefined;
   public range: HowlWrapperOptions['range'] = undefined;
 
-  constructor({ src, loop, range }: HowlWrapperOptions) {
-    this.howlInst = new Howl({
+  constructor({ src, loop, range, type }: HowlWrapperOptions) {
+    const storeState = store.getState();
+    const { volume } = storeState;
+
+    const options: HowlerOptions = {
       src,
       loop,
-    });
+      volume: volume.other / 100,
+    };
+
+    if (loop) {
+      options.volume = volume.bg / 100;
+    }
+
+    this.howlInst = new Howl(options);
 
     this.range = range;
+    this.type = type;
+  }
+
+  volume(n: number) {
+    this.howlInst.volume(n);
   }
 
   async play(withFadeIn = false) {
