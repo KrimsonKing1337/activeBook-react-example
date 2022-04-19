@@ -23,6 +23,7 @@ export class HowlWrapper {
   private static fadeDurationDefault = 1000;
 
   public readonly howlInst: Howl;
+  public src: HowlOptions['src'] = '';
   public isUnloading = false;
   public isPlaying = false;
   public type: AudioType = undefined;
@@ -44,6 +45,7 @@ export class HowlWrapper {
 
     this.howlInst = new Howl(options);
 
+    this.src = src;
     this.range = range;
     this.type = type;
   }

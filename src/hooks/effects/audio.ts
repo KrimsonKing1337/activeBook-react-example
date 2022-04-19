@@ -56,7 +56,7 @@ export function useAudio({
     if (stopBy) {
       timer = setTimeout(() => {
         audioInst.stop();
-      }, 5000);
+      }, stopBy);
     }
 
     return () => {
