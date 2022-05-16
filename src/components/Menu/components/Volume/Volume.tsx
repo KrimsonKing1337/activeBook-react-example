@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { volumeSelectors } from 'store/volume/selectors';
-import { setBg, setCommon, setMusic, setOther } from 'store/volume/actions';
+import { setBg, setGlobal, setMusic, setRegular } from 'store/volume/actions';
 
 import { Label } from 'components/Label';
 
@@ -13,13 +13,13 @@ import styles from './Volume.scss';
 export const Volume = () => {
   const dispatch = useDispatch();
 
-  const commonVolume = useSelector(volumeSelectors.common);
+  const globalVolume = useSelector(volumeSelectors.global);
   const bgVolume = useSelector(volumeSelectors.bg);
-  const otherVolume = useSelector(volumeSelectors.other);
+  const regularVolume = useSelector(volumeSelectors.regular);
   const musicVolume = useSelector(volumeSelectors.music);
 
   const commonChangeHandler = (value: number) => {
-    dispatch(setCommon(value));
+    dispatch(setGlobal(value));
   };
 
   const bgChangeHandler = (value: number) => {
@@ -27,7 +27,7 @@ export const Volume = () => {
   };
 
   const otherChangeHandler = (value: number) => {
-    dispatch(setOther(value));
+    dispatch(setRegular(value));
   };
 
   const musicChangeHandler = (value: number) => {
@@ -39,7 +39,7 @@ export const Volume = () => {
       <div className={styles.item}>
         <Label label={'Общая громкость'} />
 
-        <Slider value={commonVolume} onChange={commonChangeHandler} />
+        <Slider value={globalVolume} onChange={commonChangeHandler} />
       </div>
 
       <div className={styles.item}>
@@ -51,7 +51,7 @@ export const Volume = () => {
       <div className={styles.item}>
         <Label label={'Звуки'} />
 
-        <Slider value={otherVolume} onChange={otherChangeHandler} />
+        <Slider value={regularVolume} onChange={otherChangeHandler} />
       </div>
 
       <div className={styles.item}>

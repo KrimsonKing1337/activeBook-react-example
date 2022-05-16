@@ -33,7 +33,7 @@ export class HowlWrapper {
     const storeState = store.getState();
     const { volume } = storeState;
 
-    let volumeValue = volume.other / 100;
+    let volumeValue = volume.regular / 100;
 
     const options: HowlerOptions = {
       src,

@@ -2,8 +2,8 @@ import { RootState } from 'store';
 
 export const volumeSelectors = {
   all: (state: RootState) => state.volume,
-  common: (state: RootState) => state.volume.common,
+  global: (state: RootState) => state.volume.global,
   bg: (state: RootState) => state.volume.bg,
-  other: (state: RootState) => state.volume.other,
+  regular: (state: RootState) => state.volume.regular,
   music: (state: RootState) => state.volume.music,
 };

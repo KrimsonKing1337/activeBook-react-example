@@ -7,10 +7,10 @@ export function reducer(state = initialState, action: Actions): State {
   case actionsTypes.SET_ALL: {
     return action.payload;
   }
-  case actionsTypes.SET_COMMON: {
+  case actionsTypes.SET_GLOBAL: {
     return {
       ...state,
-      common: action.payload,
+      global: action.payload,
     };
   }
   case actionsTypes.SET_BG: {
@@ -19,10 +19,10 @@ export function reducer(state = initialState, action: Actions): State {
       bg: action.payload,
     };
   }
-  case actionsTypes.SET_OTHER: {
+  case actionsTypes.SET_REGULAR: {
     return {
       ...state,
-      other: action.payload,
+      regular: action.payload,
     };
   }
   case actionsTypes.SET_MUSIC: {

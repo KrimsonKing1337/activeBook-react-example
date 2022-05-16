@@ -4,10 +4,10 @@ const NAMESPACE = '@volume';
 
 export const actionsTypes = {
   SET_ALL: `${NAMESPACE}/SET_ALL`,
-  SET_COMMON: `${NAMESPACE}/SET_COMMON`,
-  SET_BG: `${NAMESPACE}/SET_BG`,
-  SET_OTHER: `${NAMESPACE}/SET_OTHER`,
+  SET_GLOBAL: `${NAMESPACE}/SET_GLOBAL`,
   SET_MUSIC: `${NAMESPACE}/SET_MUSIC`,
+  SET_REGULAR: `${NAMESPACE}/SET_REGULAR`,
+  SET_BG: `${NAMESPACE}/SET_BG`,
 } as const;
 
 //#region setAll
@@ -24,15 +24,15 @@ export function setAll(value: SetAll['payload']): SetAll {
 }
 //#endregion setAll
 
-//#region setCommon
-export type SetCommon = {
-  type: typeof actionsTypes.SET_COMMON;
-  payload: State['common'];
+//#region setGlobal
+export type SetGlobal = {
+  type: typeof actionsTypes.SET_GLOBAL;
+  payload: State['global'];
 };
 
-export function setCommon(value: SetCommon['payload']): SetCommon {
+export function setGlobal(value: SetGlobal['payload']): SetGlobal {
   return {
-    type: actionsTypes.SET_COMMON,
+    type: actionsTypes.SET_GLOBAL,
     payload: value,
   };
 }
@@ -52,15 +52,15 @@ export function setBg(value: SetBg['payload']): SetBg {
 }
 //#endregion setBg
 
-//#region setOther
-export type SetOther = {
-  type: typeof actionsTypes.SET_OTHER;
-  payload: State['other'];
+//#region setRegular
+export type SetRegular = {
+  type: typeof actionsTypes.SET_REGULAR;
+  payload: State['regular'];
 };
 
-export function setOther(value: SetOther['payload']): SetOther {
+export function setRegular(value: SetRegular['payload']): SetRegular {
   return {
-    type: actionsTypes.SET_OTHER,
+    type: actionsTypes.SET_REGULAR,
     payload: value,
   };
 }
@@ -80,4 +80,4 @@ export function setMusic(value: SetMusic['payload']): SetMusic {
 }
 //#endregion setMusic
 
-export type Actions = SetAll | SetCommon | SetBg | SetOther | SetMusic;
+export type Actions = SetAll | SetGlobal | SetBg | SetRegular | SetMusic;

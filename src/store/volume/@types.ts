@@ -1,6 +1,6 @@
 export interface State {
-  common: number,
-  bg: number,
-  other: number,
+  global: number,
   music: number,
+  regular: number,
+  bg: number,
 }
