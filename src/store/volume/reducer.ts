@@ -25,6 +25,12 @@ export function reducer(state = initialState, action: Actions): State {
       other: action.payload,
     };
   }
+  case actionsTypes.SET_MUSIC: {
+    return {
+      ...state,
+      music: action.payload,
+    };
+  }
   default:
     return state;
   }

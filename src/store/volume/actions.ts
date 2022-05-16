@@ -7,6 +7,7 @@ export const actionsTypes = {
   SET_COMMON: `${NAMESPACE}/SET_COMMON`,
   SET_BG: `${NAMESPACE}/SET_BG`,
   SET_OTHER: `${NAMESPACE}/SET_OTHER`,
+  SET_MUSIC: `${NAMESPACE}/SET_MUSIC`,
 } as const;
 
 //#region setAll
@@ -65,4 +66,18 @@ export function setOther(value: SetOther['payload']): SetOther {
 }
 //#endregion setOther
 
-export type Actions = SetAll | SetCommon | SetBg | SetOther;
+//#region setMusic
+export type SetMusic = {
+  type: typeof actionsTypes.SET_MUSIC;
+  payload: State['music'];
+};
+
+export function setMusic(value: SetMusic['payload']): SetMusic {
+  return {
+    type: actionsTypes.SET_MUSIC,
+    payload: value,
+  };
+}
+//#endregion setMusic
+
+export type Actions = SetAll | SetCommon | SetBg | SetOther | SetMusic;

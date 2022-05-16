@@ -2,7 +2,7 @@ import { Howler } from 'howler';
 import { call, takeLatest } from 'redux-saga/effects';
 import { store } from 'store';
 
-import { actionsTypes, SetAll, SetBg, SetCommon, SetOther } from './actions';
+import { actionsTypes, SetAll, SetBg, SetCommon, SetMusic, SetOther } from './actions';
 
 function getSoundInsts() {
   const storeState = store.getState();
@@ -41,14 +41,10 @@ export function* watchSetBg(action: SetBg) {
   const { payload } = action;
 
   yield call(() => {
-    const { audioInst, musicInst } = getSoundInsts();
+    const { audioInst } = getSoundInsts();
 
-    if (audioInst && audioInst.type === 'loop') {
+    if (audioInst && audioInst.type === 'bg') {
       audioInst.volume(payload / 100);
-    }
-
-    if (musicInst) {
-      musicInst.volume(payload / 100);
     }
   });
 }
@@ -59,8 +55,20 @@ export function* watchSetOther(action: SetOther) {
   yield call(() => {
     const { audioInst } = getSoundInsts();
 
-    if (audioInst && audioInst.type !== 'loop') {
+    if (audioInst && audioInst.type === undefined) {
       audioInst.volume(payload / 100);
+    }
+  });
+}
+
+export function* watchSetMusic(action: SetMusic) {
+  const { payload } = action;
+
+  yield call(() => {
+    const { musicInst } = getSoundInsts();
+
+    if (musicInst) {
+      musicInst.volume(payload / 100);
     }
   });
 }
@@ -70,4 +78,5 @@ export function* watchActions() {
   yield takeLatest(actionsTypes.SET_COMMON, watchSetCommon);
   yield takeLatest(actionsTypes.SET_BG, watchSetBg);
   yield takeLatest(actionsTypes.SET_OTHER, watchSetOther);
+  yield takeLatest(actionsTypes.SET_MUSIC, watchSetMusic);
 }

@@ -1,7 +1,7 @@
 import { Howl, HowlOptions } from 'howler';
 import { store } from 'store';
 
-type AudioType = 'oneShot' | 'loop' | undefined;
+type AudioType = 'bg' | 'music' | undefined;
 
 type HowlWrapperOptions = {
   src: HowlOptions['src'],
@@ -33,15 +33,22 @@ export class HowlWrapper {
     const storeState = store.getState();
     const { volume } = storeState;
 
+    let volumeValue = volume.other / 100;
+
     const options: HowlerOptions = {
       src,
       loop,
-      volume: volume.other / 100,
     };
 
-    if (loop) {
-      options.volume = volume.bg / 100;
+    if (type === 'bg') {
+      volumeValue = volume.bg / 100;
     }
+
+    if (type === 'music') {
+      volumeValue = volume.music / 100;
+    }
+
+    options.volume = volumeValue;
 
     this.howlInst = new Howl(options);
 
