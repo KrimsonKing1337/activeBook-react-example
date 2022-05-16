@@ -16,6 +16,7 @@ export const Page26 = () => {
     src: '/assets/book_data/audios/sounds/cosmos-impacts.mp3',
     loop: true,
     playOnLoad: true,
+    bg: true,
   });
 
   useLoopedVibration();

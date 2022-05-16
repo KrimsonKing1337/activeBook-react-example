@@ -9,6 +9,7 @@ export const Page14 = () => {
     src: '/assets/book_data/audios/sounds/male-heavy-breathing.mp3',
     loop: true,
     playOnLoad: true,
+    bg: true,
   });
 
   return (

@@ -7,8 +7,8 @@ import { useAudio } from 'hooks/effects/audio';
 export const Page29 = () => {
   useAudio({
     src: '/assets/book_data/audios/sounds/spacedoor-open.mp3',
-    type: 'oneShot',
     playOnLoad: true,
+    oneShot: true,
   });
 
   return (

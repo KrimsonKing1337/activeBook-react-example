@@ -10,6 +10,7 @@ export const Page12 = () => {
     src: '/assets/book_data/audios/sounds/rain-and-thunder.mp3',
     loop: true,
     playOnLoad: true,
+    bg: true,
   });
 
   useRain();

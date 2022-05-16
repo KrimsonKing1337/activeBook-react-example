@@ -10,6 +10,7 @@ export const Page3 = () => {
     src: '/assets/book_data/audios/sounds/people-and-cameras-ambient.mp3',
     loop: true,
     playOnLoad: true,
+    bg: true,
   });
 
   useMusic({

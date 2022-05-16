@@ -9,6 +9,7 @@ export const Page24 = () => {
     src: '/assets/book_data/audios/sounds/coin-flipping.mp3',
     playOnLoad: true,
     loop: true,
+    bg: true,
   });
 
   return (

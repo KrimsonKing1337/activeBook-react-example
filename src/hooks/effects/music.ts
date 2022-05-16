@@ -36,6 +36,7 @@ export function useMusic({ src, loop = true, range }: UseMusicProps) {
 
     const howlInst = new HowlWrapper({
       src: [src],
+      type: 'music',
       loop,
       range,
     });

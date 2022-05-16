@@ -10,7 +10,7 @@ import { sleep } from 'utils/sleep';
 export const Page13 = () => {
   const audioInst = useAudio({
     src: '/assets/book_data/audios/sounds/shotgun-shot.mp3',
-    type: 'oneShot',
+    oneShot: true,
   });
 
   const { vibrationOn } = useVibration();

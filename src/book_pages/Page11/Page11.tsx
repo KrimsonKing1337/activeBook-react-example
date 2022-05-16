@@ -9,6 +9,7 @@ export const Page11 = () => {
     src: '/assets/book_data/audios/sounds/fly-ship-engine.mp3',
     loop: true,
     playOnLoad: true,
+    bg: true,
   });
 
   return (

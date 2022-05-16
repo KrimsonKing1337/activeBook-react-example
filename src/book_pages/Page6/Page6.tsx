@@ -9,7 +9,7 @@ export const Page6 = () => {
   useAudio({
     src: '/assets/book_data/audios/sounds/notification.mp3',
     playOnLoad: true,
-    type: 'oneShot',
+    oneShot: true,
   });
 
   const { vibrationOn } = useVibration();

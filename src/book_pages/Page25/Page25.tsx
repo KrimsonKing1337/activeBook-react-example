@@ -8,7 +8,7 @@ export const Page25 = () => {
   useAudio({
     src: '/assets/book_data/audios/sounds/coin-dropping.mp3',
     playOnLoad: true,
-    type: 'oneShot',
+    oneShot: true,
   });
 
   return (
