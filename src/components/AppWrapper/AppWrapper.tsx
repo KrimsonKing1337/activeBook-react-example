@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import classNames from 'classnames';
+import effects from 'book_pages/effects.json';
+import { RangeEffect } from '@types';
 
 import { setAll as setAllVolume } from 'store/volume/actions';
 import { setAll as setAllConfig } from 'store/config/actions';
@@ -18,6 +20,8 @@ import { bookmarksSelectors } from 'store/bookmarks/selectors';
 import { setIsOpen as bookmarksSetIsOpen } from 'store/bookmarks/actions';
 
 import { Achievement } from 'components/Achievement';
+
+import { isPageInRange } from 'utils/effects/rangeEffects';
 
 import styles from './AppWrapper.scss';
 
@@ -109,6 +113,26 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
 
     return () => window.removeEventListener('beforeunload', listener);
   }, [config, volume, page, bookmarks]);
+
+  useEffect(() => {
+    const arr = effects.effects as RangeEffect[];
+
+    let objInRange;
+
+    for (let i = 0; i < arr.length; i++) {
+      const cur = arr[i];
+
+      const isInRange = isPageInRange(page, cur.range);
+
+      if (isInRange) {
+        objInRange = cur;
+
+        break;
+      }
+    }
+
+    console.log('___', objInRange);
+  }, [page]);
 
   const appWrapperClassNames = classNames({
     [styles.appWrapper]: true,

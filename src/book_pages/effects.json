@@ -1,0 +1,20 @@
+{
+  "effects": [
+    {
+      "id": "tiptoe-out-the-back",
+      "type": "music",
+      "src": "/book_data/audios/music/Tiptoe_Out_the_Back.mp3",
+      "fadeOutSpeed": 1000,
+      "range": [
+        {
+          "start": 5,
+          "stop": 6
+        },
+        {
+          "start": 8,
+          "stop": 10
+        }
+      ]
+    }
+  ]
+}
