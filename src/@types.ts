@@ -1,6 +1,6 @@
 export type Range = {
-  start: number;
-  stop: number;
+  from: number;
+  to: number;
 };
 
 export type RangeEffect = {

@@ -4,6 +4,7 @@ import { store } from 'store';
 type AudioType = 'bg' | 'music' | undefined;
 
 type HowlWrapperOptions = {
+  id?: string;
   src: HowlOptions['src'],
   loop?: HowlOptions['loop'],
   type?: AudioType;
@@ -23,13 +24,14 @@ export class HowlWrapper {
   private static fadeDurationDefault = 1000;
 
   public readonly howlInst: Howl;
+  public id: HowlWrapperOptions['id'] = undefined;
   public src: HowlOptions['src'] = '';
   public isUnloading = false;
   public isPlaying = false;
   public type: AudioType = undefined;
   public range: HowlWrapperOptions['range'] = undefined;
 
-  constructor({ src, loop, range, type }: HowlWrapperOptions) {
+  constructor({ id, src, loop, range, type }: HowlWrapperOptions) {
     const storeState = store.getState();
     const { volume } = storeState;
 
@@ -52,6 +54,7 @@ export class HowlWrapper {
 
     this.howlInst = new Howl(options);
 
+    this.id = id;
     this.src = src;
     this.range = range;
     this.type = type;
