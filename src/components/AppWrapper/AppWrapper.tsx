@@ -19,8 +19,8 @@ import { setIsOpen as bookmarksSetIsOpen } from 'store/bookmarks/actions';
 
 import { Achievement } from 'components/Achievement';
 
-import { useMusicRange } from 'hooks/effects/musicRange';
-import { useAudioRange } from 'hooks/effects/audioRange';
+import { useMusicInRange } from 'hooks/effects/musicInRange';
+import { useAudioInRange } from 'hooks/effects/audioInRange';
 
 import styles from './AppWrapper.scss';
 
@@ -113,8 +113,8 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
     return () => window.removeEventListener('beforeunload', listener);
   }, [config, volume, page, bookmarks]);
 
-  useMusicRange();
-  useAudioRange();
+  useMusicInRange();
+  useAudioInRange();
 
   const appWrapperClassNames = classNames({
     [styles.appWrapper]: true,

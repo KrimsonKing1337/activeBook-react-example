@@ -10,7 +10,7 @@ import { mainSelectors } from 'store/main/selectors';
 import { HowlWrapper } from 'utils/effects/audio/HowlWrapper';
 import { isEffectInRange } from 'utils/effects/rangeEffects';
 
-export function useAudioRange() {
+export function useAudioInRange() {
   const dispatch = useDispatch();
 
   const [audio, setAudio] = useState<HowlWrapper>();
@@ -63,7 +63,7 @@ export function useAudioRange() {
   return audio;
 }
 
-export function useAudioRangeUnload() {
+export function useAudioInRangeUnload() {
   const audioInst = useSelector(musicEffectsSelectors.musicInst);
 
   useEffect(() => {
