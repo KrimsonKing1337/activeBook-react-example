@@ -15,7 +15,7 @@ import { volumeSelectors } from 'store/volume/selectors';
 import { configSelectors } from 'store/config/selectors';
 import { mainSelectors } from 'store/main/selectors';
 import { bookmarksSelectors } from 'store/bookmarks/selectors';
-import { setIsOpen as bookmarksSetIsOpen } from 'store/bookmarks/actions';
+import { bookmarksActions } from 'store/bookmarks';
 
 import { Achievement } from 'components/Achievement';
 
@@ -56,7 +56,7 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
       }
 
       if (!location.hash && bookmarksIsOpen) {
-        dispatch(bookmarksSetIsOpen(false));
+        dispatch(bookmarksActions.setIsOpen(false));
       }
     });
 

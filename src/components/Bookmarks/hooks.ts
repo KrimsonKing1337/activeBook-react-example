@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { bookmarksSelectors } from 'store/bookmarks/selectors';
-import { setBookmarks as setBookmarksToStore } from 'store/bookmarks/actions';
+import { bookmarksActions } from 'store/bookmarks';
 
 export function useBookmarks() {
   const dispatch = useDispatch();
@@ -10,7 +10,7 @@ export function useBookmarks() {
   const bookmarks = useSelector(bookmarksSelectors.bookmarks);
 
   const setBookmarks = (bookmarks: number[]) => {
-    dispatch(setBookmarksToStore(bookmarks));
+    dispatch(bookmarksActions.setBookmarks(bookmarks));
   };
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export function useBookmarks() {
     if (bookmarksAsJSON) {
       const bookmarksAsArray: number[] = JSON.parse(bookmarksAsJSON);
 
-      dispatch(setBookmarksToStore(bookmarksAsArray));
+      dispatch(bookmarksActions.setBookmarks(bookmarksAsArray));
     }
   }, []);
 

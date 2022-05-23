@@ -1,12 +1,13 @@
+import { PayloadAction } from '@reduxjs/toolkit';
 import { push } from 'connected-react-router';
 import { Location } from 'history';
 import { put, select, takeLatest } from 'redux-saga/effects';
 
 import { mainSelectors } from 'store/main/selectors';
 
-import { actionsTypes, SetIsOpen } from './actions';
+import { actions } from './slice';
 
-export function* watchSetIsOpen(action: SetIsOpen) {
+export function* watchSetIsOpen(action: PayloadAction<boolean>) {
   const { payload } = action;
 
   const location: Location = yield select(mainSelectors.location);
@@ -21,5 +22,5 @@ export function* watchSetIsOpen(action: SetIsOpen) {
 }
 
 export function* watchActions() {
-  yield takeLatest(actionsTypes.SET_IS_OPEN, watchSetIsOpen);
+  yield takeLatest(actions.setIsOpen, watchSetIsOpen);
 }
