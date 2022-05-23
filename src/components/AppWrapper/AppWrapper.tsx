@@ -14,7 +14,7 @@ import {
 import { volumeSelectors } from 'store/volume/selectors';
 import { configSelectors } from 'store/config/selectors';
 import { mainSelectors } from 'store/main/selectors';
-import { bookmarksSelectors } from 'store/bookmarks/selectors';
+import { bookmarksSelectors } from 'store/bookmarks';
 import { bookmarksActions } from 'store/bookmarks';
 
 import { Achievement } from 'components/Achievement';

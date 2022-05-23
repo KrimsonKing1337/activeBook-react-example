@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { bookmarksSelectors } from 'store/bookmarks/selectors';
+import { selectors } from 'store/bookmarks/selectors';
 import { bookmarksActions } from 'store/bookmarks';
 
 export function useBookmarks() {
   const dispatch = useDispatch();
 
-  const bookmarks = useSelector(bookmarksSelectors.bookmarks);
+  const bookmarks = useSelector(selectors.bookmarks);
 
   const setBookmarks = (bookmarks: number[]) => {
     dispatch(bookmarksActions.setBookmarks(bookmarks));

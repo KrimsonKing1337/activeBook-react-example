@@ -6,7 +6,7 @@ import classNames from 'classnames';
 
 import { mainSelectors } from 'store/main/selectors';
 import { bookmarksActions } from 'store/bookmarks';
-import { bookmarksSelectors } from 'store/bookmarks/selectors';
+import { bookmarksSelectors } from 'store/bookmarks';
 
 import { Header } from 'components/Header';
 import { Overflow } from 'components/Overflow';
