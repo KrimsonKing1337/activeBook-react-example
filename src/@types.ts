@@ -10,3 +10,5 @@ export type RangeEffect = {
   fadeOutSpeed?: number;
   range: Range[];
 };
+
+export type Theme = 'dark' | 'darkBlue' | 'orange' | 'black';

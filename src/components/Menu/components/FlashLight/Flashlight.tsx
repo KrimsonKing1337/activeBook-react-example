@@ -1,8 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setFlashlight } from 'store/config/actions';
-import { configSelectors } from 'store/config/selectors';
+import { configActions, configSelectors } from 'store/config';
 
 import { Toggle } from 'components/Toggle';
 
@@ -11,11 +10,11 @@ export const Flashlight = () => {
   const flashlightState = useSelector(configSelectors.flashlight);
 
   const toggleClickOnHandler = () => {
-    dispatch(setFlashlight(true));
+    dispatch(configActions.setFlashlight(true));
   };
 
   const toggleClickOffHandler = () => {
-    dispatch(setFlashlight(false));
+    dispatch(configActions.setFlashlight(false));
   };
 
   return (

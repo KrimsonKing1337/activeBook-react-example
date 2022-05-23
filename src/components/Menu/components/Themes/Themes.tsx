@@ -4,10 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { Theme } from '@types';
 
-import { Theme } from 'store/config/@types';
-import { configSelectors } from 'store/config/selectors';
-import { setTheme } from 'store/config/actions';
+import { configActions, configSelectors } from 'store/config';
 
 import { Label } from 'components/Label';
 
@@ -42,7 +41,7 @@ export const Themes = () => {
   const activeTheme = useSelector(configSelectors.theme);
 
   const clickHandler = (theme: Theme) => {
-    dispatch(setTheme(theme));
+    dispatch(configActions.setTheme(theme));
   };
 
   return (

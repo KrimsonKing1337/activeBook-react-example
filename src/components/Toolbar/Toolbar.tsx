@@ -2,9 +2,8 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { setMenuActiveState } from 'store/main/actions';
-import { setFontSize } from 'store/config/actions';
+import { configActions, configSelectors } from 'store/config';
 import { bookmarksActions } from 'store/bookmarks';
-import { configSelectors } from 'store/config/selectors';
 
 import BookmarkIcon from 'assets/img/toolbar/i-bookmark.svg';
 import FontSmallIcon from 'assets/img/toolbar/i-font-small.svg';
@@ -33,7 +32,7 @@ export const Toolbar = ({ sbMode }: ToolbarProps) => {
       return;
     }
 
-    dispatch(setFontSize(fontSizeNewValue));
+    dispatch(configActions.setFontSize(fontSizeNewValue));
   };
 
   const bookmarkClickHandler = () => {

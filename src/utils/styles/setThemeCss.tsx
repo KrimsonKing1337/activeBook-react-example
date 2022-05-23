@@ -1,4 +1,4 @@
-import { Theme } from 'store/config/@types';
+import { Theme } from '@types';
 
 import { setCssVariable } from './setCssVariable';
 

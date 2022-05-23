@@ -1,6 +1,6 @@
 import { RootState } from 'store';
 
-export const configSelectors = {
+export const selectors = {
   all: (state: RootState) => state.config,
   theme: (state: RootState) => state.config.theme,
   vibration: (state: RootState) => state.config.vibration,

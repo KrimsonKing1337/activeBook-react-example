@@ -5,14 +5,14 @@ import { useHistory } from 'react-router-dom';
 import classNames from 'classnames';
 
 import { setAll as setAllVolume } from 'store/volume/actions';
-import { setAll as setAllConfig } from 'store/config/actions';
+import { configActions } from 'store/config';
 import {
   setIsFlashlightAvailable,
   setIsVibrationAvailable,
   setMenuActiveState,
 } from 'store/main/actions';
 import { volumeSelectors } from 'store/volume/selectors';
-import { configSelectors } from 'store/config/selectors';
+import { configSelectors } from 'store/config';
 import { mainSelectors } from 'store/main/selectors';
 import { bookmarksSelectors } from 'store/bookmarks';
 import { bookmarksActions } from 'store/bookmarks';
@@ -90,7 +90,7 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
     const config = JSON.parse(configAsJson);
     const volume = JSON.parse(volumeAsJson);
 
-    dispatch(setAllConfig(config));
+    dispatch(configActions.setAll(config));
     dispatch(setAllVolume(volume));
   }, []);
 

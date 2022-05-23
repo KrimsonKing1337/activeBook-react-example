@@ -1,8 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setVibration } from 'store/config/actions';
-import { configSelectors } from 'store/config/selectors';
+import { configActions, configSelectors } from 'store/config';
 
 import { Toggle } from 'components/Toggle';
 
@@ -11,11 +10,11 @@ export const Vibration = () => {
   const vibrationState = useSelector(configSelectors.vibration);
 
   const toggleClickOnHandler = () => {
-    dispatch(setVibration(true));
+    dispatch(configActions.setVibration(true));
   };
 
   const toggleClickOffHandler = () => {
-    dispatch(setVibration(false));
+    dispatch(configActions.setVibration(false));
   };
 
   return (

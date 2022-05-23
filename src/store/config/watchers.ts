@@ -1,22 +1,23 @@
+import { PayloadAction } from '@reduxjs/toolkit';
 import { call, takeLatest } from 'redux-saga/effects';
 
 import { setThemeCss } from 'utils/styles/setThemeCss';
 
-import { actionsTypes, SetAll, SetTheme } from './actions';
+import { actions, State } from './slice';
 
-export function* watchSetAll(action: SetAll) {
+export function* watchSetAll(action: PayloadAction<State>) {
   const { payload } = action;
 
   yield call(() => setThemeCss(payload.theme));
 }
 
-export function* watchSetTheme(action: SetTheme) {
+export function* watchSetTheme(action: PayloadAction<State['theme']>) {
   const { payload } = action;
 
   yield call(() => setThemeCss(payload));
 }
 
 export function* watchActions() {
-  yield takeLatest(actionsTypes.SET_ALL_CONFIG, watchSetAll);
-  yield takeLatest(actionsTypes.SET_THEME, watchSetTheme);
+  yield takeLatest(actions.setAll, watchSetAll);
+  yield takeLatest(actions.setTheme, watchSetTheme);
 }

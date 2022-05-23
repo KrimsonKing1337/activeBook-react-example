@@ -1,8 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setInverseColor } from 'store/config/actions';
-import { configSelectors } from 'store/config/selectors';
+import { configActions, configSelectors } from 'store/config';
 
 import { Toggle } from 'components/Toggle';
 
@@ -11,11 +10,11 @@ export const InverseColor = () => {
   const inverseColorState = useSelector(configSelectors.inverseColor);
 
   const toggleClickOnHandler = () => {
-    dispatch(setInverseColor(true));
+    dispatch(configActions.setInverseColor(true));
   };
 
   const toggleClickOffHandler = () => {
-    dispatch(setInverseColor(false));
+    dispatch(configActions.setInverseColor(false));
   };
 
   return (

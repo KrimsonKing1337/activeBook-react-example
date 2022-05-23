@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 
-import { configSelectors } from 'store/config/selectors';
+import { configSelectors } from 'store/config';
 
 import { PageWrapperProps } from 'components/PageWrapper/PageWrapper';
 
