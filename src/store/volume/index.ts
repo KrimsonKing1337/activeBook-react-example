@@ -1,3 +1,3 @@
-export type { Actions as VolumeActions } from './actions';
-export { reducer as volumeReducer } from './reducer';
+export { reducer as volumeReducer, actions as volumeActions } from './slice';
 export { watchActions as watchVolumeActions } from './watchers';
+export { selectors as volumeSelectors } from './selectors';

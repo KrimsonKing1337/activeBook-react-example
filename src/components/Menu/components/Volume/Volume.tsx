@@ -1,8 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { volumeSelectors } from 'store/volume/selectors';
-import { setBg, setGlobal, setMusic, setRegular } from 'store/volume/actions';
+import { volumeActions, volumeSelectors } from 'store/volume';
 
 import { Label } from 'components/Label';
 
@@ -19,19 +18,19 @@ export const Volume = () => {
   const musicVolume = useSelector(volumeSelectors.music);
 
   const commonChangeHandler = (value: number) => {
-    dispatch(setGlobal(value));
+    dispatch(volumeActions.setGlobal(value));
   };
 
   const bgChangeHandler = (value: number) => {
-    dispatch(setBg(value));
+    dispatch(volumeActions.setBg(value));
   };
 
   const otherChangeHandler = (value: number) => {
-    dispatch(setRegular(value));
+    dispatch(volumeActions.setRegular(value));
   };
 
   const musicChangeHandler = (value: number) => {
-    dispatch(setMusic(value));
+    dispatch(volumeActions.setMusic(value));
   };
 
   return (

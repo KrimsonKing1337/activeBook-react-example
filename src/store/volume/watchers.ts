@@ -1,19 +1,10 @@
+import { PayloadAction } from '@reduxjs/toolkit';
 import { Howler } from 'howler';
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { store } from 'store';
 
-import {
-  actionsTypes,
-  SetAll,
-  SetBg,
-  setBg,
-  SetGlobal,
-  setGlobal,
-  SetMusic,
-  setMusic,
-  SetRegular,
-  setRegular,
-} from './actions';
+import { actions } from './slice';
+import { State } from './@types';
 
 function getSoundInsts() {
   const storeState = store.getState();
@@ -30,7 +21,7 @@ function getSoundInsts() {
   };
 }
 
-export function* watchSetAll(action: SetAll) {
+export function* watchSetAll(action: PayloadAction<State>) {
   const { payload } = action;
   const { global, bg, music, regular } = payload;
 
@@ -38,13 +29,13 @@ export function* watchSetAll(action: SetAll) {
     Howler.volume(global / 100);
   });
 
-  yield put(setGlobal(global || 100));
-  yield put(setRegular(regular || 100));
-  yield put(setMusic(music || 100));
-  yield put(setBg(bg || 100));
+  yield put(actions.setGlobal(global || 100));
+  yield put(actions.setRegular(regular || 100));
+  yield put(actions.setMusic(music || 100));
+  yield put(actions.setBg(bg || 100));
 }
 
-export function* watchSetGlobal(action: SetGlobal) {
+export function* watchSetGlobal(action: PayloadAction<State['global']>) {
   const { payload } = action;
 
   yield call(() => {
@@ -53,7 +44,7 @@ export function* watchSetGlobal(action: SetGlobal) {
   });
 }
 
-export function* watchSetBg(action: SetBg) {
+export function* watchSetBg(action: PayloadAction<State['bg']>) {
   const { payload } = action;
 
   yield call(() => {
@@ -65,7 +56,7 @@ export function* watchSetBg(action: SetBg) {
   });
 }
 
-export function* watchSetRegular(action: SetRegular) {
+export function* watchSetRegular(action: PayloadAction<State['regular']>) {
   const { payload } = action;
 
   yield call(() => {
@@ -77,7 +68,7 @@ export function* watchSetRegular(action: SetRegular) {
   });
 }
 
-export function* watchSetMusic(action: SetMusic) {
+export function* watchSetMusic(action: PayloadAction<State['music']>) {
   const { payload } = action;
 
   yield call(() => {
@@ -90,9 +81,9 @@ export function* watchSetMusic(action: SetMusic) {
 }
 
 export function* watchActions() {
-  yield takeLatest(actionsTypes.SET_ALL, watchSetAll);
-  yield takeLatest(actionsTypes.SET_GLOBAL, watchSetGlobal);
-  yield takeLatest(actionsTypes.SET_BG, watchSetBg);
-  yield takeLatest(actionsTypes.SET_REGULAR, watchSetRegular);
-  yield takeLatest(actionsTypes.SET_MUSIC, watchSetMusic);
+  yield takeLatest(actions.setAll, watchSetAll);
+  yield takeLatest(actions.setGlobal, watchSetGlobal);
+  yield takeLatest(actions.setBg, watchSetBg);
+  yield takeLatest(actions.setRegular, watchSetRegular);
+  yield takeLatest(actions.setMusic, watchSetMusic);
 }

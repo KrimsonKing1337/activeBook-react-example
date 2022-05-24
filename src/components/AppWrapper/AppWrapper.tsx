@@ -4,9 +4,8 @@ import { useHistory } from 'react-router-dom';
 
 import classNames from 'classnames';
 
-import { setAll as setAllVolume } from 'store/volume/actions';
+import { volumeActions, volumeSelectors } from 'store/volume';
 import { configActions } from 'store/config';
-import { volumeSelectors } from 'store/volume/selectors';
 import { configSelectors } from 'store/config';
 import { mainActions, mainSelectors } from 'store/main';
 import { bookmarksSelectors } from 'store/bookmarks';
@@ -86,7 +85,7 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
     const volume = JSON.parse(volumeAsJson);
 
     dispatch(configActions.setAll(config));
-    dispatch(setAllVolume(volume));
+    dispatch(volumeActions.setAll(volume));
   }, []);
 
   useEffect(() => {
