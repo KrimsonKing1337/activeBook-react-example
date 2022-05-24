@@ -1,7 +1,7 @@
 import { RefObject, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-import { sideShadowEffectSelectors } from 'store/effects/sideShadow/selectors';
+import { sideShadowEffectSelectors } from 'store/effects/sideShadow';
 
 import { setCssVariable } from 'utils/styles/setCssVariable';
 

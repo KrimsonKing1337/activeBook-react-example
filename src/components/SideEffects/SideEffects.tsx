@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { sideShadowEffectSelectors } from 'store/effects/sideShadow/selectors';
+import { sideShadowEffectSelectors } from 'store/effects/sideShadow';
 import { sideTextEffectSelectors } from 'store/effects/sideText/selectors';
 
 import { SideShadow } from './components/SideShadow';

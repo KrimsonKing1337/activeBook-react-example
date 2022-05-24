@@ -1,10 +1,12 @@
+import { PayloadAction } from '@reduxjs/toolkit';
 import { takeLatest } from 'redux-saga/effects';
 
 import { setCssVariable } from 'utils/styles/setCssVariable';
 
-import { actionsTypes, SetColor, SetSpeed } from './actions';
+import { actions } from './slice';
+import { State } from './@types';
 
-function* watchSetColor(action: SetColor) {
+function* watchSetColor(action: PayloadAction<State['color']>) {
   const { payload } = action;
 
   setCssVariable('--text-shadow-color', payload);
@@ -12,7 +14,7 @@ function* watchSetColor(action: SetColor) {
   yield true;
 }
 
-function* watchSetSpeed(action: SetSpeed) {
+function* watchSetSpeed(action: PayloadAction<State['speed']>) {
   const { payload } = action;
 
   const animationSpeed = `${payload}ms`;
@@ -23,6 +25,6 @@ function* watchSetSpeed(action: SetSpeed) {
 }
 
 export function* watchActions() {
-  yield takeLatest(actionsTypes.SET_COLOR, watchSetColor);
-  yield takeLatest(actionsTypes.SET_SPEED, watchSetSpeed);
+  yield takeLatest(actions.setColor, watchSetColor);
+  yield takeLatest(actions.setSpeed, watchSetSpeed);
 }

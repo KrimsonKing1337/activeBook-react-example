@@ -1,3 +1,3 @@
-export type { Actions as SideShadowActions } from './actions';
-export { reducer as sideShadowReducer } from './reducer';
+export { reducer as sideShadowReducer, actions as sideShadowActions } from './slice';
 export { watchActions as watchSideShadowActions } from './watchers';
+export { selectors as sideShadowEffectSelectors } from './selectors';
