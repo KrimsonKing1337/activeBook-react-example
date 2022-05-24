@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-import { mainSelectors } from 'store/main/selectors';
+import { mainSelectors } from 'store/main';
 
 import { off as vibrationOff, on as vibrationOn } from 'utils/effects/vibration';
 

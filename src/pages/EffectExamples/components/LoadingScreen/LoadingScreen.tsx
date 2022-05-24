@@ -1,27 +1,27 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { setIsLoading } from 'store/main/actions';
+import { mainActions } from 'store/main';
 
 import { Toggle } from 'components/Toggle';
 
 export const LoadingScreen = () => {
   const dispatch = useDispatch();
-  
+
   const [buttonForLoadingStateIsActive, setButtonForLoadingStateIsActive] = useState(false);
 
   const buttonForLoadingStateClickHandler = (value: boolean) => {
-    dispatch(setIsLoading(value));
+    dispatch(mainActions.setIsLoading(value));
     setButtonForLoadingStateIsActive(value);
 
     setTimeout(() => {
       document.addEventListener('click', () => {
-        dispatch(setIsLoading(false));
+        dispatch(mainActions.setIsLoading(false));
         setButtonForLoadingStateIsActive(false);
       }, { once: true });
     }, 0);
   };
-  
+
   return (
     <Toggle
       label={'Состояние загрузки (для отмены - клик в любое место)'}

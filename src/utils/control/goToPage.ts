@@ -1,15 +1,15 @@
 import { store } from 'store';
 
-import { nextPage, prevPage, setPage } from 'store/main/actions';
+import { mainActions } from 'store/main';
 
 export function goToPage(n: number) {
-  store.dispatch(setPage(n));
+  store.dispatch(mainActions.setPage(n));
 }
 
 export function goPrevPage() {
-  store.dispatch(prevPage());
+  store.dispatch(mainActions.prevPage());
 }
 
 export function goNextPage() {
-  store.dispatch(nextPage());
+  store.dispatch(mainActions.nextPage());
 }

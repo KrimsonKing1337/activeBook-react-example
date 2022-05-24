@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import classNames from 'classnames';
 
 import { effectsSelectors } from 'store/effects/common';
-import { mainSelectors } from 'store/main/selectors';
+import { mainSelectors } from 'store/main';
 
 import { Toolbar } from 'components/Toolbar';
 import { Menu } from 'components/Menu';

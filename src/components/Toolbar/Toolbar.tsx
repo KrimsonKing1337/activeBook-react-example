@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setMenuActiveState } from 'store/main/actions';
+import { mainActions } from 'store/main';
 import { configActions, configSelectors } from 'store/config';
 import { bookmarksActions } from 'store/bookmarks';
 
@@ -40,7 +40,7 @@ export const Toolbar = ({ sbMode }: ToolbarProps) => {
   };
 
   const etcIconClickHandler = () => {
-    dispatch(setMenuActiveState('menu'));
+    dispatch(mainActions.setMenuActiveState('menu'));
   };
 
   const fontSmallClickHandler = () => {

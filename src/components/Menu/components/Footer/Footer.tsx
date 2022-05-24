@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import classNames from 'classnames';
 
-import { setMenuActiveState } from 'store/main/actions';
+import { mainActions } from 'store/main';
 
 import styles from './Footer.scss';
 
@@ -18,11 +18,11 @@ export const Footer = () => {
   const dispatch = useDispatch();
 
   const tableOfContentsButtonClickHandler = () => {
-    dispatch(setMenuActiveState('tableOfContents'));
+    dispatch(mainActions.setMenuActiveState('tableOfContents'));
   };
 
   const closeButtonClickHandler = () => {
-    dispatch(setMenuActiveState(null));
+    dispatch(mainActions.setMenuActiveState(null));
   };
 
   return (

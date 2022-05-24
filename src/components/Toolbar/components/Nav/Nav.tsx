@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import classNames from 'classnames';
 
-import { mainSelectors } from 'store/main/selectors';
+import { mainSelectors } from 'store/main';
 
 import ArrowLeft from 'assets/img/toolbar/i-arrow-left.svg';
 import ArrowRight from 'assets/img/toolbar/i-arrow-right.svg';

@@ -6,14 +6,9 @@ import classNames from 'classnames';
 
 import { setAll as setAllVolume } from 'store/volume/actions';
 import { configActions } from 'store/config';
-import {
-  setIsFlashlightAvailable,
-  setIsVibrationAvailable,
-  setMenuActiveState,
-} from 'store/main/actions';
 import { volumeSelectors } from 'store/volume/selectors';
 import { configSelectors } from 'store/config';
-import { mainSelectors } from 'store/main/selectors';
+import { mainActions, mainSelectors } from 'store/main';
 import { bookmarksSelectors } from 'store/bookmarks';
 import { bookmarksActions } from 'store/bookmarks';
 
@@ -48,11 +43,11 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
   useEffect(() => {
     const unlisten = history.listen((location) => {
       if (!location.hash && menuActiveState !== null) {
-        dispatch(setMenuActiveState(null));
+        dispatch(mainActions.setMenuActiveState(null));
       }
 
       if (location.hash && menuActiveState === 'tableOfContents') {
-        dispatch(setMenuActiveState(null));
+        dispatch(mainActions.setMenuActiveState(null));
       }
 
       if (!location.hash && bookmarksIsOpen) {
@@ -66,16 +61,16 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
   useEffect(() => {
     const canVibrate = !!navigator.vibrate;
 
-    dispatch(setIsVibrationAvailable(canVibrate));
+    dispatch(mainActions.setIsVibrationAvailable(canVibrate));
 
     const flashlight = (window as any).plugins?.flashlight;
 
     if (flashlight) {
       flashlight.available((isAvailable: boolean) => {
-        dispatch(setIsFlashlightAvailable(isAvailable));
+        dispatch(mainActions.setIsFlashlightAvailable(isAvailable));
       });
     } else {
-      dispatch(setIsFlashlightAvailable(false));
+      dispatch(mainActions.setIsFlashlightAvailable(false));
     }
   }, []);
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { mainSelectors } from 'store/main/selectors';
+import { mainSelectors } from 'store/main';
 
 import { Overflow } from 'components/Overflow';
 import { Header } from 'components/Header';

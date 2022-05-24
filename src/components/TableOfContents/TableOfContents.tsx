@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
-import { mainSelectors } from 'store/main/selectors';
-import { setMenuActiveState } from 'store/main/actions';
+import { mainActions, mainSelectors } from 'store/main';
 
 import { Header } from 'components/Header';
 import { Overflow } from 'components/Overflow';
@@ -33,7 +32,7 @@ export const TableOfContents = () => {
 
     if (prevLocationPath !== pathname) {
       if (pathname === IS_CLOSE_LOCATION) {
-        dispatch(setMenuActiveState(null));
+        dispatch(mainActions.setMenuActiveState(null));
       }
 
       setPrevLocationPath(pathname);
@@ -41,7 +40,7 @@ export const TableOfContents = () => {
   }, [pathname]);
 
   const closeButtonClickHandler = () => {
-    dispatch(setMenuActiveState(null));
+    dispatch(mainActions.setMenuActiveState(null));
   };
 
   return (

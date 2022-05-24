@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import { initialState } from 'store/main/initialState';
+import { initialState } from 'store/main/slice';
 
 type RoutesProps = {
   children: React.ReactNode;

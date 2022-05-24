@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import classNames from 'classnames';
 
-import { setMenuActiveState } from 'store/main/actions';
+import { mainActions } from 'store/main';
 
 import { getNarrativeElement } from 'components/PageWrapper/components/Narrative/utils';
 
@@ -25,7 +25,7 @@ export const Overflow = ({ children, isOpen }: OverflowProps) => {
       const { key } = e;
 
       if (key === 'Escape') {
-        dispatch(setMenuActiveState(null));
+        dispatch(mainActions.setMenuActiveState(null));
       }
     };
 

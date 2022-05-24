@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RangeEffect } from '@types';
 
 import { musicEffectsActions, musicEffectsSelectors } from 'store/effects/music';
-import { mainSelectors } from 'store/main/selectors';
+import { mainSelectors } from 'store/main';
 
 import { HowlWrapper } from 'utils/effects/audio/HowlWrapper';
 import { isEffectInRange } from 'utils/effects/rangeEffects';

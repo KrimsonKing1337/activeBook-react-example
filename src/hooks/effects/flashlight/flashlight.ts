@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 
-import { mainSelectors } from 'store/main/selectors';
+import { mainSelectors } from 'store/main';
 
 import { useSideShadow } from 'hooks/effects/sideShadow';
 

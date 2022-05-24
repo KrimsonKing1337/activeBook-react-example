@@ -3,7 +3,7 @@ import { push } from 'connected-react-router';
 import { Location } from 'history';
 import { put, select, takeLatest } from 'redux-saga/effects';
 
-import { mainSelectors } from 'store/main/selectors';
+import { mainSelectors } from 'store/main';
 
 import { actions } from './slice';
 
