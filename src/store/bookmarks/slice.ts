@@ -1,9 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export interface State {
-  isOpen: boolean;
-  bookmarks: number[];
-}
+import { State } from './@types';
 
 const initialState: State = {
   isOpen: false,
