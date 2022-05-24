@@ -1,7 +1,8 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import { put, select, takeLatest } from 'redux-saga/effects';
 
-import { actions, HowlInst, LastInstIndex } from './slice';
+import { HowlInst, LastInstIndex } from './@types';
+import { actions } from './slice';
 import { audioEffectsSelectors } from './index';
 
 export function* watchSetAudio(action: PayloadAction<HowlInst>) {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import { setDotsActiveState } from 'store/effects/common/actions';
+import { effectsActions } from 'store/effects/common';
 
 import { Toggle } from 'components/Toggle';
 
@@ -9,7 +9,7 @@ export const Dots = () => {
   const dispatch = useDispatch();
 
   const buttonClickHandler = (value: boolean) => {
-    dispatch(setDotsActiveState(value));
+    dispatch(effectsActions.setDotsActiveState(value));
   };
 
   return (

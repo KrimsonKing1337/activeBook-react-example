@@ -1,6 +1,6 @@
 import { RootState } from 'store';
 
-export const effectsSelectors = {
+export const selectors = {
   sideShadowIsActive: (state: RootState) => state.effects.sideShadowIsActive,
   sideTextIsActive: (state: RootState) => state.effects.sideTextIsActive,
   backgroundVideoIsActive: (state: RootState) => state.effects.backgroundVideoIsActive,

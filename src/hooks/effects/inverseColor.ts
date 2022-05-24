@@ -1,12 +1,12 @@
 import { useDispatch } from 'react-redux';
 
-import { setInverseColorActiveState } from 'store/effects/common/actions';
+import { effectsActions } from 'store/effects/common';
 
 export function useInverseColor() {
   const dispatch = useDispatch();
 
-  const on = () => dispatch(setInverseColorActiveState(true));
-  const off = () => dispatch(setInverseColorActiveState(false));
+  const on = () => dispatch(effectsActions.setInverseColorActiveState(true));
+  const off = () => dispatch(effectsActions.setInverseColorActiveState(false));
 
   return {
     inverseColorOn: on,

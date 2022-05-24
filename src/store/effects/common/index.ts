@@ -1,2 +1,2 @@
-export type { Actions as EffectsActions } from './actions';
-export { reducer as effectsReducer } from './reducer';
+export { reducer as effectsReducer, actions as effectsActions } from './slice';
+export { selectors as effectsSelectors } from './selectors';

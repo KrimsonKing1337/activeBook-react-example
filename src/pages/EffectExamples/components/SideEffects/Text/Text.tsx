@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import { setSideTextActiveState } from 'store/effects/common/actions';
+import { effectsActions } from 'store/effects/common';
 
 import { Toggle } from 'components/Toggle';
 
@@ -9,7 +9,7 @@ export const Text = () => {
   const dispatch = useDispatch();
 
   const buttonClickHandler = (value: boolean) => {
-    dispatch(setSideTextActiveState(value));
+    dispatch(effectsActions.setSideTextActiveState(value));
   };
 
   return (
