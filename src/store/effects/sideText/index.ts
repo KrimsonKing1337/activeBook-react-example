@@ -1,3 +1,3 @@
-export type { Actions as SideTextActions } from './actions';
-export { reducer as sideTextReducer } from './reducer';
+export { reducer as sideTextReducer, actions as sideTextActions } from './slice';
 export { watchActions as watchSideTextActions } from './watchers';
+export { selectors as sideTextEffectSelectors } from './selectors';

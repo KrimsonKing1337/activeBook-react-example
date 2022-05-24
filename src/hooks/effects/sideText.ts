@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { ReactNode, useEffect } from 'react';
 
-import { setActiveState, setSpeed, setTemplate } from 'store/effects/sideText/actions';
-import { initialState } from 'store/effects/sideText/initialState';
+import { sideTextActions } from 'store/effects/sideText';
+import { initialState } from 'store/effects/sideText/slice';
 
 export type useSideTextProps = {
   isActiveDefault?: boolean;
@@ -14,17 +14,17 @@ export function useSideText({ isActiveDefault = true, template, speed = initialS
   const dispatch = useDispatch();
 
   const on = () => {
-    dispatch(setActiveState(true));
+    dispatch(sideTextActions.setActiveState(true));
   };
 
   const off = () => {
-    dispatch(setActiveState(false));
+    dispatch(sideTextActions.setActiveState(false));
   };
 
   useEffect(() => {
-    dispatch(setTemplate(template));
-    dispatch(setSpeed(speed));
-    dispatch(setActiveState(isActiveDefault));
+    dispatch(sideTextActions.setTemplate(template));
+    dispatch(sideTextActions.setSpeed(speed));
+    dispatch(sideTextActions.setActiveState(isActiveDefault));
 
     return () => {
       off();

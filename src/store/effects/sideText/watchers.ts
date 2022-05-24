@@ -1,10 +1,12 @@
+import  { PayloadAction } from '@reduxjs/toolkit';
 import { takeLatest } from 'redux-saga/effects';
 
 import { setCssVariable } from 'utils/styles/setCssVariable';
 
-import { actionsTypes, SetSpeed } from './actions';
+import { actions } from './slice';
+import { State } from './@types';
 
-function* watchSetSpeed(action: SetSpeed) {
+function* watchSetSpeed(action: PayloadAction<State['speed']>) {
   const { payload } = action;
 
   const animationSpeed = `${payload}ms`;
@@ -15,5 +17,5 @@ function* watchSetSpeed(action: SetSpeed) {
 }
 
 export function* watchActions() {
-  yield takeLatest(actionsTypes.SET_SPEED, watchSetSpeed);
+  yield takeLatest(actions.setSpeed, watchSetSpeed);
 }
