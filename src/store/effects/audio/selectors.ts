@@ -1,6 +1,6 @@
 import { RootState } from 'store';
 
-export const audioEffectsSelectors = {
+export const selectors = {
   howlInst1: (state: RootState) => state.audioEffects.howlInst1,
   howlInst2: (state: RootState) => state.audioEffects.howlInst2,
   lastInstIndex: (state: RootState) => state.audioEffects.lastInstIndex,

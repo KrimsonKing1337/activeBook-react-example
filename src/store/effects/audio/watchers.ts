@@ -1,31 +1,25 @@
+import { PayloadAction } from '@reduxjs/toolkit';
 import { put, select, takeLatest } from 'redux-saga/effects';
 
-import { LastInstIndex } from './@types';
-import { audioEffectsSelectors } from './selectors';
-import {
-  actionsTypes,
-  SetAudio,
-  setHowlInst1,
-  setHowlInst2,
-  setLastInstIndex,
-} from './actions';
+import { actions, HowlInst, LastInstIndex } from './slice';
+import { audioEffectsSelectors } from './index';
 
-export function* watchSetAudio(action: SetAudio) {
+export function* watchSetAudio(action: PayloadAction<HowlInst>) {
   const { payload } = action;
 
   const lastInstIndex: LastInstIndex = yield select(audioEffectsSelectors.lastInstIndex);
 
   if (lastInstIndex === 1) {
-    yield put(setHowlInst2(payload));
-    yield put(setHowlInst1(null));
-    yield put(setLastInstIndex(2));
+    yield put(actions.setHowlInst2(payload));
+    yield put(actions.setHowlInst1(null));
+    yield put(actions.setLastInstIndex(2));
   } else {
-    yield put(setHowlInst1(payload));
-    yield put(setHowlInst2(null));
-    yield put(setLastInstIndex(1));
+    yield put(actions.setHowlInst1(payload));
+    yield put(actions.setHowlInst2(null));
+    yield put(actions.setLastInstIndex(1));
   }
 }
 
 export function* watchActions() {
-  yield takeLatest(actionsTypes.SET_AUDIO, watchSetAudio);
+  yield takeLatest(actions.setAudio, watchSetAudio);
 }
