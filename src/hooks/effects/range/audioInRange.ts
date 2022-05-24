@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { RangeEffect } from '@types';
 
-import { musicEffectsSelectors } from 'store/effects/music/selectors';
-import { setMusic as setMusicEffect } from 'store/effects/music/actions';
+import { musicEffectsActions, musicEffectsSelectors } from 'store/effects/music';
 import { mainSelectors } from 'store/main/selectors';
 
 import { HowlWrapper } from 'utils/effects/audio/HowlWrapper';
@@ -43,7 +42,7 @@ export function useAudioInRange() {
       loop: true,
     });
 
-    dispatch(setMusicEffect(howlInst));
+    dispatch(musicEffectsActions.setMusic(howlInst));
   }, [page]);
 
   useEffect(() => {

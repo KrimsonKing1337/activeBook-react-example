@@ -3,7 +3,7 @@ import { Location } from 'history';
 import { put, select, takeLatest } from 'redux-saga/effects';
 
 import { HowlInst } from 'store/effects/music/@types';
-import { musicEffectsSelectors } from 'store/effects/music/selectors';
+import { musicEffectsSelectors } from 'store/effects/music';
 
 import { State } from './@types';
 import { mainSelectors } from './selectors';

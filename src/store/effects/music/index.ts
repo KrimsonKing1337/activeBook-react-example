@@ -1,3 +1,3 @@
-export type { Actions as MusicEffectsActions } from './actions';
-export { reducer as musicEffectsReducer } from './reducer';
+export { reducer as musicEffectsReducer, actions as musicEffectsActions } from './slice';
 export { watchActions as watchMusicEffectsActions } from './watchers';
+export { selectors as musicEffectsSelectors } from './selectors';
