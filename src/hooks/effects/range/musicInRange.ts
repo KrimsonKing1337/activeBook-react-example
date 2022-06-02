@@ -22,7 +22,10 @@ export function useMusicInRange() {
     const musicInRange = isEffectInRange(page, 'music');
 
     if (!musicInRange) {
-      musicInst?.stop();
+      musicInst?.unload(true);
+
+      setMusic(undefined);
+      dispatch(musicEffectsActions.setMusic(null));
 
       return;
     }
@@ -32,6 +35,10 @@ export function useMusicInRange() {
     const { src, id } = musicInRange;
 
     if (musicInst?.id === id) {
+      if (!musicInst?.isPlaying) {
+        musicInst?.play();
+      }
+
       return;
     }
 
@@ -47,10 +54,12 @@ export function useMusicInRange() {
 
   useEffect(() => {
     if (!musicInst || musicInst.isUnloading) {
-      return;
+      if (musicInst?.state() !== 'unloaded') {
+        return;
+      }
     }
 
-    if (musicInst?.id === musicInRange?.id && musicInst.isPlaying) {
+    if (musicInst?.id === musicInRange?.id && musicInst.playing()) {
       return;
     }
 

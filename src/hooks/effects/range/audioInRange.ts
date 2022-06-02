@@ -22,7 +22,10 @@ export function useAudioInRange() {
     const audioInRange = isEffectInRange(page, 'audio');
 
     if (!audioInRange) {
-      audioInst?.stop();
+      audioInst?.unload(true);
+
+      setAudio(undefined);
+      dispatch(audioBgEffectsActions.setAudio(null));
 
       return;
     }
@@ -38,7 +41,7 @@ export function useAudioInRange() {
     const howlInst = new HowlWrapper({
       id,
       src: [src],
-      // type: 'bgAudio', // todo
+      type: 'bg',
       loop: true,
     });
 
@@ -50,7 +53,7 @@ export function useAudioInRange() {
       return;
     }
 
-    if (audioInst?.id === audioInRange?.id && audioInst.isPlaying) {
+    if (audioInst?.id === audioInRange?.id && audioInst.playing()) {
       return;
     }
 

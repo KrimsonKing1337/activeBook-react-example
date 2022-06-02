@@ -32,8 +32,7 @@ export class HowlWrapper {
   public range: HowlWrapperOptions['range'] = undefined;
 
   constructor({ id, src, loop, range, type }: HowlWrapperOptions) {
-    const storeState = store.getState();
-    const { volume } = storeState;
+    const volume = this.getVolume();
 
     let volumeValue = volume.regular / 100;
 
@@ -62,6 +61,27 @@ export class HowlWrapper {
 
   volume(n: number) {
     this.howlInst.volume(n);
+  }
+
+  getVolume() {
+    const storeState = store.getState();
+    const { volume } = storeState;
+
+    return volume;
+  }
+
+  getVolumeByType() {
+    const volume = this.getVolume();
+
+    let volumeValue = volume.regular;
+
+    if (this.type === 'bg') {
+      volumeValue = volume.bg;
+    } else if (this.type === 'music') {
+      volumeValue = volume.music;
+    }
+
+    return volumeValue;
   }
 
   async play(withFadeIn = false) {
@@ -125,13 +145,17 @@ export class HowlWrapper {
   }
 
   async fadeIn() {
-    await this.fade(0, 100, HowlWrapper.fadeDurationDefault);
+    const volume = this.getVolumeByType();
+
+    await this.fade(0, volume, HowlWrapper.fadeDurationDefault);
 
     return this.howlInst;
   }
 
   async fadeOut() {
-    await this.fade(100, 0, HowlWrapper.fadeDurationDefault);
+    const volume = this.getVolumeByType();
+
+    await this.fade(volume, 0, HowlWrapper.fadeDurationDefault);
 
     return this.howlInst;
   }
