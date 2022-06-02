@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { RangeEffect } from '@types';
 
-import { musicEffectsActions, musicEffectsSelectors } from 'store/effects/music';
+import { audioBgEffectsActions, audioBgEffectsSelectors } from 'store/effects/audioBg';
 import { mainSelectors } from 'store/main';
 
 import { HowlWrapper } from 'utils/effects/audio/HowlWrapper';
@@ -16,7 +16,7 @@ export function useAudioInRange() {
   const [audioInRange, setAudioInRange] = useState<RangeEffect>();
 
   const page = useSelector(mainSelectors.page);
-  const audioInst = useSelector(musicEffectsSelectors.musicInst); // todo: поменять на audioBg, создать его в сторе
+  const audioInst = useSelector(audioBgEffectsSelectors.audioInst);
 
   useEffect(() => {
     const audioInRange = isEffectInRange(page, 'audio');
@@ -42,7 +42,7 @@ export function useAudioInRange() {
       loop: true,
     });
 
-    dispatch(musicEffectsActions.setMusic(howlInst));
+    dispatch(audioBgEffectsActions.setAudio(howlInst));
   }, [page]);
 
   useEffect(() => {
@@ -63,7 +63,7 @@ export function useAudioInRange() {
 }
 
 export function useAudioInRangeUnload() {
-  const audioInst = useSelector(musicEffectsSelectors.musicInst);
+  const audioInst = useSelector(audioBgEffectsSelectors.audioInst);
 
   useEffect(() => {
     if (!audioInst || audioInst.isUnloading) {

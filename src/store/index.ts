@@ -10,6 +10,7 @@ import { configReducer, watchConfigActions } from './config';
 import { volumeReducer, watchVolumeActions } from './volume';
 import { effectsReducer } from './effects/common';
 import { audioEffectsReducer, watchAudioEffectsActions } from './effects/audio';
+import { audioBgEffectsReducer, watchAudioBgEffectsActions } from './effects/audioBg';
 import { musicEffectsReducer, watchMusicEffectsActions } from './effects/music';
 import { sideShadowReducer, watchSideShadowActions } from './effects/sideShadow';
 import { sideTextReducer, watchSideTextActions } from './effects/sideText';
@@ -29,6 +30,7 @@ const makeRootReducer = (history: ConnectedRouterProps['history']) => {
     volume: volumeReducer,
     effects: effectsReducer,
     audioEffects: audioEffectsReducer,
+    audioBgEffects: audioBgEffectsReducer,
     musicEffects: musicEffectsReducer,
     sideShadowEffect: sideShadowReducer,
     sideTextEffect: sideTextReducer,
@@ -46,6 +48,7 @@ sagaMiddleware.run(watchIncrementActions);
 sagaMiddleware.run(watchConfigActions);
 sagaMiddleware.run(watchMainActions);
 sagaMiddleware.run(watchAudioEffectsActions);
+sagaMiddleware.run(watchAudioBgEffectsActions);
 sagaMiddleware.run(watchMusicEffectsActions);
 sagaMiddleware.run(watchBookmarksActions);
 sagaMiddleware.run(watchSideShadowActions);
