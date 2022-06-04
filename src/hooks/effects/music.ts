@@ -55,6 +55,10 @@ export function useMusic({ src, loop = true, range }: UseMusicProps) {
     setMusic(musicInst);
 
     musicInst.play();
+
+    return () => {
+      musicInst.unload(true);
+    };
   }, [musicInst]);
 
   return music;
