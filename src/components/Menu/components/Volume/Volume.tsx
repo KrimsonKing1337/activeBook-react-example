@@ -48,7 +48,7 @@ export const Volume = () => {
       </div>
 
       <div className={styles.item}>
-        <Label label={'Звуки'} />
+        <Label label={'SFX'} />
 
         <Slider value={regularVolume} onChange={otherChangeHandler} />
       </div>

@@ -145,7 +145,7 @@ export class HowlWrapper {
   }
 
   async fadeIn() {
-    const volume = this.getVolumeByType();
+    const volume = this.getVolumeByType() / 100;
 
     await this.fade(0, volume, HowlWrapper.fadeDurationDefault);
 
@@ -153,7 +153,7 @@ export class HowlWrapper {
   }
 
   async fadeOut() {
-    const volume = this.getVolumeByType();
+    const volume = this.getVolumeByType() / 100;
 
     await this.fade(volume, 0, HowlWrapper.fadeDurationDefault);
 
