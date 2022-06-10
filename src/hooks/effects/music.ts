@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { musicEffectsActions, musicEffectsSelectors } from 'store/effects/music';
@@ -17,8 +17,6 @@ type UseMusicProps = {
 
 export function useMusic({ src, loop = true, range }: UseMusicProps) {
   const dispatch = useDispatch();
-
-  const [music, setMusic] = useState<HowlWrapper>();
 
   const musicInst = useSelector(musicEffectsSelectors.musicInst);
   const page = useSelector(mainSelectors.page);
@@ -52,8 +50,6 @@ export function useMusic({ src, loop = true, range }: UseMusicProps) {
       return;
     }
 
-    setMusic(musicInst);
-
     musicInst.play();
 
     return () => {
@@ -61,7 +57,7 @@ export function useMusic({ src, loop = true, range }: UseMusicProps) {
     };
   }, [musicInst]);
 
-  return music;
+  return musicInst;
 }
 
 export function useMusicUnload() {

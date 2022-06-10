@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { audioEffectsActions, audioEffectsSelectors } from 'store/effects/audio';
 
-import { HowlWrapper } from 'utils/effects/audio/HowlWrapper';
+import { HowlWrapper, HowlWrapperOptions } from 'utils/effects/audio/HowlWrapper';
 
 type UseAudioProps = {
   src: string;
@@ -26,15 +26,19 @@ export function useAudio({
 }: UseAudioProps) {
   const dispatch = useDispatch();
 
-  const [audio, setAudio] = useState<HowlWrapper>();
-
   const audioInst = useSelector(audioEffectsSelectors.audioInst);
 
   useEffect(() => {
-    const howlInst = new HowlWrapper({
+    const opt: HowlWrapperOptions = {
       src: [src],
       loop,
-    });
+    };
+
+    if (bg) {
+      opt.type = 'bg';
+    }
+
+    const howlInst = new HowlWrapper(opt);
 
     dispatch(audioEffectsActions.setAudio(howlInst));
   }, []);
@@ -43,8 +47,6 @@ export function useAudio({
     if (!audioInst || audioInst.isUnloading) {
       return;
     }
-
-    setAudio(audioInst);
 
     if (playOnLoad) {
       audioInst.play();
@@ -59,18 +61,16 @@ export function useAudio({
     }
 
     return () => {
+      if (!audioInst || audioInst.isUnloading) {
+        return;
+      }
+
       (async () => {
-        if (!bg && !oneShot) {
-          audioInst.unload(fadeOutWhenUnload);
-
-          return;
-        }
-
         if (oneShot) {
           await audioInst.waitTillTheEnd();
-
-          audioInst.unload(fadeOutWhenUnload);
         }
+
+        audioInst.unload(fadeOutWhenUnload);
 
         if (timer) {
           clearTimeout(timer);
@@ -79,5 +79,5 @@ export function useAudio({
     };
   }, [audioInst]);
 
-  return audio;
+  return audioInst;
 }

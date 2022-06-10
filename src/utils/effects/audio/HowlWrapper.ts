@@ -3,7 +3,7 @@ import { store } from 'store';
 
 type AudioType = 'bg' | 'music' | undefined;
 
-type HowlWrapperOptions = {
+export type HowlWrapperOptions = {
   id?: string;
   src: HowlOptions['src'],
   loop?: HowlOptions['loop'],
@@ -169,6 +169,8 @@ export class HowlWrapper {
   }
 
   waitTillTheEnd() {
+    this.isUnloading = true;
+
     return new Promise<void>((resolve) => {
       if (this.isPlaying) {
         const interval = setInterval(() => {

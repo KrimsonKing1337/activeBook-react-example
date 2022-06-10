@@ -16,6 +16,10 @@ export const Page13 = () => {
   const { vibrationOn } = useVibration();
 
   useEffect(() => {
+    if (!audioInst) {
+      return;
+    }
+
     (async () => {
       await sleep(600);
 
@@ -25,7 +29,7 @@ export const Page13 = () => {
 
       vibrationOn(250);
     })();
-  }, []);
+  }, [audioInst]);
 
   return (
     <PageWrapper>
