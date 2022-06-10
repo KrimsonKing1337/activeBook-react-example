@@ -59,6 +59,8 @@ export function* watchSetPage(action: PayloadAction<State['page']>) {
     }
   }
 
+  yield put(actions.setIsLoading(true));
+
   yield put(push(path));
 }
 
@@ -95,10 +97,21 @@ export function* watchNextPage() {
   yield put(actions.setPage(newPageNumber));
 }
 
+export function* watchAudioInstancesIsLoaded() {
+  const audioInstancesIsLoaded: State['audioInstancesIsLoaded'] = yield select(selectors.audioInstancesIsLoaded);
+
+  const isAllLoaded = Object.values(audioInstancesIsLoaded).every(cur => cur !== false);
+
+  if (isAllLoaded) {
+    yield put(actions.setIsLoading(false));
+  }
+}
+
 export function* watchActions() {
   yield takeLatest(actions.setMenuActiveState, watchSetMenuActiveState);
   yield takeLatest(actions.setRoute, watchSetRoute);
   yield takeLatest(actions.setPage, watchSetPage);
   yield takeLatest(actions.prevPage, watchPrevPage);
   yield takeLatest(actions.nextPage, watchNextPage);
+  yield takeLatest(actions.setAudioInstancesIsLoaded, watchAudioInstancesIsLoaded);
 }

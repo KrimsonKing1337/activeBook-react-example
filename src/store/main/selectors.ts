@@ -10,4 +10,5 @@ export const selectors = {
   isLoading: (state: RootState) => state.main.isLoading,
   isVibrationAvailable: (state: RootState) => state.main.isVibrationAvailable,
   isFlashlightAvailable: (state: RootState) => state.main.isFlashlightAvailable,
+  audioInstancesIsLoaded: (state: RootState) => state.main.audioInstancesIsLoaded,
 };

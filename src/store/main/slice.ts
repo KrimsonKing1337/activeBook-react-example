@@ -10,6 +10,11 @@ export const initialState: State = {
   isLoading: false,
   isVibrationAvailable: false,
   isFlashlightAvailable: false,
+  audioInstancesIsLoaded: {
+    audio: undefined,
+    audioBg: undefined,
+    music: undefined,
+  },
 };
 
 const slice = createSlice({
@@ -35,6 +40,9 @@ const slice = createSlice({
     },
     setIsFlashlightAvailable(state, action: PayloadAction<State['isFlashlightAvailable']>) {
       state.isFlashlightAvailable = action.payload;
+    },
+    setAudioInstancesIsLoaded(state, action: PayloadAction<State['audioInstancesIsLoaded']>) {
+      state.audioInstancesIsLoaded = action.payload;
     },
   },
 });
