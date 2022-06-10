@@ -1,7 +1,9 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import { push } from 'connected-react-router';
 import { Location } from 'history';
-import { put, select, takeLatest } from 'redux-saga/effects';
+import { call, put, select, takeLatest } from 'redux-saga/effects';
+import { Howl, Howler } from 'howler';
+import { HowlExtended } from '@types';
 
 import { HowlInst } from 'store/effects/music/@types';
 import { musicEffectsSelectors } from 'store/effects/music';
@@ -59,9 +61,31 @@ export function* watchSetPage(action: PayloadAction<State['page']>) {
     }
   }
 
-  yield put(actions.setAudioInstancesIsLoaded({}));
-
   yield put(actions.setIsLoading(true));
+
+  const promises: any[] = [];
+
+  (Howler as unknown as HowlExtended)._howls.forEach((howlCur: Howl) => {
+    if (howlCur.state() === 'loaded') {
+      promises.push(Promise.resolve());
+
+      return;
+    }
+
+    const promise = new Promise((resolve) => {
+      howlCur.on('load', () => {
+        resolve(true);
+      });
+    });
+
+    promises.push(promise);
+  });
+
+  const awaitPromises = () => Promise.all(promises);
+
+  yield call(awaitPromises);
+
+  yield put(actions.setIsLoading(false));
 
   yield put(push(path));
 }
@@ -99,19 +123,10 @@ export function* watchNextPage() {
   yield put(actions.setPage(newPageNumber));
 }
 
-export function* watchAudioInstancesIsLoaded() {
-  const audioInstancesIsLoaded: State['audioInstancesIsLoaded'] = yield select(selectors.audioInstancesIsLoaded);
-
-  const isAllLoaded = Object.values(audioInstancesIsLoaded).every(cur => cur === true);
-
-  yield put(actions.setIsLoading(!isAllLoaded));
-}
-
 export function* watchActions() {
   yield takeLatest(actions.setMenuActiveState, watchSetMenuActiveState);
   yield takeLatest(actions.setRoute, watchSetRoute);
   yield takeLatest(actions.setPage, watchSetPage);
   yield takeLatest(actions.prevPage, watchPrevPage);
   yield takeLatest(actions.nextPage, watchNextPage);
-  yield takeLatest(actions.setAudioInstancesIsLoaded, watchAudioInstancesIsLoaded);
 }
