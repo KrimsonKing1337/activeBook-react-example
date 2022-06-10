@@ -1,17 +1,13 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import { put, select, takeLatest } from 'redux-saga/effects';
-import { store } from 'store';
 
 import { mainActions, mainSelectors } from 'store/main';
 import { AudioInstancesIsLoaded } from 'store/main/@types';
+import { setAudioInstancesIsLoaded } from 'store/main/actions';
 
 import { HowlInst, LastInstIndex } from './@types';
 import { actions } from './slice';
 import { selectors } from './selectors';
-
-const setAudioInstancesIsLoaded = (payload: AudioInstancesIsLoaded) => {
-  store.dispatch({ type: '@main/setAudioInstancesIsLoaded', payload });
-};
 
 export function* watchSetAudio(action: PayloadAction<HowlInst>) {
   const { payload } = action;
@@ -33,6 +29,16 @@ export function* watchSetAudio(action: PayloadAction<HowlInst>) {
     yield put(actions.setHowlInst1(payload));
     yield put(actions.setHowlInst2(null));
     yield put(actions.setLastInstIndex(1));
+  }
+
+  if (!payload) {
+    const newValue = { ...audioInstancesIsLoaded };
+
+    delete newValue.audio;
+
+    setAudioInstancesIsLoaded({ ...newValue });
+
+    return;
   }
 
   const state = payload?.state();

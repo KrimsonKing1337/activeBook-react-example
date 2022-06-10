@@ -10,11 +10,7 @@ export const initialState: State = {
   isLoading: false,
   isVibrationAvailable: false,
   isFlashlightAvailable: false,
-  audioInstancesIsLoaded: {
-    audio: undefined,
-    audioBg: undefined,
-    music: undefined,
-  },
+  audioInstancesIsLoaded: {},
 };
 
 const slice = createSlice({

@@ -12,7 +12,6 @@ import { isEffectInRange } from 'utils/effects/rangeEffects';
 export function useMusicInRange() {
   const dispatch = useDispatch();
 
-  const [music, setMusic] = useState<HowlWrapper>();
   const [musicInRange, setMusicInRange] = useState<RangeEffect>();
 
   const page = useSelector(mainSelectors.page);
@@ -24,7 +23,6 @@ export function useMusicInRange() {
     if (!musicInRange) {
       musicInst?.unload(true);
 
-      setMusic(undefined);
       dispatch(musicEffectsActions.setMusic(null));
 
       return;
@@ -63,12 +61,10 @@ export function useMusicInRange() {
       return;
     }
 
-    setMusic(musicInst);
-
     musicInst.play();
   }, [musicInst, musicInRange]);
 
-  return music;
+  return musicInRange;
 }
 
 export function useMusicInRangeUnload() {

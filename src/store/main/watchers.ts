@@ -59,6 +59,8 @@ export function* watchSetPage(action: PayloadAction<State['page']>) {
     }
   }
 
+  yield put(actions.setAudioInstancesIsLoaded({}));
+
   yield put(actions.setIsLoading(true));
 
   yield put(push(path));
@@ -100,11 +102,9 @@ export function* watchNextPage() {
 export function* watchAudioInstancesIsLoaded() {
   const audioInstancesIsLoaded: State['audioInstancesIsLoaded'] = yield select(selectors.audioInstancesIsLoaded);
 
-  const isAllLoaded = Object.values(audioInstancesIsLoaded).every(cur => cur !== false);
+  const isAllLoaded = Object.values(audioInstancesIsLoaded).every(cur => cur === true);
 
-  if (isAllLoaded) {
-    yield put(actions.setIsLoading(false));
-  }
+  yield put(actions.setIsLoading(!isAllLoaded));
 }
 
 export function* watchActions() {

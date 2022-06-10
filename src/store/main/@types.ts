@@ -1,9 +1,10 @@
 export type MenuActiveState = null | 'menu' | 'tableOfContents';
 
 export type AudioInstancesIsLoaded = {
-  audio: boolean | undefined;
-  audioBg: boolean | undefined;
-  music: boolean | undefined;
+  [key: string]: any;
+  audio?: boolean;
+  audioBg?: boolean;
+  music?: boolean;
 };
 
 export interface State {
