@@ -6,7 +6,7 @@ import { store } from 'store';
 import { actions } from './slice';
 import { State } from './@types';
 
-function getSoundInsts() {
+function getSoundInstances() {
   const storeState = store.getState();
   const { audioEffects, musicEffects } = storeState;
   const { howlInst1: audioEffectHowlInst1, howlInst2: audioEffectHowlInst2 } = audioEffects;
@@ -23,14 +23,14 @@ function getSoundInsts() {
 
 export function* watchSetAll(action: PayloadAction<State>) {
   const { payload } = action;
-  const { global, bg, music, regular } = payload;
+  const { global, bg, music, sfx } = payload;
 
   yield call(() => {
     Howler.volume(global / 100);
   });
 
   yield put(actions.setGlobal(global || 100));
-  yield put(actions.setRegular(regular || 100));
+  yield put(actions.setSfx(sfx || 100));
   yield put(actions.setMusic(music || 100));
   yield put(actions.setBg(bg || 100));
 }
@@ -48,7 +48,7 @@ export function* watchSetBg(action: PayloadAction<State['bg']>) {
   const { payload } = action;
 
   yield call(() => {
-    const { audioInst } = getSoundInsts();
+    const { audioInst } = getSoundInstances();
 
     if (audioInst && audioInst.type === 'bg') {
       audioInst.volume(payload / 100);
@@ -56,11 +56,11 @@ export function* watchSetBg(action: PayloadAction<State['bg']>) {
   });
 }
 
-export function* watchSetRegular(action: PayloadAction<State['regular']>) {
+export function* watchSetSfx(action: PayloadAction<State['sfx']>) {
   const { payload } = action;
 
   yield call(() => {
-    const { audioInst } = getSoundInsts();
+    const { audioInst } = getSoundInstances();
 
     if (audioInst && audioInst.type === undefined) {
       audioInst.volume(payload / 100);
@@ -72,7 +72,7 @@ export function* watchSetMusic(action: PayloadAction<State['music']>) {
   const { payload } = action;
 
   yield call(() => {
-    const { musicInst } = getSoundInsts();
+    const { musicInst } = getSoundInstances();
 
     if (musicInst) {
       musicInst.volume(payload / 100);
@@ -84,6 +84,6 @@ export function* watchActions() {
   yield takeLatest(actions.setAll, watchSetAll);
   yield takeLatest(actions.setGlobal, watchSetGlobal);
   yield takeLatest(actions.setBg, watchSetBg);
-  yield takeLatest(actions.setRegular, watchSetRegular);
+  yield takeLatest(actions.setSfx, watchSetSfx);
   yield takeLatest(actions.setMusic, watchSetMusic);
 }

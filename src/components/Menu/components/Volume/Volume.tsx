@@ -14,10 +14,10 @@ export const Volume = () => {
 
   const globalVolume = useSelector(volumeSelectors.global);
   const bgVolume = useSelector(volumeSelectors.bg);
-  const regularVolume = useSelector(volumeSelectors.regular);
+  const sfxVolume = useSelector(volumeSelectors.sfx);
   const musicVolume = useSelector(volumeSelectors.music);
 
-  const commonChangeHandler = (value: number) => {
+  const globalChangeHandler = (value: number) => {
     dispatch(volumeActions.setGlobal(value));
   };
 
@@ -25,8 +25,8 @@ export const Volume = () => {
     dispatch(volumeActions.setBg(value));
   };
 
-  const otherChangeHandler = (value: number) => {
-    dispatch(volumeActions.setRegular(value));
+  const sfxChangeHandler = (value: number) => {
+    dispatch(volumeActions.setSfx(value));
   };
 
   const musicChangeHandler = (value: number) => {
@@ -38,7 +38,7 @@ export const Volume = () => {
       <div className={styles.item}>
         <Label label={'Общая громкость'} />
 
-        <Slider value={globalVolume} onChange={commonChangeHandler} />
+        <Slider value={globalVolume} onChange={globalChangeHandler} />
       </div>
 
       <div className={styles.item}>
@@ -50,7 +50,7 @@ export const Volume = () => {
       <div className={styles.item}>
         <Label label={'SFX'} />
 
-        <Slider value={regularVolume} onChange={otherChangeHandler} />
+        <Slider value={sfxVolume} onChange={sfxChangeHandler} />
       </div>
 
       <div className={styles.item}>

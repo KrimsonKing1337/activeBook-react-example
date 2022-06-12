@@ -34,7 +34,7 @@ export class HowlWrapper {
   constructor({ id, src, loop, range, type }: HowlWrapperOptions) {
     const volume = this.getVolume();
 
-    let volumeValue = volume.regular / 100;
+    let volumeValue = volume.sfx / 100;
 
     const options: HowlerOptions = {
       src,
@@ -73,7 +73,7 @@ export class HowlWrapper {
   getVolumeByType() {
     const volume = this.getVolume();
 
-    let volumeValue = volume.regular;
+    let volumeValue = volume.sfx;
 
     if (this.type === 'bg') {
       volumeValue = volume.bg;

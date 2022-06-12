@@ -5,7 +5,7 @@ import { State } from './@types';
 export const initialState: State = {
   global: 100,
   bg: 100,
-  regular: 100,
+  sfx: 100,
   music: 100,
 };
 
@@ -22,8 +22,8 @@ const slice = createSlice({
     setBg(state, action: PayloadAction<State['bg']>) {
       state.bg = action.payload;
     },
-    setRegular(state, action: PayloadAction<State['regular']>) {
-      state.regular = action.payload;
+    setSfx(state, action: PayloadAction<State['sfx']>) {
+      state.sfx = action.payload;
     },
     setMusic(state, action: PayloadAction<State['music']>) {
       state.music = action.payload;

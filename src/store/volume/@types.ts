@@ -1,6 +1,6 @@
 export interface State {
   global: number,
   music: number,
-  regular: number,
+  sfx: number,
   bg: number,
 }
