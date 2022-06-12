@@ -2,40 +2,24 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { musicEffectsActions, musicEffectsSelectors } from 'store/effects/music';
-import { mainSelectors } from 'store/main';
 
 import { HowlWrapper } from 'utils/effects/audio/HowlWrapper';
 
 type UseMusicProps = {
   src: string;
   loop?: boolean;
-  range: {
-    from: number;
-    to: number;
-  }
 };
 
-export function useMusic({ src, loop = true, range }: UseMusicProps) {
+export function useMusic({ src, loop = true }: UseMusicProps) {
   const dispatch = useDispatch();
 
   const musicInst = useSelector(musicEffectsSelectors.musicInst);
-  const page = useSelector(mainSelectors.page);
-
-  const { from, to } = range;
-
-  const isInRange = page >= from && page <= to;
 
   useEffect(() => {
-    // if (isInRange && musicInst?.isPlaying) {
-    if (isInRange && musicInst) {
-      return;
-    }
-
     const howlInst = new HowlWrapper({
       src: [src],
       type: 'music',
       loop,
-      range,
     });
 
     dispatch(musicEffectsActions.setMusic(howlInst));
@@ -43,10 +27,6 @@ export function useMusic({ src, loop = true, range }: UseMusicProps) {
 
   useEffect(() => {
     if (!musicInst || musicInst.isUnloading) {
-      return;
-    }
-
-    if (isInRange && musicInst.isPlaying) {
       return;
     }
 
