@@ -5,9 +5,6 @@ import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { Howl, Howler } from 'howler';
 import { HowlExtended } from '@types';
 
-import { HowlInst } from 'store/effects/music/@types';
-import { musicEffectsSelectors } from 'store/effects/music';
-
 import { State } from './@types';
 import { actions } from './slice';
 import { selectors } from './selectors';
@@ -43,27 +40,9 @@ export function* watchSetPage(action: PayloadAction<State['page']>) {
 
   const path = `/page-${payload}`;
 
-  const page: State['page'] = yield select(selectors.page);
-  const musicInst: HowlInst = yield select(musicEffectsSelectors.musicInst);
-
-  /**
-   * убиваем инстанс музыки, если мы вне диапазона его воспроизведения
-   * */
-  if (musicInst && !musicInst.isUnloading) {
-    const { range } = musicInst;
-
-    if (range) {
-      const { from, to } = range;
-
-      if (page < from || page > to) {
-        musicInst.unload();
-      }
-    }
-  }
-
   yield put(actions.setIsLoading(true));
 
-  const promises: any[] = [];
+  const promises: Promise<void>[] = [];
 
   (Howler as unknown as HowlExtended)._howls.forEach((howlCur: Howl) => {
     if (howlCur.state() === 'loaded') {
@@ -72,9 +51,9 @@ export function* watchSetPage(action: PayloadAction<State['page']>) {
       return;
     }
 
-    const promise = new Promise((resolve) => {
+    const promise = new Promise<void>((resolve) => {
       howlCur.on('load', () => {
-        resolve(true);
+        resolve();
       });
     });
 
