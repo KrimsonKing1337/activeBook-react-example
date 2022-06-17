@@ -13,7 +13,7 @@ import { bookmarksActions } from 'store/bookmarks';
 
 import { Achievement } from 'components/Achievement';
 
-import { useEffectsInRange } from 'hooks/effects/range/effectsInRange';
+import { useEffectsInRange } from 'hooks/effects/range';
 
 import styles from './AppWrapper.scss';
 
