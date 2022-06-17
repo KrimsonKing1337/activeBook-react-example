@@ -8,10 +8,6 @@ export type HowlWrapperOptions = {
   src: HowlOptions['src'],
   loop?: HowlOptions['loop'],
   type?: AudioType;
-  range?: {
-    from: number;
-    to: number;
-  }
 };
 
 type HowlerOptions = {
@@ -28,9 +24,8 @@ export class HowlWrapper {
   public src: HowlOptions['src'] = '';
   public isUnloading = false;
   public type: AudioType = undefined;
-  public range: HowlWrapperOptions['range'] = undefined;
 
-  constructor({ id, src, loop, range, type }: HowlWrapperOptions) {
+  constructor({ id, src, loop, type }: HowlWrapperOptions) {
     const volume = this.getVolume();
 
     let volumeValue = volume.sfx / 100;
@@ -54,7 +49,6 @@ export class HowlWrapper {
 
     this.id = id;
     this.src = src;
-    this.range = range;
     this.type = type;
   }
 
