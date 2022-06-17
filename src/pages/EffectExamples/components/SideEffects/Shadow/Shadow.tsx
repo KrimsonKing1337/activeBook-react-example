@@ -1,15 +1,19 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-
-import { effectsActions } from 'store/effects/common';
 
 import { Toggle } from 'components/Toggle';
 
+import { useSideShadow } from 'hooks/effects/sideShadow';
+
 export const Shadow = () => {
-  const dispatch = useDispatch();
+
+  const { sideShadowOn, sideShadowOff } = useSideShadow({
+    isActiveDefault: false,
+    color: 'red',
+    speed: 850,
+  });
 
   const buttonClickHandler = (value: boolean) => {
-    dispatch(effectsActions.setSideShadowActiveState(value));
+    value ? sideShadowOn() : sideShadowOff();
   };
 
   return (
