@@ -33,7 +33,7 @@ export function useMusicInRange() {
     const { src, id } = musicInRange;
 
     if (musicInst?.id === id) {
-      if (!musicInst?.isPlaying) {
+      if (!musicInst?.playing()) {
         musicInst?.play();
       }
 

@@ -27,7 +27,6 @@ export class HowlWrapper {
   public id: HowlWrapperOptions['id'] = undefined;
   public src: HowlOptions['src'] = '';
   public isUnloading = false;
-  public isPlaying = false;
   public type: AudioType = undefined;
   public range: HowlWrapperOptions['range'] = undefined;
 
@@ -85,16 +84,12 @@ export class HowlWrapper {
   }
 
   async play(withFadeIn = false) {
-    this.isPlaying = true;
-
     if (withFadeIn) {
       await this.fadeIn();
     }
 
     return new Promise<void>((resolve) => {
       this.howlInst.once('end', () => {
-        this.isPlaying = false;
-
         resolve();
       });
 
@@ -108,8 +103,6 @@ export class HowlWrapper {
     }
 
     this.howlInst.pause();
-
-    this.isPlaying = false;
   }
 
   async stop(withFadeOut = false) {
@@ -118,8 +111,6 @@ export class HowlWrapper {
     }
 
     this.howlInst.stop();
-
-    this.isPlaying = false;
   }
 
   async unload(withFadeOut = false) {
@@ -130,8 +121,6 @@ export class HowlWrapper {
     }
 
     this.howlInst.unload();
-
-    this.isPlaying = false;
   }
 
   fade(from: number, to: number, dur: number) {
@@ -172,9 +161,9 @@ export class HowlWrapper {
     this.isUnloading = true;
 
     return new Promise<void>((resolve) => {
-      if (this.isPlaying) {
+      if (this.playing()) {
         const interval = setInterval(() => {
-          if (!this.isPlaying) {
+          if (!this.playing()) {
             clearInterval(interval);
 
             resolve();
