@@ -62,7 +62,7 @@ export function* watchSetSfx(action: PayloadAction<State['sfx']>) {
   yield call(() => {
     const { audioInst } = getSoundInstances();
 
-    if (audioInst && audioInst.type === undefined) {
+    if (audioInst && audioInst.type === 'sfx') {
       audioInst.volume(payload / 100);
     }
   });

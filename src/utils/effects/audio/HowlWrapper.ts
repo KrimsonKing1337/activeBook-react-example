@@ -1,19 +1,19 @@
 import { Howl, HowlOptions } from 'howler';
 import { store } from 'store';
 
-type AudioType = 'bg' | 'music' | undefined;
+type AudioType = 'bg' | 'music' | 'sfx';
 
 export type HowlWrapperOptions = {
   id?: string;
-  src: HowlOptions['src'],
-  loop?: HowlOptions['loop'],
+  src: HowlOptions['src'];
+  loop?: HowlOptions['loop'];
   type?: AudioType;
 };
 
 type HowlerOptions = {
-  src: HowlOptions['src'],
-  loop?: HowlOptions['loop'],
-  volume?: HowlOptions['volume'],
+  src: HowlOptions['src'];
+  loop?: HowlOptions['loop'];
+  volume?: HowlOptions['volume'];
 };
 
 export class HowlWrapper {
@@ -23,9 +23,9 @@ export class HowlWrapper {
   public id: HowlWrapperOptions['id'] = undefined;
   public src: HowlOptions['src'] = '';
   public isUnloading = false;
-  public type: AudioType = undefined;
+  public type: AudioType = 'sfx';
 
-  constructor({ id, src, loop, type }: HowlWrapperOptions) {
+  constructor({ id, src, loop, type = 'sfx' }: HowlWrapperOptions) {
     const volume = this.getVolume();
 
     let volumeValue = volume.sfx / 100;
