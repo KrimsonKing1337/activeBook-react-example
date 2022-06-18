@@ -12,8 +12,8 @@ import { effectsReducer } from './effects/common';
 import { audioEffectsReducer, watchAudioEffectsActions } from './effects/audio';
 import { audioBgEffectsReducer, watchAudioBgEffectsActions } from './effects/audioBg';
 import { musicEffectsReducer, watchMusicEffectsActions } from './effects/music';
-import { sideShadowReducer, watchSideShadowActions } from './effects/sideShadow';
-import { sideTextReducer, watchSideTextActions } from './effects/sideText';
+import { sideShadowReducer, watchSideShadowActions } from './effects/side/shadow';
+import { sideTextReducer, watchSideTextActions } from './effects/side/text';
 import { bookmarksReducer, watchBookmarksActions } from './bookmarks';
 
 export const history = createBrowserHistory();

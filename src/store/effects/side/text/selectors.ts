@@ -1,4 +1,4 @@
-import { RootState } from 'store';
+import { RootState } from 'store/index';
 
 export const selectors = {
   isActive: (state: RootState) => state.sideTextEffect.isActive,

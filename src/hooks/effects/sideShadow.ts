@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
-import { sideShadowActions } from 'store/effects/sideShadow';
-import { initialState } from 'store/effects/sideShadow/slice';
+import { sideShadowActions } from 'store/effects/side/shadow';
+import { initialState } from 'store/effects/side/shadow/slice';
 
 export type useSideShadowProps = {
   isActiveDefault?: boolean;

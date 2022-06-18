@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { ReactNode, useEffect } from 'react';
 
-import { sideTextActions } from 'store/effects/sideText';
-import { initialState } from 'store/effects/sideText/slice';
+import { sideTextActions } from 'store/effects/side/text';
+import { initialState } from 'store/effects/side/text/slice';
 
 export type useSideTextProps = {
   isActiveDefault?: boolean;
