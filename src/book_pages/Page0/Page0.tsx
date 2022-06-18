@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+import { ModalDialog } from 'components';
+
 import { PageWrapper } from 'components/PageWrapper';
 import { Action } from 'components/Action';
 
@@ -8,11 +10,16 @@ import { useFlashlight } from 'hooks/effects/flashlight';
 import { useVibration } from 'hooks/effects/vibration';
 
 import { goToPage } from 'utils/control/goToPage';
-import { play as achievementPlay } from 'utils/effects/achievement';
-import { konamiCodeHandler } from 'utils/effects/konamiCodeHandler';
+
+import { useKonamiCode, useModal } from './hooks';
+import { localStorageFlag } from './utils';
 
 export const Page0 = () => {
   const [ lastPage, setLastPage ] = useState(1);
+
+  useKonamiCode();
+
+  const { modalIsActive, modalOnClose, setModalIsActive } = useModal();
 
   const audioInst = useSound({
     src: '/assets/book_data/audios/sounds/sword.mp3',
@@ -27,18 +34,6 @@ export const Page0 = () => {
   }, []);
 
   useEffect(() => {
-    const cb = () => achievementPlay('Retro gaming rules!', 'konami');
-
-    const handler = konamiCodeHandler(cb);
-
-    document.addEventListener('keydown', handler, false);
-
-    return () => {
-      document.removeEventListener('keydown', handler);
-    };
-  }, []);
-
-  useEffect(() => {
     const lastPageAsJSON = localStorage.getItem('lastPage');
 
     if (lastPageAsJSON) {
@@ -48,16 +43,18 @@ export const Page0 = () => {
     }
   }, []);
 
+  function modalCloseHandler() {
+    modalOnClose();
+
+    go();
+  }
+
   async function go() {
-    if (!audioInst) {
-      return;
-    }
+    flashlightOn();
 
     vibrationOn(1000);
 
-    flashlightOn();
-
-    await audioInst.play();
+    await audioInst?.play();
 
     const pageToGo = lastPage > 0 ? lastPage : 1;
 
@@ -65,13 +62,47 @@ export const Page0 = () => {
   }
 
   function clickHandler() {
-    go();
+    const isModalWasShowed = localStorage.getItem(localStorageFlag);
+
+    if (isModalWasShowed) {
+      go();
+
+      return;
+    }
+
+    setModalIsActive(true);
   }
 
   const label = lastPage > 0 ? 'Продолжить читать' : 'Начать читать';
 
   return (
     <PageWrapper withoutToolbar>
+      <ModalDialog
+        isOpen={modalIsActive}
+        onClose={modalCloseHandler}
+        onConfirm={modalCloseHandler}
+        onCancel={modalCloseHandler}
+        hideExpandButton={true}
+        showCancelButton={false}
+      >
+        <div>
+          <header>
+            ОБРАТИТЕ ВНИМАНИЕ
+          </header>
+
+          <article>
+            <p>
+              Для работы эффектов на основе вспышки, приложению необходимо получить разрешение к камере
+              (к сожалению, нет возможности запросить разрешение только ко вспышке).
+            </p>
+
+            <p>
+              Вы всегда можете запросить разрешение ещё раз, в меню приложения
+            </p>
+          </article>
+        </div>
+      </ModalDialog>
+
       <header>
         Заглянуть за..
       </header>
