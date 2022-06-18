@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
 
-import { useAudio } from 'hooks/effects/audio';
+import { useSound } from 'hooks/effects/sound';
 
 import { play as playAchievement } from 'utils/effects/achievement';
 
@@ -11,7 +11,7 @@ export const Page1 = () => {
     playAchievement('Приключение начинается', 'firstMove');
   }, []);
 
-  useAudio({
+  useSound({
     src: '/assets/book_data/audios/sounds/alarm-clock.mp3',
     playOnLoad: true,
     stopBy: 5000,

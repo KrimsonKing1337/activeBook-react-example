@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { RangeEffect } from '@types';
 
-import { audioBgEffectsActions, audioBgEffectsSelectors } from 'store/effects/audioBg';
+import { soundBgEffectsActions, soundBgEffectsSelectors } from 'store/effects/soundBg';
 import { mainSelectors } from 'store/main';
 
 import { HowlWrapper } from 'utils/effects/audio/HowlWrapper';
@@ -15,15 +15,15 @@ export function useAudioInRange() {
   const [audioInRange, setAudioInRange] = useState<RangeEffect>();
 
   const page = useSelector(mainSelectors.page);
-  const audioInst = useSelector(audioBgEffectsSelectors.audioInst);
+  const soundInst = useSelector(soundBgEffectsSelectors.soundInst);
 
   useEffect(() => {
     const audioInRange = isEffectInRange(page, 'audio');
 
     if (!audioInRange) {
-      audioInst?.unload(true);
+      soundInst?.unload(true);
 
-      dispatch(audioBgEffectsActions.setAudio(null));
+      dispatch(soundBgEffectsActions.setSound(null));
 
       return;
     }
@@ -32,7 +32,7 @@ export function useAudioInRange() {
 
     const { src, id } = audioInRange;
 
-    if (audioInst?.id === id) {
+    if (soundInst?.id === id) {
       return;
     }
 
@@ -43,32 +43,32 @@ export function useAudioInRange() {
       loop: true,
     });
 
-    dispatch(audioBgEffectsActions.setAudio(howlInst));
+    dispatch(soundBgEffectsActions.setSound(howlInst));
   }, [page]);
 
   useEffect(() => {
-    if (!audioInst || audioInst.isUnloading) {
+    if (!soundInst || soundInst.isUnloading) {
       return;
     }
 
-    if (audioInst?.id === audioInRange?.id && audioInst.playing()) {
+    if (soundInst?.id === audioInRange?.id && soundInst.playing()) {
       return;
     }
 
-    audioInst.play();
-  }, [audioInst, audioInRange]);
+    soundInst.play();
+  }, [soundInst, audioInRange]);
 
-  return audioInst;
+  return soundInst;
 }
 
 export function useAudioInRangeUnload() {
-  const audioInst = useSelector(audioBgEffectsSelectors.audioInst);
+  const soundInst = useSelector(soundBgEffectsSelectors.soundInst);
 
   useEffect(() => {
-    if (!audioInst || audioInst.isUnloading) {
+    if (!soundInst || soundInst.isUnloading) {
       return;
     }
 
-    audioInst.unload();
+    soundInst.unload();
   }, []);
 }

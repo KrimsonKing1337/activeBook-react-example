@@ -2,11 +2,11 @@ import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
 
-import { useAudio } from 'hooks/effects/audio';
+import { useSound } from 'hooks/effects/sound';
 import { useSideShadow } from 'hooks/effects/sideShadow';
 
 export const Page9 = () => {
-  useAudio({
+  useSound({
     src: '/assets/book_data/audios/sounds/alarm-spaceship.mp3',
     playOnLoad: true,
     loop: true,

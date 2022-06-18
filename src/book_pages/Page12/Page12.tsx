@@ -2,11 +2,11 @@ import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
 
-import { useAudio } from 'hooks/effects/audio';
+import { useSound } from 'hooks/effects/sound';
 import { useRain } from 'hooks/effects/flashlight/rain';
 
 export const Page12 = () => {
-  useAudio({
+  useSound({
     src: '/assets/book_data/audios/sounds/rain-and-thunder.mp3',
     loop: true,
     playOnLoad: true,

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { PageWrapper } from 'components/PageWrapper';
 import { Action } from 'components/Action';
 
-import { useAudio } from 'hooks/effects/audio';
+import { useSound } from 'hooks/effects/sound';
 import { useFlashlight } from 'hooks/effects/flashlight';
 import { useVibration } from 'hooks/effects/vibration';
 
@@ -14,7 +14,7 @@ import { konamiCodeHandler } from 'utils/effects/konamiCodeHandler';
 export const Page0 = () => {
   const [ lastPage, setLastPage ] = useState(1);
 
-  const audioInst = useAudio({
+  const audioInst = useSound({
     src: '/assets/book_data/audios/sounds/sword.mp3',
     fadeOutWhenUnload: false,
   });

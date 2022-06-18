@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { audioEffectsActions, audioEffectsSelectors } from 'store/effects/audio';
+import { soundEffectsActions, soundEffectsSelectors } from 'store/effects/sound';
 
 import { HowlWrapper, HowlWrapperOptions } from 'utils/effects/audio/HowlWrapper';
 
-type UseAudioProps = {
+type UseSoundProps = {
   src: string;
   fadeOutWhenUnload?: boolean;
   bg?: boolean;
@@ -15,7 +15,7 @@ type UseAudioProps = {
   stopBy?: number;
 };
 
-export function useAudio({
+export function useSound({
   src,
   fadeOutWhenUnload = true,
   bg = false,
@@ -23,10 +23,10 @@ export function useAudio({
   loop = false,
   playOnLoad = false,
   stopBy = 0,
-}: UseAudioProps) {
+}: UseSoundProps) {
   const dispatch = useDispatch();
 
-  const audioInst = useSelector(audioEffectsSelectors.audioInst);
+  const soundInst = useSelector(soundEffectsSelectors.soundInst);
 
   useEffect(() => {
     const opt: HowlWrapperOptions = {
@@ -40,44 +40,44 @@ export function useAudio({
 
     const howlInst = new HowlWrapper(opt);
 
-    dispatch(audioEffectsActions.setAudio(howlInst));
+    dispatch(soundEffectsActions.setSound(howlInst));
   }, []);
 
   useEffect(() => {
-    if (!audioInst || audioInst.isUnloading) {
+    if (!soundInst || soundInst.isUnloading) {
       return;
     }
 
     if (playOnLoad) {
-      audioInst.play();
+      soundInst.play();
     }
 
     let timer: NodeJS.Timer | null = null;
 
     if (stopBy) {
       timer = setTimeout(() => {
-        audioInst.stop();
+        soundInst.stop();
       }, stopBy);
     }
 
     return () => {
-      if (!audioInst || audioInst.isUnloading) {
+      if (!soundInst || soundInst.isUnloading) {
         return;
       }
 
       (async () => {
         if (oneShot) {
-          await audioInst.waitTillTheEnd();
+          await soundInst.waitTillTheEnd();
         }
 
-        audioInst.unload(fadeOutWhenUnload);
+        soundInst.unload(fadeOutWhenUnload);
 
         if (timer) {
           clearTimeout(timer);
         }
       })();
     };
-  }, [audioInst]);
+  }, [soundInst]);
 
-  return audioInst;
+  return soundInst;
 }

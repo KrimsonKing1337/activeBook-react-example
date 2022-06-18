@@ -8,15 +8,15 @@ import { State } from './@types';
 
 function getSoundInstances() {
   const storeState = store.getState();
-  const { audioEffects, musicEffects } = storeState;
-  const { howlInst1: audioEffectHowlInst1, howlInst2: audioEffectHowlInst2 } = audioEffects;
+  const { soundEffects, musicEffects } = storeState;
+  const { howlInst1: audioEffectHowlInst1, howlInst2: audioEffectHowlInst2 } = soundEffects;
   const { howlInst1: musicEffectHowlInst1, howlInst2: musicEffectHowlInst2 } = musicEffects;
 
-  const audioInst = audioEffectHowlInst1 || audioEffectHowlInst2;
+  const soundInst = audioEffectHowlInst1 || audioEffectHowlInst2;
   const musicInst = musicEffectHowlInst1 || musicEffectHowlInst2;
 
   return {
-    audioInst,
+    soundInst,
     musicInst,
   };
 }
@@ -48,10 +48,10 @@ export function* watchSetBg(action: PayloadAction<State['bg']>) {
   const { payload } = action;
 
   yield call(() => {
-    const { audioInst } = getSoundInstances();
+    const { soundInst } = getSoundInstances();
 
-    if (audioInst && audioInst.type === 'bg') {
-      audioInst.volume(payload / 100);
+    if (soundInst && soundInst.type === 'bg') {
+      soundInst.volume(payload / 100);
     }
   });
 }
@@ -60,10 +60,10 @@ export function* watchSetSfx(action: PayloadAction<State['sfx']>) {
   const { payload } = action;
 
   yield call(() => {
-    const { audioInst } = getSoundInstances();
+    const { soundInst } = getSoundInstances();
 
-    if (audioInst && audioInst.type === 'sfx') {
-      audioInst.volume(payload / 100);
+    if (soundInst && soundInst.type === 'sfx') {
+      soundInst.volume(payload / 100);
     }
   });
 }

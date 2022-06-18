@@ -5,7 +5,7 @@ import { HowlInst, LastInstIndex } from './@types';
 import { actions } from './slice';
 import { selectors } from './selectors';
 
-export function* watchSetAudio(action: PayloadAction<HowlInst>) {
+export function* watchSetSound(action: PayloadAction<HowlInst>) {
   const { payload } = action;
 
   const lastInstIndex: LastInstIndex = yield select(selectors.lastInstIndex);
@@ -22,5 +22,5 @@ export function* watchSetAudio(action: PayloadAction<HowlInst>) {
 }
 
 export function* watchActions() {
-  yield takeLatest(actions.setAudio, watchSetAudio);
+  yield takeLatest(actions.setSound, watchSetSound);
 }

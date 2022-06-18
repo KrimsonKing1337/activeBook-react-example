@@ -5,14 +5,14 @@ import { Action } from 'components/Action';
 import { ExternalLink } from 'components/ExternalLink';
 import { Modal } from 'components/Modal';
 
-import { useAudio } from 'hooks/effects/audio';
+import { useSound } from 'hooks/effects/sound';
 
 import { useLoopedVibration } from './hooks';
 
 export const Page26 = () => {
   const link = 'https://ru.wikipedia.org/wiki/%D0%9F%D0%BE_%D1%82%D1%83_%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D1%83_%D0%B8%D0%B7%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B8';
 
-  useAudio({
+  useSound({
     src: '/assets/book_data/audios/sounds/cosmos-impacts.mp3',
     loop: true,
     playOnLoad: true,

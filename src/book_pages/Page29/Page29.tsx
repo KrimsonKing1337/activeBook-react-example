@@ -2,10 +2,10 @@ import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
 
-import { useAudio } from 'hooks/effects/audio';
+import { useSound } from 'hooks/effects/sound';
 
 export const Page29 = () => {
-  useAudio({
+  useSound({
     src: '/assets/book_data/audios/sounds/spacedoor-open.mp3',
     playOnLoad: true,
     oneShot: true,

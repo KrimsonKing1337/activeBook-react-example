@@ -2,13 +2,13 @@ import React, { useEffect } from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
 
-import { useAudio } from 'hooks/effects/audio';
+import { useSound } from 'hooks/effects/sound';
 import { useVibration } from 'hooks/effects/vibration';
 
 import { sleep } from 'utils/sleep';
 
 export const Page13 = () => {
-  const audioInst = useAudio({
+  const audioInst = useSound({
     src: '/assets/book_data/audios/sounds/shotgun-shot.mp3',
     oneShot: true,
   });

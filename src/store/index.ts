@@ -11,8 +11,8 @@ import { volumeReducer, watchVolumeActions } from './volume';
 import { effectsReducer } from './effects/common';
 import { backgroundVideoEffectReducer } from './effects/background/video';
 import { backgroundImgEffectReducer } from './effects/background/img';
-import { audioEffectsReducer, watchAudioEffectsActions } from './effects/audio';
-import { audioBgEffectsReducer, watchAudioBgEffectsActions } from './effects/audioBg';
+import { soundEffectsReducer, watchSoundEffectsActions } from './effects/sound';
+import { soundBgEffectsReducer, watchSoundBgEffectsActions } from './effects/soundBg';
 import { musicEffectsReducer, watchMusicEffectsActions } from './effects/music';
 import { sideShadowReducer, watchSideShadowActions } from './effects/side/shadow';
 import { sideTextReducer, watchSideTextActions } from './effects/side/text';
@@ -31,8 +31,8 @@ const makeRootReducer = (history: ConnectedRouterProps['history']) => {
     config: configReducer,
     volume: volumeReducer,
     effects: effectsReducer,
-    audioEffects: audioEffectsReducer,
-    audioBgEffects: audioBgEffectsReducer,
+    soundEffects: soundEffectsReducer,
+    soundBgEffects: soundBgEffectsReducer,
     musicEffects: musicEffectsReducer,
     sideShadowEffect: sideShadowReducer,
     sideTextEffect: sideTextReducer,
@@ -51,8 +51,8 @@ export const store = createStore(rootReducer, compose);
 sagaMiddleware.run(watchIncrementActions);
 sagaMiddleware.run(watchConfigActions);
 sagaMiddleware.run(watchMainActions);
-sagaMiddleware.run(watchAudioEffectsActions);
-sagaMiddleware.run(watchAudioBgEffectsActions);
+sagaMiddleware.run(watchSoundEffectsActions);
+sagaMiddleware.run(watchSoundBgEffectsActions);
 sagaMiddleware.run(watchMusicEffectsActions);
 sagaMiddleware.run(watchBookmarksActions);
 sagaMiddleware.run(watchSideShadowActions);
