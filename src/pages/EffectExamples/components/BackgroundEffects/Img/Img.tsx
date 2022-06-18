@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { effectsActions } from 'store/effects/common';
+import { backgroundImgEffectActions } from 'store/effects/background/img';
 
 import { Toggle } from 'components/Toggle';
 
@@ -9,11 +9,11 @@ export const Img = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(effectsActions.setBackgroundImgSrc('/assets/img/cinemagraph.gif'));
+    dispatch(backgroundImgEffectActions.setSrc('/assets/img/cinemagraph.gif'));
   }, []);
 
   const buttonClickHandler = (value: boolean) => {
-    dispatch(effectsActions.setBackgroundImgActiveState(value));
+    dispatch(backgroundImgEffectActions.setActiveState(value));
   };
 
   return (

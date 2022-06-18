@@ -9,6 +9,8 @@ import { mainReducer, watchMainActions } from './main';
 import { configReducer, watchConfigActions } from './config';
 import { volumeReducer, watchVolumeActions } from './volume';
 import { effectsReducer } from './effects/common';
+import { backgroundVideoEffectReducer } from './effects/background/video';
+import { backgroundImgEffectReducer } from './effects/background/img';
 import { audioEffectsReducer, watchAudioEffectsActions } from './effects/audio';
 import { audioBgEffectsReducer, watchAudioBgEffectsActions } from './effects/audioBg';
 import { musicEffectsReducer, watchMusicEffectsActions } from './effects/music';
@@ -34,6 +36,8 @@ const makeRootReducer = (history: ConnectedRouterProps['history']) => {
     musicEffects: musicEffectsReducer,
     sideShadowEffect: sideShadowReducer,
     sideTextEffect: sideTextReducer,
+    backgroundVideoEffect: backgroundVideoEffectReducer,
+    backgroundImgEffect: backgroundImgEffectReducer,
     bookmarks: bookmarksReducer,
   });
 };
