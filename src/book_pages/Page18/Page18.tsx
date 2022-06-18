@@ -4,7 +4,7 @@ import { PageWrapper } from 'components/PageWrapper';
 import { SideText } from 'components/SideEffects/components/SideText';
 import sideTextStyles from 'components/SideEffects/components/SideText/SideText.scss';
 
-import { useSideText } from 'hooks/effects/sideText';
+import { useSideText } from 'hooks/effects/side/text';
 
 export const Page18 = () => {
   const SideTextTemplate = (

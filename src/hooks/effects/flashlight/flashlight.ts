@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 
 import { mainSelectors } from 'store/main';
 
-import { useSideShadow } from 'hooks/effects/sideShadow';
+import { useSideShadow } from 'hooks/effects/side/shadow';
 
 import { off as flashlightOff, on as flashlightOn } from 'utils/effects/flashlight';
 import { sleep } from 'utils/sleep';

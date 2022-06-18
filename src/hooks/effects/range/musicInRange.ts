@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { RangeEffect } from '@types';
 
-import { musicEffectsActions, musicEffectsSelectors } from 'store/effects/music';
+import { musicEffectsActions, musicEffectsSelectors } from 'store/effects/audio/music';
 import { mainSelectors } from 'store/main';
 
 import { HowlWrapper } from 'utils/effects/audio/HowlWrapper';

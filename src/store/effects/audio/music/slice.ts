@@ -9,10 +9,10 @@ export const initialState: State = {
 };
 
 const slice = createSlice({
-  name: '@effects/audioBg',
+  name: '@effects/audio/music',
   initialState,
   reducers: {
-    setSound(_state, _action: PayloadAction<HowlInst>) {},
+    setMusic(_state, _action: PayloadAction<HowlInst>) {},
     setHowlInst1(state, action: PayloadAction<HowlInst>) {
       state.howlInst1 = action.payload;
     },

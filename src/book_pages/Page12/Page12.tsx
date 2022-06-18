@@ -2,7 +2,7 @@ import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
 
-import { useSound } from 'hooks/effects/sound';
+import { useSound } from 'hooks/effects/audio/sound';
 import { useRain } from 'hooks/effects/flashlight/rain';
 
 export const Page12 = () => {

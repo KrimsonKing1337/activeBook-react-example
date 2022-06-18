@@ -4,7 +4,7 @@ import { Toggle } from 'components/Toggle';
 import { SideText } from 'components/SideEffects/components/SideText';
 import sideTextStyles from 'components/SideEffects/components/SideText/SideText.scss';
 
-import { useSideText } from 'hooks/effects/sideText';
+import { useSideText } from 'hooks/effects/side/text';
 
 export const Text = () => {
   const SideTextTemplate = (

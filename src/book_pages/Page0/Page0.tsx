@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { PageWrapper } from 'components/PageWrapper';
 import { Action } from 'components/Action';
 
-import { useSound } from 'hooks/effects/sound';
+import { useSound } from 'hooks/effects/audio/sound';
 import { useFlashlight } from 'hooks/effects/flashlight';
 import { useVibration } from 'hooks/effects/vibration';
 

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
 
-import { useSound } from 'hooks/effects/sound';
+import { useSound } from 'hooks/effects/audio/sound';
 
 import { play as playAchievement } from 'utils/effects/achievement';
 

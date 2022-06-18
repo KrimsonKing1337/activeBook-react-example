@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Toggle } from 'components/Toggle';
 
-import { useSideShadow } from 'hooks/effects/sideShadow';
+import { useSideShadow } from 'hooks/effects/side/shadow';
 
 export const Shadow = () => {
   const { sideShadowOn, sideShadowOff } = useSideShadow({

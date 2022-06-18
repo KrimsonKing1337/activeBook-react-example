@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { soundEffectsActions, soundEffectsSelectors } from 'store/effects/sound';
+import { soundEffectsActions, soundEffectsSelectors } from 'store/effects/audio/sound';
 
 import { HowlWrapper, HowlWrapperOptions } from 'utils/effects/audio/HowlWrapper';
 

@@ -5,7 +5,7 @@ import { Action } from 'components/Action';
 import { ExternalLink } from 'components/ExternalLink';
 import { Modal } from 'components/Modal';
 
-import { useSound } from 'hooks/effects/sound';
+import { useSound } from 'hooks/effects/audio/sound';
 
 import { useLoopedVibration } from './hooks';
 

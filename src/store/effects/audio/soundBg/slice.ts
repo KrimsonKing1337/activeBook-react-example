@@ -9,7 +9,7 @@ export const initialState: State = {
 };
 
 const slice = createSlice({
-  name: '@effects/audio',
+  name: '@effects/audio/soundBg',
   initialState,
   reducers: {
     setSound(_state, _action: PayloadAction<HowlInst>) {},

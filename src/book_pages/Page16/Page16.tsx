@@ -2,8 +2,8 @@ import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
 
-import { useSound } from 'hooks/effects/sound';
-import { useSideShadow } from 'hooks/effects/sideShadow';
+import { useSound } from 'hooks/effects/audio/sound';
+import { useSideShadow } from 'hooks/effects/side/shadow';
 
 export const Page16 = () => {
   useSound({
