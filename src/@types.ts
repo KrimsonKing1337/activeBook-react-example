@@ -6,12 +6,17 @@ export type Range = {
 };
 
 export type RangeEffect = {
-  id: string;
   type: string;
-  src: string;
-  fadeOutSpeed?: number;
   range: Range[];
 };
+
+export type AudioRangeEffect = RangeEffect & {
+  id: string;
+  src: string;
+  fadeOutSpeed?: number;
+};
+
+export type DotsRangeEffect = RangeEffect;
 
 export type Theme = 'dark' | 'darkBlue' | 'orange' | 'black';
 

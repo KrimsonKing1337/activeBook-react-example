@@ -1,24 +1,24 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { RangeEffect } from '@types';
+import { AudioRangeEffect } from '@types';
 
 import { musicEffectsActions, musicEffectsSelectors } from 'store/effects/audio/music';
 import { mainSelectors } from 'store/main';
 
 import { HowlWrapper } from 'utils/effects/audio/HowlWrapper';
-import { isEffectInRange } from 'utils/effects/rangeEffects';
+import { getEffectInRange } from 'utils/effects/rangeEffects';
 
 export function useMusicInRange() {
   const dispatch = useDispatch();
 
-  const [musicInRange, setMusicInRange] = useState<RangeEffect>();
+  const [musicInRange, setMusicInRange] = useState<AudioRangeEffect>();
 
   const page = useSelector(mainSelectors.page);
   const musicInst = useSelector(musicEffectsSelectors.musicInst);
 
   useEffect(() => {
-    const musicInRange = isEffectInRange(page, 'music');
+    const musicInRange: AudioRangeEffect = getEffectInRange(page, 'music');
 
     if (!musicInRange) {
       musicInst?.unload(true);

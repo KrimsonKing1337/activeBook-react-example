@@ -1,5 +1,5 @@
 import effects from 'book_pages/effects.json';
-import { Range, RangeEffect } from '@types';
+import { Range } from '@types';
 
 export function isPageInRange(pageNumberCurrent: number, range: Range[]) {
   return range.some((rangeCur) => {
@@ -7,8 +7,8 @@ export function isPageInRange(pageNumberCurrent: number, range: Range[]) {
   });
 }
 
-export function isEffectInRange(pageNumberCurrent: number, type: string) {
-  const arr = effects.effects as RangeEffect[];
+export function getEffectInRange(pageNumberCurrent: number, type: string) {
+  const arr = effects.effects as any[]; // todo
 
   let objInRange;
 
