@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { effectExamplesActions } from 'store/effectExamples';
+import { effectsActions } from 'store/effects/common';
 
 import { Toggle } from 'components/Toggle';
 
 export const Video = () => {
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(effectsActions.setBackgroundVideoSrc('/assets/videos/TV_static-2.mp4'));
+  }, []);
+
   const buttonClickHandler = (value: boolean) => {
-    dispatch(effectExamplesActions.setBackgroundVideoActiveState(value));
+    dispatch(effectsActions.setBackgroundVideoActiveState(value));
   };
 
   return (

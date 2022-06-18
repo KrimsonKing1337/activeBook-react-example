@@ -11,23 +11,27 @@ import styles from './BackgroundEffects.scss';
 
 export const BackgroundEffects = () => {
   const backgroundVideoIsActive = useSelector(effectsSelectors.backgroundVideoIsActive);
+  const backgroundVideoSrc = useSelector(effectsSelectors.backgroundVideoSrc);
   const backgroundImgIsActive = useSelector(effectsSelectors.backgroundImgIsActive);
+  const backgroundImgSrc = useSelector(effectsSelectors.backgroundImgSrc);
   const dotsIsActive = useSelector(effectsSelectors.dotsIsActive);
+
+  const oneOfBgIsActive = backgroundVideoIsActive || backgroundImgIsActive;
 
   return (
     <div className={styles.backgroundEffectsWrapper}>
       {dotsIsActive && <Dots />}
 
-      {(backgroundVideoIsActive || backgroundImgIsActive) && (
+      {oneOfBgIsActive && (
         <div className={styles.backgroundObjectsWrapper}>
           <div className={styles.backgroundObjectsShadow} />
 
           {backgroundVideoIsActive && (
-            <Video className={styles.backgroundObjectWrapper} src={'/assets/videos/TV_static-2.mp4'} />
+            <Video className={styles.backgroundObjectWrapper} src={backgroundVideoSrc} />
           )}
 
           {backgroundImgIsActive && (
-            <Img className={styles.backgroundObjectWrapper} src={'/assets/img/cinemagraph.gif'} />
+            <Img className={styles.backgroundObjectWrapper} src={backgroundImgSrc} />
           )}
         </div>
       )}

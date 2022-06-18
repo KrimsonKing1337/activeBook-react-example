@@ -4,8 +4,6 @@ import { ConnectedRouterProps, connectRouter, routerMiddleware } from 'connected
 import { createBrowserHistory } from 'history';
 import createSagaMiddleware from 'redux-saga';
 
-import { effectExamplesReducer } from './effectExamples';
-// -- //
 import { incrementReducer, watchIncrementActions } from './increment';
 import { mainReducer, watchMainActions } from './main';
 import { configReducer, watchConfigActions } from './config';
@@ -25,8 +23,6 @@ const compose = composeWithDevTools(applyMiddleware(sagaMiddleware, routerMiddle
 
 const makeRootReducer = (history: ConnectedRouterProps['history']) => {
   return combineReducers({
-    effectExamples: effectExamplesReducer,
-    // -- //
     router: connectRouter(history),
     increment: incrementReducer,
     main: mainReducer,
