@@ -3,8 +3,6 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { State } from './@types';
 
 export const initialState: State = {
-  sideShadowIsActive: false,
-  sideTextIsActive: false,
   backgroundVideoIsActive: false,
   backgroundVideoSrc: '',
   backgroundImgIsActive: false,
@@ -17,12 +15,6 @@ const slice = createSlice({
   name: '@effects/common',
   initialState,
   reducers: {
-    setSideShadowActiveState(state, action: PayloadAction<State['sideShadowIsActive']>) {
-      state.sideShadowIsActive = action.payload;
-    },
-    setSideTextActiveState(state, action: PayloadAction<State['sideTextIsActive']>) {
-      state.sideTextIsActive = action.payload;
-    },
     setBackgroundVideoActiveState(state, action: PayloadAction<State['backgroundVideoIsActive']>) {
       state.backgroundVideoIsActive = action.payload;
     },

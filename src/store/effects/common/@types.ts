@@ -1,6 +1,4 @@
 export interface State {
-  sideShadowIsActive: boolean;
-  sideTextIsActive: boolean;
   backgroundVideoIsActive: boolean;
   backgroundVideoSrc: string;
   backgroundImgIsActive: boolean;
