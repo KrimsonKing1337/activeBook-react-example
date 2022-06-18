@@ -5,7 +5,7 @@ import { State } from './@types';
 export const initialState: State = {
   route: '/',
   page: 0,
-  pages: 30,
+  pages: 31,
   menuActiveState: null,
   isLoading: false,
   isVibrationAvailable: false,

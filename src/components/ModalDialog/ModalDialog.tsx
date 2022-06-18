@@ -7,6 +7,8 @@ import styles from './ModalDialog.scss';
 type Func = () => void;
 
 export type ModalDialogProps = ModalProps & {
+  showOkButton?: boolean;
+  showCancelButton?: boolean;
   onConfirm: Func;
   onCancel: Func;
   children: React.ReactNode;
@@ -15,6 +17,8 @@ export type ModalDialogProps = ModalProps & {
 const defaultFunc = () => {};
 
 export const ModalDialog = ({
+  showOkButton = true,
+  showCancelButton = true,
   onClose = defaultFunc,
   onConfirm = defaultFunc,
   onCancel = defaultFunc,
@@ -35,13 +39,17 @@ export const ModalDialog = ({
         </div>
 
         <div className={styles.actions}>
-          <button type="button" className={styles.buttonConfirm} onClick={buttonOkClickHandler}>
-            Ок
-          </button>
+          {showOkButton && (
+            <button type="button" className={styles.buttonConfirm} onClick={buttonOkClickHandler}>
+              Ок
+            </button>
+          )}
 
-          <button type="button" className={styles.buttonCancel} onClick={buttonCancelClickHandler}>
-            Отмена
-          </button>
+          {showCancelButton && (
+            <button type="button" className={styles.buttonCancel} onClick={buttonCancelClickHandler}>
+              Отмена
+            </button>
+          )}
         </div>
       </div>
     </Modal>

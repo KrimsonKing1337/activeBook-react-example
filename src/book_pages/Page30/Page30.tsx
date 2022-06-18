@@ -2,7 +2,7 @@ import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
 
-import { useWelcomeOutside } from './hook';
+import { useWelcomeOutside } from './hooks';
 
 export const Page30 = () => {
   useWelcomeOutside();
