@@ -29,36 +29,6 @@ export const items: ItemProps[] = [
   {
     title: 'Глава 6',
     subtitle: 'По ту сторону изгороди',
-    pageNumber: 29,
-  },
-  {
-    title: 'Глава 7',
-    subtitle: 'Новый окрас',
-    pageNumber: 34,
-  },
-  {
-    title: 'Глава 8',
-    subtitle: 'Она всё-таки смотрит',
-    pageNumber: 36,
-  },
-  {
-    title: 'Глава 9',
-    subtitle: 'Кусочек родной планеты',
-    pageNumber: 41,
-  },
-  {
-    title: 'Глава 10',
-    subtitle: 'Траур и смутные сомнения',
-    pageNumber: 50,
-  },
-  {
-    title: 'Глава 11',
-    subtitle: 'В западне',
-    pageNumber: 61,
-  },
-  {
-    title: 'Глава 12',
-    subtitle: 'Старый друг',
-    pageNumber: 76,
+    pageNumber: 31,
   },
 ];

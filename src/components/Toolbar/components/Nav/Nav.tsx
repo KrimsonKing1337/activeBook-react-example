@@ -112,7 +112,7 @@ export const Nav = () => {
         </Item>
 
         <div className={styles.pageNumber} onClick={pageNumberClickHandler}>
-          {page} из 135
+          {page} из {pages}
         </div>
 
         <Item onClick={nextClickHandler}>
