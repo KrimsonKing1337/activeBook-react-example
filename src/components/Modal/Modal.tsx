@@ -98,6 +98,13 @@ class ModalComponent extends React.Component<Props, ModalState> {
     if (hash !== prevProps.location.hash) {
       this.navigatorBackHandler();
     }
+
+    // для случаев, если закрытие модалки происходит не по нажатию на крестик или области вокруг
+    if (isOpen !== prevProps.isOpen && !isOpen) {
+      if (location.hash) {
+        this.close();
+      }
+    }
   }
 
   initHammer = () => {
