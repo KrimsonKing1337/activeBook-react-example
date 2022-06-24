@@ -11,6 +11,8 @@ export const Page13 = () => {
   const audioInst = useSound({
     src: '/assets/book_data/audios/sounds/shotgun-shot.mp3',
     oneShot: true,
+    playOnLoad: true,
+    delay: 600,
   });
 
   const { vibrationOn } = useVibration();
@@ -21,10 +23,6 @@ export const Page13 = () => {
     }
 
     (async () => {
-      await sleep(600);
-
-      audioInst?.play();
-
       await sleep(97);
 
       vibrationOn(250);

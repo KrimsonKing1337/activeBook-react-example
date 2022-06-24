@@ -13,6 +13,7 @@ type UseSoundProps = {
   loop?: boolean;
   playOnLoad?: boolean;
   stopBy?: number;
+  delay?: number;
 };
 
 export function useSound({
@@ -23,6 +24,7 @@ export function useSound({
   loop = false,
   playOnLoad = false,
   stopBy = 0,
+  delay = 0,
 }: UseSoundProps) {
   const dispatch = useDispatch();
 
@@ -44,15 +46,17 @@ export function useSound({
   }, []);
 
   useEffect(() => {
+    let timer: NodeJS.Timer | null = null;
+
     if (!soundInst || soundInst.isUnloading) {
       return;
     }
 
     if (playOnLoad) {
-      soundInst.play();
+      timer = setTimeout(() => {
+        soundInst.play();
+      }, delay);
     }
-
-    let timer: NodeJS.Timer | null = null;
 
     if (stopBy) {
       timer = setTimeout(() => {
