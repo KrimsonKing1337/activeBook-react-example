@@ -1,53 +1,35 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
 
 import { useSound } from 'hooks/effects/audio/sound';
-import { useVibration } from 'hooks/effects/vibration';
-
-import { sleep } from 'utils/sleep';
+import { useRain } from 'hooks/effects/flashlight/rain';
 
 export const Page13 = () => {
-  const audioInst = useSound({
-    src: '/assets/book_data/audios/sounds/shotgun-shot.mp3',
-    oneShot: true,
+  useSound({
+    src: '/assets/book_data/audios/sounds/rain-and-thunder.mp3',
+    loop: true,
     playOnLoad: true,
-    delay: 600,
+    bg: true,
   });
 
-  const { vibrationOn } = useVibration();
-
-  useEffect(() => {
-    if (!audioInst) {
-      return;
-    }
-
-    (async () => {
-      await sleep(97);
-
-      vibrationOn(250);
-    })();
-  }, [audioInst]);
+  useRain();
 
   return (
     <PageWrapper>
       <p>
-        Послышался выстрел.
+        Снился дождь. Сильный, тяжёлый. Наш герой не видел дождей с осени и уже успел соскучиться по этому
+        природному явлению. Пусть просто во сне, но всё равно приятно. Плюс к этому ещё и не мокнешь.
       </p>
       <p>
-        Прямое попадание. Но крови не было.
+        И будто нужно было куда-то бежать. Прочь оттуда, бежать от дождя. Снился отец, которого Егор так любил.
+        Он что-то кричал ему, но слова было не разобрать из-за сильного ливня.
       </p>
       <p>
-        Но и пошевелиться Егор не мог. Его парализовало.
+        Тогда отец Егора пошёл в сарай. А когда вернулся – в его в руках было ружьё.
       </p>
       <p>
-        Тем временем отец со странным выражением на лице стал приближаться к Егору.
-      </p>
-      <p>
-        Ближе, ещё ближе..
-      </p>
-      <p>
-        Вот он уже протягивает руку..
+        Он прицелился.
       </p>
     </PageWrapper>
   );

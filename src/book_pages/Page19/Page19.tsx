@@ -1,48 +1,155 @@
 import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
-import { ExternalLink as ExtLink } from 'components/ExternalLink/ExternalLink';
+import { SideText } from 'components/SideEffects/components/SideText';
+import sideTextStyles from 'components/SideEffects/components/SideText/SideText.scss';
+
+import { useSideText } from 'hooks/effects/side/text';
 
 export const Page19 = () => {
-  const Link = (
-    <ExtLink href="https://ru.wikipedia.org/wiki/%D0%A3%D0%BB%D0%B8%D1%81%D1%81_(%D1%80%D0%BE%D0%BC%D0%B0%D0%BD)">
-      Уиллиса
-    </ExtLink>
+  const SideTextTemplate = (
+    <SideText>
+      <>
+        <span>
+              целостность обшивки: 99.9%;
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span>
+              температура: 23 градуса по цельсию;
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span className={sideTextStyles.warning}>
+              пульс: повышенный, рекомендуется приём успокоительного;
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span>
+              информация о маршруте: по пути следования обнаружен астероид, курс был скорректирован;
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span className={sideTextStyles.ok}>
+              ваш кофе готов;
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span>
+              статус элементов питания: элементы питания заряжены на 91%, разряжаются;
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span className={sideTextStyles.warning}>
+              напоминание: доиграть партию в мини-гольф;
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span className={sideTextStyles.error}>
+              sudo: в правах суперпользователя отказано, проверьте правильность вводимого пароля;
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span>
+              освещение: освещение изменено в соответствии с привычным для пользователя в это время суток;
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span>
+              ты правда это читаешь? ну ты котик!
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+      </>
+
+      <>
+        <span>
+              целостность обшивки: 99.9%;
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span>
+              температура: 23 градуса по цельсию;
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span className={sideTextStyles.warning}>
+              пульс: повышенный, рекомендуется приём успокоительного;
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span>
+              информация о маршруте: по пути следования обнаружен астероид, курс был скорректирован;
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span className={sideTextStyles.ok}>
+              ваш кофе готов;
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span>
+              статус элементов питания: элементы питания заряжены на 91%, разряжаются;
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span className={sideTextStyles.warning}>
+              напоминание: доиграть партию в мини-гольф;
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span className={sideTextStyles.error}>
+              sudo: в правах суперпользователя отказано, проверьте правильность вводимого пароля;
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span>
+              освещение: освещение изменено в соответствии с привычным для пользователя в это время суток;
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+      </>
+    </SideText>
   );
+
+  useSideText({
+    isActiveDefault: true,
+    template: SideTextTemplate,
+  });
 
   return (
     <PageWrapper>
       <p>
-        Но эта непроглядная тьма, окружающая корабль, всегда успокаивала космонавта.
-        Вдали от людей, лишь слышно двигатель и стук сердца — это ли не счастье.
+        Огромные мониторы отображали бесконечный поток информации о пролетающих мимо объектах, состоянии корабля
+        и членов экипажа (то есть, единственного члена).
       </p>
       <p>
-        Придя в себя после кошмарного сна из не менее кошмарного прошлого,
-        Егор почувствовал, что пульс его пришёл в норму.
+        Как обычно — мелькало предупреждение об учащённом сердцебиении и рекомендация о приёме успокоительного.
       </p>
       <p>
-        Поспать не удалось и нужно придумать иное занятие. На втором месте после сна шли книги.
-      </p>
-      <p>
-        Как ни странно, но даже когда люди научились проецировать видео, звук
-        и даже тактильные ощущения с запахами, классический буквенный вид повествования не умер.
-      </p>
-      <p>
-        Достав свой наладонник, космонавт стал выбирать что же ему почитать сегодня.
-        Сотни и тысячи книг ждали своей очереди в памяти устройства.
-      </p>
-      <p>
-        Лететь долго, нужно выбрать произведение соответствующей длины. Выбор пал на {Link} за авторством
-        Джеймса Джойса, любимую книгу Джона Кеннеди.
-      </p>
-      <p>
-        Бесконечный хаос мыслей отступил (даже про то смотрит ли она или нет).
-      </p>
-      <p>
-        Можно было даже подумать, будто это просто поездка в метро, только долгая и с пустыми вагонами.
-      </p>
-      <p>
-        И телепортацией.
+        Егор хотел минимизировать свою зависимость от чего бы то ни было.
+        Он и так, мол, зависит от кислорода, воды, витаминов и аминокислот, так ещё
+        и на успокоительное подсесть ему предлагают. Вот уж дудки!
+        Поэтому без крайней необходимости, он не употреблял подобные препараты.
+        А уж тем более алкоголь и наркотики.
+        Он так боялся зависимостей, что это вполне можно считать за настоящую фобию.
       </p>
     </PageWrapper>
   );

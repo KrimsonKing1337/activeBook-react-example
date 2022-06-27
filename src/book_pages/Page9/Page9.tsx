@@ -1,46 +1,52 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
 
 import { useSound } from 'hooks/effects/audio/sound';
-import { useSideShadow } from 'hooks/effects/side/shadow';
+import { useVibration } from 'hooks/effects/vibration';
 
 export const Page9 = () => {
   useSound({
-    src: '/assets/book_data/audios/sounds/alarm-spaceship.mp3',
+    src: '/assets/book_data/audios/sounds/Gagarin-and-rocket-start.mp3',
     playOnLoad: true,
-    loop: true,
-    bg: true,
   });
 
-  useSideShadow({
-    color: 'red',
-    speed: 850,
-  });
+  const { vibrationOn } = useVibration();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      vibrationOn(53000);
+    }, 8352);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
 
   return (
     <PageWrapper>
       <p>
-        Вдруг замигала красная лампочка, предупреждая о проблеме.
+        Ракета готовилась к пуску, «двигатель прогрелся».
       </p>
       <p>
-        Что-то пошло не по плану.
+        В голове прозвучал Гагарин и его знаменитое «поехали».
       </p>
       <p>
-        А такое сообщение об ошибке никто никогда не видел:
-
-        «В указанной области для телепортации не может находиться более одного объекта с одним и тем же
-        идентификатором».
+        Ракета сорвалась с места и стала стремительно набирать скорость, оставляя после себя
+        длинный белый шлейф и выжженную землю.
       </p>
       <p>
-        «Как такое может быть? Бред какой-то», – подумал Егор.
+        Чувство тревоги отступило. Волноваться уже было поздно.
       </p>
       <p>
-        Дело в том, что во Вселенной у каждого объекта (одушевлённого или неодушевлённого) есть свой уникальный id.
-        Даже у клонов он разный.
+        Егора вдавливало в кресло с неимоверной силой.
       </p>
       <p>
-        Решив, что система просто дала сбой, космонавт проигнорировал сообщение и запустил операцию ещё раз.
+        «Интересно, она смотрит?»
+      </p>
+      <p>
+        Скорость всё нарастала, система готовилась к телепортации. Некоторые ошибочно называли
+        это «прыжок в гиперпространство».
       </p>
     </PageWrapper>
   );

@@ -29,6 +29,6 @@ export const items: ItemProps[] = [
   {
     title: 'Глава 6',
     subtitle: 'По ту сторону изгороди',
-    pageNumber: 31,
+    pageNumber: 34,
   },
 ];

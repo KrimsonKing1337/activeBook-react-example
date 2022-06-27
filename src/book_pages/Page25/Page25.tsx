@@ -6,21 +6,23 @@ import { useSound } from 'hooks/effects/audio/sound';
 
 export const Page25 = () => {
   useSound({
-    src: '/assets/book_data/audios/sounds/coin-dropping.mp3',
+    src: '/assets/book_data/audios/sounds/coin-flipping.mp3',
     playOnLoad: true,
-    oneShot: true,
+    loop: true,
+    bg: true,
   });
 
   return (
     <PageWrapper>
       <p>
-        Отложив монетку, Егор взялся за штурвал. Раскачивая корабль взад-вперёд, он стал таранить невидимый барьер.
+        Космонавт стал подбрасывать монетку — это всегда помогало ему думать.
       </p>
       <p>
-        Эффекта не было.
+        Плюс — хорошее средство разбавить гнетущую тишину.
       </p>
       <p>
-        Тогда он стал увеличивать амплитуду.
+        В голову ничего не приходило, кроме банального тарана. Ну а что?
+        Любую стену можно пробить, нужно лишь достаточно сильно ударить.
       </p>
     </PageWrapper>
   );

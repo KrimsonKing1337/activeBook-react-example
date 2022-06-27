@@ -3,32 +3,27 @@ import React from 'react';
 import { PageWrapper } from 'components/PageWrapper';
 
 import { useSound } from 'hooks/effects/audio/sound';
-import { useSideShadow } from 'hooks/effects/side/shadow';
+
 
 export const Page16 = () => {
   useSound({
-    src: '/assets/book_data/audios/sounds/police-come.mp3',
+    src: '/assets/book_data/audios/sounds/woman-scream-glass-crash-furniture.mp3',
     playOnLoad: true,
-  });
-
-  useSideShadow({
-    color: 'police',
-    speed: 1000,
   });
 
   return (
     <PageWrapper>
       <p>
-        Наконец, через время до ушей донёсся спасительный звук полицейских машин.
+        Крики матери, попытки спрятаться в доме от обезумевшего отца.
+        Звон бьющегося стекла, судорожные попытки вызвать 911.
+        Прикрытие рта ладонью, чтобы не было слышно дыхания.
       </p>
       <p>
-        Полицейские стали окружать дом. Сопротивление бесполезно.
+        Технологии ушли далеко вперёд, но без собственного желания что-либо сделать с собой — ничего не получится.
+        Поэтому алкоголизм так и не изжил себя. А если есть ещё и психические расстройства — то вообще пиши-пропало.
       </p>
       <p>
-        Господа офицеры сработали быстро, обошлось без жертв.
-      </p>
-      <p>
-        Если не считать лёгкого ранения в руку и искалеченную жизнь Егора — всё было в порядке.
+        Оставалось лишь затаиться на чердаке.
       </p>
     </PageWrapper>
   );
