@@ -2,7 +2,15 @@ import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
 
+import { useSound } from 'hooks/effects/audio/sound';
+
 export const Page5 = () => {
+  useSound({
+    src: '/assets/book_data/audios/sounds/boo.mp3',
+    playOnLoad: true,
+    screamer: true,
+  });
+
   return (
     <PageWrapper>
       <p>

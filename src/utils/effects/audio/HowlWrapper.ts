@@ -8,6 +8,7 @@ export type HowlWrapperOptions = {
   src: HowlOptions['src'];
   loop?: HowlOptions['loop'];
   type?: AudioType;
+  screamer?: boolean;
 };
 
 type HowlerOptions = {
@@ -25,7 +26,7 @@ export class HowlWrapper {
   public isUnloading = false;
   public type: AudioType = 'sfx';
 
-  constructor({ id, src, loop, type = 'sfx' }: HowlWrapperOptions) {
+  constructor({ id, src, loop, type = 'sfx', screamer = false }: HowlWrapperOptions) {
     const volume = this.getVolume();
 
     let volumeValue = volume.sfx / 100;
@@ -44,6 +45,10 @@ export class HowlWrapper {
     }
 
     options.volume = volumeValue;
+
+    if (screamer) {
+      options.volume = 1;
+    }
 
     this.howlInst = new Howl(options);
 

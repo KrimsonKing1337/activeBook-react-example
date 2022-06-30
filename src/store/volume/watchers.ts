@@ -1,25 +1,11 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import { Howler } from 'howler';
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { store } from 'store';
+
+import { getAudioInstances } from 'utils/effects/audio/getAudioInstances';
 
 import { actions } from './slice';
 import { State } from './@types';
-
-function getSoundInstances() {
-  const storeState = store.getState();
-  const { soundEffects, musicEffects } = storeState;
-  const { howlInst1: audioEffectHowlInst1, howlInst2: audioEffectHowlInst2 } = soundEffects;
-  const { howlInst1: musicEffectHowlInst1, howlInst2: musicEffectHowlInst2 } = musicEffects;
-
-  const soundInst = audioEffectHowlInst1 || audioEffectHowlInst2;
-  const musicInst = musicEffectHowlInst1 || musicEffectHowlInst2;
-
-  return {
-    soundInst,
-    musicInst,
-  };
-}
 
 export function* watchSetAll(action: PayloadAction<State>) {
   const { payload } = action;
@@ -48,7 +34,7 @@ export function* watchSetBg(action: PayloadAction<State['bg']>) {
   const { payload } = action;
 
   yield call(() => {
-    const { soundInst } = getSoundInstances();
+    const { soundInst } = getAudioInstances();
 
     if (soundInst && soundInst.type === 'bg') {
       soundInst.volume(payload / 100);
@@ -60,7 +46,7 @@ export function* watchSetSfx(action: PayloadAction<State['sfx']>) {
   const { payload } = action;
 
   yield call(() => {
-    const { soundInst } = getSoundInstances();
+    const { soundInst } = getAudioInstances();
 
     if (soundInst && soundInst.type === 'sfx') {
       soundInst.volume(payload / 100);
@@ -72,7 +58,7 @@ export function* watchSetMusic(action: PayloadAction<State['music']>) {
   const { payload } = action;
 
   yield call(() => {
-    const { musicInst } = getSoundInstances();
+    const { musicInst } = getAudioInstances();
 
     if (musicInst) {
       musicInst.volume(payload / 100);

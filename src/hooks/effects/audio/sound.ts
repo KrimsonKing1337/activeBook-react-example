@@ -14,6 +14,7 @@ type UseSoundProps = {
   playOnLoad?: boolean;
   stopBy?: number;
   delay?: number;
+  screamer?: boolean;
 };
 
 export function useSound({
@@ -25,6 +26,7 @@ export function useSound({
   playOnLoad = false,
   stopBy = 0,
   delay = 0,
+  screamer = false,
 }: UseSoundProps) {
   const dispatch = useDispatch();
 
@@ -34,6 +36,7 @@ export function useSound({
     const opt: HowlWrapperOptions = {
       src: [src],
       loop,
+      screamer,
     };
 
     if (bg) {
