@@ -17,6 +17,18 @@
       ]
     },
     {
+      "id": "promise-from-distance-days",
+      "type": "music",
+      "src": "assets/book_data/audios/music/Promise_From_Distant_Days.mp3",
+      "fadeOutSpeed": 250,
+      "range": [
+        {
+          "from": 30,
+          "to": 31
+        }
+      ]
+    },
+    {
       "type": "dots",
       "range": [
         {
