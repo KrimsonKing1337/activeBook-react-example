@@ -4,6 +4,7 @@ import styles from './Spoiler.scss';
 
 export type SpoilerProps = {
   children: React.ReactNode;
+  label?: string;
   needToSetHeight?: boolean;
   setNeedToSetHeightToFalse?: () => void;
   [name: string]: any;
@@ -11,13 +12,18 @@ export type SpoilerProps = {
 
 export const Spoiler = ({
   children,
+  label,
   needToSetHeight = false,
   setNeedToSetHeightToFalse = () => {},
   ...rest
 } : SpoilerProps) => {
   const [isOpen, setIsOpen] = useState(false);
+
   const contentRef = useRef<HTMLDivElement>(null);
+
   const buttonText = isOpen ? 'Закрыть' : 'Раскрыть';
+  const buttonLabel = label ? label : buttonText;
+
   const childrenIsText = typeof children === 'string';
 
   const setHeight = (isOpen: boolean) => {
@@ -63,7 +69,7 @@ export const Spoiler = ({
   return (
     <div className={'Spoiler'} {...rest}>
       <div className={styles.button} onClick={buttonClickHandler}>
-        {buttonText}
+        {buttonLabel}
       </div>
 
       <div className={styles.content} ref={contentRef}>

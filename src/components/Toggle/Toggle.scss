@@ -5,6 +5,10 @@
   padding: 20px 0;
 
   border-bottom: 1px #eaeaea solid;
+
+  &.isWithoutBorder {
+    border-bottom: none;
+  }
 }
 
 .itemsWrapper {

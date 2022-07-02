@@ -9,14 +9,24 @@ import styles from './Toggle.scss';
 type Func = () => void;
 
 export type ToggleProps = {
+  [name: string]: any;
   label: string;
   isActiveDefault?: boolean;
   isActive?: boolean | undefined;
+  withoutBorder?: boolean;
   onClickOn: Func;
   onClickOff: Func;
 };
 
-export const Toggle = ({ label, isActiveDefault = true, isActive, onClickOn, onClickOff }: ToggleProps) => {
+export const Toggle = ({
+  label,
+  isActiveDefault = true,
+  isActive,
+  withoutBorder = false,
+  onClickOn,
+  onClickOff,
+  ...rest
+}: ToggleProps) => {
   const [uncontrolledIsActive, setUncontrolledIsActive] = useState(isActiveDefault);
 
   const buttonClickHandler = (value: boolean, cb: Func) => {
@@ -28,6 +38,11 @@ export const Toggle = ({ label, isActiveDefault = true, isActive, onClickOn, onC
 
     cb();
   };
+
+  const toggleClassNames = classNames({
+    [styles.toggle]: true,
+    [styles.isWithoutBorder]: withoutBorder,
+  });
 
   const trueIsActive = isActive === undefined ? uncontrolledIsActive : isActive;
 
@@ -42,7 +57,7 @@ export const Toggle = ({ label, isActiveDefault = true, isActive, onClickOn, onC
   });
 
   return (
-    <div className={styles.toggle}>
+    <div className={toggleClassNames} {...rest}>
       <Label label={label} />
 
       <div className={styles.itemsWrapper}>
