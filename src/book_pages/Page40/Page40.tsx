@@ -1,8 +1,21 @@
 import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
+import { EasterEgg as EasterEggComponent } from 'components/EasterEgg';
+
+import { useSound } from 'hooks/effects/audio/sound';
 
 export const Page40 = () => {
+  const sound = useSound({
+    src: 'assets/book_data/audios/sounds/valhalla.mp3',
+  });
+
+  const EasterEgg = (
+    <EasterEggComponent onClick={() => sound?.play()}>
+      на Вальгаллу
+    </EasterEggComponent>
+  );
+
   return (
     <PageWrapper>
       <p>
@@ -28,7 +41,7 @@ export const Page40 = () => {
         проводить время - ответил Александр.
       </p>
       <p>
-        - Типа в Рай? - уточнил Егор. Вообще, описанием больше походило Вальгаллу, но он не стал так это называть.
+        - Типа в Рай? - уточнил Егор. Вообще, описанием больше походило {EasterEgg}, но он не стал так это называть.
       </p>
       <p>
         - Так мою комнату ещё никто не называл. Но да, иногда там действительно как в Раю, - усмехнулся Создатель и

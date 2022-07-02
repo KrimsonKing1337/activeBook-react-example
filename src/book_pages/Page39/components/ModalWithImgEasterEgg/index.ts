@@ -1,0 +1,1 @@
+export { ModalWithImgEasterEgg } from './ModalWithImgEasterEgg';

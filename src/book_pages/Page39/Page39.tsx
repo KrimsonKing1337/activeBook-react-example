@@ -1,12 +1,26 @@
 import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
+import { EasterEgg as EasterEggComponent } from 'components/EasterEgg';
+
+import { useModalWithImgEasterEgg } from './components/ModalWithImgEasterEgg/hooks';
+import { ModalWithImgEasterEgg } from './components/ModalWithImgEasterEgg';
 
 export const Page39 = () => {
+  const { modalIsActive, setModalIsActive } = useModalWithImgEasterEgg();
+
+  const EasterEgg = (
+    <EasterEggComponent onClick={() => setModalIsActive(true)}>
+      Обсуждали главный вопрос жизни, вселенной и всего такого.
+    </EasterEggComponent>
+  );
+
   return (
     <PageWrapper>
+      <ModalWithImgEasterEgg setModalIsActive={setModalIsActive} isActive={modalIsActive} />
+
       <p>
-        Они ещё много болтали. Обсуждали главный вопрос жизни, вселенной и всего такого.
+        Они ещё много болтали. {EasterEgg}
       </p>
       <p>
         Егор пытался осознать происходящее и просто не мог поверить во всё это. Но его заверили, что у него будет много
