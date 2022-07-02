@@ -11,7 +11,7 @@ export const Page39 = () => {
 
   const EasterEgg = (
     <EasterEggComponent onClick={() => setModalIsActive(true)}>
-      Обсуждали главный вопрос жизни, вселенной и всего такого.
+      главный вопрос жизни, вселенной и всего такого.
     </EasterEggComponent>
   );
 
@@ -20,7 +20,7 @@ export const Page39 = () => {
       <ModalWithImgEasterEgg setModalIsActive={setModalIsActive} isActive={modalIsActive} />
 
       <p>
-        Они ещё много болтали. {EasterEgg}
+        Они ещё много болтали. Обсуждали {EasterEgg}
       </p>
       <p>
         Егор пытался осознать происходящее и просто не мог поверить во всё это. Но его заверили, что у него будет много
