@@ -2,7 +2,13 @@ import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
 
+import { useMusic } from 'hooks/effects/audio/music';
+
 export const Page43 = () => {
+  useMusic({
+    src: 'assets/book_data/audios/music/Scott-Pilgrim-opening.mp3',
+  });
+
   return (
     <PageWrapper>
       <p>

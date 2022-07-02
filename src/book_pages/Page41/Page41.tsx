@@ -2,7 +2,14 @@ import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
 
+import { useMusic } from 'hooks/effects/audio/music';
+
 export const Page41 = () => {
+  useMusic({
+    src: 'assets/book_data/audios/music/heaven-music.mp3',
+    loop: true,
+  });
+
   return (
     <PageWrapper>
       <p>
