@@ -1,24 +1,18 @@
 import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
-import { EasterEgg as EasterEggComponent } from 'components/EasterEgg';
-
-import { useModalWithImgEasterEgg } from './components/ModalWithImgEasterEgg/hooks';
-import { ModalWithImgEasterEgg } from './components/ModalWithImgEasterEgg';
+import { EasterEggModal } from 'components/EasterEggModal';
 
 export const Page39 = () => {
-  const { modalIsActive, setModalIsActive } = useModalWithImgEasterEgg();
-
   const EasterEgg = (
-    <EasterEggComponent onClick={() => setModalIsActive(true)}>
-      главный вопрос жизни, вселенной и всего такого.
-    </EasterEggComponent>
+    <EasterEggModal
+      easterEggText="главный вопрос жизни, вселенной и всего такого."
+      modalContent={<img src="/assets/book_data/images/42.jpg" alt="" />}
+    />
   );
 
   return (
     <PageWrapper>
-      <ModalWithImgEasterEgg setModalIsActive={setModalIsActive} isActive={modalIsActive} />
-
       <p>
         Они ещё много болтали. Обсуждали {EasterEgg}
       </p>

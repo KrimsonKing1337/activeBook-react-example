@@ -1,1 +1,0 @@
-export { ModalWithGifEasterEgg } from './ModalWithGifEasterEgg';
