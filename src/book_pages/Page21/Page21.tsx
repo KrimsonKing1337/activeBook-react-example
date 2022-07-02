@@ -1,28 +1,19 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
-import { EasterEgg as EasterEggComponent } from 'components/EasterEgg';
-
-import { ModalWithVideoEasterEgg } from './components/ModalWithVideoEasterEgg';
-import { useModalWithVideoEasterEgg } from './components/ModalWithVideoEasterEgg/hooks';
+import { EasterEggModal } from 'components/EasterEggModal';
 
 export const Page21 = () => {
-  const { setModalIsActive, modalIsActive, videoRef } = useModalWithVideoEasterEgg();
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const EasterEgg = (
-    <EasterEggComponent onClick={() => setModalIsActive(true)}>
-      «Вот это поворот»,
-    </EasterEggComponent>
+    <EasterEggModal
+      easterEggText="«Вот это поворот»,"
+      modalContent={<video src="/assets/book_data/videos/wow_turn.mp4" ref={videoRef} />} />
   );
 
   return (
     <PageWrapper>
-      <ModalWithVideoEasterEgg
-        isActive={modalIsActive}
-        setModalIsActive={setModalIsActive}
-        videoRef={videoRef}
-      />
-
       <h1>
         Глава 5.
       </h1>
