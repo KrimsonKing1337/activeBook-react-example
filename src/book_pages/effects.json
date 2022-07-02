@@ -1,22 +1,6 @@
 {
   "effects": [
     {
-      "id": "tiptoe-out-the-back",
-      "type": "music",
-      "src": "assets/book_data/audios/music/Tiptoe_Out_the_Back.mp3",
-      "fadeOutSpeed": 1000,
-      "range": [
-        {
-          "from": 1,
-          "to": 3
-        },
-        {
-          "from": 5,
-          "to": 6
-        }
-      ]
-    },
-    {
       "id": "promise-from-distance-days",
       "type": "music",
       "src": "assets/book_data/audios/music/Promise_From_Distant_Days.mp3",
