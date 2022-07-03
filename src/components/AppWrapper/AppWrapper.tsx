@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import classNames from 'classnames';
+import { Howler } from 'howler';
 
 import { volumeActions, volumeSelectors } from 'store/volume';
 import { configActions } from 'store/config';
@@ -32,6 +33,16 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
   const bookmarksIsOpen = useSelector(bookmarksSelectors.isOpen);
   const page = useSelector(mainSelectors.page);
   const bookmarks = useSelector(bookmarksSelectors.bookmarks);
+
+  useEffect(() => {
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        Howler.mute(true);
+      } else {
+        Howler.mute(false);
+      }
+    });
+  }, []);
 
   // сбрасываю адресную строку
   useEffect(() => {
