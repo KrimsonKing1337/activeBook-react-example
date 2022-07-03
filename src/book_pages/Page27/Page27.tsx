@@ -23,6 +23,7 @@ export const Page27 = () => {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
+  // todo: переделать на комментарий от автора
   const ActionLink = (
     <Action onClick={() => setModalIsOpen(true)}>за ту сторону изгороди.</Action>
   );
