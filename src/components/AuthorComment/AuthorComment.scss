@@ -1,0 +1,19 @@
+@import "~styles/__variables.scss";
+
+.authorComment {
+  display: inline;
+
+  color: #ff3;
+  font-size: 1em;
+  font-weight: bold;
+
+  opacity: 0.85;
+
+  transition: text-shadow $transitionDefault;
+
+  &:hover {
+    text-shadow: 1px 1px 30px rgb(255 255 255 / 75%);
+
+    cursor: pointer;
+  }
+}
