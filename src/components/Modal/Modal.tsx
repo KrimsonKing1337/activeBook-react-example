@@ -76,10 +76,14 @@ class ModalComponent extends React.Component<Props, ModalState> {
   componentDidMount() {
     this.setUuid();
     this.initHammer();
+
+    document.addEventListener('keydown', this.escPressHandler);
   }
 
   componentWillUnmount() {
     this.destroyHammer();
+
+    document.removeEventListener('keydown', this.escPressHandler);
   }
 
   componentDidUpdate(prevProps: Props) {
@@ -197,6 +201,12 @@ class ModalComponent extends React.Component<Props, ModalState> {
 
     if (onClose) {
       onClose();
+    }
+  }
+
+  escPressHandler = (e: KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      this.close();
     }
   }
 

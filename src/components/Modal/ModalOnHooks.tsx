@@ -50,6 +50,20 @@ export const Modal = ({
   const iconCropRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const escPressHandler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        close();
+      }
+    };
+
+    document.addEventListener('keypress', escPressHandler);
+
+    return () => {
+      document.removeEventListener('keypress', escPressHandler);
+    };
+  }, []);
+
+  useEffect(() => {
     const uuidValue = uuidv4();
 
     setComponentUuid(uuidValue);
