@@ -14,6 +14,7 @@ export type AudioRangeEffect = RangeEffect & {
   id: string;
   src: string;
   fadeOutSpeed?: number;
+  delay?: number;
 };
 
 export type DotsRangeEffect = RangeEffect;

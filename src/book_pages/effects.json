@@ -13,6 +13,18 @@
       ]
     },
     {
+      "id": "radio",
+      "type": "bg",
+      "src": "assets/book_data/audios/sounds/radio.mp3",
+      "fadeOutSpeed": 250,
+      "range": [
+        {
+          "from": 2,
+          "to": 3
+        }
+      ]
+    },
+    {
       "type": "dots",
       "range": [
         {

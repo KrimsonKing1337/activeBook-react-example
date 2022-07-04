@@ -12,15 +12,15 @@ import { getEffectInRange } from 'utils/effects/rangeEffects';
 export function useAudioInRange() {
   const dispatch = useDispatch();
 
-  const [audioInRange, setAudioInRange] = useState<AudioRangeEffect>();
+  const [soundInRange, setSoundInRange] = useState<AudioRangeEffect>();
 
   const page = useSelector(mainSelectors.page);
   const soundInst = useSelector(soundBgEffectsSelectors.soundInst);
 
   useEffect(() => {
-    const audioInRange: AudioRangeEffect = getEffectInRange(page, 'audio');
+    const soundInRange: AudioRangeEffect = getEffectInRange(page, 'bg');
 
-    if (!audioInRange) {
+    if (!soundInRange) {
       soundInst?.unload(true);
 
       dispatch(soundBgEffectsActions.setSound(null));
@@ -28,9 +28,9 @@ export function useAudioInRange() {
       return;
     }
 
-    setAudioInRange(audioInRange);
+    setSoundInRange(soundInRange);
 
-    const { src, id } = audioInRange;
+    const { src, id } = soundInRange;
 
     if (soundInst?.id === id) {
       return;
@@ -51,12 +51,24 @@ export function useAudioInRange() {
       return;
     }
 
-    if (soundInst?.id === audioInRange?.id && soundInst.playing()) {
+    if (soundInst?.id === soundInRange?.id && soundInst.playing()) {
       return;
     }
 
-    soundInst.play();
-  }, [soundInst, audioInRange]);
+    let timer: NodeJS.Timer | null = null;
+
+    const delay = soundInRange?.delay || 0;
+
+    timer = setTimeout(() => {
+      soundInst.play();
+    }, delay);
+
+    return () => {
+      if (timer) {
+        clearTimeout(timer);
+      }
+    };
+  }, [soundInst, soundInRange]);
 
   return soundInst;
 }
