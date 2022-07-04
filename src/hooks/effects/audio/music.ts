@@ -8,9 +8,10 @@ import { HowlWrapper } from 'utils/effects/audio/HowlWrapper';
 type UseMusicProps = {
   src: string;
   loop?: boolean;
+  playOnLoad?: boolean;
 };
 
-export function useMusic({ src, loop = true }: UseMusicProps) {
+export function useMusic({ src, loop = true, playOnLoad = true }: UseMusicProps) {
   const dispatch = useDispatch();
 
   const musicInst = useSelector(musicEffectsSelectors.musicInst);
@@ -30,7 +31,9 @@ export function useMusic({ src, loop = true }: UseMusicProps) {
       return;
     }
 
-    musicInst.play();
+    if (playOnLoad) {
+      musicInst.play();
+    }
 
     return () => {
       musicInst.unload(true);

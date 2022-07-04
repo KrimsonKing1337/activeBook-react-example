@@ -2,12 +2,20 @@ import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
 import { ExternalLink as ExtLink } from 'components/ExternalLink/ExternalLink';
+import { EasterEggModal } from 'components/EasterEggModal';
 
 export const Page20 = () => {
   const Link = (
     <ExtLink href="https://ru.wikipedia.org/wiki/%D0%A3%D0%BB%D0%B8%D1%81%D1%81_(%D1%80%D0%BE%D0%BC%D0%B0%D0%BD)">
       Уиллиса
     </ExtLink>
+  );
+
+  const EasterEgg = (
+    <EasterEggModal
+      easterEggText="поездка в метро"
+      modalContent={<img src="/assets/book_data/gifs/granny-in-hyper.gif" alt="" />}
+    />
   );
 
   return (
@@ -39,7 +47,7 @@ export const Page20 = () => {
         Бесконечный хаос мыслей отступил (даже про то смотрит ли она или нет).
       </p>
       <p>
-        Можно было даже подумать, будто это просто поездка в метро, только долгая и с пустыми вагонами.
+        Можно было даже подумать, будто это просто {EasterEgg}, только долгая и с пустыми вагонами.
       </p>
       <p>
         И телепортацией.

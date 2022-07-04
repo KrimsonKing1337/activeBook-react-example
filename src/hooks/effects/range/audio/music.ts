@@ -51,6 +51,10 @@ export function useMusicInRange() {
   }, [page]);
 
   useEffect(() => {
+    if (!musicInRange) {
+      return;
+    }
+
     if (!musicInst || musicInst.isUnloading) {
       if (musicInst?.state() !== 'unloaded') {
         return;

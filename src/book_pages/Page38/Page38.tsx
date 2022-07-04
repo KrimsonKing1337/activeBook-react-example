@@ -1,15 +1,28 @@
 import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
+import { Action as ActionComponent } from 'components/Action';
+
+import { useSound } from 'hooks/effects/audio/sound';
 
 export const Page38 = () => {
+  const sound = useSound({
+    src: 'assets/book_data/audios/sounds/atari.mp3',
+  });
+
+  const Action = (
+    <ActionComponent onClick={() => sound?.play()}>
+      синтезатора речи
+    </ActionComponent>
+  );
+
   return (
     <PageWrapper>
       <p>
-        Но в итоге он смог совладать с собой.
+        В итоге он смог совладать с собой.
       </p>
       <p>
-        Как только он поднёс горсть ко рту, голос вновь заговорил:
+        Но как только он поднёс горсть ко рту, голос вновь заговорил:
       </p>
       <p>
         — Ты не сходишь с ума.
@@ -32,7 +45,7 @@ export const Page38 = () => {
       <p>
         — Ладно, я пошутил, извини. Я посчитал, что будет уместно разрядить обстановку. Ведь я создал людей
         эмоциональными существами.. — произнёс голос. Голос звучал почти безэмоционально, даже сухо. Будто из
-        синтезатора речи какой-нибудь старой игровой приставки из 20 века.
+        {Action} какой-нибудь старой игровой приставки из 20 века.
       </p>
       <p>
         Егор молчал в растерянности. Голос продолжил:

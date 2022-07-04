@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react';
 
+import { EasterEgg as EasterEggComponent } from 'components';
+
 import { PageWrapper } from 'components/PageWrapper';
 
 import { useSound } from 'hooks/effects/audio/sound';
 import { useVibration } from 'hooks/effects/vibration';
+import { useMusic } from 'hooks/effects/audio/music';
 
 export const Page7 = () => {
   useSound({
@@ -12,11 +15,23 @@ export const Page7 = () => {
     oneShot: true,
   });
 
+  const music = useMusic({
+    src: '/assets/book_data/audios/music/Jimmy.mp3',
+    loop: false,
+    playOnLoad: false,
+  });
+
   const { vibrationOn } = useVibration();
 
   useEffect(() => {
     vibrationOn(500);
   }, []);
+
+  const EasterEgg = (
+    <EasterEggComponent onClick={() => music?.play()}>
+      очень любил.
+    </EasterEggComponent>
+  );
 
   return (
     <PageWrapper>
@@ -32,7 +47,7 @@ export const Page7 = () => {
         «Спасибо, обязательно!» – отправил он ответ.
       </p>
       <p>
-        Вот уже показалась ракета. Она была поистине громадной. И чем ближе они подъезжали —
+        Вот уже показалась ракета. Егор их {EasterEgg} И эта была поистине громадной. И чем ближе они подъезжали —
         тем сильнее приходилось задирать голову вверх для того, чтобы увидеть макушку. Она была
         бы ещё больше, если бы не открытое в начале века топливо, которого требуется
         относительно немного для создания нужной тяги.

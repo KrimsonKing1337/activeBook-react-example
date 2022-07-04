@@ -6,6 +6,8 @@ import { PageWrapper } from 'components/PageWrapper';
 
 import { useModal } from './hooks';
 
+// todo: [повторить «бесконечный поток информации», но с другим текстом и скоростью]
+
 export const Page34 = () => {
   const { modalIsActive, modalOnClose } = useModal();
 
