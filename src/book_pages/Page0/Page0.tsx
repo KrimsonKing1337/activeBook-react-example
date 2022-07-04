@@ -109,6 +109,9 @@ export const Page0 = () => {
 
       <article>
         Дисклеймер: все описываемые персонажи события вымышлены, совпадения с реальными — чистая случайность.
+        <br />
+        <br />
+        P.S.: здесь есть пасхалки
       </article>
 
       <Action fullWidth onClick={clickHandler}>
