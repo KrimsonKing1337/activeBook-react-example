@@ -10,9 +10,9 @@ import { useFlashlight } from 'hooks/effects/flashlight';
 import { useVibration } from 'hooks/effects/vibration';
 
 import { goToPage } from 'utils/control/goToPage';
+import { modalsWereShowed } from 'utils/localStorage/modalsWereShowed';
 
 import { useKonamiCode, useModal } from './hooks';
-import { localStorageFlag } from './utils';
 
 export const Page0 = () => {
   const [ lastPage, setLastPage ] = useState(1);
@@ -62,7 +62,8 @@ export const Page0 = () => {
   }
 
   function clickHandler() {
-    const isModalWasShowed = localStorage.getItem(localStorageFlag);
+    const modalFlag = modalsWereShowed.Flags.usingCamera;
+    const isModalWasShowed = modalsWereShowed.get(modalFlag);
 
     if (isModalWasShowed) {
       go();

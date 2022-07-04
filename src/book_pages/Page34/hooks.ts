@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 
-const localStorageFlag = 'modalWithCommentsAboutInverseColorWasShowed';
+import { modalsWereShowed } from 'utils/localStorage/modalsWereShowed';
 
 export function useModal() {
-  const initValue = !localStorage.getItem(localStorageFlag);
+  const modalFlag = modalsWereShowed.Flags.inverseColor;
+  const initValue = !modalsWereShowed.get(modalFlag);
 
   const [modalIsActive, setModalIsActive] = useState(false);
 
@@ -24,7 +25,7 @@ export function useModal() {
   const modalOnClose = () => {
     setModalIsActive(false);
 
-    localStorage.setItem(localStorageFlag, JSON.stringify(true));
+    modalsWereShowed.set(modalFlag, true);
   };
 
   return { modalIsActive, modalOnClose };

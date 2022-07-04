@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { play as achievementPlay } from 'utils/effects/achievement';
 import { konamiCodeHandler } from 'utils/effects/konamiCodeHandler';
-
-import { localStorageFlag } from './utils';
+import { modalsWereShowed } from 'utils/localStorage/modalsWereShowed';
 
 export function useKonamiCode() {
   useEffect(() => {
@@ -25,7 +24,8 @@ export function useModal() {
   const modalOnClose = () => {
     setModalIsActive(false);
 
-    localStorage.setItem(localStorageFlag, JSON.stringify(true));
+    const modalFlag = modalsWereShowed.Flags.usingCamera;
+    modalsWereShowed.set(modalFlag, true);
   };
 
   return { modalIsActive, modalOnClose, setModalIsActive };
