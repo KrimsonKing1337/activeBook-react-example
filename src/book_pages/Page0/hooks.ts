@@ -3,10 +3,12 @@ import { useEffect, useState } from 'react';
 import { play as achievementPlay } from 'utils/effects/achievement';
 import { konamiCodeHandler } from 'utils/effects/konamiCodeHandler';
 import { modalsWereShowed } from 'utils/localStorage/modalsWereShowed';
+import { Flags as AchievementsFlags } from 'utils/localStorage/achievements';
+import { Flags as ModalsFlags } from 'utils/localStorage/modalsWereShowed';
 
 export function useKonamiCode() {
   useEffect(() => {
-    const cb = () => achievementPlay('Retro gaming rules!', 'konami');
+    const cb = () => achievementPlay('Retro gaming rules!', AchievementsFlags.konami);
 
     const handler = konamiCodeHandler(cb);
 
@@ -24,8 +26,7 @@ export function useModal() {
   const modalOnClose = () => {
     setModalIsActive(false);
 
-    const modalFlag = modalsWereShowed.Flags.usingCamera;
-    modalsWereShowed.set(modalFlag, true);
+    modalsWereShowed.set(ModalsFlags.usingCamera, true);
   };
 
   return { modalIsActive, modalOnClose, setModalIsActive };

@@ -5,10 +5,11 @@ import { PageWrapper } from 'components/PageWrapper';
 import { useSound } from 'hooks/effects/audio/sound';
 
 import { play as playAchievement } from 'utils/effects/achievement';
+import { Flags } from 'utils/localStorage/achievements';
 
 export const Page1 = () => {
   useEffect(() => {
-    playAchievement('Приключение начинается', 'firstMove');
+    playAchievement('Приключение начинается', Flags.firstMove);
   }, []);
 
   useSound({

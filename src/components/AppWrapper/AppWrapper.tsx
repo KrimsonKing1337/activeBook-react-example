@@ -16,6 +16,8 @@ import { Achievement } from 'components/Achievement';
 
 import { useEffectsInRange } from 'hooks/effects/range';
 
+import { achievements } from '../../utils/localStorage/achievements';
+
 import styles from './AppWrapper.scss';
 
 type AppWrapperProps = {
@@ -33,6 +35,12 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
   const bookmarksIsOpen = useSelector(bookmarksSelectors.isOpen);
   const page = useSelector(mainSelectors.page);
   const bookmarks = useSelector(bookmarksSelectors.bookmarks);
+
+  useEffect(() => {
+    const ach = achievements.getAll();
+
+    console.log('___ achievements', ach);
+  }, []);
 
   // приглушаю звук, если приложение скрыто
   useEffect(() => {

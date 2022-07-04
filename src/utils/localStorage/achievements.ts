@@ -1,22 +1,22 @@
 import { encryptStorage } from './encryptStorage';
 
-const key = 'modalsWereShowed';
+const key = 'achievements';
 
 export enum Flags {
-  usingCamera = 'usingCamera',
-  inverseColor = 'inverseColor',
+  konami = 'konami',
+  firstMove = 'firstMove',
 }
 
 function get(name: Flags) {
-  const valuesAsJson = localStorage.getItem(key);
+  const valuesAsJson = encryptStorage.getItem(key);
 
   if (!valuesAsJson) {
     return false;
   }
 
-  const modals = JSON.parse(valuesAsJson);
+  const values = JSON.parse(valuesAsJson);
 
-  return modals[name];
+  return values[name];
 }
 
 function getAll() {
@@ -24,11 +24,11 @@ function getAll() {
 }
 
 function set(name: Flags, value: boolean) {
-  const values = localStorage.getItem(key);
+  const values = encryptStorage.getItem(key);
 
   let newValues = {
-    [Flags.usingCamera]: false,
-    [Flags.inverseColor]: false,
+    [Flags.konami]: false,
+    [Flags.firstMove]: false,
   };
 
   if (values) {
@@ -39,14 +39,14 @@ function set(name: Flags, value: boolean) {
 
   const newValuesAsJson = JSON.stringify(newValues);
 
-  localStorage.setItem(key, newValuesAsJson);
+  encryptStorage.setItem(key, newValuesAsJson);
 }
 
 function setAll(values: Record<Flags, boolean>) {
   encryptStorage.setItem(key, values);
 }
 
-export const modalsWereShowed = {
+export const achievements = {
   set,
   setAll,
   get,

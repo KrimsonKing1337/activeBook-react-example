@@ -1,39 +1,38 @@
 import { toast } from 'react-toastify';
 
 import { HowlWrapper } from 'utils/effects/audio/HowlWrapper';
+import { achievements as achievementsLocalStorage, Flags } from 'utils/localStorage/achievements';
 
 const howlInst = new HowlWrapper({
   src: ['/assets/book_data/audios/sounds/achievement-unlocked.mp3'],
 });
 
-export function play(text: string, id: string, save = true) {
+export function play(text: string, id: Flags, save = true) {
   const show = () => {
     toast.success(`Achievement unlock: ${text}`, {
       onOpen: () => howlInst.play(),
     });
   };
 
-  const saveIfNeeded = (value: string) => {
+  const saveIfNeeded = (values: Record<Flags, boolean>) => {
     if (save) {
-      localStorage.setItem('achievements', value);
+      achievementsLocalStorage.setAll(values);
     }
   };
 
-  const achievementsAsJson = localStorage.getItem('achievements');
+  const achievements = achievementsLocalStorage.getAll();
 
-  if (!achievementsAsJson) {
+  if (!achievements) {
     show();
 
-    const achievementsForWrite = JSON.stringify({
+    const newValues: any = {
       [id]: true,
-    });
+    };
 
-    saveIfNeeded(achievementsForWrite);
+    saveIfNeeded(newValues);
 
     return;
   }
-
-  const achievements = JSON.parse(achievementsAsJson);
 
   if (achievements[id] === true) {
     return;
@@ -41,10 +40,10 @@ export function play(text: string, id: string, save = true) {
 
   show();
 
-  const achievementsForWrite = JSON.stringify({
+  const newValues = {
     ...achievements,
     [id]: true,
-  });
+  };
 
-  saveIfNeeded(achievementsForWrite);
+  saveIfNeeded(newValues);
 }

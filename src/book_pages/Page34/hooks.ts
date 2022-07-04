@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 
-import { modalsWereShowed } from 'utils/localStorage/modalsWereShowed';
+import { Flags, modalsWereShowed } from 'utils/localStorage/modalsWereShowed';
 
 export function useModal() {
-  const modalFlag = modalsWereShowed.Flags.inverseColor;
-  const initValue = !modalsWereShowed.get(modalFlag);
+  const initValue = !modalsWereShowed.get(Flags.inverseColor);
 
   const [modalIsActive, setModalIsActive] = useState(false);
 
@@ -25,7 +24,7 @@ export function useModal() {
   const modalOnClose = () => {
     setModalIsActive(false);
 
-    modalsWereShowed.set(modalFlag, true);
+    modalsWereShowed.set(Flags.inverseColor, true);
   };
 
   return { modalIsActive, modalOnClose };
