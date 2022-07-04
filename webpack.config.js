@@ -1,3 +1,4 @@
+const { DefinePlugin } = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -5,6 +6,8 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const TerserPlugin = require('terser-webpack-plugin');
 const path = require('path');
+
+const dotenv = require('dotenv').config({ path: __dirname + '/.env' });
 
 module.exports = (env = {}, argv) => {
   const webpackMode = argv.mode;
@@ -20,6 +23,9 @@ module.exports = (env = {}, argv) => {
           syntactic: true,
         },
       },
+    }),
+    new DefinePlugin({
+      'process.env': JSON.stringify(dotenv.parsed),
     }),
     new HtmlWebpackPlugin({
       template: './public/index.ejs',

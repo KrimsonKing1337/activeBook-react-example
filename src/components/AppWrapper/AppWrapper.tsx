@@ -34,8 +34,6 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
   const page = useSelector(mainSelectors.page);
   const bookmarks = useSelector(bookmarksSelectors.bookmarks);
 
-
-
   // приглушаю звук, если приложение скрыто
   useEffect(() => {
     document.addEventListener('visibilitychange', () => {
