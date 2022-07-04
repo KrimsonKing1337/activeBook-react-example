@@ -164,6 +164,9 @@ module.exports = (env = {}, argv) => {
         '@assets': path.resolve(__dirname, './assets'),
         '@utils': path.resolve(__dirname, 'src/utils'),
       },
+      fallback: {
+        crypto: false,
+      },
     },
     module: {
       rules: rules,
