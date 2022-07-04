@@ -8,13 +8,11 @@ export enum Flags {
 }
 
 function get(name: Flags) {
-  const valuesAsJson = encryptStorage.getItem(key);
+  const values = encryptStorage.getItem(key);
 
-  if (!valuesAsJson) {
+  if (!values) {
     return false;
   }
-
-  const values = JSON.parse(valuesAsJson);
 
   return values[name];
 }
@@ -32,14 +30,12 @@ function set(name: Flags, value: boolean) {
   };
 
   if (values) {
-    newValues = JSON.parse(values);
+    newValues = values;
   }
 
   newValues[name] = value;
 
-  const newValuesAsJson = JSON.stringify(newValues);
-
-  encryptStorage.setItem(key, newValuesAsJson);
+  encryptStorage.setItem(key, newValues);
 }
 
 function setAll(values: Record<Flags, boolean>) {

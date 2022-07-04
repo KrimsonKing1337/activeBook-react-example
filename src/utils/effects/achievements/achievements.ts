@@ -14,9 +14,9 @@ export function play(text: string, id: Flags, save = true) {
     });
   };
 
-  const saveIfNeeded = (values: Record<Flags, boolean>) => {
+  const saveIfNeeded = () => {
     if (save) {
-      achievementsLocalStorage.setAll(values);
+      achievementsLocalStorage.set(id, true);
     }
   };
 
@@ -25,11 +25,7 @@ export function play(text: string, id: Flags, save = true) {
   if (!achievements) {
     show();
 
-    const newValues: any = {
-      [id]: true,
-    };
-
-    saveIfNeeded(newValues);
+    saveIfNeeded();
 
     return;
   }
@@ -40,10 +36,5 @@ export function play(text: string, id: Flags, save = true) {
 
   show();
 
-  const newValues = {
-    ...achievements,
-    [id]: true,
-  };
-
-  saveIfNeeded(newValues);
+  saveIfNeeded();
 }

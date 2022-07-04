@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
-import { play as achievementPlay } from 'utils/effects/achievement';
-import { konamiCodeHandler } from 'utils/effects/konamiCodeHandler';
+import { play as achievementPlay } from 'utils/effects/achievements/achievements';
+import { konamiCodeHandler } from 'utils/effects/achievements/konamiCodeHandler';
 import { modalsWereShowed } from 'utils/localStorage/modalsWereShowed';
 import { Flags as AchievementsFlags } from 'utils/localStorage/achievements';
 import { Flags as ModalsFlags } from 'utils/localStorage/modalsWereShowed';

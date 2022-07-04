@@ -1,4 +1,4 @@
-export function konamiCodeHandler(cb: () => any) {
+export function konamiCodeHandler(cb: () => void) {
   const pattern = [
     'ArrowUp',
     'ArrowUp',
