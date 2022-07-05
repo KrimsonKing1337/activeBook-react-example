@@ -4,7 +4,7 @@ export * from './BackgroundEffects';
 export * from './Bookmarks';
 export * from './Button';
 export * from './Debug';
-export * from './EasterEgg';
+export * from './ColoredTextTrigger/EasterEgg';
 export * from './Header';
 export * from './Label';
 export * from './Menu';

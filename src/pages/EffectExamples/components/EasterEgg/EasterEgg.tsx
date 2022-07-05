@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { EasterEgg as EasterEggComponent } from 'components/EasterEgg';
+import { EasterEgg as EasterEggComponent } from 'components/ColoredTextTrigger/EasterEgg';
 import { Modal } from 'components/Modal';
 
 import { Item } from 'pages/EffectExamples/components/Item';

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
-import { Action as ActionComponent } from 'components/Action';
+import { Action as ActionComponent } from 'components/ColoredTextTrigger/Action';
 
 import { useSound } from 'hooks/effects/audio/sound';
 

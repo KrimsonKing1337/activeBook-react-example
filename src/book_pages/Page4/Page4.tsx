@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
-import { EasterEgg as EasterEggComponent } from 'components/EasterEgg';
+import { EasterEgg as EasterEggComponent } from 'components/ColoredTextTrigger/EasterEgg';
 
 import { useSound } from 'hooks/effects/audio/sound';
 import { useMusic } from 'hooks/effects/audio/music';

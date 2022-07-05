@@ -1,22 +1,19 @@
 import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
-import { EasterEggModal } from 'components/EasterEggModal';
-import { ActionModal } from 'components/ActionModal';
+import { WithModal } from 'components/ColoredTextTrigger/WithModal';
 
 export const Page44 = () => {
   const EasterEgg = (
-    <EasterEggModal
-      easterEggText="Олег Шилов"
-      modalContent={<img src="/assets/book_data/gifs/Kojima.gif" alt="" />}
-    />
+    <WithModal text="Олег Шилов" triggerType="egg">
+      <img src="/assets/book_data/gifs/Kojima.gif" alt="" />
+    </WithModal>
   );
 
   const Action = (
-    <ActionModal
-      actionText="Дасти"
-      modalContent={<img src="/assets/book_data/images/Dusty.jpg" alt="" />}
-    />
+    <WithModal text="Дасти" triggerType="action">
+      <img src="/assets/book_data/images/Dusty.jpg" alt="" />
+    </WithModal>
   );
 
   return (

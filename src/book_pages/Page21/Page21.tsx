@@ -1,15 +1,15 @@
 import React, { useRef } from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
-import { EasterEggModal } from 'components/EasterEggModal';
+import { WithModal } from 'components/ColoredTextTrigger/WithModal';
 
 export const Page21 = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const EasterEgg = (
-    <EasterEggModal
-      easterEggText="«Вот это поворот»,"
-      modalContent={<video src="/assets/book_data/videos/wow_turn.mp4" ref={videoRef} />} />
+    <WithModal text="«Вот это поворот»," triggerType="egg">
+      <video src="/assets/book_data/videos/wow_turn.mp4" ref={videoRef} />
+    </WithModal>
   );
 
   return (

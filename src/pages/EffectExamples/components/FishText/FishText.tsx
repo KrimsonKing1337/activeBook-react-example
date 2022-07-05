@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Action } from 'components/Action';
+import { Action } from 'components/ColoredTextTrigger/Action';
 import { ExternalLink } from 'components/ExternalLink';
-import { AuthorComment } from 'components/AuthorComment';
+import { AuthorComment } from 'components/ColoredTextTrigger/AuthorComment';
 
 import { Item } from 'pages/EffectExamples/components/Item';
 

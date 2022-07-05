@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
-import { EasterEggModal } from 'components/EasterEggModal';
+import { WithModal } from 'components/ColoredTextTrigger/WithModal';
 
 import { useMusic } from 'hooks/effects/audio/music';
 
@@ -12,10 +12,9 @@ export const Page41 = () => {
   });
 
   const EasterEgg = (
-    <EasterEggModal
-      easterEggText="звук в этом месте "
-      modalContent={<img src="/assets/book_data/images/sound-like-heaven-vk.png" alt="" />}
-    />
+    <WithModal text="звук в этом месте " triggerType="egg">
+      <img src="/assets/book_data/images/sound-like-heaven-vk.png" alt="" />
+    </WithModal>
   );
 
   return (

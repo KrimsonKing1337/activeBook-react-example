@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { ModalDialog } from 'components';
 
 import { PageWrapper } from 'components/PageWrapper';
-import { Action } from 'components/Action';
+import { Action } from 'components/ColoredTextTrigger/Action';
 
 import { useSound } from 'hooks/effects/audio/sound';
 import { useFlashlight } from 'hooks/effects/flashlight';

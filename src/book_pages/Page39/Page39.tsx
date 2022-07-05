@@ -1,14 +1,13 @@
 import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
-import { EasterEggModal } from 'components/EasterEggModal';
+import { WithModal } from 'components/ColoredTextTrigger/WithModal';
 
 export const Page39 = () => {
   const EasterEgg = (
-    <EasterEggModal
-      easterEggText="главный вопрос жизни, вселенной и всего такого."
-      modalContent={<img src="/assets/book_data/images/42.jpg" alt="" />}
-    />
+    <WithModal text="главный вопрос жизни, вселенной и всего такого." triggerType="egg">
+      <img src="/assets/book_data/images/42.jpg" alt="" />
+    </WithModal>
   );
 
   return (

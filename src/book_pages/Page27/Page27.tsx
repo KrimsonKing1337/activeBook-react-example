@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
-import { Action } from 'components/Action';
+import { Action } from 'components/ColoredTextTrigger/Action';
 import { ExternalLink } from 'components/ExternalLink';
 import { Modal } from 'components/Modal';
 

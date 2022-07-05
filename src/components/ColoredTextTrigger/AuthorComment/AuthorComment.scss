@@ -1,9 +1,9 @@
-@import "~styles/__variables.scss";
+@import "~@src/styles/__variables.scss";
 
-.action {
+.authorComment {
   display: inline;
 
-  color: #fd0006;
+  color: #ff3;
   font-size: 1em;
   font-weight: bold;
 
@@ -15,12 +15,5 @@
     text-shadow: 1px 1px 30px rgb(255 255 255 / 75%);
 
     cursor: pointer;
-  }
-
-  &.isFullWidth {
-    display: block;
-    width: 100%;
-
-    text-align: center;
   }
 }
