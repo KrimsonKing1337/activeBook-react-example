@@ -2,6 +2,7 @@ import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
 import { EasterEggModal } from 'components/EasterEggModal';
+import { ActionModal } from 'components/ActionModal';
 
 export const Page44 = () => {
   const EasterEgg = (
@@ -11,10 +12,17 @@ export const Page44 = () => {
     />
   );
 
+  const Action = (
+    <ActionModal
+      actionText="Дасти"
+      modalContent={<img src="/assets/book_data/images/Dusty.jpg" alt="" />}
+    />
+  );
+
   return (
     <PageWrapper>
       <h1>
-        Над книгой работали
+        Над книгой принимали участие
       </h1>
 
       <br />
@@ -29,13 +37,16 @@ export const Page44 = () => {
         Редактура: Максим Авраменко и Катерина Салдаева
       </p>
       <p>
-        Любимый кот: Дасти {/* todo: action вставить фотографию */}
+        Любимый кот: {Action}
       </p>
       <p>
         Большое спасибо: маме, папе, друзьям. Вы всегда верили в меня и эту идею
       </p>
       <p>
-        Отдельное спасибо: тебе. Всегда приятно, когда твоё творение кому-то понравилось
+        Отдельное спасибо: тебе. За то, что прочитал. Подписывайся на канал, ставь лайки. Стоп, это же не тот ресурс..
+      </p>
+      <p>
+        Звуки взяты с сайта freesounds.org
       </p>
     </PageWrapper>
   );
