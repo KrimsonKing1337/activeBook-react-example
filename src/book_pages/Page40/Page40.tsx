@@ -11,7 +11,7 @@ export const Page40 = () => {
   });
 
   const EasterEgg = (
-    <EasterEggComponent onClick={() => sound?.play()}>
+    <EasterEggComponent onClick={() => sound?.play()} id="page-40">
       на Вальгаллу
     </EasterEggComponent>
   );

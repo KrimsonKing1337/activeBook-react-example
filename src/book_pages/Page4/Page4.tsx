@@ -19,7 +19,7 @@ export const Page4 = () => {
   });
 
   const EasterEgg = (
-    <EasterEggComponent onClick={() => music?.play()}>
+    <EasterEggComponent onClick={() => music?.play()} id="page-4">
       заглянуть за
     </EasterEggComponent>
   );

@@ -4,7 +4,7 @@ import { PageWrapper } from 'components/PageWrapper';
 
 import { useSound } from 'hooks/effects/audio/sound';
 
-import { play as playAchievement } from 'utils/effects/achievements/achievements';
+import { play as playAchievement } from 'utils/effects/achievements';
 import { Flags } from 'utils/localStorage/achievements';
 
 export const Page1 = () => {

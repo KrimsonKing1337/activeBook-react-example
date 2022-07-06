@@ -5,6 +5,7 @@ export const selectors = {
   location: (state: RootState) => state.router.location,
   page: (state: RootState) => state.main.page,
   pages: (state: RootState) => state.main.pages,
+  easterEggs: (state: RootState) => state.main.easterEggs,
   route: (state: RootState) => state.main.route,
   menuActiveState: (state: RootState) => state.main.menuActiveState,
   isLoading: (state: RootState) => state.main.isLoading,

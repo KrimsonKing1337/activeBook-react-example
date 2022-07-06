@@ -20,7 +20,7 @@ export const EasterEgg = () => {
         Вы нашли пасхалку! Вот вам ачивка
       </Modal>
 
-      <EasterEggComponent onClick={() => setModalIsActive(true)}>
+      <EasterEggComponent onClick={() => setModalIsActive(true)} id="page-sb">
         Текст с пасхалкой (нажми меня)
       </EasterEggComponent>
     </Item>

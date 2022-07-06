@@ -6,6 +6,7 @@ export const initialState: State = {
   route: '/',
   page: 0,
   pages: 44,
+  easterEggs: 8,
   menuActiveState: null,
   isLoading: false,
   isVibrationAvailable: false,

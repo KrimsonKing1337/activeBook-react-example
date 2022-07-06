@@ -17,7 +17,7 @@ import { Achievement } from 'components/Achievement';
 import { useEffectsInRange } from 'hooks/effects/range';
 
 import { seenPages } from 'utils/localStorage/seenPages';
-import { play as achievementPlay } from 'utils/effects/achievements/achievements';
+import { play as achievementPlay } from 'utils/effects/achievements';
 import { Flags as AchievementsFlags } from 'utils/localStorage/achievements';
 
 import styles from './AppWrapper.scss';

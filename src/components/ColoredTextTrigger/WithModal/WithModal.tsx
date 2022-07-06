@@ -4,21 +4,22 @@ import { Modal as ModalComponent, ModalProps } from 'components/Modal';
 import { Action } from 'components/ColoredTextTrigger/Action';
 import { AuthorComment } from 'components/ColoredTextTrigger/AuthorComment';
 import { EasterEgg } from 'components/ColoredTextTrigger/EasterEgg';
-
 export type TriggerType = 'action' | 'author' | 'egg';
 
 export type ModalWithVideoEasterEggProps = {
+  children: any; // todo: убрать any
   mode?: ModalProps['mode'];
   text: string;
   triggerType: TriggerType;
-  children: any; // todo: убрать any
+  eggId?: string;
 };
 
 export const WithModal = ({
+  children,
   mode,
   text,
   triggerType,
-  children,
+  eggId,
 }: ModalWithVideoEasterEggProps) => {
   const [isActive, setIsActive] = useState(false);
 
@@ -32,8 +33,14 @@ export const WithModal = ({
     }
 
     if (triggerType === 'egg') {
+      if (!eggId) {
+        console.error(new Error('Id for EasterEgg must be passed!'));
+
+        return null;
+      }
+
       return (
-        <EasterEgg onClick={() => setIsActive(true)}>
+        <EasterEgg onClick={() => setIsActive(true)} id={eggId}>
           {text}
         </EasterEgg>
       );
