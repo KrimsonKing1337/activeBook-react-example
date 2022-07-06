@@ -1,70 +1,117 @@
 import React, { useEffect, useState } from 'react';
 
-import { Timer } from '@types';
-
 import { play } from 'utils/effects/achievements';
-import { Flags } from 'utils/localStorage/achievements';
+import { achievements, Flags } from 'utils/localStorage/achievements';
+
+import { getPlaceInLineByLocationStyles, valuesDefaultState } from './utils';
 
 import styles from './Dots.scss';
 
-const timer: Timer | null = null;
-
 export const Dots = () => {
-  const [values, setValues] = useState<Record<number, boolean>>({
-    1: false,
-    2: false,
-    3: false,
-    4: false,
-  });
+  const [values, setValues] = useState<Record<number, number>>(valuesDefaultState);
 
   useEffect(() => {
-    // timer = setTimeout(() => {}, 10000);
+    const wasFound = achievements.get(Flags.superEasterEggFound);
 
-    const valuesLength = Object.keys(values).length;
+    if (wasFound) {
+      return;
+    }
 
-    for (let i = 0; i < valuesLength; i++) {
-      const prevValue = values[i - 1];
-      const value = values[i];
+    const setValue = (index: number) => {
+      const placeInLine = Object.values(values).indexOf(0);
+      const keyStr = Object.keys(values)[placeInLine];
+      const key = parseInt(keyStr, 10);
 
-      if (typeof prevValue === 'undefined') {
-        continue;
+      const newValues = {
+        ...values,
+        [key]: index,
+      };
+
+      setValues(newValues);
+    };
+
+    const listener = (e: MouseEvent) => {
+      const elementsUnderCursor = document.elementsFromPoint(e.clientX, e.clientY);
+
+      if (!elementsUnderCursor) {
+        return;
       }
 
-      if (prevValue !== value) {
+      // todo: remove any
+      const dotElement: any = elementsUnderCursor.find((elementCur) => {
+        if (elementCur.parentElement) {
+          const str = elementCur.parentElement.classList.value;
+
+          if (str.includes('dotsWrapper')) {
+            return elementCur;
+          }
+        }
+
+        return false;
+      });
+
+      if (!dotElement) {
+        return;
+      }
+
+      const computedStyles = window.getComputedStyle(dotElement);
+
+      const styles = {
+        top: computedStyles.top,
+        right: computedStyles.right,
+        bottom: computedStyles.bottom,
+        left: computedStyles.left,
+      };
+
+      const placeInLine = getPlaceInLineByLocationStyles(styles);
+
+      console.log('___ placeInLine', placeInLine);
+
+      setValue(placeInLine);
+    };
+
+    document.addEventListener('click', listener, { passive: true });
+
+    return () => {
+      document.removeEventListener('click', listener);
+    };
+  }, [values, setValues]);
+
+  useEffect(() => {
+    const valuesInLine = Object.values(values);
+
+    const allClicked = valuesInLine.indexOf(0) === -1;
+
+    if (!allClicked) {
+      return;
+    }
+
+    const keysInLine = Object.keys(values);
+
+    for (let i = 0; i < keysInLine.length; i++) {
+      const keyCur = keysInLine[i];
+      const valueCur = valuesInLine[i].toString();
+
+      if (keyCur !== valueCur) {
+        setValues(valuesDefaultState);
+
         return;
       }
     }
 
-    const allIsTrue = Object.values(values).every((cur) => cur === true);
-
-    if (allIsTrue) {
-      play('Суперсекрет! Не могу поверить, что ты нашёл/нашла его!', Flags.superEasterEggFound);
-    }
+    play('Суперсекрет! Не могу поверить, что ты это нашёл/нашла!', Flags.superEasterEggFound);
 
     return () => {
-      if (timer) {
-        clearTimeout(timer);
-      }
+      setValues(valuesDefaultState);
     };
   }, [values]);
 
-  const setValue = (index: number) => {
-    const newValues = {
-      ...values,
-      [index]: true,
-    };
-
-    setValues(newValues);
-  };
-
   return (
     <div className={styles.dotsWrapper}>
-      <div className={styles.dot} onClick={() => setValue(1)} />
-      <div className={styles.dot} onClick={() => setValue(2)} />
-      <div className={styles.dot} onClick={() => setValue(4)} />
-      <div className={styles.dot} onClick={() => setValue(3)} />
+      <div className={styles.dot} />
+      <div className={styles.dot} />
+      <div className={styles.dot} />
+      <div className={styles.dot} />
     </div>
   );
 };
-
-// todo: высчитывать координаты куда пользователь тыкнул. если они совпадают с координатами точек - то это будто пользователь кликнул по точке
