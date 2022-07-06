@@ -6,7 +6,9 @@ export enum Flags {
   konami = 'konami',
   firstMove = 'firstMove',
   allPagesSeen = 'allPagesSeen',
-  allEasterEggsSeen = 'allEasterEggsSeen',
+  allEasterEggsFound = 'allEasterEggsFound',
+  superEasterEggFound = 'superEasterEggFound',
+  allAchievementsRewarded = 'allAchievementsRewarded',
 }
 
 function get(name: Flags) {
@@ -30,7 +32,9 @@ function set(name: Flags, value: boolean) {
     [Flags.konami]: false,
     [Flags.firstMove]: false,
     [Flags.allPagesSeen]: false,
-    [Flags.allEasterEggsSeen]: false,
+    [Flags.allEasterEggsFound]: false,
+    [Flags.superEasterEggFound]: false,
+    [Flags.allAchievementsRewarded]: false,
   };
 
   if (values) {

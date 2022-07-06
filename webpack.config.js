@@ -11,7 +11,7 @@ const dotenv = require('dotenv').config({ path: __dirname + '/.env' });
 
 module.exports = (env = {}, argv) => {
   const webpackMode = argv.mode;
-  const { analyze, mobile } = env;
+  const { analyze, mobile, sb } = env;
   const isProd = webpackMode === 'production';
 
   const plugins = [
@@ -26,6 +26,7 @@ module.exports = (env = {}, argv) => {
     }),
     new DefinePlugin({
       'process.env': JSON.stringify(dotenv.parsed),
+      'isSbMode': JSON.stringify(sb),
     }),
     new HtmlWebpackPlugin({
       template: './public/index.ejs',

@@ -1,5 +1,8 @@
 import { Howl } from 'howler';
 
+export type Timer = ReturnType<typeof setTimeout> | null;
+export type Interval = ReturnType<typeof setInterval> | null
+
 export type Range = {
   from: number;
   to: number;

@@ -7,7 +7,7 @@ export const Page21 = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const EasterEgg = (
-    <WithModal text="«Вот это поворот»," triggerType="egg">
+    <WithModal text="«Вот это поворот»," triggerType="egg" eggId="page-21">
       <video src="/assets/book_data/videos/wow_turn.mp4" ref={videoRef} />
     </WithModal>
   );

@@ -12,7 +12,7 @@ export const Page20 = () => {
   );
 
   const EasterEgg = (
-    <WithModal text="поездка в метро" triggerType="egg">
+    <WithModal text="поездка в метро" triggerType="egg" eggId="page-20">
       <img src="/assets/book_data/gifs/granny-in-hyper.gif" alt="" />
     </WithModal>
   );

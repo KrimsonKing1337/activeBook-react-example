@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { Timer } from '@types';
+
 import { soundEffectsActions, soundEffectsSelectors } from 'store/effects/audio/sound';
 
 import { HowlWrapper, HowlWrapperOptions } from 'utils/effects/audio/HowlWrapper';
@@ -49,7 +51,7 @@ export function useSound({
   }, []);
 
   useEffect(() => {
-    let timer: NodeJS.Timer | null = null;
+    let timer: Timer = null;
 
     if (!soundInst || soundInst.isUnloading) {
       return;

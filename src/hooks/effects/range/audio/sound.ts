@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { AudioRangeEffect } from '@types';
+import { AudioRangeEffect, Timer } from '@types';
 
 import { soundBgEffectsActions, soundBgEffectsSelectors } from 'store/effects/audio/soundBg';
 import { mainSelectors } from 'store/main';
@@ -55,7 +55,7 @@ export function useAudioInRange() {
       return;
     }
 
-    let timer: NodeJS.Timer | null = null;
+    let timer: Timer = null;
 
     const delay = soundInRange?.delay || 0;
 

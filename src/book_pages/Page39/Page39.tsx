@@ -5,7 +5,7 @@ import { WithModal } from 'components/ColoredTextTrigger/WithModal';
 
 export const Page39 = () => {
   const EasterEgg = (
-    <WithModal text="главный вопрос жизни, вселенной и всего такого." triggerType="egg">
+    <WithModal text="главный вопрос жизни, вселенной и всего такого." triggerType="egg" eggId="page-39">
       <img src="/assets/book_data/images/42.jpg" alt="" />
     </WithModal>
   );
