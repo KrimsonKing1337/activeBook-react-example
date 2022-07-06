@@ -5,6 +5,7 @@ const key = 'achievements';
 export enum Flags {
   konami = 'konami',
   firstMove = 'firstMove',
+  allPagesSeen = 'allPagesSeen',
 }
 
 function get(name: Flags) {
@@ -27,6 +28,7 @@ function set(name: Flags, value: boolean) {
   let newValues = {
     [Flags.konami]: false,
     [Flags.firstMove]: false,
+    [Flags.allPagesSeen]: false,
   };
 
   if (values) {

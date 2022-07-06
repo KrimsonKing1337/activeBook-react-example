@@ -44,7 +44,9 @@ export function* watchSetPage(action: PayloadAction<State['page']>) {
 
   const promises: Promise<void>[] = [];
 
-  (Howler as unknown as HowlExtended)._howls.forEach((howlCur: Howl) => {
+  const Howl = Howler as unknown as HowlExtended;
+
+  Howl._howls.forEach((howlCur: Howl) => {
     if (howlCur.state() === 'loaded') {
       promises.push(Promise.resolve());
 

@@ -16,6 +16,11 @@ import { Achievement } from 'components/Achievement';
 
 import { useEffectsInRange } from 'hooks/effects/range';
 
+import { seenPages } from 'utils/localStorage/seenPages';
+
+import { play as achievementPlay } from '../../utils/effects/achievements/achievements';
+import { Flags as AchievementsFlags } from '../../utils/localStorage/achievements';
+
 import styles from './AppWrapper.scss';
 
 type AppWrapperProps = {
@@ -32,6 +37,7 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
   const menuActiveState = useSelector(mainSelectors.menuActiveState);
   const bookmarksIsOpen = useSelector(bookmarksSelectors.isOpen);
   const page = useSelector(mainSelectors.page);
+  const pages = useSelector(mainSelectors.pages);
   const bookmarks = useSelector(bookmarksSelectors.bookmarks);
 
   // приглушаю звук, если приложение скрыто
@@ -95,6 +101,17 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
     dispatch(configActions.setAll(config));
     dispatch(volumeActions.setAll(volume));
   }, []);
+
+  useEffect(() => {
+    seenPages.set(page);
+
+    const seenPagesFromLocalStorage = seenPages.get();
+    const seenPagesLength = Object.keys(seenPagesFromLocalStorage).length;
+
+    if (seenPagesLength === pages) {
+      achievementPlay('Все страницы прочитаны!', AchievementsFlags.allPagesSeen);
+    }
+  }, [page]);
 
   useEffect(() => {
     const listener = () => {
