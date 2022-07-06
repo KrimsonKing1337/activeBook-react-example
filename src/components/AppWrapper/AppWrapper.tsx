@@ -17,9 +17,8 @@ import { Achievement } from 'components/Achievement';
 import { useEffectsInRange } from 'hooks/effects/range';
 
 import { seenPages } from 'utils/localStorage/seenPages';
-
-import { play as achievementPlay } from '../../utils/effects/achievements/achievements';
-import { Flags as AchievementsFlags } from '../../utils/localStorage/achievements';
+import { play as achievementPlay } from 'utils/effects/achievements/achievements';
+import { Flags as AchievementsFlags } from 'utils/localStorage/achievements';
 
 import styles from './AppWrapper.scss';
 
@@ -117,13 +116,17 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
     const listener = () => {
       const configAsJson = JSON.stringify(config);
       const volumeAsJson = JSON.stringify(volume);
-      const pageAsJson = JSON.stringify(page);
       const bookmarksAsJson = JSON.stringify(bookmarks);
 
       localStorage.setItem('config', configAsJson);
       localStorage.setItem('volume', volumeAsJson);
-      localStorage.setItem('lastPage', pageAsJson);
       localStorage.setItem('bookmarks', bookmarksAsJson);
+
+      if (page !== 0) {
+        const pageAsJson = JSON.stringify(page);
+
+        localStorage.setItem('lastPage', pageAsJson);
+      }
     };
 
     window.addEventListener('beforeunload', listener);
