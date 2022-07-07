@@ -5,9 +5,10 @@ export interface State {
   page: number;
   pages: number;
   easterEggs: number;
+  achievements: number;
+  achievementToastBgColor: string;
   menuActiveState: MenuActiveState;
   isLoading: boolean;
   isVibrationAvailable: boolean;
   isFlashlightAvailable: boolean;
-  achievementToastBgColor: string;
 }

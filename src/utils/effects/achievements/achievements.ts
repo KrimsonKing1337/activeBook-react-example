@@ -1,6 +1,6 @@
 import { achievements as achievementsLocalStorage, Flags } from 'utils/localStorage/achievements';
 
-import { changeBgColor, Color, show } from './utils';
+import { changeBgColor, Color, getLength, getRewardedLengthWithoutUnnecessary, show } from './utils';
 
 export type PlayProps = {
   text: string;
@@ -16,9 +16,16 @@ export function play({ text, id, save, type = 'regular' }: PlayProps) {
     }
   };
 
-  changeBgColor(type);
-
   const achievements = achievementsLocalStorage.getAll();
+
+  const achievementsFiltered = Object.values(achievements).filter((cur) => cur === false);
+
+  // если все ачивки получены, то тут и делать нечего
+  if (achievementsFiltered.length === 0) {
+    return;
+  }
+
+  changeBgColor(type);
 
   if (!achievements) {
     show(text);
@@ -35,4 +42,19 @@ export function play({ text, id, save, type = 'regular' }: PlayProps) {
   show(text);
 
   saveIfNeeded();
+
+  playAllAchievementsRewardWhenReady();
+}
+
+function playAllAchievementsRewardWhenReady() {
+  const achivsLength = getLength();
+  const achivsRewardedLength = getRewardedLengthWithoutUnnecessary();
+
+  if (achivsLength === achivsRewardedLength) {
+    play({
+      id: Flags.allAchievementsRewarded,
+      text: 'Поздравляю! Вы получили все ачивки!',
+      type: 'platinum',
+    });
+  }
 }

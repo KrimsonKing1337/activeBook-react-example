@@ -5,6 +5,10 @@ import { store } from 'store';
 import { mainActions } from 'store/main';
 
 import { HowlWrapper } from 'utils/effects/audio/HowlWrapper';
+import {
+  achievements as achievementsLocalStorage,
+  dontNeededForAllAchievementsReward,
+} from 'utils/localStorage/achievements';
 
 const howlInst = new HowlWrapper({
   src: ['/assets/book_data/audios/sounds/achievement-unlocked.mp3'],
@@ -28,4 +32,22 @@ export function changeBgColor(type: Color) {
   const color = typesVoc[type];
 
   store.dispatch(mainActions.setAchievementToastBgColor(color));
+}
+
+export function getLength() {
+  return store.getState().main.achievements;
+}
+
+export function getRewardedLengthWithoutUnnecessary() {
+  const achievements = achievementsLocalStorage.getAll();
+
+  const achivsRewardedForCounting = { ...achievements };
+
+  dontNeededForAllAchievementsReward.forEach((achivCur) => {
+    delete achivsRewardedForCounting[achivCur];
+  });
+
+  const achivsRewardedForCountingFiltered = Object.values(achivsRewardedForCounting).filter((cur) => cur === true);
+
+  return achivsRewardedForCountingFiltered.length;
 }

@@ -11,6 +11,14 @@ export enum Flags {
   allAchievementsRewarded = 'allAchievementsRewarded',
 }
 
+export const allAchievements = Object.values(Flags);
+
+export const dontNeededForAllAchievementsReward = [
+  Flags.konami,
+  Flags.superEasterEggFound,
+  Flags.allAchievementsRewarded,
+];
+
 function get(name: Flags) {
   const values = encryptStorage.getItem(key);
 
@@ -28,14 +36,11 @@ function getAll() {
 function set(name: Flags, value: boolean) {
   const values = encryptStorage.getItem(key);
 
-  let newValues = {
-    [Flags.konami]: false,
-    [Flags.firstMove]: false,
-    [Flags.allPagesSeen]: false,
-    [Flags.allEasterEggsFound]: false,
-    [Flags.superEasterEggFound]: false,
-    [Flags.allAchievementsRewarded]: false,
-  };
+  let newValues: Record<string, boolean> = {};
+
+  allAchievements.forEach((achievementCur) => {
+    newValues[achievementCur] = false;
+  });
 
   if (values) {
     newValues = values;

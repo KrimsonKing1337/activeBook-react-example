@@ -7,11 +7,12 @@ export const initialState: State = {
   page: 0,
   pages: 44,
   easterEggs: 8,
+  achievements: 3, // это без ненужных для получения платины
+  achievementToastBgColor: '#07bc0c',
   menuActiveState: null,
   isLoading: false,
   isVibrationAvailable: false,
   isFlashlightAvailable: false,
-  achievementToastBgColor: '#07bc0c',
 };
 
 const slice = createSlice({
