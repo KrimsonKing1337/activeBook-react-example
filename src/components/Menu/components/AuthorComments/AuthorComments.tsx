@@ -6,20 +6,21 @@ import { configActions, configSelectors } from 'store/config';
 import { Toggle } from 'components/Toggle';
 import { playAchievement } from 'components/Menu/utils';
 
-export const InverseColor = () => {
+export const AuthorComments = () => {
   const dispatch = useDispatch();
-  const inverseColorState = useSelector(configSelectors.inverseColor);
+
+  const authorCommentsState = useSelector(configSelectors.authorComments);
 
   const toggleClickHandler = (value: boolean) => {
-    dispatch(configActions.setInverseColor(value));
+    dispatch(configActions.setAuthorComments(value));
 
     playAchievement();
   };
 
   return (
     <Toggle
-      label={'Инверсия цвета'}
-      isActiveDefault={inverseColorState}
+      label={'Комментарии автора'}
+      isActiveDefault={authorCommentsState}
       onClickOn={() => toggleClickHandler(true)}
       onClickOff={() => toggleClickHandler(false)}
     />

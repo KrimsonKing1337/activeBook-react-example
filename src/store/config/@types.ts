@@ -4,7 +4,7 @@ export interface State {
   theme: Theme;
   vibration: boolean;
   flashlight: boolean;
-  inverseColor: boolean;
+  authorComments: boolean;
   fontSize: number;
   lineHeight: number;
 }

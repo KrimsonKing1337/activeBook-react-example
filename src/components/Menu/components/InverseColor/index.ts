@@ -1,1 +1,0 @@
-export { InverseColor } from './InverseColor';

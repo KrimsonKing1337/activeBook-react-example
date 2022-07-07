@@ -6,7 +6,7 @@ export const initialState: State = {
   theme: 'dark',
   vibration: true,
   flashlight: true,
-  inverseColor: true,
+  authorComments: false,
   fontSize: 100,
   lineHeight: 100,
 };
@@ -27,8 +27,8 @@ const slice = createSlice({
     setFlashlight(state, action: PayloadAction<State['flashlight']>) {
       state.flashlight = action.payload;
     },
-    setInverseColor(state, action: PayloadAction<State['inverseColor']>) {
-      state.inverseColor = action.payload;
+    setAuthorComments(state, action: PayloadAction<State['authorComments']>) {
+      state.authorComments = action.payload;
     },
     setFontSize(state, action: PayloadAction<State['fontSize']>) {
       state.fontSize = action.payload;
