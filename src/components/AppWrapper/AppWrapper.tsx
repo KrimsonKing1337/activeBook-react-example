@@ -110,7 +110,7 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
     if (seenPagesLength === pages) {
       achievementPlay({
         id: AchievementsFlags.allPagesSeen,
-        text: 'Все страницы прочитаны!',
+        text: 'Все страницы прочитаны! Теперь можно включить авторские комментарии в настройках!',
         type: 'gold',
       });
     }
