@@ -13,6 +13,7 @@ import { Overflow } from 'components/Overflow';
 
 import { Item } from './Item';
 import { useBookmarks } from './hooks';
+import { playAchievement } from './utils';
 
 import styles from './Bookmarks.scss';
 
@@ -51,6 +52,8 @@ export const Bookmarks = () => {
 
   const addButtonClickHandler = () => {
     setBookmarks([...bookmarks, page]);
+
+    playAchievement();
   };
 
   const deleteHandler = (bookmark: number) => {

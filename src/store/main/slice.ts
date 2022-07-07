@@ -7,7 +7,7 @@ export const initialState: State = {
   page: 0,
   pages: 44,
   easterEggs: 8,
-  achievements: 5, // это без ненужных для получения платины
+  achievements: 6, // это без ненужных для получения платины
   achievementToastBgColor: '#07bc0c',
   menuActiveState: null,
   isLoading: false,
