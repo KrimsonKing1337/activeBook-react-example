@@ -5,19 +5,10 @@ import { volumeActions, volumeSelectors } from 'store/volume';
 
 import { Label } from 'components/Label';
 
-import { play } from 'utils/effects/achievements';
-import { Flags } from 'utils/localStorage/achievements';
-
 import { Slider } from './components/Slider';
+import { playAchievement } from './utils';
 
 import styles from './Volume.scss';
-
-const playAchievement = () => {
-  play({
-    id: Flags.volume,
-    text: 'Тонкая настройка громкости - класс!',
-  });
-};
 
 export const Volume = () => {
   const dispatch = useDispatch();

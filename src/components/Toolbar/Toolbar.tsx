@@ -14,6 +14,7 @@ import { getNewValueForNarrativeTextStyle } from 'utils/styles/getNewValueForNar
 
 import { Item } from './components/Item';
 import { Nav } from './components/Nav';
+import { playAchievement } from './utils';
 
 import styles from './Toolbar.scss';
 
@@ -33,6 +34,8 @@ export const Toolbar = ({ sbMode }: ToolbarProps) => {
     }
 
     dispatch(configActions.setFontSize(fontSizeNewValue));
+
+    playAchievement();
   };
 
   const bookmarkClickHandler = () => {

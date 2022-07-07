@@ -6,6 +6,7 @@ export enum Flags {
   konami = 'konami',
   firstMove = 'firstMove',
   volume = 'volume',
+  fontSize = 'fontSize',
   allPagesSeen = 'allPagesSeen',
   allEasterEggsFound = 'allEasterEggsFound',
   superEasterEggFound = 'superEasterEggFound',
