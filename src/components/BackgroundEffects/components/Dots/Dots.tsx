@@ -3,12 +3,12 @@ import React, { useEffect, useState } from 'react';
 import { play } from 'utils/effects/achievements';
 import { achievements, Flags } from 'utils/localStorage/achievements';
 
-import { getPlaceInLineByLocationStyles, valuesDefaultState } from './utils';
+import { getPlaceInLineByLocationStyles, orderDefaultState } from './utils';
 
 import styles from './Dots.scss';
 
 export const Dots = () => {
-  const [values, setValues] = useState<Record<number, number>>(valuesDefaultState);
+  const [order, setOrder] = useState<Record<number, number>>(orderDefaultState);
 
   useEffect(() => {
     const wasFound = achievements.get(Flags.superEasterEggFound);
@@ -18,16 +18,17 @@ export const Dots = () => {
     }
 
     const setValue = (index: number) => {
-      const placeInLine = Object.values(values).indexOf(0);
-      const keyStr = Object.keys(values)[placeInLine];
+      const firstUnclicked = Object.values(order).indexOf(0);
+
+      const keyStr = Object.keys(order)[firstUnclicked];
       const key = parseInt(keyStr, 10);
 
       const newValues = {
-        ...values,
+        ...order,
         [key]: index,
       };
 
-      setValues(newValues);
+      setOrder(newValues);
     };
 
     const listener = (e: MouseEvent) => {
@@ -37,8 +38,7 @@ export const Dots = () => {
         return;
       }
 
-      // todo: remove any
-      const dotElement: any = elementsUnderCursor.find((elementCur) => {
+      const dotElement = elementsUnderCursor.find((elementCur) => {
         if (elementCur.parentElement) {
           const str = elementCur.parentElement.classList.value;
 
@@ -65,8 +65,6 @@ export const Dots = () => {
 
       const placeInLine = getPlaceInLineByLocationStyles(styles);
 
-      console.log('___ placeInLine', placeInLine);
-
       setValue(placeInLine);
     };
 
@@ -75,25 +73,25 @@ export const Dots = () => {
     return () => {
       document.removeEventListener('click', listener);
     };
-  }, [values, setValues]);
+  }, [order, setOrder]);
 
   useEffect(() => {
-    const valuesInLine = Object.values(values);
+    const orderValues = Object.values(order);
 
-    const allClicked = valuesInLine.indexOf(0) === -1;
+    const allClicked = orderValues.indexOf(0) === -1;
 
     if (!allClicked) {
       return;
     }
 
-    const keysInLine = Object.keys(values);
+    const orderKeys = Object.keys(order);
 
-    for (let i = 0; i < keysInLine.length; i++) {
-      const keyCur = keysInLine[i];
-      const valueCur = valuesInLine[i].toString();
+    for (let i = 0; i < orderKeys.length; i++) {
+      const keyCur = orderKeys[i];
+      const valueCur = orderValues[i].toString();
 
       if (keyCur !== valueCur) {
-        setValues(valuesDefaultState);
+        setOrder(orderDefaultState);
 
         return;
       }
@@ -102,16 +100,13 @@ export const Dots = () => {
     play('Суперсекрет! Не могу поверить, что ты это нашёл/нашла!', Flags.superEasterEggFound);
 
     return () => {
-      setValues(valuesDefaultState);
+      setOrder(orderDefaultState);
     };
-  }, [values]);
+  }, [order]);
 
   return (
     <div className={styles.dotsWrapper}>
-      <div className={styles.dot} />
-      <div className={styles.dot} />
-      <div className={styles.dot} />
-      <div className={styles.dot} />
+      {[...Array(4)].map(() => <div className={styles.dot} />)}
     </div>
   );
 };

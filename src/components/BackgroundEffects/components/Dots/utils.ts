@@ -1,4 +1,4 @@
-export const valuesDefaultState = {
+export const orderDefaultState = {
   1: 0,
   2: 0,
   3: 0,
