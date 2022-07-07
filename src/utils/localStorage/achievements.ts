@@ -9,6 +9,7 @@ export enum Flags {
   fontSize = 'fontSize',
   bookmarks = 'bookmarks',
   tableOfContents = 'tableOfContents',
+  themes = 'themes',
   allPagesSeen = 'allPagesSeen',
   allEasterEggsFound = 'allEasterEggsFound',
   superEasterEggFound = 'superEasterEggFound',

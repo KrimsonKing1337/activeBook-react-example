@@ -10,6 +10,8 @@ import { configActions, configSelectors } from 'store/config';
 
 import { Label } from 'components/Label';
 
+import { playAchievement } from './utils';
+
 import styles from './Themes.scss';
 
 function getThemeItemClassName(theme: Theme) {
@@ -42,6 +44,8 @@ export const Themes = () => {
 
   const clickHandler = (theme: Theme) => {
     dispatch(configActions.setTheme(theme));
+
+    playAchievement();
   };
 
   return (
