@@ -10,6 +10,7 @@ export enum Flags {
   bookmarks = 'bookmarks',
   tableOfContents = 'tableOfContents',
   themes = 'themes',
+  menuToggles = 'menuToggles',
   allPagesSeen = 'allPagesSeen',
   allEasterEggsFound = 'allEasterEggsFound',
   superEasterEggFound = 'superEasterEggFound',

@@ -4,25 +4,24 @@ import { useDispatch, useSelector } from 'react-redux';
 import { configActions, configSelectors } from 'store/config';
 
 import { Toggle } from 'components/Toggle';
+import { playAchievement } from 'components/Menu/utils';
 
 export const Flashlight = () => {
   const dispatch = useDispatch();
   const flashlightState = useSelector(configSelectors.flashlight);
 
-  const toggleClickOnHandler = () => {
-    dispatch(configActions.setFlashlight(true));
-  };
+  const toggleClickHandler = (value: boolean) => {
+    dispatch(configActions.setFlashlight(value));
 
-  const toggleClickOffHandler = () => {
-    dispatch(configActions.setFlashlight(false));
+    playAchievement();
   };
 
   return (
     <Toggle
       label={'Вспышка'}
       isActiveDefault={flashlightState}
-      onClickOn={toggleClickOnHandler}
-      onClickOff={toggleClickOffHandler}
+      onClickOn={() => toggleClickHandler(true)}
+      onClickOff={() => toggleClickHandler(false)}
     />
   );
 };

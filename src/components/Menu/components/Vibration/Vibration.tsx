@@ -5,6 +5,7 @@ import { configActions, configSelectors } from 'store/config';
 
 import { Toggle } from 'components/Toggle';
 import { Spoiler } from 'components/Spoiler';
+import { playAchievement } from 'components/Menu/utils';
 
 import styles from './Vibration.scss';
 
@@ -12,12 +13,10 @@ export const Vibration = () => {
   const dispatch = useDispatch();
   const vibrationState = useSelector(configSelectors.vibration);
 
-  const toggleClickOnHandler = () => {
-    dispatch(configActions.setVibration(true));
-  };
+  const toggleClickHandler = (value: boolean) => {
+    dispatch(configActions.setVibration(value));
 
-  const toggleClickOffHandler = () => {
-    dispatch(configActions.setVibration(false));
+    playAchievement();
   };
 
   return (
@@ -26,8 +25,8 @@ export const Vibration = () => {
         label={'Вибрация'}
         isActiveDefault={vibrationState}
         withoutBorder={true}
-        onClickOn={toggleClickOnHandler}
-        onClickOff={toggleClickOffHandler}
+        onClickOn={() => toggleClickHandler(true)}
+        onClickOff={() => toggleClickHandler(false)}
       />
 
       <Spoiler label="Не работает вибрация?">

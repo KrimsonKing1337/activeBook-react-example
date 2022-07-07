@@ -4,25 +4,24 @@ import { useDispatch, useSelector } from 'react-redux';
 import { configActions, configSelectors } from 'store/config';
 
 import { Toggle } from 'components/Toggle';
+import { playAchievement } from 'components/Menu/utils';
 
 export const InverseColor = () => {
   const dispatch = useDispatch();
   const inverseColorState = useSelector(configSelectors.inverseColor);
 
-  const toggleClickOnHandler = () => {
-    dispatch(configActions.setInverseColor(true));
-  };
+  const toggleClickHandler = (value: boolean) => {
+    dispatch(configActions.setInverseColor(value));
 
-  const toggleClickOffHandler = () => {
-    dispatch(configActions.setInverseColor(false));
+    playAchievement();
   };
 
   return (
     <Toggle
       label={'Инверсия цвета'}
       isActiveDefault={inverseColorState}
-      onClickOn={toggleClickOnHandler}
-      onClickOff={toggleClickOffHandler}
+      onClickOn={() => toggleClickHandler(true)}
+      onClickOff={() => toggleClickHandler(false)}
     />
   );
 };
