@@ -8,6 +8,7 @@ export enum Flags {
   volume = 'volume',
   fontSize = 'fontSize',
   bookmarks = 'bookmarks',
+  tableOfContents = 'tableOfContents',
   allPagesSeen = 'allPagesSeen',
   allEasterEggsFound = 'allEasterEggsFound',
   superEasterEggFound = 'superEasterEggFound',

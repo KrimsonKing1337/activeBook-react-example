@@ -5,6 +5,8 @@ import { mainSelectors } from 'store/main';
 
 import { goToPage } from 'utils/control/goToPage';
 
+import { playAchievement } from './utils';
+
 import styles from './Item.scss';
 
 export type ItemProps = {
@@ -20,6 +22,8 @@ export const Item = ({ title, subtitle, pageNumber }: ItemProps) => {
     const n = pageNumber > pages ? pages : pageNumber;
 
     goToPage(n);
+
+    playAchievement();
   };
 
   return (
