@@ -6,12 +6,19 @@ import styles from './Slider.scss';
 type SliderProps = {
   value: number;
   onChange?: (value: number) => void;
+  onAfterChange?: () => void;
 };
 
-export const Slider = ({ onChange, value }: SliderProps) => {
+export const Slider = ({ value, onChange, onAfterChange }: SliderProps) => {
   const changeHandler = (value: number) => {
     if (onChange) {
       onChange(value);
+    }
+  };
+
+  const afterChangeHandler = () => {
+    if (onAfterChange) {
+      onAfterChange();
     }
   };
 
@@ -22,6 +29,7 @@ export const Slider = ({ onChange, value }: SliderProps) => {
       thumbClassName={styles.thumb}
       trackClassName={styles.track}
       onChange={changeHandler}
+      onAfterChange={afterChangeHandler}
     />
   );
 };

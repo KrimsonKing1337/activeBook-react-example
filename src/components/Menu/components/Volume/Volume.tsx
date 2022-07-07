@@ -5,9 +5,19 @@ import { volumeActions, volumeSelectors } from 'store/volume';
 
 import { Label } from 'components/Label';
 
+import { play } from 'utils/effects/achievements';
+import { Flags } from 'utils/localStorage/achievements';
+
 import { Slider } from './components/Slider';
 
 import styles from './Volume.scss';
+
+const playAchievement = () => {
+  play({
+    id: Flags.volume,
+    text: 'Тонкая настройка громкости - класс!',
+  });
+};
 
 export const Volume = () => {
   const dispatch = useDispatch();
@@ -16,6 +26,10 @@ export const Volume = () => {
   const bgVolume = useSelector(volumeSelectors.bg);
   const sfxVolume = useSelector(volumeSelectors.sfx);
   const musicVolume = useSelector(volumeSelectors.music);
+
+  const afterChangeHandler = () => {
+    playAchievement();
+  };
 
   const globalChangeHandler = (value: number) => {
     dispatch(volumeActions.setGlobal(value));
@@ -33,30 +47,34 @@ export const Volume = () => {
     dispatch(volumeActions.setMusic(value));
   };
 
+  /*
+  * пытался то, что ниже переделать в массив и map(),
+  * но получаю ошибку: Can't perform a React state update on an unmounted component
+  */
   return (
     <div className={styles.volume}>
       <div className={styles.item}>
         <Label label={'Общая громкость'} />
 
-        <Slider value={globalVolume} onChange={globalChangeHandler} />
+        <Slider value={globalVolume} onChange={globalChangeHandler} onAfterChange={afterChangeHandler} />
       </div>
 
       <div className={styles.item}>
         <Label label={'Громкость музыки'} />
 
-        <Slider value={musicVolume} onChange={musicChangeHandler} />
+        <Slider value={musicVolume} onChange={musicChangeHandler} onAfterChange={afterChangeHandler} />
       </div>
 
       <div className={styles.item}>
         <Label label={'SFX'} />
 
-        <Slider value={sfxVolume} onChange={sfxChangeHandler} />
+        <Slider value={sfxVolume} onChange={sfxChangeHandler} onAfterChange={afterChangeHandler} />
       </div>
 
       <div className={styles.item}>
         <Label label={'Фоновые звуки'} />
 
-        <Slider value={bgVolume} onChange={bgChangeHandler} />
+        <Slider value={bgVolume} onChange={bgChangeHandler} onAfterChange={afterChangeHandler} />
       </div>
     </div>
   );

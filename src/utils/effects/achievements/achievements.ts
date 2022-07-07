@@ -9,7 +9,7 @@ export type PlayProps = {
   type?: Color;
 };
 
-export function play({ text, id, save, type = 'regular' }: PlayProps) {
+export function play({ text, id, save = true, type = 'regular' }: PlayProps) {
   const saveIfNeeded = () => {
     if (save) {
       achievementsLocalStorage.set(id, true);
@@ -18,11 +18,13 @@ export function play({ text, id, save, type = 'regular' }: PlayProps) {
 
   const achievements = achievementsLocalStorage.getAll();
 
-  const achievementsFiltered = Object.values(achievements).filter((cur) => cur === false);
-
   // если все ачивки получены, то тут и делать нечего
-  if (achievementsFiltered.length === 0) {
-    return;
+  if (achievements) {
+    const achievementsFiltered = Object.values(achievements).filter((cur) => cur === false);
+
+    if (achievementsFiltered.length === 0) {
+      return;
+    }
   }
 
   changeBgColor(type);

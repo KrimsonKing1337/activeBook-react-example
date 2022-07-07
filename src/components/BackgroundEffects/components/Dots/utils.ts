@@ -1,3 +1,5 @@
+import { nanoid } from 'nanoid';
+
 export const orderDefaultState = {
   1: 0,
   2: 0,
@@ -32,4 +34,14 @@ export function getPlaceInLineByLocationStyles(styles: LocationStyles) {
   }
 
   return 0;
+}
+
+export function createDotsAsArray() {
+  const arr = [];
+
+  for (let i = 0; i < 4; i++) {
+    arr.push(nanoid());
+  }
+
+  return arr;
 }

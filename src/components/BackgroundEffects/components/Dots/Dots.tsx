@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { play } from 'utils/effects/achievements';
 import { achievements, Flags } from 'utils/localStorage/achievements';
 
-import { getPlaceInLineByLocationStyles, orderDefaultState } from './utils';
+import { createDotsAsArray, getPlaceInLineByLocationStyles, orderDefaultState } from './utils';
 
 import styles from './Dots.scss';
 
@@ -108,9 +108,11 @@ export const Dots = () => {
     };
   }, [order]);
 
+  const dots = createDotsAsArray();
+
   return (
     <div className={styles.dotsWrapper}>
-      {[...Array(4)].map(() => <div className={styles.dot} />)}
+      {dots.map((key) => <div key={key} className={styles.dot} />)}
     </div>
   );
 };

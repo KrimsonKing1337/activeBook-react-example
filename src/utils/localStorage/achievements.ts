@@ -5,6 +5,7 @@ const key = 'achievements';
 export enum Flags {
   konami = 'konami',
   firstMove = 'firstMove',
+  volume = 'volume',
   allPagesSeen = 'allPagesSeen',
   allEasterEggsFound = 'allEasterEggsFound',
   superEasterEggFound = 'superEasterEggFound',
