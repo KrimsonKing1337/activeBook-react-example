@@ -108,7 +108,11 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
     const seenPagesLength = Object.keys(seenPagesFromLocalStorage).length;
 
     if (seenPagesLength === pages) {
-      achievementPlay('Все страницы прочитаны!', AchievementsFlags.allPagesSeen);
+      achievementPlay({
+        id: AchievementsFlags.allPagesSeen,
+        text: 'Все страницы прочитаны!',
+        type: 'gold',
+      });
     }
   }, [page]);
 

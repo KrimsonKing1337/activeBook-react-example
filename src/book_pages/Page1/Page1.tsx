@@ -9,7 +9,10 @@ import { Flags } from 'utils/localStorage/achievements';
 
 export const Page1 = () => {
   useEffect(() => {
-    playAchievement('Приключение начинается', Flags.firstMove);
+    playAchievement({
+      id: Flags.firstMove,
+      text: 'Приключение начинается',
+    });
   }, []);
 
   useSound({

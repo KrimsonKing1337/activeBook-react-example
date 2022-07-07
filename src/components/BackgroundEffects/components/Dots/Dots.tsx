@@ -97,7 +97,11 @@ export const Dots = () => {
       }
     }
 
-    play('Суперсекрет! Не могу поверить, что ты это нашёл/нашла!', Flags.superEasterEggFound);
+    play({
+      id: Flags.superEasterEggFound,
+      text: 'Суперсекрет! Не могу поверить, что ты это нашёл/нашла!',
+      type: 'platinum',
+    });
 
     return () => {
       setOrder(orderDefaultState);

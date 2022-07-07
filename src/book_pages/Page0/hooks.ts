@@ -8,7 +8,11 @@ import { Flags as ModalsFlags } from 'utils/localStorage/modalsWereShowed';
 
 export function useKonamiCode() {
   useEffect(() => {
-    const cb = () => achievementPlay('Retro gaming rules!', AchievementsFlags.konami);
+    const cb = () => achievementPlay({
+      id: AchievementsFlags.konami,
+      text: 'Retro gaming rules!',
+      type: 'gold',
+    });
 
     const handler = konamiCodeHandler(cb);
 

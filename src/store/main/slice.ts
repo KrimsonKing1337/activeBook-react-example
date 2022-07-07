@@ -11,6 +11,7 @@ export const initialState: State = {
   isLoading: false,
   isVibrationAvailable: false,
   isFlashlightAvailable: false,
+  achievementToastBgColor: '#07bc0c',
 };
 
 const slice = createSlice({
@@ -36,6 +37,9 @@ const slice = createSlice({
     },
     setIsFlashlightAvailable(state, action: PayloadAction<State['isFlashlightAvailable']>) {
       state.isFlashlightAvailable = action.payload;
+    },
+    setAchievementToastBgColor(state, action: PayloadAction<State['achievementToastBgColor']>) {
+      state.achievementToastBgColor = action.payload;
     },
   },
 });

@@ -9,4 +9,5 @@ export interface State {
   isLoading: boolean;
   isVibrationAvailable: boolean;
   isFlashlightAvailable: boolean;
+  achievementToastBgColor: string;
 }

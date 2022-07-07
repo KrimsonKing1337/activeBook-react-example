@@ -26,7 +26,11 @@ export const EasterEgg = ({ id, children, onClick, ...rest }: EasterEggProps) =>
     const foundEasterEggsLength = Object.keys(foundEasterEggsFromLocalStorage).length;
 
     if (foundEasterEggsLength === easterEggsLength) {
-      play('Все пасхалки найдены! Невероятно!', Flags.allEasterEggsFound);
+      play({
+        id: Flags.allEasterEggsFound,
+        text: 'Все пасхалки найдены! Невероятно!',
+        type: 'gold',
+      });
     }
 
     if (onClick) {
