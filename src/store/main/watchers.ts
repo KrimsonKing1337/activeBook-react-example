@@ -24,6 +24,8 @@ export function* watchSetMenuActiveState(action: PayloadAction<State['menuActive
     path = '#table-of-contents';
   } else if (payload === 'menu') {
     path = '#menu';
+  } else if (payload === 'achievementsProgress') {
+    path = '#achievements-progress';
   }
 
   yield put(push(path as string));

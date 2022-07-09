@@ -1,0 +1,21 @@
+@import '~styles/__mixins.scss';
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 24px;
+
+  &:nth-child(1) {
+    margin-top: 0;
+  }
+}
+
+.title {
+  // flex-shrink: 0;
+}
+
+.status {
+  flex-shrink: 0;
+  margin-left: auto;
+}

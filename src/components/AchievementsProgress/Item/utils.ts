@@ -3,7 +3,7 @@ import { Flags } from 'utils/localStorage/achievements';
 
 export const playAchievement = () => {
   play({
-    id: Flags.volume,
-    text: 'Тонко настраиваем громкость!',
+    id: Flags.tableOfContents,
+    text: 'Переходим по главам!',
   });
 };

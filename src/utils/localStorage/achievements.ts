@@ -25,6 +25,18 @@ export const dontNeededForAllAchievementsReward = [
   Flags.allAchievementsRewarded,
 ];
 
+export const namesVoc = {
+  [Flags.firstMove]: 'Первый шаг',
+  [Flags.volume]: 'Лучше громко, чем тихо',
+  [Flags.fontSize]: 'Играл со шрифтами, проиграл',
+  [Flags.bookmarks]: 'Лучшие закладки - в книге',
+  [Flags.tableOfContents]: 'Прыгаем по главам, но не по головам',
+  [Flags.themes]: 'Все темы хороши, но лучше тёмная',
+  [Flags.menuToggles]: 'Туда-сюдашечки',
+  [Flags.allPagesSeen]: 'Все страницы прочитаны',
+  [Flags.allAchievementsRewarded]: 'Все награды получены',
+};
+
 function get(name: Flags) {
   const values = encryptStorage.getItem(key);
 

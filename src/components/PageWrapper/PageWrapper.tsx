@@ -8,6 +8,7 @@ import { mainSelectors } from 'store/main';
 
 import { Toolbar } from 'components/Toolbar';
 import { Menu } from 'components/Menu';
+import { AchievementsProgress } from 'components/AchievementsProgress';
 import { TableOfContents } from 'components/TableOfContents';
 import { Bookmarks } from 'components/Bookmarks';
 import { SideEffects } from 'components/SideEffects';
@@ -57,6 +58,8 @@ export const PageWrapper = ({ children, withoutToolbar, sbMode }: PageWrapperPro
         <TableOfContents />
 
         <Bookmarks />
+
+        <AchievementsProgress />
       </div>
     </div>
   );
