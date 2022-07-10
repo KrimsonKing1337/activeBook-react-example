@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
+import { WithModal } from 'components/ColoredTextTrigger/WithModal';
 
 import { useSound } from 'hooks/effects/audio/sound';
 
@@ -20,6 +21,19 @@ export const Page1 = () => {
     playOnLoad: true,
     stopBy: 5000,
   });
+
+  const Comment1 = (
+    <WithModal text="утренний туалет" triggerType="author" mode="text">
+      Многие удивлялись, когда узнали, что это оборот речи такой. И он не подразумевает что герой сидел на толчке
+    </WithModal>
+  );
+
+  const Comment2 = (
+    <WithModal text="телевизор" triggerType="author" mode="text">
+      В какой-то из предыдущих версий в этом месте включалось видео в модальном окне,
+      где был отрезок из передачи «Контрольная закупка», выпуск про икру
+    </WithModal>
+  );
 
   return (
     <PageWrapper>
@@ -42,7 +56,7 @@ export const Page1 = () => {
         Глубоко вздохнув и потерев глаза, он встал с кровати и проследовал в ванную.
       </p>
       <p>
-        Совершив утренний туалет, он стал готовить себе завтрак и включил телевизор. Не то,
+        Совершив {Comment1}, он стал готовить себе завтрак и включил {Comment2}. Не то,
         что бы он особо хотел его смотреть, но полнейшая тишина давила на уши сильнее.
       </p>
       <p>

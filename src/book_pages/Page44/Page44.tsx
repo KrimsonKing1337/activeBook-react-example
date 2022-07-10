@@ -1,9 +1,9 @@
 import React from 'react';
 
+import { Spoiler } from 'components';
+
 import { PageWrapper } from 'components/PageWrapper';
 import { WithModal } from 'components/ColoredTextTrigger/WithModal';
-
-import { Spoiler } from '../../components';
 
 export const Page44 = () => {
   const EasterEgg = (
