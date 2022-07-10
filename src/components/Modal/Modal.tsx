@@ -14,7 +14,7 @@ const IS_CLOSE_HASH = '';
 
 type Func = () => void;
 
-type ModalMode = 'media' | null;
+type ModalMode = 'media' | 'text';
 
 export type ModalProps = {
   children: React.ReactNode;
@@ -36,9 +36,15 @@ type ModalState = {
   isZooming: boolean;
 };
 
+type DefaultProps = {
+  mode: ModalMode;
+  hideExpandButton: boolean;
+  hideCropButton: boolean;
+};
+
 class ModalComponent extends React.Component<Props, ModalState> {
-  static defaultProps = {
-    mode: null,
+  static defaultProps: DefaultProps = {
+    mode: 'text',
     hideExpandButton: false,
     hideCropButton: false,
   };
