@@ -16,7 +16,7 @@ export function* watchSetIsOpen(action: PayloadAction<boolean>) {
     return;
   }
 
-  const path = payload ? '#bookmarks' : window.location.pathname;
+  const path = payload ? '#achievements-progress' : window.location.pathname;
 
   yield put(push(path));
 }

@@ -5,6 +5,8 @@ import { Achievement, State } from './@types';
 const initialState: State = {
   isOpen: false,
   achievements: null,
+  length: 9, // это без ненужных для получения платины
+  toastBgColor: '#07bc0c',
 };
 
 const slice = createSlice({
@@ -23,6 +25,9 @@ const slice = createSlice({
     },
     setAll(state, action: PayloadAction<State['achievements']>) {
       state.achievements = action.payload;
+    },
+    setToastBgColor(state, action: PayloadAction<State['toastBgColor']>) {
+      state.toastBgColor = action.payload;
     },
   },
 });

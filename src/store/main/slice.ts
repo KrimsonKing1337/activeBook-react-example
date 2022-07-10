@@ -7,8 +7,6 @@ export const initialState: State = {
   page: 0,
   pages: 44,
   easterEggs: 8,
-  achievements: 9, // это без ненужных для получения платины
-  achievementToastBgColor: '#07bc0c',
   menuActiveState: null,
   isLoading: false,
   isVibrationAvailable: false,
@@ -38,9 +36,6 @@ const slice = createSlice({
     },
     setIsFlashlightAvailable(state, action: PayloadAction<State['isFlashlightAvailable']>) {
       state.isFlashlightAvailable = action.payload;
-    },
-    setAchievementToastBgColor(state, action: PayloadAction<State['achievementToastBgColor']>) {
-      state.achievementToastBgColor = action.payload;
     },
   },
 });

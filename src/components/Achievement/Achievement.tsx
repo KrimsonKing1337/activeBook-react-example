@@ -3,12 +3,12 @@ import { useSelector } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { mainSelectors } from 'store/main';
+import { achievementsSelectors } from 'store/achievements';
 
 import './Achievement.scss';
 
 export const Achievement = () => {
-  const bgColor = useSelector(mainSelectors.achievementToastBgColor);
+  const bgColor = useSelector(achievementsSelectors.toastBgColor);
 
   return (
     <ToastContainer

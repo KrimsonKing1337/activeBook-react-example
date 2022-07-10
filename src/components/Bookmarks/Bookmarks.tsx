@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
 
 import classNames from 'classnames';
 
@@ -17,34 +16,15 @@ import { playAchievement } from './utils';
 
 import styles from './Bookmarks.scss';
 
-const IS_OPEN_LOCATION = '/bookmarks';
-const IS_CLOSE_LOCATION = '/';
-
 const buttonAddClassNames = classNames([styles.button, styles.isAdd]);
 
 export const Bookmarks = () => {
   const dispatch = useDispatch();
-  const { pathname } = useLocation();
 
   const isOpen = useSelector(bookmarksSelectors.isOpen);
   const page = useSelector(mainSelectors.page);
 
-  const [prevLocationPath, setPrevLocationPath] = useState(IS_CLOSE_LOCATION);
   const { bookmarks, setBookmarks } = useBookmarks();
-
-  useEffect(() => {
-    if (!prevLocationPath.includes(IS_OPEN_LOCATION) && !pathname.includes(IS_OPEN_LOCATION)) {
-      return;
-    }
-
-    if (prevLocationPath !== pathname) {
-      if (pathname === IS_CLOSE_LOCATION) {
-        dispatch(bookmarksActions.setIsOpen(false));
-      }
-
-      setPrevLocationPath(pathname);
-    }
-  }, [pathname]);
 
   const closeButtonClickHandler = () => {
     dispatch(bookmarksActions.setIsOpen(false));

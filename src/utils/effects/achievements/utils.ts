@@ -2,7 +2,6 @@ import { toast } from 'react-toastify';
 
 import { store } from 'store';
 
-import { mainActions } from 'store/main';
 import { achievementsActions } from 'store/achievements';
 import { Achievement } from 'store/achievements/@types';
 
@@ -33,7 +32,7 @@ export const typesVoc: Record<Color, string> = {
 export function changeBgColor(type: Color) {
   const color = typesVoc[type];
 
-  store.dispatch(mainActions.setAchievementToastBgColor(color));
+  store.dispatch(achievementsActions.setToastBgColor(color));
 }
 
 export function dispatchSetAchievement(value: Achievement) {
@@ -41,19 +40,21 @@ export function dispatchSetAchievement(value: Achievement) {
 }
 
 export function getLength() {
-  return store.getState().main.achievements;
+  return store.getState().achievements.length;
 }
 
 export function getRewardedLengthWithoutUnnecessary() {
   const achievements = achievementsLocalStorage.getAll();
 
-  const achivsRewardedForCounting = { ...achievements };
+  const achievementsRewardedForCounting = { ...achievements };
 
-  dontNeededForAllAchievementsReward.forEach((achivCur) => {
-    delete achivsRewardedForCounting[achivCur];
+  dontNeededForAllAchievementsReward.forEach((cur) => {
+    delete achievementsRewardedForCounting[cur];
   });
 
-  const achivsRewardedForCountingFiltered = Object.values(achivsRewardedForCounting).filter((cur) => cur === true);
+  const achievementsRewardedForCountingFiltered = Object.values(achievementsRewardedForCounting).filter((cur) => {
+    return cur === true;
+  });
 
-  return achivsRewardedForCountingFiltered.length;
+  return achievementsRewardedForCountingFiltered.length;
 }

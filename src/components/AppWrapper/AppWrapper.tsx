@@ -9,9 +9,8 @@ import { volumeActions, volumeSelectors } from 'store/volume';
 import { configActions } from 'store/config';
 import { configSelectors } from 'store/config';
 import { mainActions, mainSelectors } from 'store/main';
-import { bookmarksSelectors } from 'store/bookmarks';
-import { bookmarksActions } from 'store/bookmarks';
-import { achievementsActions } from 'store/achievements';
+import { bookmarksActions, bookmarksSelectors } from 'store/bookmarks';
+import { achievementsActions, achievementsSelectors } from 'store/achievements';
 
 import { Achievement } from 'components/Achievement';
 
@@ -36,6 +35,7 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
   const isLoading = useSelector(mainSelectors.isLoading);
   const menuActiveState = useSelector(mainSelectors.menuActiveState);
   const bookmarksIsOpen = useSelector(bookmarksSelectors.isOpen);
+  const achievementsIsOpen = useSelector(achievementsSelectors.isOpen);
   const page = useSelector(mainSelectors.page);
   const pages = useSelector(mainSelectors.pages);
   const bookmarks = useSelector(bookmarksSelectors.bookmarks);
@@ -52,9 +52,11 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
     history.push('/');
   }, []);
 
-  // закрываю модалки, если пользователь сделал navigator.goBack
+  // закрываю менюшки, если пользователь сделал navigator.goBack
   useEffect(() => {
     const unlisten = history.listen((location) => {
+      console.log('___ location', location);
+
       if (!location.hash && menuActiveState !== null) {
         dispatch(mainActions.setMenuActiveState(null));
       }
@@ -66,10 +68,14 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
       if (!location.hash && bookmarksIsOpen) {
         dispatch(bookmarksActions.setIsOpen(false));
       }
+
+      if (location.hash && achievementsIsOpen) {
+        dispatch(achievementsActions.setIsOpen(false));
+      }
     });
 
     return () => unlisten();
-  }, [menuActiveState, bookmarksIsOpen]);
+  }, [menuActiveState, bookmarksIsOpen, achievementsIsOpen]);
 
   useEffect(() => {
     const canVibrate = !!navigator.vibrate;
