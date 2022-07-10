@@ -34,6 +34,8 @@ export const AchievementsProgress = () => {
 
     const achievementsWithoutHidden = { ...achievements };
 
+    hiddenLength.current = 0;
+
     hiddenAchievements.forEach((cur) => {
       if (!achievements[cur]) {
         delete achievementsWithoutHidden[cur];
