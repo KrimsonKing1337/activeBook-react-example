@@ -76,7 +76,7 @@ export const Page0 = () => {
   const label = lastPage > 0 ? 'Продолжить читать' : 'Начать читать';
 
   return (
-    <PageWrapper withoutToolbar>
+    <PageWrapper>
       <ModalDialog
         isOpen={modalIsActive}
         onClose={modalCloseHandler}
