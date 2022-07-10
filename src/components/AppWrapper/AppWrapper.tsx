@@ -11,6 +11,7 @@ import { configSelectors } from 'store/config';
 import { mainActions, mainSelectors } from 'store/main';
 import { bookmarksSelectors } from 'store/bookmarks';
 import { bookmarksActions } from 'store/bookmarks';
+import { achievementsActions } from 'store/achievements';
 
 import { Achievement } from 'components/Achievement';
 
@@ -18,7 +19,7 @@ import { useEffectsInRange } from 'hooks/effects/range';
 
 import { seenPages } from 'utils/localStorage/seenPages';
 import { play as achievementPlay } from 'utils/effects/achievements';
-import { Flags as AchievementsFlags } from 'utils/localStorage/achievements';
+import { achievements as achievementsUtils, Flags as AchievementsFlags } from 'utils/localStorage/achievements';
 
 import styles from './AppWrapper.scss';
 
@@ -89,6 +90,7 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
   useEffect(() => {
     const configAsJson = localStorage.getItem('config');
     const volumeAsJson = localStorage.getItem('volume');
+    const achievements = achievementsUtils.getAll();
 
     if (!configAsJson || !volumeAsJson) {
       return;
@@ -99,6 +101,7 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
 
     dispatch(configActions.setAll(config));
     dispatch(volumeActions.setAll(volume));
+    dispatch(achievementsActions.setAll(achievements));
   }, []);
 
   useEffect(() => {
@@ -117,6 +120,12 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
   }, [page]);
 
   useEffect(() => {
+    /*
+    * todo: записывать на каждое изменение,
+    *  а не на выход из приложения.
+    *  однажды можем попасть в ситуацию,
+    *  что операцию просто не будет успевать срабатывать
+    */
     const listener = () => {
       const configAsJson = JSON.stringify(config);
       const volumeAsJson = JSON.stringify(volume);

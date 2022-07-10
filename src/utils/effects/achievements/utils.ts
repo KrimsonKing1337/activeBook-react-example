@@ -3,6 +3,8 @@ import { toast } from 'react-toastify';
 import { store } from 'store';
 
 import { mainActions } from 'store/main';
+import { achievementsActions } from 'store/achievements';
+import { Achievement } from 'store/achievements/@types';
 
 import { HowlWrapper } from 'utils/effects/audio/HowlWrapper';
 import {
@@ -32,6 +34,10 @@ export function changeBgColor(type: Color) {
   const color = typesVoc[type];
 
   store.dispatch(mainActions.setAchievementToastBgColor(color));
+}
+
+export function dispatchSetAchievement(value: Achievement) {
+  store.dispatch(achievementsActions.setAchievement(value));
 }
 
 export function getLength() {

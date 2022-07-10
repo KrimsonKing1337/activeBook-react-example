@@ -17,11 +17,17 @@ export enum Flags {
   allAchievementsRewarded = 'allAchievementsRewarded',
 }
 
+export type FlagsWithoutHidden = Exclude<Flags, Flags.superEasterEggFound | Flags.konami>;
+
 export const allAchievements = Object.values(Flags);
 
-export const dontNeededForAllAchievementsReward = [
+export const hiddenAchievements = [
   Flags.konami,
   Flags.superEasterEggFound,
+];
+
+export const dontNeededForAllAchievementsReward = [
+  ...hiddenAchievements,
   Flags.allAchievementsRewarded,
 ];
 
@@ -34,7 +40,25 @@ export const namesVoc = {
   [Flags.themes]: 'Все темы хороши, но лучше тёмная',
   [Flags.menuToggles]: 'Туда-сюдашечки',
   [Flags.allPagesSeen]: 'Все страницы прочитаны',
+  [Flags.allEasterEggsFound]: 'Все пасхалки найдены',
+  [Flags.konami]: 'Конами-код в сердце навсегда',
+  [Flags.superEasterEggFound]: 'Супер-секрет найден',
   [Flags.allAchievementsRewarded]: 'Все награды получены',
+};
+
+export const order = {
+  [Flags.firstMove]: 0,
+  [Flags.volume]: 1,
+  [Flags.fontSize]: 2,
+  [Flags.bookmarks]: 3,
+  [Flags.tableOfContents]: 4,
+  [Flags.themes]: 5,
+  [Flags.menuToggles]: 6,
+  [Flags.allPagesSeen]: 7,
+  [Flags.allEasterEggsFound]: 8,
+  [Flags.konami]: 9,
+  [Flags.superEasterEggFound]: 10,
+  [Flags.allAchievementsRewarded]: 11,
 };
 
 function get(name: Flags) {

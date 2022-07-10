@@ -1,6 +1,13 @@
-import { achievements as achievementsLocalStorage, Flags } from 'utils/localStorage/achievements';
+import { achievements as achievementsUtils, Flags } from 'utils/localStorage/achievements';
 
-import { changeBgColor, Color, getLength, getRewardedLengthWithoutUnnecessary, show } from './utils';
+import {
+  changeBgColor,
+  Color,
+  dispatchSetAchievement,
+  getLength,
+  getRewardedLengthWithoutUnnecessary,
+  show,
+} from './utils';
 
 export type PlayProps = {
   text: string;
@@ -12,11 +19,16 @@ export type PlayProps = {
 export function play({ text, id, save = true, type = 'regular' }: PlayProps) {
   const saveIfNeeded = () => {
     if (save) {
-      achievementsLocalStorage.set(id, true);
+      achievementsUtils.set(id, true);
+
+      dispatchSetAchievement({
+        name: id,
+        value: true,
+      });
     }
   };
 
-  const achievements = achievementsLocalStorage.getAll();
+  const achievements = achievementsUtils.getAll();
 
   // если все ачивки получены, то тут и делать нечего
   if (achievements) {
@@ -49,10 +61,10 @@ export function play({ text, id, save = true, type = 'regular' }: PlayProps) {
 }
 
 function playAllAchievementsRewardWhenReady() {
-  const achivsLength = getLength();
-  const achivsRewardedLength = getRewardedLengthWithoutUnnecessary();
+  const achievementsLength = getLength();
+  const achievementsRewardedLength = getRewardedLengthWithoutUnnecessary();
 
-  if (achivsLength === achivsRewardedLength) {
+  if (achievementsLength === achievementsRewardedLength) {
     play({
       id: Flags.allAchievementsRewarded,
       text: 'Поздравляю! Вы получили все ачивки!',
