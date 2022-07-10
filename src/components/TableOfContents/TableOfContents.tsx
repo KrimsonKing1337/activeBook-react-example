@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
 
 import { mainActions, mainSelectors } from 'store/main';
 
@@ -12,32 +11,12 @@ import { items } from './utils';
 
 import styles from './TableOfContents.scss';
 
-const IS_OPEN_LOCATION = '/table-of-contents';
-const IS_CLOSE_LOCATION = '/menu';
-
 export const TableOfContents = () => {
   const dispatch = useDispatch();
-  const { pathname } = useLocation();
 
   const menuActiveState = useSelector(mainSelectors.menuActiveState);
 
-  const [prevLocationPath, setPrevLocationPath] = useState(IS_CLOSE_LOCATION);
-
   const isOpen = menuActiveState === 'tableOfContents';
-
-  useEffect(() => {
-    if (!prevLocationPath.includes(IS_OPEN_LOCATION) && !pathname.includes(IS_OPEN_LOCATION)) {
-      return;
-    }
-
-    if (prevLocationPath !== pathname) {
-      if (pathname === IS_CLOSE_LOCATION) {
-        dispatch(mainActions.setMenuActiveState(null));
-      }
-
-      setPrevLocationPath(pathname);
-    }
-  }, [pathname]);
 
   const closeButtonClickHandler = () => {
     dispatch(mainActions.setMenuActiveState(null));

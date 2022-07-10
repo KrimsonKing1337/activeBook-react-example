@@ -17,7 +17,7 @@ import { musicEffectsReducer, watchMusicEffectsActions } from './effects/audio/m
 import { sideShadowReducer, watchSideShadowActions } from './effects/side/shadow';
 import { sideTextReducer, watchSideTextActions } from './effects/side/text';
 import { bookmarksReducer, watchBookmarksActions } from './bookmarks';
-import { achievementsReducer, watchAchievementsActions } from './achievements';
+import { achievementsReducer } from './achievements';
 
 export const history = createBrowserHistory();
 
@@ -60,4 +60,3 @@ sagaMiddleware.run(watchBookmarksActions);
 sagaMiddleware.run(watchSideShadowActions);
 sagaMiddleware.run(watchSideTextActions);
 sagaMiddleware.run(watchVolumeActions);
-sagaMiddleware.run(watchAchievementsActions);

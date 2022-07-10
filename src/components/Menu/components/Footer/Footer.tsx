@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import classNames from 'classnames';
 
 import { mainActions } from 'store/main';
-import { achievementsActions } from 'store/achievements';
 
 import styles from './Footer.scss';
 
@@ -23,7 +22,7 @@ export const Footer = () => {
   };
 
   const achievementsProgressClickHandler = () => {
-    dispatch(achievementsActions.setIsOpen(true));
+    dispatch(mainActions.setMenuActiveState('achievementsProgress'));
   };
 
   const closeButtonClickHandler = () => {

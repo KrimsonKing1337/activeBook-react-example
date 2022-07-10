@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { achievementsActions, achievementsSelectors } from 'store/achievements';
+import { achievementsSelectors } from 'store/achievements';
+import { mainActions, mainSelectors } from 'store/main';
 
 import { Header } from 'components/Header';
 import { Overflow } from 'components/Overflow';
@@ -19,7 +20,7 @@ type Items = ItemProps & {
 export const AchievementsProgress = () => {
   const dispatch = useDispatch();
 
-  const isOpen = useSelector(achievementsSelectors.isOpen);
+  const menuActiveState = useSelector(mainSelectors.menuActiveState);
   const achievements = useSelector(achievementsSelectors.achievements);
 
   const [items, setItems] = useState<Items[]>([]);
@@ -63,8 +64,10 @@ export const AchievementsProgress = () => {
   }, [achievements]);
 
   const closeButtonClickHandler = () => {
-    dispatch(achievementsActions.setIsOpen(false));
+    dispatch(mainActions.setMenuActiveState(null));
   };
+
+  const isOpen = menuActiveState === 'achievementsProgress';
 
   return (
     <Overflow isOpen={isOpen}>

@@ -6,7 +6,6 @@ export type Achievement = {
 };
 
 export interface State {
-  isOpen: boolean;
   achievements: Record<Flags, boolean> | null;
   length: number;
   toastBgColor: string;

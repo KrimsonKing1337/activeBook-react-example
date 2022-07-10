@@ -10,7 +10,7 @@ import { configActions } from 'store/config';
 import { configSelectors } from 'store/config';
 import { mainActions, mainSelectors } from 'store/main';
 import { bookmarksActions, bookmarksSelectors } from 'store/bookmarks';
-import { achievementsActions, achievementsSelectors } from 'store/achievements';
+import { achievementsActions } from 'store/achievements';
 
 import { Achievement } from 'components/Achievement';
 
@@ -35,7 +35,6 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
   const isLoading = useSelector(mainSelectors.isLoading);
   const menuActiveState = useSelector(mainSelectors.menuActiveState);
   const bookmarksIsOpen = useSelector(bookmarksSelectors.isOpen);
-  const achievementsIsOpen = useSelector(achievementsSelectors.isOpen);
   const page = useSelector(mainSelectors.page);
   const pages = useSelector(mainSelectors.pages);
   const bookmarks = useSelector(bookmarksSelectors.bookmarks);
@@ -55,27 +54,23 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
   // закрываю менюшки, если пользователь сделал navigator.goBack
   useEffect(() => {
     const unlisten = history.listen((location) => {
-      console.log('___ location', location);
+      if (!location.hash) {
+        if (menuActiveState !== null) {
+          dispatch(mainActions.setMenuActiveState(null));
+        }
 
-      if (!location.hash && menuActiveState !== null) {
-        dispatch(mainActions.setMenuActiveState(null));
-      }
-
-      if (location.hash && menuActiveState === 'tableOfContents') {
-        dispatch(mainActions.setMenuActiveState(null));
-      }
-
-      if (!location.hash && bookmarksIsOpen) {
-        dispatch(bookmarksActions.setIsOpen(false));
-      }
-
-      if (location.hash && achievementsIsOpen) {
-        dispatch(achievementsActions.setIsOpen(false));
+        if (bookmarksIsOpen) {
+          dispatch(bookmarksActions.setIsOpen(false));
+        }
+      } else {
+        if (menuActiveState === 'tableOfContents' || menuActiveState === 'achievementsProgress') {
+          dispatch(mainActions.setMenuActiveState(null));
+        }
       }
     });
 
     return () => unlisten();
-  }, [menuActiveState, bookmarksIsOpen, achievementsIsOpen]);
+  }, [menuActiveState, bookmarksIsOpen]);
 
   useEffect(() => {
     const canVibrate = !!navigator.vibrate;

@@ -1,4 +1,4 @@
-export type MenuActiveState = null | 'menu' | 'tableOfContents';
+export type MenuActiveState = null | 'menu' | 'tableOfContents' | 'achievementsProgress';
 
 export interface State {
   route: string;
