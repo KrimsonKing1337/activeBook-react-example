@@ -16,7 +16,7 @@ export type ModalWithVideoEasterEggProps = {
 
 export const WithModal = ({
   children,
-  mode,
+  mode = 'media',
   text,
   triggerType,
   eggId,
