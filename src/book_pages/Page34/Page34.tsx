@@ -3,13 +3,157 @@ import React from 'react';
 import { ModalDialog } from 'components';
 
 import { PageWrapper } from 'components/PageWrapper';
+import { SideText } from 'components/SideEffects/components/SideText';
+import sideTextStyles from 'components/SideEffects/components/SideText/SideText.scss';
+
+import { useSideText } from 'hooks/effects/side/text';
 
 import { useModal } from './hooks';
 
-// todo: [повторить «бесконечный поток информации», но с другим текстом и скоростью]
-
 export const Page34 = () => {
   const { modalIsActive, modalOnClose } = useModal();
+
+  const SideTextTemplate = (
+    <SideText>
+      <>
+        <span className={sideTextStyles.error}>
+              целостность обшивки: [ОШИБКА];
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span>
+              температура: [ОШИБКА];
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span className={sideTextStyles.warning}>
+              пульс: не обнаружен. таблетки уже не помогут!;
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span>
+              информация о маршруте: до конца маршрута осталось 300 метров. выходя из машины не забудьте личные вещи;
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span className={sideTextStyles.error}>
+              статус кофе: [ОШИБКА]
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span>
+              статус элементов питания: элементы питания заряжены на [ОШИБКА], разряжаются;
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span className={sideTextStyles.warning}>
+              напоминание: [ОШИБКА];
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span className={sideTextStyles.error}>
+              sudo: команда sudo не найдена
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span className={sideTextStyles.ok}>
+              8 800 555 35 35 - проще позвонить, чем у кого-то занимать!
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span>
+              не думаю, что это кто-то будет читать, поэтому тут особо пасхалок и не стал пихать
+        </span>
+
+        <span>
+              но если ты читаешь - то должно быть ты неплохой фронтенд-разработчик. снимаю шляпу
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+      </>
+
+      <>
+        <span className={sideTextStyles.error}>
+              целостность обшивки: [ОШИБКА];
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span>
+              температура: [ОШИБКА];
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span className={sideTextStyles.warning}>
+              пульс: не обнаружен. таблетки уже не помогут!;
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span>
+              информация о маршруте: до конца маршрута осталось 300 метров. выходя из машины не забудьте личные вещи;
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span className={sideTextStyles.error}>
+              статус кофе: [ОШИБКА]
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span>
+              статус элементов питания: элементы питания заряжены на [ОШИБКА], разряжаются;
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span className={sideTextStyles.warning}>
+              напоминание: [ОШИБКА];
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span className={sideTextStyles.error}>
+              sudo: команда sudo не найдена
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span className={sideTextStyles.ok}>
+              8 800 555 35 35 - проще позвонить, чем у кого-то занимать!
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+
+        <span>
+              не думаю, что это кто-то будет читать, поэтому тут особо пасхалок и не стал пихать
+        </span>
+
+        <span>
+              но если ты читаешь - то должно быть ты неплохой фронтенд-разработчик. снимаю шляпу
+        </span>
+
+        <span className={sideTextStyles.defaultMargin} />
+      </>
+    </SideText>
+  );
+
+  useSideText({
+    isActiveDefault: true,
+    template: SideTextTemplate,
+    speed: 5000,
+  });
 
   return (
     <PageWrapper>
