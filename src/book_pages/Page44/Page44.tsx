@@ -3,6 +3,8 @@ import React from 'react';
 import { PageWrapper } from 'components/PageWrapper';
 import { WithModal } from 'components/ColoredTextTrigger/WithModal';
 
+import { Spoiler } from '../../components';
+
 export const Page44 = () => {
   const EasterEgg = (
     <WithModal text="Олег Шилов" triggerType="egg" eggId="page-44">
@@ -42,9 +44,36 @@ export const Page44 = () => {
       <p>
         Отдельное спасибо: тебе. За то, что прочитал. Подписывайся на канал, ставь лайки. Стоп, это же не тот ресурс..
       </p>
-      <p>
-        Звуки взяты с сайта freesounds.org
-      </p>
+
+      <br />
+
+      <Spoiler label="Копирайты">
+        <div>
+          <p>
+            Звуки взяты с сайтов freesounds.org и noisefx.ru
+          </p>
+
+          <p>
+            Авторы звуков:
+          </p>
+          <p>
+            RecForge II;
+            <br />
+            Patrick Hunt;
+            <br />
+            klankbeeld
+            <br />
+            jon bellini;
+            <br />
+            Adam Matthews;
+            <br />
+            John Dominoski;
+          </p>
+          <p>
+            P.S.: если кого-то забыл упомянуть - дайте знать, обязательно добавлю в список
+          </p>
+        </div>
+      </Spoiler>
     </PageWrapper>
   );
 };
