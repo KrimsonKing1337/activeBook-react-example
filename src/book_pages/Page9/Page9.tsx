@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
+import { WithModal } from 'components/ColoredTextTrigger/WithModal';
 
 import { useSound } from 'hooks/effects/audio/sound';
 import { useVibration } from 'hooks/effects/vibration';
@@ -22,6 +23,12 @@ export const Page9 = () => {
       clearTimeout(timer);
     };
   }, []);
+
+  const Comment = (
+    <WithModal text="«прыжок в гиперпространство»." triggerType="author" mode="text">
+      Отсылка на Вархаммер. Луперкаль! Луперкаль!
+    </WithModal>
+  );
 
   return (
     <PageWrapper>
@@ -45,8 +52,7 @@ export const Page9 = () => {
         «Интересно, она смотрит?»
       </p>
       <p>
-        Скорость всё нарастала, система готовилась к телепортации. Некоторые ошибочно называли
-        это «прыжок в гиперпространство».
+        Скорость всё нарастала, система готовилась к телепортации. Некоторые ошибочно называли это {Comment}
       </p>
     </PageWrapper>
   );

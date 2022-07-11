@@ -1,8 +1,15 @@
 import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
+import { WithModal } from 'components/ColoredTextTrigger/WithModal';
 
 export const Page6 = () => {
+  const Comment = (
+    <WithModal text="в специальный костюм" triggerType="author" mode="text">
+      Здесь вспоминается защитный костюм Гордона Фримена
+    </WithModal>
+  );
+
   return (
     <PageWrapper>
       <h1>
@@ -12,8 +19,7 @@ export const Page6 = () => {
         Обратный отсчёт.
       </h2>
       <p>
-        Пройдя все дополнительные тесты и переодевшись в специальный костюм, он поспешил к
-        машине, ожидавшей его у выхода.
+        Пройдя все дополнительные тесты и переодевшись {Comment}, он поспешил к машине, ожидавшей его у выхода.
       </p>
       <p>
         «Интересно, она будет смотреть прямой эфир?» – думал Егор. Отношения давно

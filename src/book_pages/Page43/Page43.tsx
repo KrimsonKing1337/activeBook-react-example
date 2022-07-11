@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
+import { WithModal } from 'components/ColoredTextTrigger/WithModal';
 
 import { useMusic } from 'hooks/effects/audio/music';
 
@@ -10,10 +11,16 @@ export const Page43 = () => {
     loop: false,
   });
 
+  const Comment = (
+    <WithModal text="до боли знакомые звуки." triggerType="author" mode="text">
+      С этих звуков начинается мой любимый фильм — Скотт Пилигримм против всех. Не мог его не упомянуть в этой книге
+    </WithModal>
+  );
+
   return (
     <PageWrapper>
       <p>
-        Вдруг он услышал какие-то до боли знакомые звуки.
+        Вдруг он услышал какие-то {Comment}
       </p>
       <p>
         Узнав в них начало своего любимого фильма, он поспешил на зов.

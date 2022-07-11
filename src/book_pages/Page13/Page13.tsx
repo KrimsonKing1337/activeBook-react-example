@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
+import { WithModal } from 'components/ColoredTextTrigger/WithModal';
 
 import { useSound } from 'hooks/effects/audio/sound';
 import { useRain } from 'hooks/effects/flashlight/rain';
@@ -15,10 +16,16 @@ export const Page13 = () => {
 
   useRain();
 
+  const Comment = (
+    <WithModal text="Снился дождь." triggerType="author" mode="text">
+      Очень горжусь тем, как круто выглядит здесь эффект дождя. Особенно со вспышкой
+    </WithModal>
+  );
+
   return (
     <PageWrapper>
       <p>
-        Снился дождь. Сильный, тяжёлый. Наш герой не видел дождей с осени и уже успел соскучиться по этому
+        {Comment} Сильный, тяжёлый. Наш герой не видел дождей с осени и уже успел соскучиться по этому
         природному явлению. Пусть просто во сне, но всё равно приятно. Плюс к этому ещё и не мокнешь.
       </p>
       <p>

@@ -1,8 +1,21 @@
 import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
+import { WithModal } from 'components/ColoredTextTrigger/WithModal';
 
 export const Page8 = () => {
+  const Comment1 = (
+    <WithModal text="особенно близка." triggerType="author" mode="text">
+      Собственно, и я очень люблю зелень. И мне всегда её не хватает зимой
+    </WithModal>
+  );
+
+  const Comment2 = (
+    <WithModal text="(по старой суеверной традиции)," triggerType="author" mode="text">
+      РКН, не бань!
+    </WithModal>
+  );
+
   return (
     <PageWrapper>
       <p>
@@ -15,14 +28,13 @@ export const Page8 = () => {
       </p>
       <p>
         Обернувшись, он окинул взором леса и поля, окружавшие его. Егор всегда любил зелень. И в
-        этот момент она была ему особенно близка.
+        этот момент она была ему {Comment1}
       </p>
       <p>
         «Интересно, она смотрит?» – вновь подумалось ему.
       </p>
       <p>
-        Сделав несколько глубоких вздохов и, зачем-то, перекрестившись (по старой суеверной
-        традиции), «заглядывающий» вошёл внутрь ракеты.
+        Сделав несколько глубоких вздохов и, зачем-то, перекрестившись {Comment2} «заглядывающий» вошёл внутрь ракеты.
       </p>
       <p>
         Сев в кресло и пристегнувшись, он дал команду обратного отсчёта.

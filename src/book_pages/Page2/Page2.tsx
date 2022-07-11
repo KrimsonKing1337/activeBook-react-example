@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
+import { WithModal } from 'components/ColoredTextTrigger/WithModal';
 
 import { useSound } from 'hooks/effects/audio/sound';
 
@@ -9,6 +10,12 @@ export const Page2 = () => {
     src: '/assets/book_data/audios/sounds/car-door-close-engine-start.mp3',
     playOnLoad: true,
   });
+
+  const Comment = (
+    <WithModal text="Кроме самого «файла»..»" triggerType="author" mode="text">
+      Этот вопрос мучает меня до сих пор. И если при моей жизни изобретут телепорты — я ими пользоваться не стану
+    </WithModal>
+  );
 
   return (
     <PageWrapper>
@@ -40,7 +47,7 @@ export const Page2 = () => {
         Да, для всех остальных оба файла будут идентичны.
       </p>
       <p>
-        Кроме самого «файла»..»
+        {Comment}
       </p>
     </PageWrapper>
   );

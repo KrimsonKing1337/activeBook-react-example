@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
+import { WithModal } from 'components/ColoredTextTrigger/WithModal';
 
 import { useSound } from 'hooks/effects/audio/sound';
 import { useSideShadow } from 'hooks/effects/side/shadow';
@@ -18,6 +19,12 @@ export const Page10 = () => {
     speed: 850,
   });
 
+  const Comment = (
+    <WithModal text="Кто писал текст для этой ошибки?" triggerType="author" mode="text">
+      Да, Егор. Это я написал такой текст, который заставил тебя немножко пробить четвёртую стену
+    </WithModal>
+  );
+
   return (
     <PageWrapper>
       <p>
@@ -31,7 +38,7 @@ export const Page10 = () => {
         «Телепортация невозможна. Обнаружена фатальная неисправность».
       </p>
       <p>
-        «Фатальная неисправность? Кто писал текст для этой ошибки? Бред какой-то», – подумал Егор.
+        «Фатальная неисправность? {Comment} Бред какой-то», – подумал Егор.
       </p>
       <p>
         Решив, что система просто дала сбой, космонавт проигнорировал сообщение и запустил операцию ещё раз.

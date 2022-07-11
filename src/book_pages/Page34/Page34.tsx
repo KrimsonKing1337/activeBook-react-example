@@ -5,6 +5,7 @@ import { ModalDialog } from 'components';
 import { PageWrapper } from 'components/PageWrapper';
 import { SideText } from 'components/SideEffects/components/SideText';
 import sideTextStyles from 'components/SideEffects/components/SideText/SideText.scss';
+import { WithModal } from 'components/ColoredTextTrigger/WithModal';
 
 import { useSideText } from 'hooks/effects/side/text';
 
@@ -155,6 +156,13 @@ export const Page34 = () => {
     speed: 5000,
   });
 
+  const Comment = (
+    <WithModal text="бесконечный белый свет," triggerType="author" mode="text">
+      Белые точки по углам должны были сыграть свою важную роль для внимательных читателей прежней версии сценария,
+      но здесь они остались больше как элемент декора (а может и для чего-то ещё ;))
+    </WithModal>
+  );
+
   return (
     <PageWrapper>
       <ModalDialog
@@ -187,7 +195,7 @@ export const Page34 = () => {
       </h2>
 
       <p>
-        Впереди по-прежнему ничего не было. Лишь бесконечный белый свет, ослепляющий героя. Как будто самым мощным
+        Впереди по-прежнему ничего не было. Лишь {Comment} ослепляющий героя. Как будто самым мощным
         прожектором светили прямо в лицо.
       </p>
       <p>

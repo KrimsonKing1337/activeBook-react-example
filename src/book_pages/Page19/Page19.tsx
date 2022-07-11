@@ -3,6 +3,7 @@ import React from 'react';
 import { PageWrapper } from 'components/PageWrapper';
 import { SideText } from 'components/SideEffects/components/SideText';
 import sideTextStyles from 'components/SideEffects/components/SideText/SideText.scss';
+import { WithModal } from 'components/ColoredTextTrigger/WithModal';
 
 import { useSideText } from 'hooks/effects/side/text';
 
@@ -134,11 +135,18 @@ export const Page19 = () => {
     template: SideTextTemplate,
   });
 
+  const Comment = (
+    <WithModal text="бесконечный поток информации" triggerType="author" mode="text">
+      Так долго пытался адекватно реализовать этот эффект, что ради него сделал целую отдельную главу в книге.
+      Но ведь круто же!
+    </WithModal>
+  );
+
   return (
     <PageWrapper>
       <p>
-        Огромные мониторы отображали бесконечный поток информации о пролетающих мимо объектах, состоянии корабля
-        и членов экипажа (то есть, единственного члена).
+        Огромные мониторы отображали {Comment} о пролетающих мимо объектах, состоянии корабля и членов экипажа
+        (то есть, единственного члена).
       </p>
       <p>
         Как обычно — мелькало предупреждение об учащённом сердцебиении и рекомендация о приёме успокоительного.

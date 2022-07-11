@@ -1,8 +1,15 @@
 import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
+import { WithModal } from 'components/ColoredTextTrigger/WithModal';
 
 export const Page11 = () => {
+  const Comment = (
+    <WithModal text="Поэтому придётся какое-то расстояние пролететь." triggerType="author" mode="text">
+      Тоже немного притянуто, но что поделать
+    </WithModal>
+  );
+
   return (
     <PageWrapper>
       <h1>
@@ -20,7 +27,7 @@ export const Page11 = () => {
         К тому же у телепортации есть погрешность. Чем дальше прыгаешь – тем она больше.
         А вдруг там нет ничего, кроме одной огромной планеты на всю Вселенную?
         Тогда ты можешь появиться прямо в ней, что чревато не самыми приятными последствиями для исследования.
-        Поэтому придётся какое-то расстояние пролететь.
+        {Comment}
       </p>
       <p>
         Включив ручное управление, Егор стал давить на ручку, давая своеобразный «полный вперёд».

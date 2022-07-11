@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
+import { WithModal } from 'components/ColoredTextTrigger/WithModal';
 
 import { useSound } from 'hooks/effects/audio/sound';
 
@@ -11,10 +12,16 @@ export const Page5 = () => {
     screamer: true,
   });
 
+  const Comment = (
+    <WithModal text="Бу!" triggerType="author" mode="text">
+      Извините за это, не смог сдержаться и не добавить скример
+    </WithModal>
+  );
+
   return (
     <PageWrapper>
       <p>
-        - Бу! - напугал он Егора, непонятно как оказавшись за углом раньше него.
+        - {Comment} - напугал он Егора, непонятно как оказавшись за углом раньше него.
       </p>
       <p>
         Вздохнув, наш герой протянул руку для приветствия. Он попался и бежать уже было некуда.
