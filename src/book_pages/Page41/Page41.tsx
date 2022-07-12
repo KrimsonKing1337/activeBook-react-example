@@ -4,11 +4,17 @@ import { PageWrapper } from 'components/PageWrapper';
 import { WithModal } from 'components/ColoredTextTrigger/WithModal';
 
 import { useMusic } from 'hooks/effects/audio/music';
+import { useSideShadow } from 'hooks/effects/side/shadow';
 
 export const Page41 = () => {
   useMusic({
     src: 'assets/book_data/audios/music/heaven-music.mp3',
     loop: true,
+  });
+
+  useSideShadow({
+    color: '#ffd700',
+    speed: 10000,
   });
 
   const EasterEgg = (
@@ -27,9 +33,9 @@ export const Page41 = () => {
   return (
     <PageWrapper>
       <p>
-        Не успел наш герой ничего ответить, как очутился перед огромными золотыми вратами. Он стоял будто на огромном
-        розоватом облаке. Короче, всё напоминало тот Рай, который принято представлять в обществе. Даже {EasterEgg}
-        исходил какой-то такой.
+        Не успел наш герой ничего ответить, как очутился перед огромными вратами. Золотой цвет которых превращался
+        в испускаемый свет. Он стоял будто на огромном розоватом облаке. Короче, всё напоминало тот Рай, который принято
+        представлять в обществе. Даже {EasterEgg} исходил какой-то такой.
       </p>
       <p>
         Создатель пояснил, что он хотел создать наиболее понятный {Comment} для Егора. Он поступает так со
