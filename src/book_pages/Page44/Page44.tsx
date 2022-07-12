@@ -85,6 +85,10 @@ export const Page44 = () => {
             Брайан Кози;
             <br />
             Чарли Бриззет;
+            <br />
+            Jorge "Vasco" Vasconcelo
+            <br />
+            Juha "Millboy" Myllylä
           </p>
 
           <p>
