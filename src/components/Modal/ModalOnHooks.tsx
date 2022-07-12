@@ -14,7 +14,7 @@ const IS_CLOSE_LOCATION = '/';
 
 type Func = () => void;
 
-type ModalMode = 'media' |  null;
+type ModalMode = 'media' | 'text';
 
 export type ModalProps = {
   children: React.ReactNode;
@@ -29,7 +29,7 @@ export const Modal = ({
   children,
   onClose,
   isOpen,
-  mode = null,
+  mode = 'text',
   hideExpandButton = false,
   hideCropButton = false,
 }: ModalProps) => {
