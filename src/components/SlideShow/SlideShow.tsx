@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import Hammer from 'hammerjs';
 import classNames from 'classnames';
@@ -9,7 +9,7 @@ import styles from './SlideShow.scss';
 
 type SlideShowMode = 'modal' | null;
 
-export type SlideShowProp = {
+export type SlideShowProps = {
   children: React.ReactNode;
   isVisible?: boolean;
   isWithoutBorders?: boolean,
@@ -17,59 +17,76 @@ export type SlideShowProp = {
   onSlideChange?: () => void;
 }
 
-type SlideShowState = {
-  slideIndex: number;
-  isOverflow: boolean;
-  arrowsAreVisible: boolean;
-};
+export const SlideShow = ({
+  children,
+  isVisible = true,
+  mode = null,
+  isWithoutBorders = false,
+  onSlideChange = () => {},
+}: SlideShowProps) => {
+  const childrenAsArray = React.Children.toArray(children);
 
-// пришлось переписать компонент на классовый, чтобы Hammer не дёргался на "каждый чих". см SlideShowOnHooks.tsx
-export class SlideShow extends React.Component<SlideShowProp, SlideShowState> {
-  static defaultProps = {
-    isVisible: false,
-    isWithoutBorders: false,
-    mode: null,
-    onSlideChange: () => {},
+  // один slideIndex нужен для хаммера, другой для того чтобы useEffect срабатывал
+  const slideIndexRef = useRef(0);
+
+  const [slideIndex, setSlideIndex] = useState(0);
+  const [isOverflow, setIsOverflow] = useState(false);
+  const [arrowsAreVisible, setArrowsAreVisible] = useState(true);
+
+  const itemsWrapperRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  const setSlideShowTransformTranslateX = (value: string) => {
+    const itemsWrapperElement = itemsWrapperRef?.current;
+
+    if (!itemsWrapperElement) {
+      return;
+    }
+
+    itemsWrapperElement.style.transform = `translateX(${value})`;
   };
 
-  private hammertime: HammerManager | null;
-  private readonly itemsWrapperRef: React.RefObject<HTMLDivElement>;
-  private readonly wrapperRef: React.RefObject<HTMLDivElement>;
-  private readonly slideShowRef: React.RefObject<HTMLDivElement>;
+  // сбрасываем состояние, если слайд-шоу скрывается (например, модалку закрыли)
+  useEffect(() => {
+    if (isVisible) {
+      return;
+    }
 
-  childrenAsArray = React.Children.toArray(this.props.children);
+    slideIndexRef.current = 0;
+    setSlideIndex(0);
 
-  constructor(props: SlideShowProp) {
-    super(props);
+    setIsOverflow(false);
+    setSlideShowTransformTranslateX('0%');
+  }, [isVisible]);
 
-    this.itemsWrapperRef = React.createRef();
-    this.wrapperRef = React.createRef();
-    this.slideShowRef = React.createRef();
-    this.hammertime = null;
+  useEffect(() => {
+    const itemsWrapperElement = itemsWrapperRef?.current;
 
-    this.state = {
-      slideIndex: 0,
-      isOverflow: false,
-      arrowsAreVisible: false,
-    };
-  }
+    if (!itemsWrapperElement) {
+      return;
+    }
 
-  componentDidMount() {
-    const { current } = this.wrapperRef;
+    const isOverflow = itemsWrapperElement.offsetHeight > window.innerHeight;
+
+    setIsOverflow(isOverflow);
+  }, [slideIndex]);
+
+  useEffect(() => {
+    const { current } = wrapperRef;
 
     if (!current) {
       return;
     }
 
-    this.hammertime = new Hammer(current, { domEvents: true });
+    const hammertime = new Hammer(current, { domEvents: true });
 
-    this.hammertime.get('swipe').set({
+    hammertime.get('swipe').set({
       direction: Hammer.DIRECTION_HORIZONTAL,
       threshold: 50,
     });
 
     // обработчик именно здесь, чтобы onClick не срабатывал вместе с Hammer.swipe. Hammer сам разрулит эту проблему
-    this.hammertime.on('tap', (e) => {
+    hammertime.on('tap', (e) => {
       const { target } = e;
 
       const attrOfOnlyIcon = 'data-icon';
@@ -81,58 +98,26 @@ export class SlideShow extends React.Component<SlideShowProp, SlideShowState> {
       if (target.firstElementChild?.getAttribute(attrOfOnlyIcon)) {
         return;
       }
-
-      this.wrapperClickHandler();
     });
 
-    this.hammertime.on('swipe', (e) => {
+    hammertime.on('swipe', (e) => {
       const { direction } = e;
 
       const isNext = direction === Hammer.DIRECTION_LEFT;
 
-      this.changeSlide(isNext);
+      changeSlide(isNext);
     });
-  }
 
-  componentWillUnmount() {
-    if (!this.hammertime) {
-      return;
-    }
+    return () => {
+      hammertime.off('tap');
+      hammertime.off('swipe');
+      hammertime.destroy();
+    };
+  }, []);
 
-    this.hammertime.off('tap');
-    this.hammertime.off('swipe');
-    this.hammertime.destroy();
-  }
-
-  componentDidUpdate(prevProps: SlideShowProp, prevState: SlideShowState) {
-    const { isVisible } = this.props;
-    const { slideIndex } = this.state;
-
-    if (isVisible !== prevProps.isVisible && !isVisible) {
-      this.isNotVisibleHandler();
-    }
-
-    if (slideIndex !== prevState.slideIndex) {
-      this.setIsOverflow();
-    }
-  }
-
-  setSlideShowTransformTranslateX = (value: string) => {
-    const itemsWrapperElement = this.itemsWrapperRef?.current;
-
-    if (!itemsWrapperElement) {
-      return;
-    }
-
-    itemsWrapperElement.style.transform = `translateX(${value})`;
-  };
-
-  changeSlide = (isNext: boolean) => {
-    const { slideIndex } = this.state;
-    const { onSlideChange } = this.props;
-
-    let nextIndex = isNext ? slideIndex + 1 : slideIndex - 1;
-    const lastIndex = this.childrenAsArray.length - 1;
+  const changeSlide = (isNext: boolean) => {
+    let nextIndex = isNext ? slideIndexRef.current + 1 : slideIndexRef.current - 1;
+    const lastIndex = childrenAsArray.length - 1;
 
     if (nextIndex < 0) {
       nextIndex = lastIndex;
@@ -140,118 +125,75 @@ export class SlideShow extends React.Component<SlideShowProp, SlideShowState> {
       nextIndex = 0;
     }
 
-    this.setState({
-      slideIndex: nextIndex,
-    });
+    slideIndexRef.current = nextIndex;
+    setSlideIndex(nextIndex);
 
     const newValue = Math.abs(nextIndex * 100);
 
-    this.setSlideShowTransformTranslateX(`-${newValue}%`);
+    setSlideShowTransformTranslateX(`-${newValue}%`);
 
-    if (onSlideChange) {
-      onSlideChange();
-    }
+    onSlideChange();
   };
 
-  setIsOverflow = () => {
-    if (this.props.mode !== 'modal') {
-      return;
-    }
-
-    const slideShowElement = this.slideShowRef?.current;
-
-    if (!slideShowElement) {
-      return;
-    }
-
-    const activeItem = slideShowElement.querySelector(`.${styles.isActive}`) as HTMLElement;
-
-    if (!activeItem) {
-      return;
-    }
-
-    const isOverflow = activeItem.offsetHeight > slideShowElement.offsetHeight;
-
-    this.setState({ isOverflow });
+  const wrapperClickHandler = () => {
+    setArrowsAreVisible(!arrowsAreVisible);
   };
 
-  isNotVisibleHandler = () => {
-    this.setState({
-      slideIndex: 0,
-      isOverflow: false,
-    });
-
-    this.setSlideShowTransformTranslateX('0%');
-  };
-
-  wrapperClickHandler = () => {
-    const { arrowsAreVisible } = this.state;
-
-    this.setState({
-      arrowsAreVisible: !arrowsAreVisible,
-    });
-  };
-
-  arrowClickHandler = (e: React.MouseEvent, isNext: boolean) => {
+  const arrowClickHandler = (e: React.MouseEvent, isNext: boolean) => {
     e.stopPropagation();
 
-    this.changeSlide(isNext);
+    changeSlide(isNext);
   };
 
-  render() {
-    const { isWithoutBorders, mode } = this.props;
-    const { slideIndex, isOverflow, arrowsAreVisible } = this.state;
+  const isModalMode = mode === 'modal';
 
-    const isModalMode = mode === 'modal';
+  const wrapperClassNames = classNames({
+    [styles.wrapper]: true,
+    [styles.arrowsAreVisible]: arrowsAreVisible,
+    [styles.isWithoutBorders]: isWithoutBorders || isModalMode,
+    [styles.isModalMode]: isModalMode,
+  });
 
-    const wrapperClassNames = classNames({
-      [styles.wrapper]: true,
-      [styles.arrowsAreVisible]: arrowsAreVisible,
-      [styles.isWithoutBorders]: isWithoutBorders || isModalMode,
-      [styles.isModalMode]: isModalMode,
-    });
+  const slideShowClassNames = classNames({
+    [styles.slideShow]: true,
+    [styles.isOverflow]: isOverflow,
+    [styles.isModalMode]: isModalMode,
+  });
 
-    const slideShowClassNames = classNames({
-      [styles.slideShow]: true,
-      [styles.isOverflow]: isOverflow,
-      [styles.isModalMode]: isModalMode,
-    });
+  const itemsWrapperClassNames = classNames({
+    [styles.itemsWrapper]: true,
+    [styles.isModalMode]: isModalMode,
+    [styles.isOverflow]: isOverflow,
+  });
 
-    const itemsWrapperClassNames = classNames({
-      [styles.itemsWrapper]: true,
-      [styles.isModalMode]: isModalMode,
-      [styles.isOverflow]: isOverflow,
-    });
-
-    return (
-      <div ref={this.wrapperRef} className={wrapperClassNames}>
-        <div className="SlideShowToolbar">
-          <div className={styles.left} onClick={(e) => this.arrowClickHandler(e,false)}>
-            <FontAwesomeIcon icon={faArrowLeft} />
-          </div>
-
-          <div className={styles.right} onClick={(e) => this.arrowClickHandler(e,true)}>
-            <FontAwesomeIcon icon={faArrowRight} />
-          </div>
+  return (
+    <div ref={wrapperRef} className={wrapperClassNames} onClick={wrapperClickHandler}>
+      <div className="SlideShowToolbar">
+        <div className={styles.left} onClick={(e) => arrowClickHandler(e, false)}>
+          <FontAwesomeIcon icon={faArrowLeft} />
         </div>
 
-        <div ref={this.slideShowRef} className={slideShowClassNames}>
-          <div ref={this.itemsWrapperRef} className={itemsWrapperClassNames}>
-            {this.childrenAsArray.map((childCur, index) => {
-              const itemClassNames = classNames({
-                [styles.item]: true,
-                [styles.isActive]: index === slideIndex,
-              });
-
-              return (
-                <div key={index} className={itemClassNames}>
-                  {childCur}
-                </div>
-              );
-            })}
-          </div>
+        <div className={styles.right} onClick={(e) => arrowClickHandler(e, true)}>
+          <FontAwesomeIcon icon={faArrowRight} />
         </div>
       </div>
-    );
-  }
-}
+
+      <div className={slideShowClassNames}>
+        <div ref={itemsWrapperRef} className={itemsWrapperClassNames}>
+          {childrenAsArray.map((childCur, index) => {
+            const itemClassNames = classNames({
+              [styles.item]: true,
+              [styles.isActive]: index === slideIndex,
+            });
+
+            return (
+              <div key={index} className={itemClassNames}>
+                {childCur}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+};
