@@ -21,7 +21,7 @@ export const Page40 = () => {
 
   const { sideShadowOn } = useSideShadow({
     color: 'caramel',
-    speed: 150,
+    speed: 364,
     isActiveDefault: false,
   });
 
