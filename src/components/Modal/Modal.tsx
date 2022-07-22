@@ -186,9 +186,10 @@ export const Modal = ({
 
   const closeIconClickHandler = () => close();
   const overflowClickHandler = () => close();
+
   const doubleTapHandler = () => {
     isFullScreenRef.current = !isFullScreenRef.current;
-    setIsFullScreen(!isFullScreen);
+    setIsFullScreen(isFullScreenRef.current);
   };
 
   const zoomInHandler = () => {
@@ -237,6 +238,8 @@ export const Modal = ({
     isCropRef.current = !isCropRef.current;
     setIsCrop(!isCrop);
   };
+
+  console.log('___ isFullScreen', isFullScreen);
 
   const isMediaMode = mode === 'media';
 
