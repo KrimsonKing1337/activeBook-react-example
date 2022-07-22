@@ -27,6 +27,7 @@ export const Img = () => {
         isOpen={modalIsActive}
         onClose={modalOnClose}
         mode="media"
+        canFullScreen={true}
       >
         <img src="/assets/img/cinemagraph.gif" alt="" />
       </Modal>

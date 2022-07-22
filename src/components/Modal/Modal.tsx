@@ -22,8 +22,8 @@ export type ModalProps = {
   onOpen?: Func;
   onClose?: Func;
   mode?: ModalMode;
-  hideExpandButton?: boolean;
-  hideCropButton?: boolean;
+  canFullScreen?: boolean;
+  canCrop?: boolean;
 };
 
 export const Modal = ({
@@ -31,8 +31,8 @@ export const Modal = ({
   onClose,
   isOpen,
   mode = 'text',
-  hideExpandButton = false,
-  hideCropButton = false,
+  canFullScreen = false,
+  canCrop = false,
 }: ModalProps) => {
   const history = useHistory();
   const { pathname } = useLocation();
@@ -188,6 +188,10 @@ export const Modal = ({
   const overflowClickHandler = () => close();
 
   const doubleTapHandler = () => {
+    if (canFullScreen) {
+      return;
+    }
+
     isFullScreenRef.current = !isFullScreenRef.current;
     setIsFullScreen(isFullScreenRef.current);
   };
@@ -239,8 +243,6 @@ export const Modal = ({
     setIsCrop(!isCrop);
   };
 
-  console.log('___ isFullScreen', isFullScreen);
-
   const isMediaMode = mode === 'media';
 
   const overflowClassNames = classNames({
@@ -258,7 +260,7 @@ export const Modal = ({
     [styles.iconExpand]: true,
     [styles.isFullScreen]: isFullScreen,
     [styles.isMediaMode]: isMediaMode,
-    [styles.isHidden]: hideExpandButton,
+    [styles.isHidden]: canFullScreen,
   });
 
   const iconCloseClassNames = classNames({
@@ -277,7 +279,7 @@ export const Modal = ({
     [styles.iconCrop]: true,
     [styles.isFullScreen]: isFullScreen,
     [styles.isMediaMode]: isMediaMode,
-    [styles.isHidden]: hideCropButton,
+    [styles.isHidden]: canCrop,
   });
 
   const contentClassNames = classNames({

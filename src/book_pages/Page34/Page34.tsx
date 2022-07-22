@@ -170,7 +170,7 @@ export const Page34 = () => {
         onClose={modalOnClose}
         onConfirm={modalOnClose}
         onCancel={modalOnClose}
-        hideExpandButton={true}
+        canFullScreen={true}
         showCancelButton={false}
       >
         <div>

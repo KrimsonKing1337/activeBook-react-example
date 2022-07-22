@@ -82,7 +82,7 @@ export const Page0 = () => {
         onClose={modalCloseHandler}
         onConfirm={modalCloseHandler}
         onCancel={modalCloseHandler}
-        hideExpandButton={true}
+        canFullScreen={true}
         showCancelButton={false}
       >
         <div>

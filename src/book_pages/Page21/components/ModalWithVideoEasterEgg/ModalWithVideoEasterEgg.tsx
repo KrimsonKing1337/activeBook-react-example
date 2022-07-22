@@ -18,8 +18,8 @@ export const ModalWithVideoEasterEgg = ({ setModalIsActive, isActive, videoRef }
       onOpen={modalOnOpen}
       onClose={modalOnClose}
       mode="media"
-      hideCropButton
-      hideExpandButton
+      canCrop
+      canFullScreen
     >
       <video src="/assets/book_data/videos/wow_turn.mp4" ref={videoRef} />
     </Modal>

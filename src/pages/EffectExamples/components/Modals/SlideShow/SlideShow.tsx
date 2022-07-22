@@ -28,7 +28,7 @@ export const SlideShow = () => {
         isOpen={modalIsActive}
         onClose={modalOnClose}
         mode="media"
-        hideCropButton={true}
+        canCrop={true}
       >
         <SlideShowComponent isVisible={modalIsActive} mode="modal">
           <img src="/assets/img/1.jpg" alt="" />

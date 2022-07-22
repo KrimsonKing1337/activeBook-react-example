@@ -28,7 +28,7 @@ export const Dialog = () => {
         onClose={modalOnClose}
         onConfirm={modalOnClose}
         onCancel={modalOnClose}
-        hideExpandButton={true}
+        canFullScreen={true}
       >
         <div>
           Вы действительно хотите сделать действие?

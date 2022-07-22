@@ -15,7 +15,7 @@ export const EasterEgg = () => {
       <Modal
         isOpen={modalIsActive}
         onClose={modalOnClose}
-        hideExpandButton={true}
+        canFullScreen={true}
       >
         Вы нашли пасхалку! Вот вам ачивка
       </Modal>

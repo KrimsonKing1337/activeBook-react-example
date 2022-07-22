@@ -82,8 +82,8 @@ export const WithModal = ({
         isOpen={isActive}
         onClose={() => setIsActive(false)}
         mode={mode}
-        hideCropButton
-        hideExpandButton
+        canCrop
+        canFullScreen
       >
         {children}
       </ModalComponent>
