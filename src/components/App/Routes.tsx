@@ -30,7 +30,7 @@ export const Routes = ({ children }: RoutesProps) => {
 
   return (
     <Switch>
-      <Route exact path={'/'}>
+      <Route exact path="/">
         {children}
       </Route>
 

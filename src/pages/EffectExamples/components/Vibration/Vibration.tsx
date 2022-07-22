@@ -25,7 +25,7 @@ export const Vibration = () => {
 
   return (
     <Toggle
-      label={'Вибрация'}
+      label="Вибрация"
       isActiveDefault={false}
       isActive={buttonForVibrationIsActive}
       onClickOn={() => buttonForVibrationClickHandler(true)}

@@ -45,25 +45,25 @@ export const Volume = () => {
   return (
     <div className={styles.volume}>
       <div className={styles.item}>
-        <Label label={'Общая громкость'} />
+        <Label label="Общая громкость" />
 
         <Slider value={globalVolume} onChange={globalChangeHandler} onAfterChange={afterChangeHandler} />
       </div>
 
       <div className={styles.item}>
-        <Label label={'Громкость музыки'} />
+        <Label label="Громкость музыки" />
 
         <Slider value={musicVolume} onChange={musicChangeHandler} onAfterChange={afterChangeHandler} />
       </div>
 
       <div className={styles.item}>
-        <Label label={'SFX'} />
+        <Label label="SFX" />
 
         <Slider value={sfxVolume} onChange={sfxChangeHandler} onAfterChange={afterChangeHandler} />
       </div>
 
       <div className={styles.item}>
-        <Label label={'Фоновые звуки'} />
+        <Label label="Фоновые звуки" />
 
         <Slider value={bgVolume} onChange={bgChangeHandler} onAfterChange={afterChangeHandler} />
       </div>

@@ -4,7 +4,7 @@ import { Toggle } from 'components/Toggle';
 
 export const Flashlight = () => {
   const [buttonForFlashlightIsActive, setButtonForFlashlightIsActive] = useState(false);
-  
+
   const buttonForFlashlightClickHandler = (value: boolean) => {
     if (!value) {
       (window as any).plugins.flashlight.switchOff();
@@ -16,10 +16,10 @@ export const Flashlight = () => {
       setButtonForFlashlightIsActive(true);
     }
   };
-  
+
   return (
     <Toggle
-      label={'Вспышка'}
+      label="Вспышка"
       isActiveDefault={false}
       isActive={buttonForFlashlightIsActive}
       onClickOn={() => buttonForFlashlightClickHandler(true)}

@@ -42,7 +42,7 @@ export const Text = () => {
       </Modal>
 
       <Toggle
-        label={'Модалка с текстом'}
+        label="Модалка с текстом"
         isActiveDefault={false}
         isActive={buttonIsActive}
         onClickOn={() => buttonClickHandler(true)}

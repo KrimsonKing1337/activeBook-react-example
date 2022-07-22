@@ -250,7 +250,7 @@ export const Modal = ({
     <div ref={overflowRef} className={overflowClassNames} onClick={overflowClickHandler}>
       <div ref={wrapperRef} className={modalClassNames}>
         <div className={styles.wrapper} onClick={(e) => e.stopPropagation()}>
-          <div className={'modalToolbar'}>
+          <div className="modalToolbar">
             <div ref={iconCloseRef} className={iconCloseClassNames} onClick={closeIconClickHandler}>
               <FontAwesomeIcon icon={faTimes} />
             </div>

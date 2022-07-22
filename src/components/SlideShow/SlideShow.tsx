@@ -225,7 +225,7 @@ export class SlideShow extends React.Component<SlideShowProp, SlideShowState> {
 
     return (
       <div ref={this.wrapperRef} className={wrapperClassNames}>
-        <div className={'SlideShowToolbar'}>
+        <div className="SlideShowToolbar">
           <div className={styles.left} onClick={(e) => this.arrowClickHandler(e,false)}>
             <FontAwesomeIcon icon={faArrowLeft} />
           </div>

@@ -18,7 +18,7 @@ export const Video = () => {
 
   return (
     <Toggle
-      label={'Видео на заднем фоне'}
+      label="Видео на заднем фоне"
       isActiveDefault={false}
       onClickOn={() => buttonClickHandler(true)}
       onClickOff={() => buttonClickHandler(false)}

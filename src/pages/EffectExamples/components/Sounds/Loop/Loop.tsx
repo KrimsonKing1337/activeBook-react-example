@@ -25,7 +25,7 @@ export const Loop = () => {
 
   return (
     <Toggle
-      label={'Лупованый звук'}
+      label="Лупованый звук"
       isActiveDefault={false}
       onClickOn={() => buttonClickHandler(true)}
       onClickOff={() => buttonClickHandler(false)}

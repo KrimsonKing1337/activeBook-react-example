@@ -17,7 +17,7 @@ export const ModalWithVideoEasterEgg = ({ setModalIsActive, isActive, videoRef }
       isOpen={isActive}
       onOpen={modalOnOpen}
       onClose={modalOnClose}
-      mode={'media'}
+      mode="media"
       hideCropButton
       hideExpandButton
     >

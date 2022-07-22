@@ -44,7 +44,7 @@ export const LineHeight = () => {
 
   return (
     <div className={styles.lineHeight}>
-      <Label label={'Межстрочный интервал'} />
+      <Label label="Межстрочный интервал" />
 
       <div className={styles.itemsWrapper}>
         <div className={getClassNames(styles.isMinus)} onClick={minusClickHandler}>

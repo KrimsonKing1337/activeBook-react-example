@@ -11,7 +11,7 @@ export const SlideShow = () => {
 
   return (
     <Item>
-      <Label label={'Спойлер со слайдшоу'} />
+      <Label label="Спойлер со слайдшоу" />
 
       <Spoiler
         needToSetHeight={needToSetHeight}

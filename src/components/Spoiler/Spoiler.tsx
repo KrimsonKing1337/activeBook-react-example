@@ -67,7 +67,7 @@ export const Spoiler = ({
   };
 
   return (
-    <div className={'Spoiler'} {...rest}>
+    <div className="Spoiler" {...rest}>
       <div className={styles.button} onClick={buttonClickHandler}>
         {buttonLabel}
       </div>

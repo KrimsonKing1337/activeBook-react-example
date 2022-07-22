@@ -19,7 +19,7 @@ export const AuthorComments = () => {
 
   return (
     <Toggle
-      label={'Комментарии автора'}
+      label="Комментарии автора"
       isActiveDefault={authorCommentsState}
       onClickOn={() => toggleClickHandler(true)}
       onClickOff={() => toggleClickHandler(false)}

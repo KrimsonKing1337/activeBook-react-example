@@ -34,7 +34,7 @@ export const ModalDialog = ({
   return (
     <Modal onClose={closeHandler} {...rest}>
       <div className={styles.wrapper}>
-        <div className={'ModalDialogDesc'}>
+        <div className="ModalDialogDesc">
           {children}
         </div>
 

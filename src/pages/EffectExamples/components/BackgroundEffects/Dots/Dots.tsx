@@ -14,7 +14,7 @@ export const Dots = () => {
 
   return (
     <Toggle
-      label={'Точки по углам'}
+      label="Точки по углам"
       isActiveDefault={false}
       onClickOn={() => buttonClickHandler(true)}
       onClickOff={() => buttonClickHandler(false)}

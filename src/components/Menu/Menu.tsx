@@ -25,7 +25,7 @@ export const Menu = () => {
 
   return (
     <Overflow isOpen={isOpen}>
-      <Header label={'Настройки'} />
+      <Header label="Настройки" />
 
       <Volume />
 

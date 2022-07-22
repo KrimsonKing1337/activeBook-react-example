@@ -14,7 +14,7 @@ export const InverseColor = () => {
 
   return (
     <Toggle
-      label={'Инверсия цвета'}
+      label="Инверсия цвета"
       isActiveDefault={false}
       onClickOn={() => buttonClickHandler(true)}
       onClickOff={() => buttonClickHandler(false)}

@@ -27,10 +27,10 @@ export const SlideShow = () => {
       <Modal
         isOpen={modalIsActive}
         onClose={modalOnClose}
-        mode={'media'}
+        mode="media"
         hideCropButton={true}
       >
-        <SlideShowComponent isVisible={modalIsActive} mode={'modal'}>
+        <SlideShowComponent isVisible={modalIsActive} mode="modal">
           <img src="/assets/img/1.jpg" alt="" />
           <img src="/assets/img/2.jpg" alt="" />
           <img src="/assets/img/3.jpg" alt="" />
@@ -39,7 +39,7 @@ export const SlideShow = () => {
       </Modal>
 
       <Toggle
-        label={'Модалка со слайдшоу'}
+        label="Модалка со слайдшоу"
         isActiveDefault={false}
         isActive={buttonIsActive}
         onClickOn={() => buttonClickHandler(true)}

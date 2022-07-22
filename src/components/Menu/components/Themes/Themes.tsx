@@ -50,7 +50,7 @@ export const Themes = () => {
 
   return (
     <div className={styles.themes}>
-      <Label label={'Оформление'} />
+      <Label label="Оформление" />
 
       <div className={styles.themesItemsWrapper}>
         { themes.map((themeCur) => (

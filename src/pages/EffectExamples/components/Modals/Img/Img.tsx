@@ -26,13 +26,13 @@ export const Img = () => {
       <Modal
         isOpen={modalIsActive}
         onClose={modalOnClose}
-        mode={'media'}
+        mode="media"
       >
         <img src="/assets/img/cinemagraph.gif" alt="" />
       </Modal>
 
       <Toggle
-        label={'Модалка с изображением'}
+        label="Модалка с изображением"
         isActiveDefault={false}
         isActive={buttonIsActive}
         onClickOn={() => buttonClickHandler(true)}

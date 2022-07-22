@@ -8,7 +8,7 @@ import { Item } from 'pages/EffectExamples/components/Item';
 export const Spoiler = () => {
   return (
     <Item>
-      <Label label={'Спойлер'} />
+      <Label label="Спойлер" />
 
       <SpoilerComponent style={{ marginTop: '10px' }}>
         Значимость этих проблем настолько очевидна, что постоянный количественный рост и сфера нашей активности

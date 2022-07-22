@@ -342,7 +342,7 @@ class ModalComponent extends React.Component<Props, ModalState> {
       <div ref={this.overflowRef} className={overflowClassNames} onClick={() => this.overflowClickHandler()}>
         <div ref={this.wrapperRef} className={modalClassNames}>
           <div className={styles.wrapper} onClick={(e) => e.stopPropagation()}>
-            <div className={'modalToolbar'}>
+            <div className="modalToolbar">
               <div ref={this.iconCloseRef} className={iconCloseClassNames} onClick={() => this.closeIconClickHandler()}>
                 <FontAwesomeIcon icon={faTimes} />
               </div>

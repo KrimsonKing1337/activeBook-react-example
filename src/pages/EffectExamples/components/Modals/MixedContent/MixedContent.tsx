@@ -46,7 +46,7 @@ export const MixedContent = () => {
       </Modal>
 
       <Toggle
-        label={'Модалка с разным контентом'}
+        label="Модалка с разным контентом"
         isActiveDefault={false}
         isActive={buttonIsActive}
         onClickOn={() => buttonClickHandler(true)}

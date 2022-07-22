@@ -34,7 +34,7 @@ export const EffectExamples = () => {
 
   return (
     <PageWrapper sbMode>
-      <div className={'EffectsWrapper'}>
+      <div className="EffectsWrapper">
         <h1>
           Эффекты
         </h1>

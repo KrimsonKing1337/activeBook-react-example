@@ -24,7 +24,7 @@ export const TableOfContents = () => {
 
   return (
     <Overflow isOpen={isOpen}>
-      <Header label={'Оглавление'} />
+      <Header label="Оглавление" />
 
       <div className={styles.itemsWrapper}>
         {items.map((itemCur, index) => <Item key={index} {...itemCur} />)}

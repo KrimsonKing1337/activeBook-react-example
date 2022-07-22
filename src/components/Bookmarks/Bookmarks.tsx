@@ -48,7 +48,7 @@ export const Bookmarks = () => {
 
   return (
     <Overflow isOpen={isOpen}>
-      <Header label={'Закладки'} />
+      <Header label="Закладки" />
 
       <div className={styles.itemsWrapper}>
         {bookmarks.map((itemCur, index) => <Item key={index} pageNumber={itemCur} onDelete={deleteHandler} />)}

@@ -38,7 +38,7 @@ export const Single = () => {
 
   return (
     <Toggle
-      label={'Одиночный звук'}
+      label="Одиночный звук"
       isActiveDefault={false}
       isActive={buttonForSingleSoundIsActive}
       onClickOn={() => buttonClickHandler(true)}

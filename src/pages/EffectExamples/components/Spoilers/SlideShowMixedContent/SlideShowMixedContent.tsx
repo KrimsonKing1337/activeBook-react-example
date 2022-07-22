@@ -11,7 +11,7 @@ export const SlideShowMixedContent = () => {
 
   return (
     <Item>
-      <Label label={'Спойлер со слайдшоу со смешнным содержимым'} />
+      <Label label="Спойлер со слайдшоу со смешнным содержимым" />
 
       <Spoiler
         needToSetHeight={needToSetHeight}

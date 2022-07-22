@@ -17,7 +17,7 @@ export const Shadow = () => {
 
   return (
     <Toggle
-      label={'Боковая тень'}
+      label="Боковая тень"
       isActiveDefault={false}
       onClickOn={() => buttonClickHandler(true)}
       onClickOff={() => buttonClickHandler(false)}

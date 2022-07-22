@@ -18,7 +18,7 @@ export const Img = () => {
 
   return (
     <Toggle
-      label={'Изображение на заднем фоне'}
+      label="Изображение на заднем фоне"
       isActiveDefault={false}
       onClickOn={() => buttonClickHandler(true)}
       onClickOff={() => buttonClickHandler(false)}

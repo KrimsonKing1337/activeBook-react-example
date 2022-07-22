@@ -73,7 +73,7 @@ export const AchievementsProgress = () => {
 
   return (
     <Overflow isOpen={isOpen}>
-      <Header label={'Прогресс достижений'} />
+      <Header label="Прогресс достижений" />
 
       <div className={styles.itemsWrapper}>
         {items.map(({ title, status, key }) => <Item key={key} title={title} status={status} />)}

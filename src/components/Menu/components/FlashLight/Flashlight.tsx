@@ -32,7 +32,7 @@ export const Flashlight = () => {
 
   return (
     <Toggle
-      label={'Вспышка (там, где доступно)'}
+      label="Вспышка (там, где доступно)"
       isActiveDefault={flashlightState}
       onClickOn={() => toggleClickHandler(true)}
       onClickOff={() => toggleClickHandler(false)}

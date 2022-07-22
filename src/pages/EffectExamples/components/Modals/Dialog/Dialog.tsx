@@ -36,7 +36,7 @@ export const Dialog = () => {
       </ModalDialog>
 
       <Toggle
-        label={'Модалка с диалогом'}
+        label="Модалка с диалогом"
         isActiveDefault={false}
         isActive={buttonIsActive}
         onClickOn={() => buttonClickHandler(true)}

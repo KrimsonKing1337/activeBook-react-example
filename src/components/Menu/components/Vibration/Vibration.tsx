@@ -31,7 +31,7 @@ export const Vibration = () => {
   return (
     <div className={styles.vibration}>
       <Toggle
-        label={'Вибрация (там, где доступно)'}
+        label="Вибрация (там, где доступно)"
         isActiveDefault={vibrationState}
         withoutBorder={true}
         onClickOn={() => toggleClickHandler(true)}

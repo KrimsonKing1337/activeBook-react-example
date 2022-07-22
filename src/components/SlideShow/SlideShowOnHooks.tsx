@@ -158,7 +158,7 @@ export const SlideShow = ({
 
   return (
     <div ref={wrapperRef} className={wrapperClassNames}>
-      <div className={'SlideShowToolbar'}>
+      <div className="SlideShowToolbar">
         <div className={styles.left} onClick={(e) => arrowClickHandler(e,false)}>
           <FontAwesomeIcon icon={faArrowLeft} />
         </div>

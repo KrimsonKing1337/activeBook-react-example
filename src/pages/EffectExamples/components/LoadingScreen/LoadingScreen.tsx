@@ -24,7 +24,7 @@ export const LoadingScreen = () => {
 
   return (
     <Toggle
-      label={'Состояние загрузки (для отмены - клик в любое место)'}
+      label="Состояние загрузки (для отмены - клик в любое место)"
       isActiveDefault={false}
       isActive={buttonForLoadingStateIsActive}
       onClickOn={() => buttonForLoadingStateClickHandler(true)}

@@ -140,7 +140,7 @@ export const Text = () => {
 
   return (
     <Toggle
-      label={'Боковой текст'}
+      label="Боковой текст"
       isActiveDefault={false}
       onClickOn={() => buttonClickHandler(true)}
       onClickOff={() => buttonClickHandler(false)}

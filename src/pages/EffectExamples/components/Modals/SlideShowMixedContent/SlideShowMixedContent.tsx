@@ -28,7 +28,7 @@ export const SlideShowMixedContent = () => {
         isOpen={modalIsActive}
         onClose={modalOnClose}
       >
-        <SlideShow isVisible={modalIsActive} mode={'modal'}>
+        <SlideShow isVisible={modalIsActive} mode="modal">
           <img src="/assets/img/1.jpg" alt="" />
 
           <div>
@@ -54,7 +54,7 @@ export const SlideShowMixedContent = () => {
       </Modal>
 
       <Toggle
-        label={'Модалка со слайдшоу со смешанным содержимым'}
+        label="Модалка со слайдшоу со смешанным содержимым"
         isActiveDefault={false}
         isActive={buttonIsActive}
         onClickOn={() => buttonClickHandler(true)}

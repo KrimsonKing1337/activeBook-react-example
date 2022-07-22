@@ -26,14 +26,14 @@ export const Video = () => {
       <Modal
         isOpen={modalIsActive}
         onClose={modalOnClose}
-        mode={'media'}
+        mode="media"
       >
         {/* todo: видеоплеер, controls тут мешают элементам управления модалки */}
         <video src="/assets/videos/TV_static-2.mp4" loop autoPlay muted />
       </Modal>
 
       <Toggle
-        label={'Модалка с видео'}
+        label="Модалка с видео"
         isActiveDefault={false}
         isActive={buttonIsActive}
         onClickOn={() => buttonClickHandler(true)}
