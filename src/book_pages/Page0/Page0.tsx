@@ -43,13 +43,7 @@ export const Page0 = () => {
     }
   }, []);
 
-  function modalCloseHandler() {
-    modalOnClose();
-
-    go();
-  }
-
-  async function go() {
+  const go = async () => {
     flashlightOn();
 
     vibrationOn(1000);
@@ -59,9 +53,15 @@ export const Page0 = () => {
     const pageToGo = lastPage > 0 ? lastPage : 1;
 
     goToPage(pageToGo);
-  }
+  };
 
-  function clickHandler() {
+  const modalCloseHandler = () => {
+    modalOnClose();
+
+    go();
+  };
+
+  const clickHandler = () => {
     const isModalWasShowed = modalsWereShowed.get(Flags.usingCamera);
 
     if (isModalWasShowed) {
@@ -71,7 +71,7 @@ export const Page0 = () => {
     }
 
     setModalIsActive(true);
-  }
+  };
 
   const label = lastPage > 0 ? 'Продолжить читать' : 'Начать читать';
 
