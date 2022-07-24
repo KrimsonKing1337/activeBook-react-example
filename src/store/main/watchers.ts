@@ -93,10 +93,6 @@ export function* watchNextPage() {
   const page: State['page'] = yield select(selectors.page);
   const pages: State['pages'] = yield select(selectors.pages);
 
-  if (page === 0) {
-    return;
-  }
-
   const newPageNumber = page + 1;
 
   if (newPageNumber > pages) {

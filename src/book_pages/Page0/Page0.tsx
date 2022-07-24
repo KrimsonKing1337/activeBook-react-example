@@ -15,7 +15,7 @@ import { Flags, modalsWereShowed } from 'utils/localStorage/modalsWereShowed';
 import { useKonamiCode, useModal } from './hooks';
 
 export const Page0 = () => {
-  const [ lastPage, setLastPage ] = useState(1);
+  const [lastPage, setLastPage] = useState(0);
 
   useKonamiCode();
 

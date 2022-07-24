@@ -132,7 +132,7 @@ export const Nav = () => {
             inputMode="numeric"
             value={inputValue}
             pattern="[0-9]"
-            placeholder="1"
+            placeholder={page.toString()}
           />
         </div>
 
