@@ -7,7 +7,7 @@ import { useSound } from 'hooks/effects/audio/sound';
 
 export const Page42 = () => {
   useSound({
-    src: 'assets/book_data/audios/sounds/cloud-steps.mp3',
+    src: '/assets/book_data/audios/sounds/cloud-steps.mp3',
     playOnLoad: true,
     loop: true,
     bg: true,

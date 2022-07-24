@@ -8,7 +8,7 @@ import { useSideShadow } from 'hooks/effects/side/shadow';
 
 export const Page41 = () => {
   useMusic({
-    src: 'assets/book_data/audios/music/heaven-music.mp3',
+    src: '/assets/book_data/audios/music/heaven-music.mp3',
     loop: true,
   });
 

@@ -8,7 +8,7 @@ import { useSound } from 'hooks/effects/audio/sound';
 
 export const Page38 = () => {
   const sound = useSound({
-    src: 'assets/book_data/audios/sounds/atari.mp3',
+    src: '/assets/book_data/audios/sounds/atari.mp3',
   });
 
   const Action = (

@@ -10,11 +10,11 @@ import { useSideShadow } from 'hooks/effects/side/shadow';
 
 export const Page40 = () => {
   const sound = useSound({
-    src: 'assets/book_data/audios/sounds/valhalla.mp3',
+    src: '/assets/book_data/audios/sounds/valhalla.mp3',
   });
 
   const music = useMusic({
-    src: 'assets/book_data/audios/music/caramelldansen.mp3',
+    src: '/assets/book_data/audios/music/caramelldansen.mp3',
     playOnLoad: false,
     loop: true,
   });

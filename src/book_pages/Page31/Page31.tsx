@@ -6,7 +6,7 @@ import { useSound } from 'hooks/effects/audio/sound';
 
 export const Page31 = () => {
   useSound({
-    src: 'assets/book_data/audios/sounds/yes-I-go-with-you.mp3',
+    src: '/assets/book_data/audios/sounds/yes-I-go-with-you.mp3',
     playOnLoad: true,
   });
 

@@ -32,7 +32,6 @@ export function useColorPolice(sideShadowRef: RefObject<HTMLDivElement>) {
 export function useColorCarameldansen(sideShadowRef: RefObject<HTMLDivElement>) {
   const color = useSelector(sideShadowEffectSelectors.color);
 
-  // todo: возможно, если рандомизировать, - будет более прикольно выглядеть
   const colors = [
     '#FF0000',
     '#FF7F00',
@@ -41,11 +40,6 @@ export function useColorCarameldansen(sideShadowRef: RefObject<HTMLDivElement>) 
     '#0000FF',
     '#4B0082',
     '#9400D3',
-    '#4B0082',
-    '#0000FF',
-    '#00FF00',
-    '#FFFF00',
-    '#FF7F00',
   ];
 
   useEffect(() => {

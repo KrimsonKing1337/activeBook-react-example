@@ -122,7 +122,7 @@ module.exports = (env = {}, argv) => {
 
   if (mobile) {
     rules.push({
-      test: /\.tsx?$/,
+      test: /\.(tsx?|json)$/,
       loader: 'string-replace-loader',
       options: {
         search: '/assets',
