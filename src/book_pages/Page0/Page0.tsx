@@ -59,6 +59,8 @@ export const Page0 = () => {
     modalOnClose();
 
     go();
+
+    flashlightOff();
   };
 
   const clickHandler = () => {

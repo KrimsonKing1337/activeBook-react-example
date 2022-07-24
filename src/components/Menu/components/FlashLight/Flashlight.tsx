@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { configActions, configSelectors } from 'store/config';
@@ -15,6 +15,22 @@ export const Flashlight = () => {
 
   const flashlightState = useSelector(configSelectors.flashlight);
   const isFlashlightAvailable = useSelector(mainSelectors.isFlashlightAvailable);
+
+  useEffect(() => {
+    if (!isFlashlightAvailable) {
+      return;
+    }
+
+    const listener = () => {
+      flashlightOff();
+    };
+
+    document.addEventListener('resume', listener, { once: true });
+
+    return () => {
+      document.removeEventListener('resume', listener);
+    };
+  }, []);
 
   const toggleClickHandler = async (value: boolean) => {
     dispatch(configActions.setFlashlight(value));
