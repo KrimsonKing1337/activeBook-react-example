@@ -85,7 +85,6 @@ export const SlideShow = ({
       threshold: 50,
     });
 
-    // обработчик именно здесь, чтобы onClick не срабатывал вместе с Hammer.swipe. Hammer сам разрулит эту проблему
     hammertime.on('tap', (e) => {
       const { target } = e;
 
@@ -101,6 +100,8 @@ export const SlideShow = ({
     });
 
     hammertime.on('swipe', (e) => {
+      e.srcEvent.stopPropagation();
+
       const { direction } = e;
 
       const isNext = direction === Hammer.DIRECTION_LEFT;
