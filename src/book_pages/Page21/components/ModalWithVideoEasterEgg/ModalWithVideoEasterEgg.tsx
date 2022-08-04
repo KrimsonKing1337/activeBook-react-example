@@ -1,6 +1,7 @@
 import React, { RefObject } from 'react';
 
 import { Modal } from 'components/Modal';
+import { Video } from 'components/Video';
 
 export type ModalWithVideoEasterEggProps = {
   isActive: boolean;
@@ -21,7 +22,7 @@ export const ModalWithVideoEasterEgg = ({ setModalIsActive, isActive, videoRef }
       canCrop
       canFullScreen
     >
-      <video src="/assets/book_data/videos/wow_turn.mp4" ref={videoRef} />
+      <Video src="/assets/book_data/videos/wow_turn.mp4" ref={videoRef} />
     </Modal>
   );
 };

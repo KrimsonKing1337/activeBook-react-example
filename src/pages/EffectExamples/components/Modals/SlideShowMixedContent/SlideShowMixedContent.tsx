@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Modal } from 'components/Modal';
 import { SlideShow } from 'components/SlideShow';
 import { Toggle } from 'components/Toggle';
+import { Video } from 'components/Video';
 
 export const SlideShowMixedContent = () => {
   const [modalIsActive, setModalIsActive] = useState(false);
@@ -49,7 +50,7 @@ export const SlideShowMixedContent = () => {
             разработке форм развития.
           </div>
 
-          <video src="/assets/videos/TV_static-2.mp4" loop autoPlay muted />
+          <Video src="/assets/videos/TV_static-2.mp4" loop autoPlay muted />
         </SlideShow>
       </Modal>
 

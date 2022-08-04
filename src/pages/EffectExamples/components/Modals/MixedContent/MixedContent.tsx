@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { Modal } from 'components/Modal';
 import { Toggle } from 'components/Toggle';
+import { Video } from 'components/Video';
 
 export const MixedContent = () => {
   const [modalIsActive, setModalIsActive] = useState(false);
@@ -33,7 +34,7 @@ export const MixedContent = () => {
           интересный эксперимент проверки соответствующий условий активизации. Не следует, однако забывать, что начало
           повседневной работы по формированию позиции играет важную роль в формировании новых предложений.
 
-          <video src="/assets/videos/TV_static-2.mp4" loop autoPlay muted />
+          <Video src="/assets/videos/TV_static-2.mp4" loop autoPlay muted />
 
           Не следует, однако забывать, что постоянный количественный рост и сфера нашей активности позволяет выполнять
           важные задания по разработке дальнейших направлений развития. Таким образом постоянный количественный рост и

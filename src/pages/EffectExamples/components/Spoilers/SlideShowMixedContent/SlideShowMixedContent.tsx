@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Label } from 'components/Label';
 import { Spoiler } from 'components/Spoiler';
 import { SlideShow } from 'components/SlideShow';
+import { Video } from 'components/Video';
 
 import { Item } from 'pages/EffectExamples/components/Item';
 
@@ -39,7 +40,7 @@ export const SlideShowMixedContent = () => {
             разработке форм развития.
           </div>
 
-          <video src="/assets/videos/TV_static-2.mp4" loop autoPlay muted />
+          <Video src="/assets/videos/TV_static-2.mp4" loop autoPlay muted />
         </SlideShow>
       </Spoiler>
     </Item>

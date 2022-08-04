@@ -5,8 +5,9 @@ import { effectsSelectors } from 'store/effects/common';
 import { backgroundVideoEffectSelectors } from 'store/effects/background/video';
 import { backgroundImgEffectSelectors } from 'store/effects/background/img';
 
+import { Video } from 'components/Video';
+
 import { Dots } from './components/Dots';
-import { Video } from './components/Video';
 import { Img } from './components/Img';
 
 import styles from './BackgroundEffects.scss';
@@ -29,7 +30,7 @@ export const BackgroundEffects = () => {
           <div className={styles.backgroundObjectsShadow} />
 
           {backgroundVideoIsActive && (
-            <Video className={styles.backgroundObjectWrapper} src={backgroundVideoSrc} />
+            <Video className={styles.backgroundObjectWrapper} src={backgroundVideoSrc} autoPlay loop muted />
           )}
 
           {backgroundImgIsActive && (

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { Modal } from 'components/Modal';
 import { Toggle } from 'components/Toggle';
+import { Video as VideoComponent } from 'components/Video';
 
 export const Video = () => {
   const [modalIsActive, setModalIsActive] = useState(false);
@@ -29,7 +30,7 @@ export const Video = () => {
         mode="media"
       >
         {/* todo: видеоплеер, controls тут мешают элементам управления модалки */}
-        <video src="/assets/videos/TV_static-2.mp4" loop autoPlay muted />
+        <VideoComponent src="/assets/videos/TV_static-2.mp4" loop autoPlay muted />
       </Modal>
 
       <Toggle
