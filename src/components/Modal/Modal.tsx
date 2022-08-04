@@ -260,7 +260,7 @@ export const Modal = ({
     [styles.iconExpand]: true,
     [styles.isFullScreen]: isFullScreen,
     [styles.isMediaMode]: isMediaMode,
-    [styles.isHidden]: canFullScreen,
+    [styles.isHidden]: !canFullScreen,
   });
 
   const iconCloseClassNames = classNames({
@@ -279,7 +279,7 @@ export const Modal = ({
     [styles.iconCrop]: true,
     [styles.isFullScreen]: isFullScreen,
     [styles.isMediaMode]: isMediaMode,
-    [styles.isHidden]: canCrop,
+    [styles.isHidden]: !canCrop,
   });
 
   const contentClassNames = classNames({

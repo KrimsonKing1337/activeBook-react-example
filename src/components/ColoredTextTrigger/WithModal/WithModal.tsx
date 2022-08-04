@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { Modal as ModalComponent, ModalProps } from 'components/Modal';
 import { Action } from 'components/ColoredTextTrigger/Action';
 import { AuthorComment } from 'components/ColoredTextTrigger/AuthorComment';
 import { EasterEgg } from 'components/ColoredTextTrigger/EasterEgg';
+
+import styles from './WithModal.scss';
+
 export type TriggerType = 'action' | 'author' | 'egg';
 
 export type ModalWithVideoEasterEggProps = {
@@ -22,6 +25,8 @@ export const WithModal = ({
   eggId,
 }: ModalWithVideoEasterEggProps) => {
   const [isActive, setIsActive] = useState(false);
+
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
   const getTrigger = () => {
     if (triggerType === 'author') {
@@ -54,17 +59,15 @@ export const WithModal = ({
   };
 
   useEffect(() => {
-    if (children.type !== 'video') {
+    if (!wrapperRef.current) {
       return;
     }
 
-    const videoRef = children.ref;
+    const video = wrapperRef.current.querySelector('video');
 
-    if (!videoRef?.current) {
+    if (!video) {
       return;
     }
-
-    const video = videoRef.current;
 
     if (isActive) {
       video.play();
@@ -77,7 +80,7 @@ export const WithModal = ({
   const trigger = getTrigger();
 
   return (
-    <>
+    <div className={styles.wrapper} ref={wrapperRef}>
       <ModalComponent
         isOpen={isActive}
         onClose={() => setIsActive(false)}
@@ -89,6 +92,6 @@ export const WithModal = ({
       </ModalComponent>
 
       {trigger}
-    </>
+    </div>
   );
 };

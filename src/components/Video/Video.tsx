@@ -8,8 +8,12 @@ type VideoProps = {
 
 export const Video = ({ className = '', src, ...etc }: VideoProps) => {
   return (
-    <div className={className}>
-      <video src={src} preload="auto" poster="/assets/img/poster-default.png" {...etc} />
-    </div>
+    <video
+      className={className}
+      src={src}
+      preload="auto"
+      poster="/assets/img/poster-default.png"
+      {...etc}
+    />
   );
 };
