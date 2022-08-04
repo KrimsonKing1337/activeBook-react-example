@@ -55,20 +55,6 @@ export const Modal = ({
   const iconCropRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const escPressHandler = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        close();
-      }
-    };
-
-    document.addEventListener('keypress', escPressHandler);
-
-    return () => {
-      document.removeEventListener('keypress', escPressHandler);
-    };
-  }, []);
-
-  useEffect(() => {
     const uuidValue = uuidv4();
 
     setComponentUuid(uuidValue);
@@ -99,24 +85,57 @@ export const Modal = ({
     }
   }, [pathname]);
 
+  const escPressHandler = (e: KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      close();
+    }
+  };
+
   useEffect(() => {
     if (!isOpen) {
+      document.removeEventListener('keydown', escPressHandler);
+
       return;
     }
 
     const path =`${IS_OPEN}/${componentUuid}`;
 
     history.push(path);
+
+    document.addEventListener('keydown', escPressHandler);
   }, [isOpen]);
 
   useEffect(() => {
-    const { current } = overflowRef;
-
-    if (!current) {
+    if (!wrapperRef.current) {
       return;
     }
 
-    const hammertime = new Hammer(current);
+    const wrapperWidth = wrapperRef.current.clientWidth;
+
+    const applyStyleLeftForElement = (element: HTMLDivElement) => {
+      element.style.left = `${wrapperWidth}px`;
+    };
+
+    const iconClose = iconCloseRef.current;
+    const iconExpand = iconExpandRef.current;
+    const iconCompress = iconCompressRef.current;
+    const iconCrop = iconCropRef.current;
+
+    if (!iconClose || !iconExpand || !iconCompress || !iconCrop) {
+      return;
+    }
+
+    const arr = [iconClose, iconExpand, iconCompress, iconCrop];
+
+    arr.forEach((cur) => applyStyleLeftForElement(cur));
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!overflowRef.current) {
+      return;
+    }
+
+    const hammertime = new Hammer(overflowRef.current);
 
     hammertime.get('tap').set({
       taps: 2,
@@ -143,33 +162,6 @@ export const Modal = ({
       hammertime.destroy();
     };
   }, []);
-
-  useEffect(() => {
-    const { current } = wrapperRef;
-
-    if (!current) {
-      return;
-    }
-
-    const wrapperWidth = current.clientWidth;
-
-    const applyStyleLeftForElement = (element: HTMLDivElement) => {
-      element.style.left = `${wrapperWidth}px`;
-    };
-
-    const iconClose = iconCloseRef.current;
-    const iconExpand = iconExpandRef.current;
-    const iconCompress = iconCompressRef.current;
-    const iconCrop = iconCropRef.current;
-
-    if (!iconClose || !iconExpand || !iconCompress || !iconCrop) {
-      return;
-    }
-
-    const arr = [iconClose, iconExpand, iconCompress, iconCrop];
-
-    arr.forEach((cur) => applyStyleLeftForElement(cur));
-  }, [isOpen]);
 
   const close = () => {
     const locationWithoutHash = {
