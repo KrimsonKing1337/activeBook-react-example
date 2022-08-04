@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import Hammer from 'hammerjs';
 import { v4 as uuidv4 } from 'uuid';
@@ -8,9 +8,6 @@ import { faCompress, faCrop, faExpand, faTimes } from '@fortawesome/free-solid-s
 import classNames from 'classnames';
 
 import styles from './Modal.scss';
-
-const IS_OPEN = '#/modal';
-const IS_CLOSE = '';
 
 type Func = () => void;
 
@@ -35,7 +32,6 @@ export const Modal = ({
   canCrop = false,
 }: ModalProps) => {
   const history = useHistory();
-  const { pathname } = useLocation();
 
   // здесь реф-версии нужны для хаммера, обычные для того чтобы ре-рендер срабатывал
   const isFullScreenRef = useRef(false);
@@ -45,7 +41,6 @@ export const Modal = ({
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [isCrop, setIsCrop] = useState(true);
   const [componentUuid, setComponentUuid] = useState('');
-  const [prevLocationPath, setPrevLocationPath] = useState(IS_CLOSE);
 
   const overflowRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -60,30 +55,20 @@ export const Modal = ({
     setComponentUuid(uuidValue);
   }, []);
 
-  /*
-  * todo: мне кажется, я тут какую-то костыльную хрень придумал.
-  *  эта штука будет срабатывать каждый раз, когда меняется pathname по всему приложению.
-  *  и так по всех компонентах, где я использую похожую логику:
-  *  Menu, TableOfContents, Bookmarks.
-  *  разобраться как сделать нормально, если это возможно (посмотреть в сторону Switch у Router)
-  * */
   useEffect(() => {
-    if (!componentUuid) {
+    if (!isOpen) {
       return;
     }
 
-    if (!prevLocationPath.includes(componentUuid) && !pathname.includes(componentUuid)) {
-      return;
-    }
-
-    if (prevLocationPath !== pathname) {
-      if (pathname === IS_CLOSE) {
+    const unlisten = history.listen((location) => {
+      if (!location.hash) {
+        unlisten();
         close();
       }
+    });
 
-      setPrevLocationPath(pathname);
-    }
-  }, [pathname]);
+    return () => unlisten();
+  }, [isOpen]);
 
   const escPressHandler = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
@@ -98,7 +83,7 @@ export const Modal = ({
       return;
     }
 
-    const path =`${IS_OPEN}/${componentUuid}`;
+    const path = `#/modal/${componentUuid}`;
 
     history.push(path);
 
@@ -180,7 +165,7 @@ export const Modal = ({
   const overflowClickHandler = () => close();
 
   const doubleTapHandler = () => {
-    if (canFullScreen) {
+    if (!canFullScreen) {
       return;
     }
 
@@ -189,12 +174,20 @@ export const Modal = ({
   };
 
   const zoomInHandler = () => {
+    if (!canFullScreen) {
+      return;
+    }
+
     if (!isFullScreenRef.current) {
       isZoomingRef.current = true;
 
       isFullScreenRef.current = true;
       setIsFullScreen(true);
 
+      return;
+    }
+
+    if (!canCrop) {
       return;
     }
 
@@ -304,7 +297,7 @@ export const Modal = ({
           </div>
 
           <div className={contentClassNames}>
-            { children }
+            {children}
           </div>
         </div>
       </div>
