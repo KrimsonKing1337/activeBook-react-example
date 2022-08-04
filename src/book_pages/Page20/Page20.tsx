@@ -3,6 +3,7 @@ import React from 'react';
 import { PageWrapper } from 'components/PageWrapper';
 import { ExternalLink as ExtLink } from 'components/ExternalLink/ExternalLink';
 import { WithModal } from 'components/ColoredTextTrigger/WithModal';
+import { Img } from 'components/Img';
 
 export const Page20 = () => {
   const Link = (
@@ -13,7 +14,7 @@ export const Page20 = () => {
 
   const EasterEgg = (
     <WithModal text="поездка в метро" triggerType="egg" eggId="page-20">
-      <img src="/assets/book_data/gifs/granny-in-hyper.gif" alt="" />
+      <Img src="/assets/book_data/gifs/granny-in-hyper.gif" />
     </WithModal>
   );
 

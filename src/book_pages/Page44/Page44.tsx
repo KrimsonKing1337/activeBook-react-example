@@ -4,17 +4,18 @@ import { Spoiler } from 'components';
 
 import { PageWrapper } from 'components/PageWrapper';
 import { WithModal } from 'components/ColoredTextTrigger/WithModal';
+import { Img } from 'components/Img';
 
 export const Page44 = () => {
   const EasterEgg = (
     <WithModal text="Олег Шилов" triggerType="egg" eggId="page-44">
-      <img src="/assets/book_data/gifs/Kojima.gif" alt="" />
+      <Img src="/assets/book_data/gifs/Kojima.gif" />
     </WithModal>
   );
 
   const Action = (
     <WithModal text="Дасти" triggerType="action">
-      <img src="/assets/book_data/images/Dusty.jpg" alt="" />
+      <Img src="/assets/book_data/images/Dusty.jpg" />
     </WithModal>
   );
 

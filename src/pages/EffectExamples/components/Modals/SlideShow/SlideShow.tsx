@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import { Img } from 'components/Img';
 import { Modal } from 'components/Modal';
 import { Toggle } from 'components/Toggle';
 import { SlideShow as SlideShowComponent } from 'components/SlideShow';
@@ -31,10 +32,10 @@ export const SlideShow = () => {
         canCrop={true}
       >
         <SlideShowComponent isVisible={modalIsActive} mode="modal">
-          <img src="/assets/img/1.jpg" alt="" />
-          <img src="/assets/img/2.jpg" alt="" />
-          <img src="/assets/img/3.jpg" alt="" />
-          <img src="/assets/img/4.jpg" alt="" />
+          <Img src="/assets/img/1.jpg" />
+          <Img src="/assets/img/2.jpg" />
+          <Img src="/assets/img/3.jpg" />
+          <Img src="/assets/img/4.jpg" />
         </SlideShowComponent>
       </Modal>
 

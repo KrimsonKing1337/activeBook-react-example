@@ -4,6 +4,7 @@ import { Modal } from 'components/Modal';
 import { SlideShow } from 'components/SlideShow';
 import { Toggle } from 'components/Toggle';
 import { Video } from 'components/Video';
+import { Img } from 'components/Img';
 
 export const SlideShowMixedContent = () => {
   const [modalIsActive, setModalIsActive] = useState(false);
@@ -30,10 +31,10 @@ export const SlideShowMixedContent = () => {
         onClose={modalOnClose}
       >
         <SlideShow isVisible={modalIsActive} mode="modal">
-          <img src="/assets/img/1.jpg" alt="" />
+          <Img src="/assets/img/1.jpg" />
 
           <div>
-            <img src="/assets/img/cinemagraph.gif" alt="" />
+            <Img src="/assets/img/cinemagraph.gif" />
 
             Товарищи! начало повседневной работы по формированию позиции играет важную роль в формировании систем
             массового участия. С другой стороны дальнейшее развитие различных форм деятельности играет важную роль в

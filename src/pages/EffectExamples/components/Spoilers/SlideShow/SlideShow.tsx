@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import { Img } from 'components/Img';
 import { Label } from 'components/Label';
 import { Spoiler } from 'components/Spoiler';
 import { SlideShow as SlideShowComponent } from 'components/SlideShow';
@@ -19,10 +20,10 @@ export const SlideShow = () => {
         style={{ marginTop: '10px' }}
       >
         <SlideShowComponent isWithoutBorders={true} onSlideChange={() => setNeedToSetHeight(true)}>
-          <img src="/assets/img/1.jpg" alt="" />
-          <img src="/assets/img/2.jpg" alt="" />
-          <img src="/assets/img/3.jpg" alt="" />
-          <img src="/assets/img/4.jpg" alt="" />
+          <Img src="/assets/img/1.jpg" />
+          <Img src="/assets/img/2.jpg"/>
+          <Img src="/assets/img/3.jpg" />
+          <Img src="/assets/img/4.jpg" />
         </SlideShowComponent>
       </Spoiler>
     </Item>

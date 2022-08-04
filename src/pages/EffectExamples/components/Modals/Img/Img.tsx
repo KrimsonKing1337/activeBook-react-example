@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { Modal } from 'components/Modal';
 import { Toggle } from 'components/Toggle';
+import { Img as ImgComponent } from 'components/Img';
 
 export const Img = () => {
   const [modalIsActive, setModalIsActive] = useState(false);
@@ -29,7 +30,7 @@ export const Img = () => {
         mode="media"
         canFullScreen={true}
       >
-        <img src="/assets/img/cinemagraph.gif" alt="" />
+        <ImgComponent src="/assets/img/cinemagraph.gif" />
       </Modal>
 
       <Toggle

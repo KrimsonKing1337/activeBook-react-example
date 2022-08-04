@@ -2,11 +2,12 @@ import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
 import { WithModal } from 'components/ColoredTextTrigger/WithModal';
+import { Img } from 'components/Img';
 
 export const Page39 = () => {
   const EasterEgg = (
     <WithModal text="главный вопрос жизни, вселенной и всего такого." triggerType="egg" eggId="page-39">
-      <img src="/assets/book_data/images/42.jpg" alt="" />
+      <Img src="/assets/book_data/images/42.jpg" />
     </WithModal>
   );
 

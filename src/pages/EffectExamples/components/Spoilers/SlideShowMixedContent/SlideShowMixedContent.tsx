@@ -4,6 +4,7 @@ import { Label } from 'components/Label';
 import { Spoiler } from 'components/Spoiler';
 import { SlideShow } from 'components/SlideShow';
 import { Video } from 'components/Video';
+import { Img } from 'components/Img';
 
 import { Item } from 'pages/EffectExamples/components/Item';
 
@@ -20,10 +21,10 @@ export const SlideShowMixedContent = () => {
         style={{ marginTop: '10px' }}
       >
         <SlideShow onSlideChange={() => setNeedToSetHeight(true)}>
-          <img src="/assets/img/1.jpg" alt="" />
+          <Img src="/assets/img/1.jpg" />
 
           <div>
-            <img src="/assets/img/cinemagraph.gif" alt="" />
+            <Img src="/assets/img/cinemagraph.gif" />
 
             Товарищи! начало повседневной работы по формированию позиции играет важную роль в формировании систем
             массового участия. С другой стороны дальнейшее развитие различных форм деятельности играет важную роль в

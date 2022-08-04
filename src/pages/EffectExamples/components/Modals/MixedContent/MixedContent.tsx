@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Modal } from 'components/Modal';
 import { Toggle } from 'components/Toggle';
 import { Video } from 'components/Video';
+import { Img } from 'components/Img';
 
 export const MixedContent = () => {
   const [modalIsActive, setModalIsActive] = useState(false);
@@ -26,7 +27,7 @@ export const MixedContent = () => {
     <>
       <Modal isOpen={modalIsActive} onClose={modalOnClose}>
         <div>
-          <img src="/assets/img/cinemagraph.gif" alt="" />
+          <Img src="/assets/img/cinemagraph.gif" />
 
           Товарищи! начало повседневной работы по формированию позиции играет важную роль в формировании систем
           массового участия. С другой стороны дальнейшее развитие различных форм деятельности играет важную роль в

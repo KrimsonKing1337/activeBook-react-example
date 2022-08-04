@@ -2,6 +2,7 @@ import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
 import { WithModal } from 'components/ColoredTextTrigger/WithModal';
+import { Img } from 'components/Img';
 
 import { useSound } from 'hooks/effects/audio/sound';
 
@@ -15,7 +16,7 @@ export const Page42 = () => {
 
   const EasterEgg = (
     <WithModal text="Люди приветствовали его будто старого доброго друга." triggerType="egg" eggId="page-42">
-      <img src="/assets/book_data/gifs/Efremov.gif" alt="" />
+      <Img src="/assets/book_data/gifs/Efremov.gif" />
     </WithModal>
   );
 
