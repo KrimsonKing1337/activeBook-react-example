@@ -13,7 +13,12 @@ function touchStartHandler() {
   classList.add('is-touch');
 }
 
-function mouseOverHandler() {
+// todo: не нашёл, у какого event-а есть свойство sourceCapabilities
+function mouseOverHandler(e: any) {
+  if (e?.sourceCapabilities?.firesTouchEvents) {
+    return;
+  }
+
   const { classList } = document.body;
 
   if (!classList.contains('is-touch')) {
