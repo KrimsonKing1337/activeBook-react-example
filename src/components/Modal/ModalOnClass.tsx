@@ -2,7 +2,7 @@ import React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 
 import Hammer from 'hammerjs';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCompress, faCrop, faExpand, faTimes } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
@@ -154,7 +154,7 @@ class ModalComponent extends React.Component<Props, ModalState> {
   };
 
   setUuid = () => {
-    const uuidValue = uuidv4();
+    const uuidValue = nanoid();
 
     this.setState({ componentUuid: uuidValue });
   };

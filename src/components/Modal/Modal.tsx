@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import Hammer from 'hammerjs';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCompress, faCrop, faExpand, faTimes } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
@@ -50,7 +50,7 @@ export const Modal = ({
   const iconCropRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const uuidValue = uuidv4();
+    const uuidValue = nanoid();
 
     setComponentUuid(uuidValue);
   }, []);
