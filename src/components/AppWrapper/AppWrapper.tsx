@@ -51,6 +51,7 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
     history.push('/');
   }, []);
 
+  // todo: перенести в Menu.tsx
   // закрываю менюшки, если пользователь сделал navigator.goBack
   useEffect(() => {
     const unlisten = history.listen((location) => {
