@@ -43,129 +43,129 @@ type RoutesProps = {
 export const Routes = ({ children }: RoutesProps) => {
   return (
     <Switch>
-      <Route exact path={'/'}>
+      <Route exact path="/">
         {children}
       </Route>
 
-      <Route exact path={'/page-1'}>
+      <Route exact path="/page-1">
         <Suspense fallback={null}>
           <Page1 />
         </Suspense>
       </Route>
 
-      <Route exact path={'/page-2'}>
+      <Route exact path="/page-2">
         <Page2 />
       </Route>
 
-      <Route exact path={'/page-3'}>
+      <Route exact path="/page-3">
         <Page3 />
       </Route>
 
-      <Route exact path={'/page-4'}>
+      <Route exact path="/page-4">
         <Page4 />
       </Route>
 
-      <Route exact path={'/page-5'}>
+      <Route exact path="/page-5">
         <Page5 />
       </Route>
 
-      <Route exact path={'/page-6'}>
+      <Route exact path="/page-6">
         <Page6 />
       </Route>
 
-      <Route exact path={'/page-7'}>
+      <Route exact path="/page-7">
         <Page7 />
       </Route>
 
-      <Route exact path={'/page-8'}>
+      <Route exact path="/page-8">
         <Page8 />
       </Route>
 
-      <Route exact path={'/page-9'}>
+      <Route exact path="/page-9">
         <Page9 />
       </Route>
 
-      <Route exact path={'/page-10'}>
+      <Route exact path="/page-10">
         <Page10 />
       </Route>
 
-      <Route exact path={'/page-11'}>
+      <Route exact path="/page-11">
         <Page11 />
       </Route>
 
-      <Route exact path={'/page-12'}>
+      <Route exact path="/page-12">
         <Page12 />
       </Route>
 
-      <Route exact path={'/page-13'}>
+      <Route exact path="/page-13">
         <Page13 />
       </Route>
 
-      <Route exact path={'/page-14'}>
+      <Route exact path="/page-14">
         <Page14 />
       </Route>
 
-      <Route exact path={'/page-15'}>
+      <Route exact path="/page-15">
         <Page15 />
       </Route>
 
-      <Route exact path={'/page-16'}>
+      <Route exact path="/page-16">
         <Page16 />
       </Route>
 
-      <Route exact path={'/page-17'}>
+      <Route exact path="/page-17">
         <Page17 />
       </Route>
 
-      <Route exact path={'/page-18'}>
+      <Route exact path="/page-18">
         <Page18 />
       </Route>
 
-      <Route exact path={'/page-19'}>
+      <Route exact path="/page-19">
         <Page19 />
       </Route>
 
-      <Route exact path={'/page-20'}>
+      <Route exact path="/page-20">
         <Page20 />
       </Route>
 
-      <Route exact path={'/page-21'}>
+      <Route exact path="/page-21">
         <Page21 />
       </Route>
 
-      <Route exact path={'/page-22'}>
+      <Route exact path="/page-22">
         <Page22 />
       </Route>
 
-      <Route exact path={'/page-23'}>
+      <Route exact path="/page-23">
         <Page23 />
       </Route>
 
-      <Route exact path={'/page-24'}>
+      <Route exact path="/page-24">
         <Page24 />
       </Route>
 
-      <Route exact path={'/page-25'}>
+      <Route exact path="/page-25">
         <Page25 />
       </Route>
 
-      <Route exact path={'/page-26'}>
+      <Route exact path="/page-26">
         <Page26 />
       </Route>
 
-      <Route exact path={'/page-27'}>
+      <Route exact path="/page-27">
         <Page27 />
       </Route>
 
-      <Route exact path={'/page-28'}>
+      <Route exact path="/page-28">
         <Page28 />
       </Route>
 
-      <Route exact path={'/page-29'}>
+      <Route exact path="/page-29">
         <Page29 />
       </Route>
 
-      <Route exact path={'/page-30'}>
+      <Route exact path="/page-30">
         <Page30 />
       </Route>
     </Switch>

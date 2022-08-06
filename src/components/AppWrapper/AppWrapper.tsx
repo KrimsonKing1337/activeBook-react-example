@@ -151,8 +151,6 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
     };
 
     window.addEventListener('beforeunload', listener);
-
-    return () => window.removeEventListener('beforeunload', listener);
   }, [config, volume, page, bookmarks]);
 
   useEffectsInRange();

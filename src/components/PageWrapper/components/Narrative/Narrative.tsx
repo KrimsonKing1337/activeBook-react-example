@@ -16,7 +16,7 @@ export const Narrative = ({ children }: PageWrapperProps) => {
   const lineHeight = useSelector(configSelectors.lineHeight);
 
   const narrativeStyle = { fontSize: `${fontSize}%` };
-  const textStyle = { lineHeight: `${lineHeight * 1.5}%` };
+  const textStyle = { lineHeight: `${lineHeight}%` };
 
   const narrativeRef = useRef<HTMLDivElement>(null);
 
