@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 
 import { mainSelectors } from 'store/main';
+import { configSelectors } from 'store/config';
 
 import { useSideShadow } from 'hooks/effects/side/shadow';
 
@@ -9,9 +10,13 @@ import { sleep } from 'utils/sleep';
 
 export function useFlashlight(withSideShadow = false) {
   const isFlashlightAvailable = useSelector(mainSelectors.isFlashlightAvailable);
+  const theme = useSelector(configSelectors.theme);
+
+  const darkTheme = theme === 'dark';
+  const color = darkTheme ? '#fff' : '#9addf4';
 
   const { sideShadowOn, sideShadowOff } = useSideShadow({
-    color: '#fff', // todo: применимо только для тёмной темы. у других тем другие значения
+    color,
     isActiveDefault: false,
     speed: 150,
   });
