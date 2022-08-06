@@ -52,7 +52,12 @@ export const Narrative = ({ children }: PageWrapperProps) => {
   }, []);
 
   return (
-    <div ref={narrativeRef} className={styles.narrative} style={narrativeStyle} tabIndex={0}>
+    <div
+      ref={narrativeRef}
+      className={styles.narrative}
+      style={narrativeStyle}
+      tabIndex={0}
+    >
       <div className={styles.text} style={textStyle}>
         { children }
       </div>

@@ -1,4 +1,5 @@
 import effects from 'book_pages/effects.json';
+
 import { Range } from '@types';
 
 export function isPageInRange(pageNumberCurrent: number, range: Range[]) {

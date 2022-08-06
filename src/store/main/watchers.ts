@@ -3,9 +3,11 @@ import { push } from 'connected-react-router';
 import { Location } from 'history';
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { Howl, Howler } from 'howler';
+
 import { HowlExtended } from '@types';
 
 import { State } from './@types';
+
 import { actions } from './slice';
 import { selectors } from './selectors';
 

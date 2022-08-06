@@ -41,7 +41,12 @@ export const SlideShowMixedContent = () => {
             разработке форм развития.
           </div>
 
-          <Video src="/assets/videos/TV_static-2.mp4" loop autoPlay muted />
+          <Video
+            src="/assets/videos/TV_static-2.mp4"
+            loop
+            autoPlay
+            muted
+          />
         </SlideShow>
       </Spoiler>
     </Item>

@@ -347,10 +347,12 @@ class ModalComponent extends React.Component<Props, ModalState> {
                 <FontAwesomeIcon icon={faTimes} />
               </div>
 
+              {/* eslint-disable-next-line max-len */}
               <div ref={this.iconExpandRef} className={iconExpandClassNames} onClick={() => this.expandIconClickHandler()}>
                 <FontAwesomeIcon icon={faExpand} />
               </div>
 
+              {/* eslint-disable-next-line max-len */}
               <div ref={this.iconCompressRef} className={iconCompressClassNames} onClick={() => this.compressIconClickHandler()}>
                 <FontAwesomeIcon icon={faCompress} />
               </div>

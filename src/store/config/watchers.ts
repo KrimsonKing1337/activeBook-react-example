@@ -4,6 +4,7 @@ import { call, takeLatest } from 'redux-saga/effects';
 import { setThemeCss } from 'utils/styles/setThemeCss';
 
 import { State } from './@types';
+
 import { actions } from './slice';
 
 export function* watchSetAll(action: PayloadAction<State>) {

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
+
 import { Theme } from '@types';
 
 import { configActions, configSelectors } from 'store/config';

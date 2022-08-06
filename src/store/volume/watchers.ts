@@ -4,8 +4,9 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 
 import { getAudioInstances } from 'utils/effects/audio/getAudioInstances';
 
-import { actions } from './slice';
 import { State } from './@types';
+
+import { actions } from './slice';
 
 export function* watchSetAll(action: PayloadAction<State>) {
   const { payload } = action;

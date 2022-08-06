@@ -30,7 +30,12 @@ export const Video = () => {
         mode="media"
       >
         {/* todo: видеоплеер, controls тут мешают элементам управления модалки */}
-        <VideoComponent src="/assets/videos/TV_static-2.mp4" loop autoPlay muted />
+        <VideoComponent
+          src="/assets/videos/TV_static-2.mp4"
+          loop
+          autoPlay
+          muted
+        />
       </Modal>
 
       <Toggle

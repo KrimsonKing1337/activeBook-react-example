@@ -4,7 +4,6 @@ import { ConnectedRouterProps, connectRouter, routerMiddleware } from 'connected
 import { createBrowserHistory } from 'history';
 import createSagaMiddleware from 'redux-saga';
 
-import { incrementReducer, watchIncrementActions } from './increment';
 import { mainReducer, watchMainActions } from './main';
 import { configReducer, watchConfigActions } from './config';
 import { volumeReducer, watchVolumeActions } from './volume';
@@ -27,7 +26,6 @@ const compose = composeWithDevTools(applyMiddleware(sagaMiddleware, routerMiddle
 const makeRootReducer = (history: ConnectedRouterProps['history']) => {
   return combineReducers({
     router: connectRouter(history),
-    increment: incrementReducer,
     main: mainReducer,
     config: configReducer,
     volume: volumeReducer,
@@ -50,7 +48,6 @@ export type RootState = ReturnType<typeof rootReducer>;
 
 export const store = createStore(rootReducer, compose);
 
-sagaMiddleware.run(watchIncrementActions);
 sagaMiddleware.run(watchConfigActions);
 sagaMiddleware.run(watchMainActions);
 sagaMiddleware.run(watchSoundEffectsActions);
