@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { Theme } from '@types';
@@ -9,34 +8,15 @@ import { Theme } from '@types';
 import { configActions, configSelectors } from 'store/config';
 
 import { Label } from 'components/Label';
+import { Spoiler } from 'components/Spoiler';
 
-import { playAchievement } from './utils';
+import { getIsMobile } from 'utils/mobile/getIsMobile';
+
+import { getClassNames, playAchievement, themes } from './utils';
 
 import styles from './Themes.scss';
 
-function getThemeItemClassName(theme: Theme) {
-  switch (theme) {
-  case 'dark':
-    return styles.isDark;
-  case 'orange':
-    return styles.isOrange;
-  case 'darkBlue':
-    return styles.isDarkBlue;
-  case 'black':
-    return styles.isBlack;
-  }
-}
-
-function getClassNames(theme: Theme) {
-  const className = getThemeItemClassName(theme);
-
-  return classNames([
-    styles.themesItem,
-    className,
-  ]);
-}
-
-const themes: Theme[] = ['dark', 'orange', 'darkBlue', 'black'];
+const isMobile = getIsMobile();
 
 export const Themes = () => {
   const dispatch = useDispatch();
@@ -53,12 +33,22 @@ export const Themes = () => {
       <Label label="Оформление" />
 
       <div className={styles.themesItemsWrapper}>
-        { themes.map((themeCur) => (
+        {themes.map((themeCur) => (
           <div key={themeCur} className={getClassNames(themeCur)} onClick={() => clickHandler(themeCur)}>
             {activeTheme === themeCur && <FontAwesomeIcon icon={faCheck} />}
           </div>
-        )) }
+        ))}
       </div>
+
+      {isMobile && (
+        <Spoiler label="Внимание" className={styles.spoiler}>
+          В приложениях, собранных через cordova почему-то некорректно меняются цвета.
+          При этом, если открыть через браузер - то всё нормально.
+          Так и не смог найти причину.
+          Просьба в случае проблем использовать тему по умолчанию.
+          Спасибо за понимание
+        </Spoiler>
+      )}
     </div>
   );
 };
