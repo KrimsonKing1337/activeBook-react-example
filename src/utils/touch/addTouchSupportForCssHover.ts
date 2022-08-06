@@ -1,5 +1,6 @@
 import { getAllElementsWithPseudoClass } from './getAllElementsWithPseudoClass';
 import { replaceCssPseudoClassWith } from './replaceCssPseudoClassWith';
+import { selectorInsteadOfHover } from './utils';
 
 function touchStartHandler() {
   const { classList } = document.body;
@@ -8,7 +9,7 @@ function touchStartHandler() {
     return;
   }
 
-  replaceCssPseudoClassWith(':hover', '.hover');
+  replaceCssPseudoClassWith(':hover', `.${selectorInsteadOfHover}`);
 
   classList.add('is-touch');
 }
@@ -25,7 +26,7 @@ function mouseOverHandler(e: any) {
     return;
   }
 
-  replaceCssPseudoClassWith('.hover', ':hover');
+  replaceCssPseudoClassWith(`.${selectorInsteadOfHover}`, ':hover');
 
   classList.remove('is-touch');
 }
@@ -38,8 +39,8 @@ export function addTouchSupportForCssHover() {
       return;
     }
 
-    const addClassListHover = () => elementCur.classList.add('hover');
-    const removeClassListHover = () => elementCur.classList.remove('hover');
+    const addClassListHover = () => elementCur.classList.add(selectorInsteadOfHover);
+    const removeClassListHover = () => elementCur.classList.remove(selectorInsteadOfHover);
 
     elementCur.addEventListener('touchstart', addClassListHover);
     elementCur.addEventListener('touchmove', addClassListHover);

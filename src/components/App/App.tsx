@@ -6,7 +6,6 @@ import { history, store } from 'store';
 
 import { AppWrapper } from 'components/AppWrapper';
 
-import { addTouchSupportForCssHover } from 'utils/touch/addTouchSupportForCssHover';
 import { hideAddressBarInMobileDevices } from 'utils/mobile/hideAddressBarInMobileDevices';
 import { addKeyboardControl } from 'utils/control/keyboardControl';
 
@@ -18,7 +17,7 @@ type AppProps = {
 
 export const App = ({ children }: AppProps) => {
   useEffect(() => {
-    addTouchSupportForCssHover();
+    // addTouchSupportForCssHover(); // вместо этого просто "удаляю" :hover везде, возможно так и оставлю
     addKeyboardControl();
     hideAddressBarInMobileDevices();
   }, []);

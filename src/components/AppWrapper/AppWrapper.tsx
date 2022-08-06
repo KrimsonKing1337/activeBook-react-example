@@ -19,7 +19,7 @@ import { useEffectsInRange } from 'hooks/effects/range';
 import { seenPages } from 'utils/localStorage/seenPages';
 import { play as achievementPlay } from 'utils/effects/achievements';
 import { achievements as achievementsUtils, Flags as AchievementsFlags } from 'utils/localStorage/achievements';
-import { replaceCssPseudoClassWith } from 'utils/touch/replaceCssPseudoClassWith';
+import { removeCssHover } from 'utils/touch/removeCssHover';
 
 import styles from './AppWrapper.scss';
 
@@ -52,20 +52,9 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
     history.push('/');
   }, []);
 
-  // если тач-устройство - превращаю :hover в .hover
+  // если тач-устройство - убираю :hover
   useEffect(() => {
-    if ('ontouchstart' in document.documentElement) {
-      document.body.classList.add('is-touch');
-
-      /**
-       * todo: возможно, эти костыли того не стоят, мб просто удалять все :hover на тач-девайсах
-       * или сделать миксин с медиа-запросами, см:
-       * https://stackoverflow.com/questions/23885255/how-to-remove-ignore-hover-css-style-on-touch-devices
-       */
-      setTimeout(() => {
-        replaceCssPseudoClassWith(':hover', '.hover');
-      }, 0);
-    }
+    removeCssHover();
   }, []);
 
   // todo: перенести в Menu.tsx
@@ -135,12 +124,6 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
         text: 'Все страницы прочитаны! Теперь можно включить авторские комментарии в настройках!',
         type: 'gold',
       });
-    }
-
-    if ('ontouchstart' in document.documentElement) {
-      setTimeout(() => {
-        replaceCssPseudoClassWith(':hover', '.hover');
-      }, 0);
     }
   }, [page]);
 
