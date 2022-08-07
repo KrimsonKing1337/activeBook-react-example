@@ -35,7 +35,6 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
   const bookmarksIsOpen = useSelector(bookmarksSelectors.isOpen);
   const page = useSelector(mainSelectors.page);
   const pages = useSelector(mainSelectors.pages);
-  const bookmarks = useSelector(bookmarksSelectors.bookmarks);
 
   // приглушаю звук, если приложение скрыто
   useEffect(() => {
@@ -125,17 +124,7 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
   }, [page]);
 
   useEffect(() => {
-    /*
-    * todo: записывать на каждое изменение,
-    *  а не на выход из приложения.
-    *  однажды можем попасть в ситуацию,
-    *  что операцию просто не будет успевать срабатывать
-    */
     const listener = () => {
-      const bookmarksAsJson = JSON.stringify(bookmarks);
-
-      localStorage.setItem('bookmarks', bookmarksAsJson);
-
       if (page !== 0) {
         const pageAsJson = JSON.stringify(page);
 
@@ -144,7 +133,11 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
     };
 
     window.addEventListener('beforeunload', listener);
-  }, [page, bookmarks]);
+
+    return () => {
+      window.removeEventListener('beforeunload', listener);
+    };
+  }, [page]);
 
   useEffectsInRange();
 
