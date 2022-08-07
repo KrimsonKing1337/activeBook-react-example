@@ -18,6 +18,8 @@ export const Volume = () => {
   const sfxVolume = useSelector(volumeSelectors.sfx);
   const musicVolume = useSelector(volumeSelectors.music);
 
+  // todo: мб слишком часто запись в local storage происходит. мб на onAfterChange переделать
+
   const afterChangeHandler = () => {
     playAchievement();
   };
