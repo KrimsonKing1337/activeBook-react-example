@@ -1,12 +1,23 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import { Howler } from 'howler';
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { call, put, select, takeLatest } from 'redux-saga/effects';
+
+import { State as Volume } from 'store/volume/@types';
 
 import { getAudioInstances } from 'utils/effects/audio/getAudioInstances';
 
 import { State } from './@types';
 
 import { actions } from './slice';
+import { selectors } from './selectors';
+
+function* saveInLocalStorage() {
+  const volume: Volume = yield select(selectors.all);
+
+  const volumeAsJson = JSON.stringify(volume);
+
+  localStorage.setItem('volume', volumeAsJson);
+}
 
 export function* watchSetAll(action: PayloadAction<State>) {
   const { payload } = action;
@@ -29,6 +40,8 @@ export function* watchSetGlobal(action: PayloadAction<State['global']>) {
     // todo: video volume also need to be changed
     Howler.volume(payload / 100);
   });
+
+  yield call(saveInLocalStorage);
 }
 
 export function* watchSetBg(action: PayloadAction<State['bg']>) {
@@ -41,6 +54,8 @@ export function* watchSetBg(action: PayloadAction<State['bg']>) {
       soundInst.volume(payload / 100);
     }
   });
+
+  yield call(saveInLocalStorage);
 }
 
 export function* watchSetSfx(action: PayloadAction<State['sfx']>) {
@@ -53,6 +68,8 @@ export function* watchSetSfx(action: PayloadAction<State['sfx']>) {
       soundInst.volume(payload / 100);
     }
   });
+
+  yield call(saveInLocalStorage);
 }
 
 export function* watchSetMusic(action: PayloadAction<State['music']>) {
@@ -65,6 +82,8 @@ export function* watchSetMusic(action: PayloadAction<State['music']>) {
       musicInst.volume(payload / 100);
     }
   });
+
+  yield call(saveInLocalStorage);
 }
 
 export function* watchActions() {

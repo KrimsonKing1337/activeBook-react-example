@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import classNames from 'classnames';
 import { Howler } from 'howler';
 
-import { volumeActions, volumeSelectors } from 'store/volume';
+import { volumeActions } from 'store/volume';
 import { configActions } from 'store/config';
 import { configSelectors } from 'store/config';
 import { mainActions, mainSelectors } from 'store/main';
@@ -32,7 +32,6 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
   const history = useHistory();
 
   const config = useSelector(configSelectors.all);
-  const volume = useSelector(volumeSelectors.all);
   const isLoading = useSelector(mainSelectors.isLoading);
   const menuActiveState = useSelector(mainSelectors.menuActiveState);
   const bookmarksIsOpen = useSelector(bookmarksSelectors.isOpen);
@@ -136,11 +135,9 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
     */
     const listener = () => {
       const configAsJson = JSON.stringify(config);
-      const volumeAsJson = JSON.stringify(volume);
       const bookmarksAsJson = JSON.stringify(bookmarks);
 
       localStorage.setItem('config', configAsJson);
-      localStorage.setItem('volume', volumeAsJson);
       localStorage.setItem('bookmarks', bookmarksAsJson);
 
       if (page !== 0) {
@@ -151,7 +148,7 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
     };
 
     window.addEventListener('beforeunload', listener);
-  }, [config, volume, page, bookmarks]);
+  }, [config, page, bookmarks]);
 
   useEffectsInRange();
 
