@@ -2,8 +2,6 @@ import { PayloadAction } from '@reduxjs/toolkit';
 import { Howler } from 'howler';
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 
-import { State as Volume } from 'store/volume/@types';
-
 import { getAudioInstances } from 'utils/effects/audio/getAudioInstances';
 
 import { State } from './@types';
@@ -12,7 +10,7 @@ import { actions } from './slice';
 import { selectors } from './selectors';
 
 function* saveInLocalStorage() {
-  const volume: Volume = yield select(selectors.all);
+  const volume: State = yield select(selectors.all);
 
   const volumeAsJson = JSON.stringify(volume);
 

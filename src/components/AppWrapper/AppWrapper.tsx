@@ -7,7 +7,6 @@ import { Howler } from 'howler';
 
 import { volumeActions } from 'store/volume';
 import { configActions } from 'store/config';
-import { configSelectors } from 'store/config';
 import { mainActions, mainSelectors } from 'store/main';
 import { bookmarksActions, bookmarksSelectors } from 'store/bookmarks';
 import { achievementsActions } from 'store/achievements';
@@ -31,7 +30,6 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const config = useSelector(configSelectors.all);
   const isLoading = useSelector(mainSelectors.isLoading);
   const menuActiveState = useSelector(mainSelectors.menuActiveState);
   const bookmarksIsOpen = useSelector(bookmarksSelectors.isOpen);
@@ -134,10 +132,8 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
     *  что операцию просто не будет успевать срабатывать
     */
     const listener = () => {
-      const configAsJson = JSON.stringify(config);
       const bookmarksAsJson = JSON.stringify(bookmarks);
 
-      localStorage.setItem('config', configAsJson);
       localStorage.setItem('bookmarks', bookmarksAsJson);
 
       if (page !== 0) {
@@ -148,7 +144,7 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
     };
 
     window.addEventListener('beforeunload', listener);
-  }, [config, page, bookmarks]);
+  }, [page, bookmarks]);
 
   useEffectsInRange();
 
