@@ -149,7 +149,7 @@ module.exports = (env = {}, argv) => {
       // пустой publicPath нужен для кордовы. она не может найти bundle.min.js, если его путь начинается с '/'
       publicPath: mobile ? '' : '/',
       path: buildDir,
-      filename: '[name].js',
+      filename: '[name].[contenthash].js',
     },
     target: !isProd ? 'web' : ['web', 'es5'],
     resolve: {
