@@ -1,9 +1,10 @@
-import { achievements as achievementsUtils, Flags } from 'utils/localStorage/achievements';
+import { achievements as achievementsUtils } from 'utils/localStorage/achievements';
 
 import {
   changeBgColor,
   Color,
   dispatchSetAchievement,
+  Flags,
   getLength,
   getRewardedLengthWithoutUnnecessary,
   show,

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
+import { Flags } from 'utils/effects/achievements/utils';
 import { play } from 'utils/effects/achievements';
-import { achievements, Flags } from 'utils/localStorage/achievements';
+import { achievements } from 'utils/localStorage/achievements';
 
 import { createDotsAsArray, getPlaceInLineByLocationStyles, orderDefaultState } from './utils';
 

@@ -7,7 +7,7 @@ import { mainActions, mainSelectors } from 'store/main';
 import { Header } from 'components/Header';
 import { Overflow } from 'components/Overflow';
 
-import { FlagsWithoutHidden, hiddenAchievements, namesVoc, order } from 'utils/localStorage/achievements';
+import { FlagsWithoutHidden, hiddenAchievements, namesVoc, order } from 'utils/effects/achievements/utils';
 
 import { Item, ItemProps } from './Item';
 

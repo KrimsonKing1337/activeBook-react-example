@@ -1,4 +1,4 @@
-import { Flags } from 'utils/localStorage/achievements';
+import { Flags } from 'utils/effects/achievements/utils';
 
 export type Achievement = {
   name: Flags;

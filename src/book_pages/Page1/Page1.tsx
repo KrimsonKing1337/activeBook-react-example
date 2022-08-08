@@ -6,7 +6,7 @@ import { WithModal } from 'components/ColoredTextTrigger/WithModal';
 import { useSound } from 'hooks/effects/audio/sound';
 
 import { play as playAchievement } from 'utils/effects/achievements';
-import { Flags } from 'utils/localStorage/achievements';
+import { Flags } from 'utils/effects/achievements/utils';
 
 export const Page1 = () => {
   useEffect(() => {

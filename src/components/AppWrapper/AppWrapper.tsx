@@ -17,7 +17,8 @@ import { useEffectsInRange } from 'hooks/effects/range';
 
 import { seenPages } from 'utils/localStorage/seenPages';
 import { play as achievementPlay } from 'utils/effects/achievements';
-import { achievements as achievementsUtils, Flags as AchievementsFlags } from 'utils/localStorage/achievements';
+import { achievements as achievementsUtils } from 'utils/localStorage/achievements';
+import { Flags as AchievementsFlags } from 'utils/effects/achievements/utils';
 import { removeCssHover } from 'utils/touch/removeCssHover';
 import { getInitValues } from 'utils/effects/achievements/utils';
 

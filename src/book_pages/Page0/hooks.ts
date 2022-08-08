@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { play as achievementPlay } from 'utils/effects/achievements';
 import { konamiCodeHandler } from 'utils/effects/achievements/konamiCodeHandler';
 import { modalsWereShowed } from 'utils/localStorage/modalsWereShowed';
-import { Flags as AchievementsFlags } from 'utils/localStorage/achievements';
+import { Flags as AchievementsFlags } from 'utils/effects/achievements/utils';
 import { Flags as ModalsFlags } from 'utils/localStorage/modalsWereShowed';
 
 export function useKonamiCode() {

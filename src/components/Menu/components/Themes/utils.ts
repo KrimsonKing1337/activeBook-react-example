@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { Theme } from '@types';
 
 import { play } from 'utils/effects/achievements';
-import { Flags } from 'utils/localStorage/achievements';
+import { Flags } from 'utils/effects/achievements/utils';
 
 import styles from './Themes.scss';
 
