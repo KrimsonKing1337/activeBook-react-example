@@ -115,6 +115,13 @@ export const Page0 = () => {
       <Action fullWidth onClick={clickHandler}>
         {label}
       </Action>
+
+      <br />
+      <br />
+
+      <p>
+        P. S.: Для наилучшего результата рекомендую читать с приглушенным светом, в наушниках и с тёмной темой
+      </p>
     </PageWrapper>
   );
 };
