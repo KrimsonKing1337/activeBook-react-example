@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 
-import { EasterEgg as EasterEggComponent } from 'components';
-
+import { EasterEgg as EasterEggComponent } from 'components/ColoredTextTrigger/EasterEgg';
 import { PageWrapper } from 'components/PageWrapper';
 import { WithModal } from 'components/ColoredTextTrigger/WithModal';
 

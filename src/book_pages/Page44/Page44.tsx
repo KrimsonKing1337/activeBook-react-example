@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { Spoiler } from 'components';
-
+import { Spoiler } from 'components/Spoiler';
 import { PageWrapper } from 'components/PageWrapper';
 import { WithModal } from 'components/ColoredTextTrigger/WithModal';
 import { Img } from 'components/Img';

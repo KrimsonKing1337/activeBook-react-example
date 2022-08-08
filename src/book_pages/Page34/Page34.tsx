@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { ModalDialog } from 'components';
-
+import { ModalDialog } from 'components/ModalDialog';
 import { PageWrapper } from 'components/PageWrapper';
 import { SideText } from 'components/SideEffects/components/SideText';
 import sideTextStyles from 'components/SideEffects/components/SideText/SideText.scss';

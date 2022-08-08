@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { ModalDialog } from 'components';
-
+import { ModalDialog } from 'components/ModalDialog';
 import { PageWrapper } from 'components/PageWrapper';
 import { Action } from 'components/ColoredTextTrigger/Action';
 
