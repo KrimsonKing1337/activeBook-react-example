@@ -8,6 +8,7 @@ import { Achievement } from 'store/achievements/@types';
 import { HowlWrapper } from 'utils/effects/audio/HowlWrapper';
 import {
   achievements as achievementsLocalStorage,
+  allAchievements,
   dontNeededForAllAchievementsReward,
 } from 'utils/localStorage/achievements';
 
@@ -57,4 +58,14 @@ export function getRewardedLengthWithoutUnnecessary() {
   });
 
   return achievementsRewardedForCountingFiltered.length;
+}
+
+export function getInitValues() {
+  const values: Record<string, boolean> = {};
+
+  allAchievements.forEach((achievementCur) => {
+    values[achievementCur] = false;
+  });
+
+  return values;
 }

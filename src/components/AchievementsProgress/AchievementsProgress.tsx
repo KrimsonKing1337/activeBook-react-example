@@ -7,7 +7,7 @@ import { mainActions, mainSelectors } from 'store/main';
 import { Header } from 'components/Header';
 import { Overflow } from 'components/Overflow';
 
-import { FlagsWithoutHidden,  hiddenAchievements, namesVoc, order } from 'utils/localStorage/achievements';
+import { FlagsWithoutHidden, hiddenAchievements, namesVoc, order } from 'utils/localStorage/achievements';
 
 import { Item, ItemProps } from './Item';
 
@@ -28,34 +28,34 @@ export const AchievementsProgress = () => {
   const hiddenLength = useRef(0);
 
   useEffect(() => {
-    if (!achievements) {
-      return;
-    }
-
-    const achievementsWithoutHidden = { ...achievements };
+    const achievementsWithoutHidden = { ...namesVoc };
 
     hiddenLength.current = 0;
 
-    hiddenAchievements.forEach((cur) => {
-      if (!achievements[cur]) {
-        delete achievementsWithoutHidden[cur];
+    if (!achievements) {
+      hiddenLength.current = hiddenAchievements.length;
+    } else {
+      hiddenAchievements.forEach((cur) => {
+        if (!achievements[cur]) {
+          delete achievementsWithoutHidden[cur];
 
-        hiddenLength.current = hiddenLength.current + 1;
-      }
-    });
+          hiddenLength.current = hiddenLength.current + 1;
+        }
+      });
+    }
 
     const newItemsInOrder: Record<number, Items> = {};
 
     Object.keys(achievementsWithoutHidden).forEach((key) => {
       const keyCur = key as FlagsWithoutHidden;
-      const valueCur = achievementsWithoutHidden[keyCur];
+      const status = !!achievements?.[keyCur];
 
       const index = order[keyCur];
 
       newItemsInOrder[index] = {
         key: keyCur,
         title: namesVoc[keyCur],
-        status: valueCur,
+        status,
       };
     });
 

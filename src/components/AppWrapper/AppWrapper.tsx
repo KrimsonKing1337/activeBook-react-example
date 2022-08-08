@@ -19,6 +19,7 @@ import { seenPages } from 'utils/localStorage/seenPages';
 import { play as achievementPlay } from 'utils/effects/achievements';
 import { achievements as achievementsUtils, Flags as AchievementsFlags } from 'utils/localStorage/achievements';
 import { removeCssHover } from 'utils/touch/removeCssHover';
+import { getInitValues } from 'utils/effects/achievements/utils';
 
 import styles from './AppWrapper.scss';
 
@@ -94,7 +95,6 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
   useEffect(() => {
     const configAsJson = localStorage.getItem('config');
     const volumeAsJson = localStorage.getItem('volume');
-    const achievements = achievementsUtils.getAll();
 
     if (!configAsJson || !volumeAsJson) {
       return;
@@ -105,6 +105,17 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
 
     dispatch(configActions.setAll(config));
     dispatch(volumeActions.setAll(volume));
+  }, []);
+
+  useEffect(() => {
+    let achievements = achievementsUtils.getAll();
+
+    if (!achievements) {
+      achievementsUtils.init();
+
+      achievements = getInitValues();
+    }
+
     dispatch(achievementsActions.setAll(achievements));
   }, []);
 

@@ -1,3 +1,5 @@
+import { getInitValues } from 'utils/effects/achievements/utils';
+
 import { encryptStorage } from './encryptStorage';
 
 const key = 'achievements';
@@ -78,22 +80,18 @@ function getAll() {
 function set(name: Flags, value: boolean) {
   const values = encryptStorage.getItem(key);
 
-  let newValues: Record<string, boolean> = {};
+  values[name] = value;
 
-  allAchievements.forEach((achievementCur) => {
-    newValues[achievementCur] = false;
-  });
-
-  if (values) {
-    newValues = values;
-  }
-
-  newValues[name] = value;
-
-  encryptStorage.setItem(key, newValues);
+  encryptStorage.setItem(key, values);
 }
 
 function setAll(values: Record<Flags, boolean>) {
+  encryptStorage.setItem(key, values);
+}
+
+function init() {
+  const values = getInitValues();
+
   encryptStorage.setItem(key, values);
 }
 
@@ -103,4 +101,5 @@ export const achievements = {
   get,
   getAll,
   key,
+  init,
 };
