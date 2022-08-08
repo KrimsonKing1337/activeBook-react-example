@@ -10,8 +10,11 @@ import { useVibration } from 'hooks/effects/vibration';
 
 import { goToPage } from 'utils/control/goToPage';
 import { Flags, modalsWereShowed } from 'utils/localStorage/modalsWereShowed';
+import { getIsMobile } from 'utils/mobile/getIsMobile';
 
 import { useKonamiCode, useModal } from './hooks';
+
+const isMobile = getIsMobile();
 
 export const Page0 = () => {
   const [lastPage, setLastPage] = useState(0);
@@ -65,7 +68,7 @@ export const Page0 = () => {
   const clickHandler = () => {
     const isModalWasShowed = modalsWereShowed.get(Flags.usingCamera);
 
-    if (isModalWasShowed) {
+    if (!isMobile || isModalWasShowed) {
       go();
 
       return;
@@ -78,31 +81,33 @@ export const Page0 = () => {
 
   return (
     <PageWrapper>
-      <ModalDialog
-        isOpen={modalIsActive}
-        onClose={modalCloseHandler}
-        onConfirm={modalCloseHandler}
-        onCancel={modalCloseHandler}
-        canFullScreen={true}
-        showCancelButton={false}
-      >
-        <div>
-          <header>
-            ОБРАТИТЕ ВНИМАНИЕ
-          </header>
+      {isMobile && (
+        <ModalDialog
+          isOpen={modalIsActive}
+          onClose={modalCloseHandler}
+          onConfirm={modalCloseHandler}
+          onCancel={modalCloseHandler}
+          canFullScreen={true}
+          showCancelButton={false}
+        >
+          <div>
+            <header>
+              ОБРАТИТЕ ВНИМАНИЕ
+            </header>
 
-          <article>
-            <p>
-              Для работы эффектов на основе вспышки, приложению необходимо получить разрешение к камере
-              (к сожалению, нет возможности запросить разрешение только ко вспышке).
-            </p>
+            <article>
+              <p>
+                Для работы эффектов на основе вспышки, приложению необходимо получить разрешение к камере
+                (к сожалению, нет возможности запросить разрешение только ко вспышке).
+              </p>
 
-            <p>
-              Вы всегда можете запросить разрешение ещё раз, в меню приложения
-            </p>
-          </article>
-        </div>
-      </ModalDialog>
+              <p>
+                Вы всегда можете запросить разрешение ещё раз, в меню приложения
+              </p>
+            </article>
+          </div>
+        </ModalDialog>
+      )}
 
       <header>
         По ту сторону изгороди
