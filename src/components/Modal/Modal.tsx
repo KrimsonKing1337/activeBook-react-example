@@ -20,7 +20,9 @@ export type ModalProps = {
   onClose?: Func;
   mode?: ModalMode;
   canFullScreen?: boolean;
+  fullScreenDefault?: boolean;
   canCrop?: boolean;
+  cropDefault?: boolean;
 };
 
 export const Modal = ({
@@ -29,7 +31,9 @@ export const Modal = ({
   isOpen,
   mode = 'text',
   canFullScreen = false,
+  fullScreenDefault = false,
   canCrop = false,
+  cropDefault = true,
 }: ModalProps) => {
   const history = useHistory();
 
@@ -38,8 +42,8 @@ export const Modal = ({
   const isCropRef = useRef(true);
   const isZoomingRef = useRef(false);
 
-  const [isFullScreen, setIsFullScreen] = useState(false);
-  const [isCrop, setIsCrop] = useState(true);
+  const [isFullScreen, setIsFullScreen] = useState(fullScreenDefault);
+  const [isCrop, setIsCrop] = useState(cropDefault);
   const [componentUuid, setComponentUuid] = useState('');
 
   const overflowRef = useRef<HTMLDivElement>(null);

@@ -86,6 +86,7 @@ export const WithModal = ({
         onClose={() => setIsActive(false)}
         mode={mode}
         canCrop
+        cropDefault={false}
         canFullScreen
       >
         {children}
