@@ -31,6 +31,7 @@ module.exports = (env = {}, argv) => {
     new HtmlWebpackPlugin({
       template: './public/index.ejs',
       isMobile: !!mobile,
+      isProd,
     }),
     new CopyWebpackPlugin({
       patterns: [
