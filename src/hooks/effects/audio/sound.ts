@@ -18,6 +18,7 @@ type UseSoundProps = {
   delay?: number;
   screamer?: boolean;
   onPlay?: () => void;
+  onUnmount?: () => void;
 };
 
 export function useSound({
@@ -31,6 +32,7 @@ export function useSound({
   delay = 0,
   screamer = false,
   onPlay = () => {},
+  onUnmount = () => {},
 }: UseSoundProps) {
   const dispatch = useDispatch();
 
@@ -51,6 +53,10 @@ export function useSound({
     const howlInst = new HowlWrapper(opt);
 
     dispatch(soundEffectsActions.setSound(howlInst));
+
+    return () => {
+      onUnmount();
+    };
   }, []);
 
   useEffect(() => {
@@ -63,8 +69,6 @@ export function useSound({
     if (playOnLoad) {
       timer = setTimeout(() => {
         soundInst.play();
-
-        onPlay();
       }, delay);
     }
 

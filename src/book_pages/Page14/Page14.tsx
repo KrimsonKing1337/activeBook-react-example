@@ -1,33 +1,22 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
 
 import { useSound } from 'hooks/effects/audio/sound';
 import { useVibration } from 'hooks/effects/vibration';
 
-import { sleep } from 'utils/sleep';
-
 export const Page14 = () => {
-  const audioInst = useSound({
+  const { vibrationOn } = useVibration();
+
+  useSound({
     src: '/assets/book_data/audios/sounds/shotgun-shot.mp3',
     oneShot: true,
     playOnLoad: true,
     delay: 600,
-  });
-
-  const { vibrationOn } = useVibration();
-
-  useEffect(() => {
-    if (!audioInst) {
-      return;
-    }
-
-    (async () => {
-      await sleep(97);
-
+    onPlay: () => {
       vibrationOn(250);
-    })();
-  }, [audioInst]);
+    },
+  });
 
   return (
     <PageWrapper>

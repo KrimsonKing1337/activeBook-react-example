@@ -22,18 +22,17 @@ export const Page0 = () => {
   useKonamiCode();
 
   const { modalIsActive, modalOnClose, setModalIsActive } = useModal();
+  const { flashlightOn } = useFlashlight();
+  const { vibrationOn } = useVibration();
 
   const audioInst = useSound({
     src: '/assets/book_data/audios/sounds/sword.mp3',
     fadeOutWhenUnload: false,
+    onPlay() {
+      vibrationOn(1000);
+      flashlightOn(1000);
+    },
   });
-
-  const { flashlightOff, flashlightOn } = useFlashlight();
-  const { vibrationOn } = useVibration();
-
-  useEffect(() => {
-    return () => flashlightOff();
-  }, []);
 
   useEffect(() => {
     const lastPageAsJSON = localStorage.getItem('lastPage');
@@ -46,10 +45,6 @@ export const Page0 = () => {
   }, []);
 
   const go = async () => {
-    flashlightOn();
-
-    vibrationOn(1000);
-
     await audioInst?.play();
 
     const pageToGo = lastPage > 0 ? lastPage : 1;
@@ -61,8 +56,6 @@ export const Page0 = () => {
     modalOnClose();
 
     go();
-
-    flashlightOff();
   };
 
   const clickHandler = () => {

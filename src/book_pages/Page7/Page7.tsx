@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { EasterEgg as EasterEggComponent } from 'components/ColoredTextTrigger/EasterEgg';
 import { PageWrapper } from 'components/PageWrapper';
@@ -9,10 +9,15 @@ import { useVibration } from 'hooks/effects/vibration';
 import { useMusic } from 'hooks/effects/audio/music';
 
 export const Page7 = () => {
+  const { vibrationOn } = useVibration();
+
   useSound({
     src: '/assets/book_data/audios/sounds/notification.mp3',
     playOnLoad: true,
     oneShot: true,
+    onPlay() {
+      vibrationOn(500);
+    },
   });
 
   const music = useMusic({
@@ -20,12 +25,6 @@ export const Page7 = () => {
     loop: false,
     playOnLoad: false,
   });
-
-  const { vibrationOn } = useVibration();
-
-  useEffect(() => {
-    vibrationOn(500);
-  }, []);
 
   const EasterEgg = (
     <EasterEggComponent onClick={() => music?.play()} id="page-7">

@@ -1,4 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+
+import { Timer } from '@types';
 
 import { PageWrapper } from 'components/PageWrapper';
 import { WithModal } from 'components/ColoredTextTrigger/WithModal';
@@ -6,23 +8,25 @@ import { WithModal } from 'components/ColoredTextTrigger/WithModal';
 import { useSound } from 'hooks/effects/audio/sound';
 import { useVibration } from 'hooks/effects/vibration';
 
+let timer: Timer = null;
+
 export const Page9 = () => {
+  const { vibrationOn } = useVibration();
+
   useSound({
     src: '/assets/book_data/audios/sounds/Gagarin-and-rocket-start.mp3',
     playOnLoad: true,
+    onPlay() {
+      timer = setTimeout(() => {
+        vibrationOn(53000);
+      }, 8352);
+    },
+    onUnmount() {
+      if (timer) {
+        clearTimeout(timer);
+      }
+    },
   });
-
-  const { vibrationOn } = useVibration();
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      vibrationOn(53000);
-    }, 8352);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, []);
 
   const Comment = (
     <WithModal text="«прыжок в гиперпространство»." triggerType="author" mode="text">

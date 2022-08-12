@@ -1,21 +1,36 @@
 import React from 'react';
 
+import { Interval } from '@types';
+
 import { PageWrapper } from 'components/PageWrapper';
 import { WithModal } from 'components/ColoredTextTrigger/WithModal';
 
 import { useSound } from 'hooks/effects/audio/sound';
+import { useVibration } from 'hooks/effects/vibration';
 
-import { useLoopedVibration } from './hooks';
+let interval: Interval = null;
 
 export const Page27 = () => {
+  const { vibrationOn } = useVibration();
+
   useSound({
     src: '/assets/book_data/audios/sounds/cosmos-impacts.mp3',
     loop: true,
     playOnLoad: true,
     bg: true,
-  });
+    onPlay() {
+      vibrationOn(300);
 
-  useLoopedVibration();
+      interval = setInterval(() => {
+        vibrationOn(300);
+      }, 1093);
+    },
+    onUnmount() {
+      if (interval) {
+        clearInterval(interval);
+      }
+    },
+  });
 
   const Comment1 = (
     <WithModal text="В космосе не было звуков," triggerType="author" mode="text">
