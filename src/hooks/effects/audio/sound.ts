@@ -17,6 +17,7 @@ type UseSoundProps = {
   stopBy?: number;
   delay?: number;
   screamer?: boolean;
+  onPlay?: () => void;
 };
 
 export function useSound({
@@ -29,6 +30,7 @@ export function useSound({
   stopBy = 0,
   delay = 0,
   screamer = false,
+  onPlay = () => {},
 }: UseSoundProps) {
   const dispatch = useDispatch();
 
@@ -39,6 +41,7 @@ export function useSound({
       src: [src],
       loop,
       screamer,
+      onPlay,
     };
 
     if (bg) {
@@ -60,6 +63,8 @@ export function useSound({
     if (playOnLoad) {
       timer = setTimeout(() => {
         soundInst.play();
+
+        onPlay();
       }, delay);
     }
 

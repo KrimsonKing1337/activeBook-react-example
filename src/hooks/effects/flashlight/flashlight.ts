@@ -8,7 +8,7 @@ import { useSideShadow } from 'hooks/effects/side/shadow';
 import { off as flashlightOff, on as flashlightOn } from 'utils/effects/flashlight';
 import { sleep } from 'utils/sleep';
 
-export function useFlashlight(withSideShadow = false) {
+export function useFlashlight(withSideShadow = false, speed = 150) {
   const isFlashlightAvailable = useSelector(mainSelectors.isFlashlightAvailable);
   const theme = useSelector(configSelectors.theme);
 
@@ -18,7 +18,7 @@ export function useFlashlight(withSideShadow = false) {
   const { sideShadowOn, sideShadowOff } = useSideShadow({
     color,
     isActiveDefault: false,
-    speed: 150,
+    speed,
   });
 
   const on = async (duration?: number) => {
