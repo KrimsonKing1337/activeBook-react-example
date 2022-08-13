@@ -23,7 +23,7 @@ export const Page27 = () => {
 
       interval = setInterval(() => {
         vibrationOn(300);
-      }, 1093);
+      }, 1102);
     },
     onUnmount() {
       if (interval) {

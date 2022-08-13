@@ -18,8 +18,8 @@ export const Page9 = () => {
     playOnLoad: true,
     onPlay() {
       timer = setTimeout(() => {
-        vibrationOn(53000);
-      }, 8352);
+        vibrationOn(8380);
+      }, 8627);
     },
     onUnmount() {
       if (timer) {
