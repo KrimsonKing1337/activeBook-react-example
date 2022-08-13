@@ -95,9 +95,9 @@ export class HowlWrapper {
         resolve();
       });
 
-      this.howlInst.play();
+      this.howlInst.once('play', this.onPlay);
 
-      this.onPlay();
+      this.howlInst.play();
     });
   }
 
