@@ -12,27 +12,26 @@ import { getEffectInRange } from 'utils/effects/rangeEffects';
 export function useAudioInRange() {
   const dispatch = useDispatch();
 
-  const [soundInRange, setSoundInRange] = useState<AudioRangeEffect>();
+  const [soundInRange, setSoundInRange] = useState<AudioRangeEffect | null>(null);
 
   const page = useSelector(mainSelectors.page);
   const soundInst = useSelector(soundBgEffectsSelectors.soundInst);
 
   useEffect(() => {
-    const soundInRange: AudioRangeEffect = getEffectInRange(page, 'bg');
+    const soundOnPage: AudioRangeEffect = getEffectInRange(page, 'bg');
 
-    if (!soundInRange) {
+    if (!soundOnPage) {
       soundInst?.unload(true);
 
-      setSoundInRange(undefined);
-
+      setSoundInRange(null);
       dispatch(soundBgEffectsActions.setSound(null));
 
       return;
     }
 
-    setSoundInRange(soundInRange);
+    setSoundInRange(soundOnPage);
 
-    const { src, id } = soundInRange;
+    const { src, id } = soundOnPage;
 
     if (soundInst?.id === id) {
       return;
