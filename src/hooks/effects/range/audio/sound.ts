@@ -23,6 +23,8 @@ export function useAudioInRange() {
     if (!soundInRange) {
       soundInst?.unload(true);
 
+      setSoundInRange(undefined);
+
       dispatch(soundBgEffectsActions.setSound(null));
 
       return;

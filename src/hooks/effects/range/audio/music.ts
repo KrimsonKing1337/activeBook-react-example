@@ -23,6 +23,8 @@ export function useMusicInRange() {
     if (!musicInRange) {
       musicInst?.unload(true);
 
+      setMusicInRange(undefined);
+
       dispatch(musicEffectsActions.setMusic(null));
 
       return;
