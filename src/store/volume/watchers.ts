@@ -25,10 +25,10 @@ export function* watchSetAll(action: PayloadAction<State>) {
     Howler.volume(global / 100);
   });
 
-  yield put(actions.setGlobal(global || 100));
-  yield put(actions.setSfx(sfx || 100));
-  yield put(actions.setMusic(music || 100));
-  yield put(actions.setBg(bg || 100));
+  yield put(actions.setGlobal(global));
+  yield put(actions.setSfx(sfx));
+  yield put(actions.setMusic(music));
+  yield put(actions.setBg(bg));
 }
 
 export function* watchSetGlobal(action: PayloadAction<State['global']>) {
