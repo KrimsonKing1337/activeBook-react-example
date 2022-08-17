@@ -10,7 +10,6 @@ export const Page14 = () => {
 
   useSound({
     src: '/assets/book_data/audios/sounds/shotgun-shot.mp3',
-    oneShot: true,
     playOnLoad: true,
     delay: 600,
     onPlay: () => {

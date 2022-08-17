@@ -14,7 +14,6 @@ export const Page7 = () => {
   useSound({
     src: '/assets/book_data/audios/sounds/notification.mp3',
     playOnLoad: true,
-    oneShot: true,
     onPlay() {
       vibrationOn(500);
     },

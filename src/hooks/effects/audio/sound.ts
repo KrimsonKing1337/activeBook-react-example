@@ -11,7 +11,6 @@ type UseSoundProps = {
   src: string;
   fadeOutWhenUnload?: boolean;
   bg?: boolean;
-  oneShot?: boolean;
   loop?: boolean;
   playOnLoad?: boolean;
   stopBy?: number;
@@ -25,7 +24,6 @@ export function useSound({
   src,
   fadeOutWhenUnload = true,
   bg = false,
-  oneShot = false,
   loop = false,
   playOnLoad = false,
   stopBy = 0,
@@ -84,7 +82,9 @@ export function useSound({
       }
 
       (async () => {
-        if (oneShot) {
+        const dur = parseFloat(soundInst.howlInst.duration().toFixed(1));
+
+        if (dur < 1.2) {
           await soundInst.waitTillTheEnd();
         }
 

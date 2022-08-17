@@ -9,7 +9,6 @@ export const Page32 = () => {
   useSound({
     src: '/assets/book_data/audios/sounds/spacedoor-open.mp3',
     playOnLoad: true,
-    oneShot: true,
   });
 
   const Comment1 = (
