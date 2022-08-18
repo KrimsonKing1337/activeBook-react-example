@@ -6,13 +6,13 @@ import { WithModal } from 'components/ColoredTextTrigger/WithModal';
 import { Img } from 'components/Img';
 
 export const Page44 = () => {
-  const EasterEgg = (
-    <WithModal text="Олег Шилов" triggerType="egg" eggId="page-44">
+  const Action1 = (
+    <WithModal text="Олег Шилов" triggerType="action">
       <Img src="/assets/book_data/gifs/Kojima.gif" />
     </WithModal>
   );
 
-  const Action = (
+  const Action2 = (
     <WithModal text="Дасти" triggerType="action">
       <Img src="/assets/book_data/images/Dusty.jpg" />
     </WithModal>
@@ -27,7 +27,7 @@ export const Page44 = () => {
       <br />
 
       <p>
-        Сценарий, программирование, контент, менеджмент: {EasterEgg}
+        Сценарий, программирование, контент, менеджмент: {Action1}
       </p>
       <p>
         UI / UX: Гордей Переходов
@@ -36,7 +36,7 @@ export const Page44 = () => {
         Редактура: Максим Авраменко и Катерина Салдаева
       </p>
       <p>
-        Любимый кот: {Action}
+        Любимый кот: {Action2}
       </p>
       <p>
         Большое спасибо: маме, папе, друзьям. Вы всегда верили в меня и эту идею

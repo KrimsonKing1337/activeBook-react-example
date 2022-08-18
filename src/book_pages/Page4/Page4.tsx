@@ -1,10 +1,9 @@
 import React from 'react';
 
 import { PageWrapper } from 'components/PageWrapper';
-import { EasterEgg as EasterEggComponent } from 'components/ColoredTextTrigger/EasterEgg';
+import { WithModal } from 'components/ColoredTextTrigger/WithModal';
 
 import { useSound } from 'hooks/effects/audio/sound';
-import { useMusic } from 'hooks/effects/audio/music';
 
 export const Page4 = () => {
   useSound({
@@ -12,16 +11,11 @@ export const Page4 = () => {
     playOnLoad: true,
   });
 
-  const music = useMusic({
-    src: '/assets/book_data/audios/music/carpet-helicopter.mp3',
-    loop: false,
-    playOnLoad: false,
-  });
-
-  const EasterEgg = (
-    <EasterEggComponent onClick={() => music?.play()} id="page-4">
-      заглянуть за
-    </EasterEggComponent>
+  const Comment1 = (
+    <WithModal text="заглянуть за" triggerType="author" mode="text">
+      Таким было первоначальное название этого мини-рассказа.
+      Взял я эту строчку из песни группы Агата Кристи - Ковёр-вертолёт
+    </WithModal>
   );
 
   return (
@@ -32,7 +26,7 @@ export const Page4 = () => {
       </p>
       <p>
         С другой стороны, восхищение и гордость одолевали его до сих пор. Достижения наших
-        учёных всё же потрясают. Не каждый день человек летит {EasterEgg} границы вселенной. А
+        учёных всё же потрясают. Не каждый день человек летит {Comment1} границы вселенной. А
         ведь совсем недавно люди жили лишь на Земле и не знали, как добраться до ближайших
         экзопланет. Да-а, технический прогресс не стоит на месте. И глядя вокруг себя невольно
         улыбаешься от того, что человечество смогло создать.

@@ -4,15 +4,10 @@ import { PageWrapper } from 'components/PageWrapper';
 import { EasterEgg as EasterEggComponent } from 'components/ColoredTextTrigger/EasterEgg';
 import { WithModal } from 'components/ColoredTextTrigger/WithModal';
 
-import { useSound } from 'hooks/effects/audio/sound';
 import { useMusic } from 'hooks/effects/audio/music';
 import { useSideShadow } from 'hooks/effects/side/shadow';
 
 export const Page40 = () => {
-  const sound = useSound({
-    src: '/assets/book_data/audios/sounds/valhalla.mp3',
-  });
-
   const music = useMusic({
     src: '/assets/book_data/audios/music/caramelldansen.mp3',
     playOnLoad: false,
@@ -25,19 +20,13 @@ export const Page40 = () => {
     isActiveDefault: false,
   });
 
-  const EasterEgg1 = (
-    <EasterEggComponent onClick={() => sound?.play()} id="page-40.1">
-      на Вальгаллу
-    </EasterEggComponent>
-  );
-
   const easterEgg2OnClickHandler = () => {
     music?.play();
     sideShadowOn();
   };
 
-  const EasterEgg2 = (
-    <EasterEggComponent onClick={easterEgg2OnClickHandler} id="page-40.2">
+  const EasterEgg = (
+    <EasterEggComponent onClick={easterEgg2OnClickHandler} id="page-40">
       диско-шар
     </EasterEggComponent>
   );
@@ -83,7 +72,7 @@ export const Page40 = () => {
         проводить время - ответил Александр.
       </p>
       <p>
-        — Типа в Рай? - уточнил Егор. Вообще, описанием больше походило {EasterEgg1}, но он не стал это произносить.
+        — Типа в Рай? - уточнил Егор. Вообще, описанием больше походило на Вальгаллу, но он не стал это произносить.
       </p>
       <p>
         — Так мою комнату ещё никто не называл. Но да, иногда там действительно как в Раю, — усмехнулся Создатель и
@@ -96,7 +85,7 @@ export const Page40 = () => {
       </p>
       <p>
         — Всё не так сложно, как тебе кажется. Не бери в голову, мой друг. Пойдём же. Я знаю, что поможет поднять тебе
-        настроение. Там даже {EasterEgg2} есть!
+        настроение. Там даже {EasterEgg} есть!
       </p>
     </PageWrapper>
   );
