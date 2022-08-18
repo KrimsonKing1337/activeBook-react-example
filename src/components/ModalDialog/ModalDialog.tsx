@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 
 import { Modal, ModalProps } from 'components/Modal';
 
@@ -11,7 +11,6 @@ export type ModalDialogProps = ModalProps & {
   showCancelButton?: boolean;
   onConfirm: Func;
   onCancel: Func;
-  children: React.ReactNode;
 }
 
 const defaultFunc = () => {};
@@ -24,7 +23,7 @@ export const ModalDialog = ({
   onCancel = defaultFunc,
   children,
   ...rest
-}: ModalDialogProps) => {
+}: PropsWithChildren<ModalDialogProps>) => {
   const buttonOkClickHandler = () => onConfirm();
   const buttonCancelClickHandler = () => onCancel();
   const closeHandler = () => {

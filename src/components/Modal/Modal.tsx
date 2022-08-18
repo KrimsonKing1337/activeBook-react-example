@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { PropsWithChildren, useEffect, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import Hammer from 'hammerjs';
@@ -14,7 +14,6 @@ type Func = () => void;
 type ModalMode = 'media' | 'text';
 
 export type ModalProps = {
-  children: React.ReactNode;
   isOpen: boolean;
   onOpen?: Func;
   onClose?: Func;
@@ -34,7 +33,7 @@ export const Modal = ({
   fullScreenDefault = false,
   canCrop = false,
   cropDefault = true,
-}: ModalProps) => {
+}: PropsWithChildren<ModalProps>) => {
   const history = useHistory();
 
   // здесь реф-версии нужны для хаммера, обычные для того чтобы ре-рендер срабатывал

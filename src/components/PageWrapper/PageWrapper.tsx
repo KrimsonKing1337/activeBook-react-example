@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import { useSelector } from 'react-redux';
 
 import classNames from 'classnames';
@@ -19,12 +19,11 @@ import { Narrative } from './components/Narrative';
 import styles from './PageWrapper.scss';
 
 export type PageWrapperProps = {
-  children: React.ReactNode;
   withoutToolbar?: boolean;
   sbMode?: boolean;
 };
 
-export const PageWrapper = ({ children, withoutToolbar, sbMode }: PageWrapperProps) => {
+export const PageWrapper = ({ children, withoutToolbar, sbMode }: PropsWithChildren<PageWrapperProps>) => {
   const inverseColorIsActive = useSelector(effectsSelectors.inverseColorIsActive);
   const isLoading = useSelector(mainSelectors.isLoading);
 

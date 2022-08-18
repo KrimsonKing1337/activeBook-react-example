@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 
 import Hammer from 'hammerjs';
 import classNames from 'classnames';
@@ -10,7 +10,6 @@ import styles from './SlideShow.scss';
 type SlideShowMode = 'modal' | null;
 
 export type SlideShowProp = {
-  children: React.ReactNode;
   isVisible?: boolean;
   isWithoutBorders?: boolean,
   mode?: SlideShowMode;
@@ -24,7 +23,7 @@ type SlideShowState = {
 };
 
 // пришлось переписать компонент на классовый, чтобы Hammer не дёргался на "каждый чих". см SlideShowOnHooks.tsx
-export class SlideShow extends React.Component<SlideShowProp, SlideShowState> {
+export class SlideShow extends React.Component<PropsWithChildren<SlideShowProp>, SlideShowState> {
   static defaultProps = {
     isVisible: false,
     isWithoutBorders: false,

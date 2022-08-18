@@ -1,11 +1,7 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import { initialState } from 'store/main/slice';
-
-type RoutesProps = {
-  children: React.ReactNode;
-};
 
 // todo: сделать все страницы либо через ленивую загрузку, либо по-обычному
 // todo: в кордове проблемы с подгрузкой компонента через ленивую загрузку
@@ -25,7 +21,7 @@ const getPageComponents = () => {
   return arr;
 };
 
-export const Routes = ({ children }: RoutesProps) => {
+export const Routes = ({ children }: PropsWithChildren<unknown>) => {
   const pageComponents = getPageComponents();
 
   return (

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import { useSelector } from 'react-redux';
 
 import { achievementsSelectors } from 'store/achievements';
@@ -8,10 +8,9 @@ import styles from './AuthorComment.scss';
 
 export type ActionProps = {
   [name: string]: any;
-  children: React.ReactNode;
 };
 
-export const AuthorComment = ({ children, ...props }: ActionProps) => {
+export const AuthorComment = ({ children, ...props }: PropsWithChildren<ActionProps>) => {
   const achievements = useSelector(achievementsSelectors.achievements);
   const authorCommentsIsOn = useSelector(configSelectors.authorComments);
 

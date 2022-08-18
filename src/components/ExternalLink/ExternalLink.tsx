@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 
 import styles from './ExternalLink.scss';
 
 export type ExternalLinkProps = {
   href: string;
-  children: React.ReactNode;
 }
 
-export const ExternalLink = ({ href, children }: ExternalLinkProps) => {
+export const ExternalLink = ({ href, children }: PropsWithChildren<ExternalLinkProps>) => {
   return (
     <a
       href={href}

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { PropsWithChildren, useEffect, useRef, useState } from 'react';
 
 import { Modal as ModalComponent, ModalProps } from 'components/Modal';
 import { Action } from 'components/ColoredTextTrigger/Action';
@@ -10,7 +10,6 @@ import styles from './WithModal.scss';
 export type TriggerType = 'action' | 'author' | 'egg';
 
 export type ModalWithVideoEasterEggProps = {
-  children: any; // todo: убрать any
   mode?: ModalProps['mode'];
   text: string;
   triggerType: TriggerType;
@@ -23,7 +22,7 @@ export const WithModal = ({
   text,
   triggerType,
   eggId,
-}: ModalWithVideoEasterEggProps) => {
+}: PropsWithChildren<ModalWithVideoEasterEggProps>) => {
   const [isActive, setIsActive] = useState(false);
 
   const wrapperRef = useRef<HTMLDivElement>(null);

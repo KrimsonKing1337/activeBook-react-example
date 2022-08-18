@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { PropsWithChildren, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 
 import classNames from 'classnames';
@@ -10,11 +10,10 @@ import { getNarrativeElement } from 'components/PageWrapper/components/Narrative
 import styles from './Overflow.scss';
 
 export type OverflowProps = {
-  children: React.ReactNode;
   isOpen: boolean;
 };
 
-export const Overflow = ({ children, isOpen }: OverflowProps) => {
+export const Overflow = ({ children, isOpen }: PropsWithChildren<OverflowProps>) => {
   const dispatch = useDispatch();
 
   const overflowRef = useRef<HTMLDivElement>(null);

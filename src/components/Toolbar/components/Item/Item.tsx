@@ -1,16 +1,15 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 
 import classNames from 'classnames';
 
 import styles from './Item.scss';
 
 export type ItemProps = {
-  children: JSX.Element | string;
   className?: string;
   [key: string]: any;
 };
 
-export const Item = ({ children, className, ...rest }: ItemProps) => {
+export const Item = ({ children, className, ...rest }: PropsWithChildren<ItemProps>) => {
   const itemClassNames = classNames([
     styles.item,
     className,

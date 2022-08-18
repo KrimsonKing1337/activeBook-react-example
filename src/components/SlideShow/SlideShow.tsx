@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { PropsWithChildren, useEffect, useRef, useState } from 'react';
 
 import Hammer from 'hammerjs';
 import classNames from 'classnames';
@@ -10,7 +10,6 @@ import styles from './SlideShow.scss';
 type SlideShowMode = 'modal' | null;
 
 export type SlideShowProps = {
-  children: React.ReactNode;
   isVisible?: boolean;
   isWithoutBorders?: boolean,
   mode?: SlideShowMode;
@@ -23,7 +22,7 @@ export const SlideShow = ({
   mode = null,
   isWithoutBorders = false,
   onSlideChange = () => {},
-}: SlideShowProps) => {
+}: PropsWithChildren<SlideShowProps>) => {
   const childrenAsArray = React.Children.toArray(children);
 
   // один slideIndex нужен для хаммера, другой для того чтобы useEffect срабатывал

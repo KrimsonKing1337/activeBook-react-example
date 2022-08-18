@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 
 import Hammer from 'hammerjs';
@@ -17,7 +17,6 @@ type Func = () => void;
 type ModalMode = 'media' | 'text';
 
 export type ModalProps = {
-  children: React.ReactNode;
   isOpen: boolean;
   onOpen?: Func;
   onClose?: Func;
@@ -42,7 +41,7 @@ type DefaultProps = {
   hideCropButton: boolean;
 };
 
-class ModalComponent extends React.Component<Props, ModalState> {
+class ModalComponent extends React.Component<PropsWithChildren<Props>, ModalState> {
   static defaultProps: DefaultProps = {
     mode: 'text',
     hideExpandButton: false,

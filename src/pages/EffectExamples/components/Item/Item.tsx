@@ -1,12 +1,8 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 
 import styles from './Item.scss';
 
-type ItemProps = {
-  children: React.ReactNode;
-};
-
-export const Item = ({ children }: ItemProps) => {
+export const Item = ({ children }: PropsWithChildren<unknown>) => {
   return (
     <div className={styles.item}>
       {children}

@@ -1,12 +1,8 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 
 import styles from './SideText.scss';
 
-export type SideTextProps = {
-  children: React.ReactNode
-};
-
-export const SideText = ({ children }: SideTextProps) => {
+export const SideText = ({ children }: PropsWithChildren<unknown>) => {
   const childrenAsArray = React.Children.toArray(children);
 
   if (childrenAsArray.length !== 2) {

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { PropsWithChildren, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 
 import Hammer from 'hammerjs';
@@ -11,7 +11,7 @@ import { goNextPage, goPrevPage } from 'utils/control/goToPage';
 
 import styles from './Narrative.scss';
 
-export const Narrative = ({ children }: PageWrapperProps) => {
+export const Narrative = ({ children }: PropsWithChildren<PageWrapperProps>) => {
   const fontSize = useSelector(configSelectors.fontSize);
   const lineHeight = useSelector(configSelectors.lineHeight);
 

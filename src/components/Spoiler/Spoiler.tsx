@@ -1,9 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { PropsWithChildren, useEffect, useRef, useState } from 'react';
 
 import styles from './Spoiler.scss';
 
 export type SpoilerProps = {
-  children: React.ReactNode;
   label?: string;
   needToSetHeight?: boolean;
   setNeedToSetHeightToFalse?: () => void;
@@ -16,7 +15,7 @@ export const Spoiler = ({
   needToSetHeight = false,
   setNeedToSetHeightToFalse = () => {},
   ...rest
-} : SpoilerProps) => {
+} : PropsWithChildren<SpoilerProps>) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const contentRef = useRef<HTMLDivElement>(null);

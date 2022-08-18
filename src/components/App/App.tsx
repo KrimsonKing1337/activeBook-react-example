@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { PropsWithChildren, useEffect } from 'react';
 import { Provider } from 'react-redux';
 
 import { ConnectedRouter } from 'connected-react-router';
@@ -11,11 +11,7 @@ import { addKeyboardControl } from 'utils/control/keyboardControl';
 
 import { Routes } from './Routes';
 
-type AppProps = {
-  children: React.ReactNode;
-};
-
-export const App = ({ children }: AppProps) => {
+export const App = ({ children }: PropsWithChildren<unknown>) => {
   useEffect(() => {
     // addTouchSupportForCssHover(); // вместо этого просто "удаляю" :hover везде, возможно так и оставлю
     addKeyboardControl();

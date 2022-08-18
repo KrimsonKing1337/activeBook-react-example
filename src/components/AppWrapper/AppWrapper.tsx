@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { PropsWithChildren, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
@@ -24,11 +24,7 @@ import { getInitValues } from 'utils/effects/achievements/utils';
 
 import styles from './AppWrapper.scss';
 
-type AppWrapperProps = {
-  children: React.ReactNode;
-};
-
-export const AppWrapper = ({ children }: AppWrapperProps) => {
+export const AppWrapper = ({ children }: PropsWithChildren<unknown>) => {
   const dispatch = useDispatch();
   const history = useHistory();
 

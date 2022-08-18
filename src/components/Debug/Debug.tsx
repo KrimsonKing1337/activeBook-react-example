@@ -1,12 +1,8 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 
 import styles from './Debug.scss';
 
-export type DebugProps = {
-  children: React.ReactNode;
-};
-
-export const Debug = ({ children }: DebugProps) => {
+export const Debug = ({ children }: PropsWithChildren<unknown>) => {
   return (
     <div className={styles.debug}>
       {children}

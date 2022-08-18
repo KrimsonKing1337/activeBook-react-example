@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import { useSelector } from 'react-redux';
 
 import { mainSelectors } from 'store/main';
@@ -12,11 +12,10 @@ import styles from './EasterEgg.scss';
 export type EasterEggProps = {
   [key: string]: any;
   id: string;
-  children: React.ReactNode;
   onClick: () => void;
 };
 
-export const EasterEgg = ({ id, children, onClick, ...rest }: EasterEggProps) => {
+export const EasterEgg = ({ id, children, onClick, ...rest }: PropsWithChildren<EasterEggProps>) => {
   const easterEggsLength = useSelector(mainSelectors.easterEggs);
 
   const easterEggOnClickHandler = () => {
