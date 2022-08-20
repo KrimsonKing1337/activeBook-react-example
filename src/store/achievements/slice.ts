@@ -4,7 +4,7 @@ import { Achievement, State } from './@types';
 
 const initialState: State = {
   achievements: null,
-  length: 9, // это без ненужных для получения платины
+  length: 10, // только те, которые нужны для получения платины
   toastBgColor: '#07bc0c',
 };
 

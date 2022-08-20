@@ -5,6 +5,7 @@ export interface State {
   page: number;
   pages: number;
   easterEggs: number;
+  authorComments: number;
   menuActiveState: MenuActiveState;
   isLoading: boolean;
   isVibrationAvailable: boolean;

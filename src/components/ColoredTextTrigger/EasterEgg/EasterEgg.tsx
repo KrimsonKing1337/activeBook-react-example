@@ -12,13 +12,13 @@ import styles from './EasterEgg.scss';
 export type EasterEggProps = {
   [key: string]: any;
   id: string;
-  onClick: () => void;
+  onClick?: () => void;
 };
 
-export const EasterEgg = ({ id, children, onClick, ...rest }: PropsWithChildren<EasterEggProps>) => {
+export const EasterEgg = ({ id, children, onClick = () => {}, ...rest }: PropsWithChildren<EasterEggProps>) => {
   const easterEggsLength = useSelector(mainSelectors.easterEggs);
 
-  const easterEggOnClickHandler = () => {
+  const clickHandler = () => {
     foundEasterEggs.set(id);
 
     const foundEasterEggsFromLocalStorage = foundEasterEggs.get();
@@ -32,13 +32,11 @@ export const EasterEgg = ({ id, children, onClick, ...rest }: PropsWithChildren<
       });
     }
 
-    if (onClick) {
-      onClick();
-    }
+    onClick();
   };
 
   return (
-    <span className={styles.easterEgg} onClick={easterEggOnClickHandler} {...rest}>
+    <span className={styles.easterEgg} onClick={clickHandler} {...rest}>
       {children}
     </span>
   );

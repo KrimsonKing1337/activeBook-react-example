@@ -19,6 +19,7 @@ export enum Flags {
   menuToggles = 'menuToggles',
   allPagesSeen = 'allPagesSeen',
   allEasterEggsFound = 'allEasterEggsFound',
+  allAuthorCommentsSeen = 'allAuthorCommentsSeen',
   superEasterEggFound = 'superEasterEggFound',
   allAchievementsRewarded = 'allAchievementsRewarded',
 }
@@ -47,6 +48,7 @@ export const namesVoc = {
   [Flags.menuToggles]: 'Туда-сюдашечки',
   [Flags.allPagesSeen]: 'Все страницы прочитаны',
   [Flags.allEasterEggsFound]: 'Все пасхалки найдены',
+  [Flags.allAuthorCommentsSeen]: 'Все комментарии автора прочитаны',
   [Flags.konami]: 'Конами-код в сердце навсегда',
   [Flags.superEasterEggFound]: 'Супер-секрет найден',
   [Flags.allAchievementsRewarded]: 'Все награды получены',
@@ -62,9 +64,10 @@ export const order = {
   [Flags.menuToggles]: 6,
   [Flags.allPagesSeen]: 7,
   [Flags.allEasterEggsFound]: 8,
-  [Flags.konami]: 9,
-  [Flags.superEasterEggFound]: 10,
-  [Flags.allAchievementsRewarded]: 11,
+  [Flags.allAuthorCommentsSeen]: 9,
+  [Flags.konami]: 10,
+  [Flags.superEasterEggFound]: 11,
+  [Flags.allAchievementsRewarded]: 12,
 };
 
 const howlInst = new HowlWrapper({
