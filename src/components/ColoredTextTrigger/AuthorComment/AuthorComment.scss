@@ -1,9 +1,10 @@
 @import "~@src/styles/__variables.scss";
+@import "~@src/styles/__mixins.scss";
 
 .authorComment {
   display: inline;
 
-  color: #ff3;
+  color: #fd0;
   font-size: 1em;
   font-weight: bold;
 
@@ -12,8 +13,8 @@
   transition: text-shadow $transitionDefault;
 
   &:hover {
-    text-shadow: 1px 1px 30px rgb(255 255 255 / 75%);
-
     cursor: pointer;
+
+    @include text-shadow-default;
   }
 }

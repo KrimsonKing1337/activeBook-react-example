@@ -1,4 +1,5 @@
 @import "~@src/styles/__variables.scss";
+@import "~@src/styles/__mixins.scss";
 
 .action {
   display: inline;
@@ -12,9 +13,9 @@
   transition: text-shadow $transitionDefault;
 
   &:hover {
-    text-shadow: 1px 1px 30px var(--textShadow);
-
     cursor: pointer;
+
+    @include text-shadow-default;
   }
 
   &.isFullWidth {

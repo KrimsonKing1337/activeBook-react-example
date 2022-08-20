@@ -7,9 +7,11 @@
 
   opacity: 0.85;
 
-  transition: text-shadow ease 0.3s 0s;
+  transition: text-shadow $transitionDefault;
 
   &:hover {
-    @include text-shadow-dark;
+    cursor: pointer;
+
+    @include text-shadow-default;
   }
 }
