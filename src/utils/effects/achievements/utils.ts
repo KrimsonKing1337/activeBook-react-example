@@ -9,7 +9,6 @@ import { HowlWrapper } from 'utils/effects/audio/HowlWrapper';
 import { achievements as achievementsLocalStorage } from 'utils/localStorage/achievements';
 
 export enum Flags {
-  konami = 'konami',
   firstMove = 'firstMove',
   volume = 'volume',
   fontSize = 'fontSize',
@@ -24,12 +23,11 @@ export enum Flags {
   allAchievementsRewarded = 'allAchievementsRewarded',
 }
 
-export type FlagsWithoutHidden = Exclude<Flags, Flags.superEasterEggFound | Flags.konami>;
+export type FlagsWithoutHidden = Exclude<Flags, Flags.superEasterEggFound>;
 
 export const allAchievements = Object.values(Flags);
 
 export const hiddenAchievements = [
-  Flags.konami,
   Flags.superEasterEggFound,
 ];
 
@@ -49,7 +47,6 @@ export const namesVoc = {
   [Flags.allPagesSeen]: 'Все страницы прочитаны',
   [Flags.allEasterEggsFound]: 'Все пасхалки найдены',
   [Flags.allAuthorCommentsSeen]: 'Все комментарии автора прочитаны',
-  [Flags.konami]: 'Конами-код в сердце навсегда',
   [Flags.superEasterEggFound]: 'Супер-секрет найден',
   [Flags.allAchievementsRewarded]: 'Все награды получены',
 };
@@ -65,9 +62,8 @@ export const order = {
   [Flags.allPagesSeen]: 7,
   [Flags.allEasterEggsFound]: 8,
   [Flags.allAuthorCommentsSeen]: 9,
-  [Flags.konami]: 10,
-  [Flags.superEasterEggFound]: 11,
-  [Flags.allAchievementsRewarded]: 12,
+  [Flags.superEasterEggFound]: 10,
+  [Flags.allAchievementsRewarded]: 11,
 };
 
 const howlInst = new HowlWrapper({

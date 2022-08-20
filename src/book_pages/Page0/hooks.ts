@@ -1,18 +1,16 @@
 import { useEffect, useState } from 'react';
 
-import { play as achievementPlay } from 'utils/effects/achievements';
 import { konamiCodeHandler } from 'utils/effects/achievements/konamiCodeHandler';
 import { modalsWereShowed } from 'utils/localStorage/modalsWereShowed';
-import { Flags as AchievementsFlags } from 'utils/effects/achievements/utils';
+import { changeBgColor, show } from 'utils/effects/achievements/utils';
 import { Flags as ModalsFlags } from 'utils/localStorage/modalsWereShowed';
 
 export function useKonamiCode() {
   useEffect(() => {
-    const cb = () => achievementPlay({
-      id: AchievementsFlags.konami,
-      text: 'Retro gaming rules!',
-      type: 'gold',
-    });
+    const cb = () => {
+      changeBgColor('regular');
+      show('Retro gaming rules!');
+    };
 
     const handler = konamiCodeHandler(cb);
 

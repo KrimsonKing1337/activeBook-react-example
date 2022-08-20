@@ -71,6 +71,10 @@ export const AchievementsProgress = () => {
 
   const isOpen = menuActiveState === 'achievementsProgress';
 
+  const textAboutHidden = hiddenLength.current === 1
+    ? '+ одно скрытое достижение'
+    : `+ скрытых достижений: ${hiddenLength.current} шт.`;
+
   return (
     <Overflow isOpen={isOpen}>
       <Header label="Прогресс достижений" />
@@ -80,7 +84,7 @@ export const AchievementsProgress = () => {
 
         {!!hiddenLength.current && (
           <div className={styles.textAboutHidden}>
-            + скрытых достижений: {hiddenLength.current} шт.
+            {textAboutHidden}
           </div>
         )}
       </div>
