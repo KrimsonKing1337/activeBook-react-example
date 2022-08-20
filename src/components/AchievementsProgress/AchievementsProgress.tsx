@@ -7,7 +7,7 @@ import { mainActions, mainSelectors } from 'store/main';
 import { Header } from 'components/Header';
 import { Overflow } from 'components/Overflow';
 
-import { FlagsWithoutHidden, hiddenAchievements, namesVoc, order } from 'utils/effects/achievements/utils';
+import { FlagsWithoutHidden, hiddenAchievements, voc } from 'utils/effects/achievements/utils';
 
 import { Item, ItemProps } from './Item';
 
@@ -28,7 +28,7 @@ export const AchievementsProgress = () => {
   const hiddenLength = useRef(0);
 
   useEffect(() => {
-    const achievementsWithoutHidden = { ...namesVoc };
+    const achievementsWithoutHidden = { ...voc };
 
     hiddenLength.current = 0;
 
@@ -50,12 +50,13 @@ export const AchievementsProgress = () => {
       const keyCur = key as FlagsWithoutHidden;
       const status = !!achievements?.[keyCur];
 
-      const index = order[keyCur];
+      const { order, title, type } = voc[keyCur];
 
-      newItemsInOrder[index] = {
+      newItemsInOrder[order] = {
         key: keyCur,
-        title: namesVoc[keyCur],
+        title,
         status,
+        type,
       };
     });
 
@@ -80,7 +81,14 @@ export const AchievementsProgress = () => {
       <Header label="Прогресс достижений" />
 
       <div className={styles.itemsWrapper}>
-        {items.map(({ title, status, key }) => <Item key={key} title={title} status={status} />)}
+        {items.map(({ key, title, status, type }) => (
+          <Item
+            key={key}
+            title={title}
+            status={status}
+            type={type}
+          />
+        ))}
 
         {!!hiddenLength.current && (
           <div className={styles.textAboutHidden}>

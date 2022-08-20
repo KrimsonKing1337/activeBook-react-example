@@ -36,34 +36,73 @@ export const dontNeededForAllAchievementsReward = [
   Flags.allAchievementsRewarded,
 ];
 
-export const namesVoc = {
-  [Flags.firstMove]: 'Первый шаг',
-  [Flags.volume]: 'Лучше громко, чем тихо',
-  [Flags.fontSize]: 'Играл со шрифтами, проиграл',
-  [Flags.bookmarks]: 'Лучшие закладки - в книге',
-  [Flags.tableOfContents]: 'Прыгаем по главам, но не по головам',
-  [Flags.themes]: 'Все темы хороши, но лучше тёмная',
-  [Flags.menuToggles]: 'Туда-сюдашечки',
-  [Flags.allPagesSeen]: 'Все страницы прочитаны',
-  [Flags.allEasterEggsFound]: 'Все пасхалки найдены',
-  [Flags.allAuthorCommentsSeen]: 'Все комментарии автора прочитаны',
-  [Flags.superEasterEggFound]: 'Супер-секрет найден',
-  [Flags.allAchievementsRewarded]: 'Все награды получены',
+export type VocItem = {
+  order: number;
+  title: string;
+  type: Color;
 };
 
-export const order = {
-  [Flags.firstMove]: 0,
-  [Flags.volume]: 1,
-  [Flags.fontSize]: 2,
-  [Flags.bookmarks]: 3,
-  [Flags.tableOfContents]: 4,
-  [Flags.themes]: 5,
-  [Flags.menuToggles]: 6,
-  [Flags.allPagesSeen]: 7,
-  [Flags.allEasterEggsFound]: 8,
-  [Flags.allAuthorCommentsSeen]: 9,
-  [Flags.superEasterEggFound]: 10,
-  [Flags.allAchievementsRewarded]: 11,
+export const voc: Record<Flags, VocItem> = {
+  [Flags.firstMove]: {
+    order: 0,
+    title: 'Первый шаг',
+    type: 'regular',
+  },
+  [Flags.volume]: {
+    order: 1,
+    title: 'Лучше громко, чем тихо',
+    type: 'regular',
+  },
+  [Flags.fontSize]: {
+    order: 2,
+    title: 'Играл со шрифтами, проиграл',
+    type: 'regular',
+  },
+  [Flags.bookmarks]: {
+    order: 3,
+    title: 'Лучшие закладки - в книге',
+    type: 'regular',
+  },
+  [Flags.tableOfContents]: {
+    order: 4,
+    title: 'Прыгаем по главам, но не по головам',
+    type: 'regular',
+  },
+  [Flags.themes]: {
+    order: 5,
+    title: 'Все темы хороши, но лучше тёмная',
+    type: 'regular',
+  },
+  [Flags.menuToggles]: {
+    order: 6,
+    title: 'Туда-сюдашечки',
+    type: 'regular',
+  },
+  [Flags.allPagesSeen]: {
+    order: 7,
+    title: 'Все страницы прочитаны',
+    type: 'gold',
+  },
+  [Flags.allEasterEggsFound]: {
+    order: 8,
+    title: 'Все пасхалки найдены',
+    type: 'gold',
+  },
+  [Flags.allAuthorCommentsSeen]: {
+    order: 9,
+    title: 'Все комментарии автора прочитаны',
+    type: 'gold',
+  },
+  [Flags.superEasterEggFound]: {
+    order: 10,
+    title: 'Супер-секрет найден',
+    type: 'platinum',
+  },
+  [Flags.allAchievementsRewarded]: {
+    order: 11,
+    title: 'Все награды получены',
+    type: 'platinum',
+  },
 };
 
 const howlInst = new HowlWrapper({
