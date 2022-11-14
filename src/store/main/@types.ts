@@ -1,5 +1,7 @@
 export type MenuActiveState = null | 'menu' | 'tableOfContents' | 'achievementsProgress';
 
+export type FlashlightState = false | 'js' | 'cordova';
+
 export interface State {
   route: string;
   page: number;
@@ -9,5 +11,5 @@ export interface State {
   menuActiveState: MenuActiveState;
   isLoading: boolean;
   isVibrationAvailable: boolean;
-  isFlashlightAvailable: boolean;
+  isFlashlightAvailable: FlashlightState;
 }

@@ -7,7 +7,7 @@ import { mainSelectors } from 'store/main';
 import { Toggle } from 'components/Toggle';
 import { playAchievement } from 'components/Menu/utils';
 
-import { off as flashlightOff, on as flashlightOn } from 'utils/effects/flashlight';
+import { flashlightInst } from 'utils/effects/flashlight';
 import { sleep } from 'utils/sleep';
 
 export const Flashlight = () => {
@@ -22,7 +22,7 @@ export const Flashlight = () => {
     }
 
     const listener = () => {
-      flashlightOff();
+      flashlightInst.off();
     };
 
     document.addEventListener('resume', listener, { once: true });
@@ -37,13 +37,15 @@ export const Flashlight = () => {
 
     playAchievement();
 
-    if (value && isFlashlightAvailable) {
-      flashlightOn();
-
-      await sleep(300);
-
-      flashlightOff();
+    if (!value) {
+      return;
     }
+
+    flashlightInst.on();
+
+    await sleep(300);
+
+    flashlightInst.off();
   };
 
   return (
