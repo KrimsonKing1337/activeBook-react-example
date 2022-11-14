@@ -41,7 +41,11 @@ class Flashlight {
     });
   }
 
-  // https://stackoverflow.com/a/70228940
+  /**
+   * реализацию взял отсюда: https://stackoverflow.com/a/70228940
+   * присутствует небольшая задержка перед срабатыванием.
+   * в кордове этой проблемы нет
+   */
   async torchInit() {
     if (!navigator.mediaDevices) {
       console.log('no navigator.mediaDevices');

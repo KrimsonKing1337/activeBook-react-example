@@ -29,8 +29,8 @@ export const Page0 = () => {
     src: '/assets/book_data/audios/sounds/sword.mp3',
     fadeOutWhenUnload: false,
     onPlay() {
-      vibrationOn(1000);
-      flashlightOn(1000);
+      vibrationOn(200);
+      flashlightOn(200);
     },
   });
 

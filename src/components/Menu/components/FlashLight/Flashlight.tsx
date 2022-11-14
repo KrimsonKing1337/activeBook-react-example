@@ -7,11 +7,14 @@ import { mainSelectors } from 'store/main';
 import { Toggle } from 'components/Toggle';
 import { playAchievement } from 'components/Menu/utils';
 
+import { useFlashlight } from 'hooks/effects/flashlight';
+
 import { flashlightInst } from 'utils/effects/flashlight';
-import { sleep } from 'utils/sleep';
 
 export const Flashlight = () => {
   const dispatch = useDispatch();
+
+  const { flashlightOn } = useFlashlight();
 
   const flashlightState = useSelector(configSelectors.flashlight);
   const isFlashlightAvailable = useSelector(mainSelectors.isFlashlightAvailable);
@@ -41,11 +44,7 @@ export const Flashlight = () => {
       return;
     }
 
-    flashlightInst.on();
-
-    await sleep(300);
-
-    flashlightInst.off();
+    flashlightOn(100);
   };
 
   return (
