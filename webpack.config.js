@@ -145,6 +145,7 @@ module.exports = (env = {}, argv) => {
       historyApiFallback: true,
       hot: true,
       liveReload: false,
+      // https: true,
     },
     output: {
       // пустой publicPath нужен для кордовы. она не может найти bundle.min.js, если его путь начинается с '/'

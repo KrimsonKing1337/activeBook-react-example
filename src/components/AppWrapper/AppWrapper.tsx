@@ -21,6 +21,7 @@ import { achievements as achievementsUtils } from 'utils/localStorage/achievemen
 import { Flags as AchievementsFlags } from 'utils/effects/achievements/utils';
 import { removeCssHover } from 'utils/touch/removeCssHover';
 import { getInitValues } from 'utils/effects/achievements/utils';
+import { init as flashlightInit } from 'utils/effects/flashlight';
 
 import styles from './AppWrapper.scss';
 
@@ -87,6 +88,10 @@ export const AppWrapper = ({ children }: PropsWithChildren<unknown>) => {
     } else {
       dispatch(mainActions.setIsFlashlightAvailable(false));
     }
+  }, []);
+
+  useEffect(() => {
+    flashlightInit();
   }, []);
 
   useEffect(() => {
