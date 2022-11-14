@@ -145,7 +145,7 @@ module.exports = (env = {}, argv) => {
       historyApiFallback: true,
       hot: true,
       liveReload: false,
-      // https: true,
+      // https: true, // доступ к камере работает только через https
     },
     output: {
       // пустой publicPath нужен для кордовы. она не может найти bundle.min.js, если его путь начинается с '/'

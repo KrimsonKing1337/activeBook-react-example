@@ -2,7 +2,7 @@ import { store } from 'store';
 
 import { mainActions } from 'store/main';
 
-class Flashlight {
+export class Flashlight {
   private track: MediaStreamTrack | null;
 
   static getIsFlashlightAvailable() {
@@ -15,6 +15,16 @@ class Flashlight {
       capabilities.fillLightMode.length !== 0 &&
       capabilities.fillLightMode !== 'none'
     );
+  }
+
+  static getNavigatorCameraPermission() {
+    const permissionName = 'camera' as PermissionName;
+
+    return navigator.permissions.query({ name: permissionName });
+  }
+
+  static getIsCordovaFlashlight() {
+    return !!(window as any).plugins?.flashlight;
   }
 
   static initCordovaFlashlight(cordovaFlashlight: any) {
@@ -41,6 +51,10 @@ class Flashlight {
     });
   }
 
+  mediaStreamTrackStop() {
+    this.track?.stop();
+  }
+
   /**
    * реализацию взял отсюда: https://stackoverflow.com/a/70228940
    * присутствует небольшая задержка перед срабатыванием.
@@ -50,7 +64,7 @@ class Flashlight {
     if (!navigator.mediaDevices) {
       console.log('no navigator.mediaDevices');
 
-      return;
+      return Promise.resolve();
     }
 
     const devices = await navigator.mediaDevices.enumerateDevices();
@@ -60,7 +74,7 @@ class Flashlight {
     if (cameras.length === 0) {
       console.log('no camera found on this device');
 
-      return;
+      return Promise.resolve();
     }
 
     const stream = await navigator.mediaDevices.getUserMedia({
@@ -80,19 +94,23 @@ class Flashlight {
     if (!torchSupported) {
       console.log('no torch found');
 
-      return;
+      this.mediaStreamTrackStop();
+
+      return Promise.resolve();
     }
 
     store.dispatch(mainActions.setIsFlashlightAvailable('js'));
   }
 
   init() {
-    const cordovaFlashlight = (window as any).plugins?.flashlight;
+    const cordovaFlashlight = Flashlight.getIsCordovaFlashlight();
 
     if (cordovaFlashlight) {
       Flashlight.initCordovaFlashlight(cordovaFlashlight);
+
+      return Promise.resolve();
     } else {
-      this.torchInit();
+      return this.torchInit();
     }
   }
 

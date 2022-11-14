@@ -14,6 +14,7 @@ import { achievementsActions } from 'store/achievements';
 import { Achievement } from 'components/Achievement';
 
 import { useEffectsInRange } from 'hooks/effects/range';
+import { useVibration } from 'hooks/effects/vibration';
 
 import { seenPages } from 'utils/localStorage/seenPages';
 import { play as achievementPlay } from 'utils/effects/achievements';
@@ -35,10 +36,22 @@ export const AppWrapper = ({ children }: PropsWithChildren<unknown>) => {
   const page = useSelector(mainSelectors.page);
   const pages = useSelector(mainSelectors.pages);
 
-  // приглушаю звук, если приложение скрыто
+  const { vibrationOff } = useVibration();
+
+  // приглушаю звук, отключаю вибрацию и вспышку, если приложение скрыто
   useEffect(() => {
     document.addEventListener('visibilitychange', () => {
-      Howler.mute(document.hidden);
+      if (document.hidden) {
+        Howler.mute(true);
+
+        vibrationOff();
+
+        flashlightInst.mediaStreamTrackStop();
+      } else {
+        Howler.mute(false);
+
+        flashlightInst.init();
+      }
     });
   }, []);
 
@@ -78,10 +91,6 @@ export const AppWrapper = ({ children }: PropsWithChildren<unknown>) => {
     const canVibrate = !!navigator.vibrate;
 
     dispatch(mainActions.setIsVibrationAvailable(canVibrate));
-  }, []);
-
-  useEffect(() => {
-    flashlightInst.init();
   }, []);
 
   useEffect(() => {

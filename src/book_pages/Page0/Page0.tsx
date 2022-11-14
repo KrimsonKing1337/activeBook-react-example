@@ -10,11 +10,9 @@ import { useVibration } from 'hooks/effects/vibration';
 
 import { goToPage } from 'utils/control/goToPage';
 import { Flags, modalsWereShowed } from 'utils/localStorage/modalsWereShowed';
-import { getIsMobile } from 'utils/mobile/getIsMobile';
+import { flashlightInst } from 'utils/effects/flashlight';
 
 import { useKonamiCode, useModal } from './hooks';
-
-const isMobile = getIsMobile();
 
 export const Page0 = () => {
   const [lastPage, setLastPage] = useState(0);
@@ -45,6 +43,12 @@ export const Page0 = () => {
   }, []);
 
   const go = async () => {
+    try {
+      await flashlightInst.init();
+    } catch (err) {
+      console.error(err);
+    }
+
     await audioInst?.play();
 
     const pageToGo = lastPage > 0 ? lastPage : 1;
@@ -61,7 +65,7 @@ export const Page0 = () => {
   const clickHandler = () => {
     const isModalWasShowed = modalsWereShowed.get(Flags.usingCamera);
 
-    if (!isMobile || isModalWasShowed) {
+    if (isModalWasShowed) {
       go();
 
       return;
@@ -74,33 +78,31 @@ export const Page0 = () => {
 
   return (
     <PageWrapper>
-      {isMobile && (
-        <ModalDialog
-          isOpen={modalIsActive}
-          onClose={modalCloseHandler}
-          onConfirm={modalCloseHandler}
-          onCancel={modalCloseHandler}
-          canFullScreen={true}
-          showCancelButton={false}
-        >
-          <div>
-            <header>
-              ОБРАТИТЕ ВНИМАНИЕ
-            </header>
+      <ModalDialog
+        isOpen={modalIsActive}
+        onClose={modalCloseHandler}
+        onConfirm={modalCloseHandler}
+        onCancel={modalCloseHandler}
+        canFullScreen={true}
+        showCancelButton={false}
+      >
+        <div>
+          <header>
+            ОБРАТИТЕ ВНИМАНИЕ
+          </header>
 
-            <article>
-              <p>
-                Для работы эффектов на основе вспышки, приложению необходимо получить разрешение к камере
-                (к сожалению, нет возможности запросить разрешение только ко вспышке).
-              </p>
+          <article>
+            <p>
+              Для работы эффектов на основе вспышки, приложению необходимо получить разрешение к камере
+              (к сожалению, нет возможности запросить разрешение только ко вспышке).
+            </p>
 
-              <p>
-                Вы всегда можете запросить разрешение ещё раз, в меню приложения
-              </p>
-            </article>
-          </div>
-        </ModalDialog>
-      )}
+            <p>
+              Вы всегда можете запросить разрешение ещё раз, в меню приложения
+            </p>
+          </article>
+        </div>
+      </ModalDialog>
 
       <header>
         По ту сторону изгороди

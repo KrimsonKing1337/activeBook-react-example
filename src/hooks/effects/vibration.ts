@@ -19,6 +19,10 @@ export function useVibration() {
       return;
     }
 
+    if (document.hidden) {
+      return;
+    }
+
     vibrationOn(n);
 
     console.log(`___ vibrated: ${n}`);

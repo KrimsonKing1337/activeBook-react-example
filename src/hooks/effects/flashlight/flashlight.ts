@@ -20,6 +20,10 @@ export function useFlashlight(withSideShadow = false, speed = 150) {
   });
 
   const on = async (duration?: number) => {
+    if (document.hidden) {
+      return;
+    }
+
     console.log('___ flashlight on');
 
     if (withSideShadow) {
