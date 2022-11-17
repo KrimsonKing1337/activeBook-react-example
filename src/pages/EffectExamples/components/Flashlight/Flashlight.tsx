@@ -2,16 +2,20 @@ import React, { useState } from 'react';
 
 import { Toggle } from 'components/Toggle';
 
+import { useFlashlight } from 'hooks/effects/flashlight';
+
 export const Flashlight = () => {
+  const { flashlightOn, flashlightOff } = useFlashlight();
+
   const [buttonForFlashlightIsActive, setButtonForFlashlightIsActive] = useState(false);
 
   const buttonForFlashlightClickHandler = (value: boolean) => {
     if (!value) {
-      (window as any).plugins.flashlight.switchOff();
+      flashlightOff();
 
       setButtonForFlashlightIsActive(false);
     } else {
-      (window as any).plugins.flashlight.switchOn();
+      flashlightOn();
 
       setButtonForFlashlightIsActive(true);
     }

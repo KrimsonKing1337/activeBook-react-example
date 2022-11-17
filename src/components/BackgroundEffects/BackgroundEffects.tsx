@@ -30,17 +30,20 @@ export const BackgroundEffects = () => {
           <div className={styles.backgroundObjectsShadow} />
 
           {backgroundVideoIsActive && (
-            <Video
-              className={styles.backgroundObjectWrapper}
-              src={backgroundVideoSrc}
-              autoPlay
-              loop
-              muted
-            />
+            <div className={styles.backgroundObjectWrapper}>
+              <Video
+                src={backgroundVideoSrc}
+                autoPlay
+                loop
+                muted
+              />
+            </div>
           )}
 
           {backgroundImgIsActive && (
-            <Img className={styles.backgroundObjectWrapper} src={backgroundImgSrc} />
+            <div className={styles.backgroundObjectWrapper}>
+              <Img src={backgroundImgSrc} />
+            </div>
           )}
         </div>
       )}

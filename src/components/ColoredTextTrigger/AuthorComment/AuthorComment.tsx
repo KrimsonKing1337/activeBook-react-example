@@ -38,7 +38,7 @@ export const AuthorComment = ({ onClick = () => {}, children, ...props }: PropsW
   };
 
   const allPagesSeen = achievements?.allPagesSeen;
-  const showComment = allPagesSeen && authorCommentsIsOn;
+  const showComment = (allPagesSeen && authorCommentsIsOn) || isSbMode;
 
   return showComment ? (
     <div className={styles.authorComment} onClick={clickHandler} {...props}>

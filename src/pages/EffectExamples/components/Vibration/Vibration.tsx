@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 import { Toggle } from 'components/Toggle';
 
+import { on as vibrationOn } from 'utils/effects/vibration';
+
 export const Vibration = () => {
   const [buttonForVibrationIsActive, setButtonForVibrationIsActive] = useState(false);
 
@@ -13,7 +15,7 @@ export const Vibration = () => {
     } else {
       const value = 1000;
 
-      navigator.vibrate(value);
+      vibrationOn(value);
 
       setButtonForVibrationIsActive(true);
 

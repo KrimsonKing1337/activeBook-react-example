@@ -1,7 +1,4 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-
-import { mainSelectors } from 'store/main';
 
 import { PageWrapper } from 'components/PageWrapper';
 
@@ -29,9 +26,6 @@ import { Vibration } from './components/Vibration';
 import { Flashlight } from './components/Flashlight';
 
 export const EffectExamples = () => {
-  const isVibrationAvailable = useSelector(mainSelectors.isVibrationAvailable);
-  const isFlashlightAvailable = useSelector(mainSelectors.isFlashlightAvailable);
-
   return (
     <PageWrapper sbMode>
       <div className="EffectsWrapper">
@@ -71,13 +65,8 @@ export const EffectExamples = () => {
         <SpoilerWithSlideShow />
         <SpoilerWithSlideShowMixedContent />
 
-        {isVibrationAvailable && (
-          <Vibration />
-        )}
-
-        {isFlashlightAvailable && (
-          <Flashlight />
-        )}
+        <Vibration />
+        <Flashlight />
       </div>
     </PageWrapper>
   );
