@@ -22,8 +22,6 @@ export function useSideShadow({ isActiveDefault = true, color, speed = initialSt
   };
 
   useEffect(() => {
-    console.log('___ color', color);
-
     dispatch(sideShadowActions.setColor(color));
     dispatch(sideShadowActions.setSpeed(speed));
     dispatch(sideShadowActions.setActiveState(isActiveDefault));
