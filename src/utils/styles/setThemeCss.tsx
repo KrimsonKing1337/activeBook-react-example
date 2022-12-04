@@ -7,6 +7,8 @@ type Option = {
   secondary: string;
   hover: string;
   bg: string;
+  'text-shadow-for-hover': string;
+  overflow: string;
   [key: string]: any;
 };
 
@@ -19,6 +21,7 @@ export function setThemeCss(theme: Theme) {
       secondary: '#828282',
       hover: '#7a7a7a',
       bg: '#111',
+      overflow: '#000d',
       'text-shadow-for-hover': '#ffffff7f',
     },
     orange: {
@@ -26,6 +29,7 @@ export function setThemeCss(theme: Theme) {
       secondary: '#000',
       hover: '#f2c94c',
       bg: '#fff',
+      overflow: '#fffd',
       'text-shadow-for-hover': '#1111117f',
     },
     darkBlue: {
@@ -33,6 +37,7 @@ export function setThemeCss(theme: Theme) {
       secondary: '#000',
       hover: '#9bc4d9',
       bg: '#fff',
+      overflow: '#fffd',
       'text-shadow-for-hover': '#1111117f',
     },
     black: {
@@ -40,6 +45,7 @@ export function setThemeCss(theme: Theme) {
       secondary: '#000',
       hover: '#a3a3a3',
       bg: '#fff',
+      overflow: '#fffd',
       'text-shadow-for-hover': '#1111117f',
     },
   };

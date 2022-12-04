@@ -14,7 +14,7 @@
   height: 100vh;
   margin: auto;
 
-  background: rgba(#000, 0.9);
+  background: var(--overflow);
 
   &.isOpen {
     display: block;
