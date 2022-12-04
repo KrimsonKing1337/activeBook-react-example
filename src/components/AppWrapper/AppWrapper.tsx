@@ -6,7 +6,9 @@ import classNames from 'classnames';
 import { Howler } from 'howler';
 
 import { volumeActions } from 'store/volume';
+import { initialState as volumeInitialState } from 'store/volume/slice';
 import { configActions } from 'store/config';
+import { initialState as configInitialState } from 'store/config/slice';
 import { mainActions, mainSelectors } from 'store/main';
 import { bookmarksActions, bookmarksSelectors } from 'store/bookmarks';
 import { achievementsActions } from 'store/achievements';
@@ -97,12 +99,8 @@ export const AppWrapper = ({ children }: PropsWithChildren<unknown>) => {
     const configAsJson = localStorage.getItem('config');
     const volumeAsJson = localStorage.getItem('volume');
 
-    if (!configAsJson || !volumeAsJson) {
-      return;
-    }
-
-    const config = JSON.parse(configAsJson);
-    const volume = JSON.parse(volumeAsJson);
+    const config = configAsJson ? JSON.parse(configAsJson) : configInitialState;
+    const volume = volumeAsJson ? JSON.parse(volumeAsJson) : volumeInitialState;
 
     dispatch(configActions.setAll(config));
     dispatch(volumeActions.setAll(volume));

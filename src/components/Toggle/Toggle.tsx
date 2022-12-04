@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import classNames from 'classnames';
 
@@ -28,6 +28,10 @@ export const Toggle = ({
   ...rest
 }: ToggleProps) => {
   const [uncontrolledIsActive, setUncontrolledIsActive] = useState(isActiveDefault);
+
+  useEffect(() => {
+    setUncontrolledIsActive(isActiveDefault);
+  }, [isActiveDefault]);
 
   const buttonClickHandler = (value: boolean, cb: Func) => {
     if (isActive === undefined) {

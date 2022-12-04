@@ -1,5 +1,5 @@
 import { PayloadAction } from '@reduxjs/toolkit';
-import { call, select, takeLatest } from 'redux-saga/effects';
+import { call, put, select, takeLatest } from 'redux-saga/effects';
 
 import { setThemeCss } from 'utils/styles/setThemeCss';
 
@@ -19,7 +19,22 @@ function* saveInLocalStorage() {
 export function* watchSetAll(action: PayloadAction<State>) {
   const { payload } = action;
 
-  yield call(() => setThemeCss(payload.theme));
+  const {
+    theme,
+    fontSize,
+    flashlight,
+    vibration,
+    lineHeight,
+    authorComments,
+  } = payload;
+
+  yield put(actions.setAuthorComments(authorComments));
+  yield put(actions.setFontSize(fontSize));
+  yield put(actions.setFlashlight(flashlight));
+  yield put(actions.setVibration(vibration));
+  yield put(actions.setLineHeight(lineHeight));
+
+  yield call(() => setThemeCss(theme));
 }
 
 export function* watchSetTheme(action: PayloadAction<State['theme']>) {
