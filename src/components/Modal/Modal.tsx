@@ -18,6 +18,7 @@ export type ModalProps = {
   onOpen?: Func;
   onClose?: Func;
   mode?: ModalMode;
+  canClose?: boolean;
   canFullScreen?: boolean;
   fullScreenDefault?: boolean;
   canCrop?: boolean;
@@ -29,6 +30,7 @@ export const Modal = ({
   onClose,
   isOpen,
   mode = 'text',
+  canClose = true,
   canFullScreen = false,
   fullScreenDefault = false,
   canCrop = false,
@@ -152,6 +154,10 @@ export const Modal = ({
   }, []);
 
   const close = () => {
+    if (!canClose) {
+      return;
+    }
+
     const locationWithoutHash = {
       ...history.location,
       hash: '',
@@ -253,6 +259,7 @@ export const Modal = ({
 
   const iconCloseClassNames = classNames({
     [styles.iconClose]: true,
+    [styles.canClose]: canClose,
     [styles.isMediaMode]: isMediaMode,
     [styles.isFullScreen]: isFullScreen,
   });

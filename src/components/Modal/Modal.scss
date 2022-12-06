@@ -79,7 +79,7 @@
   left: 0;
   z-index: 1;
 
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   width: 40px;
@@ -95,6 +95,10 @@
     left: auto !important;
 
     transform: none;
+  }
+
+  &.canClose {
+    display: flex;
   }
 
   @include modal-content-icon;

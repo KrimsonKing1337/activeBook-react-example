@@ -21,19 +21,29 @@
   margin-left: 15px;
   padding: 4px;
 
+  background: #9a9a9a;
+
   border-radius: 4px;
 
   &:nth-child(1) {
     margin-left: 0;
   }
 
-  @include hover-default();
+  &.canClose {
+    @include hover-default();
+  }
+
+  @include hover-disable();
 }
 
 .buttonConfirm {
-  background: #28a745;
+  &.canClose {
+    background: #28a745;
+  }
 }
 
 .buttonCancel {
-  background: #dc3545;
+  &.canClose {
+    background: #dc3545;
+  }
 }

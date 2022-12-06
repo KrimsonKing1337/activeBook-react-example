@@ -85,6 +85,7 @@ export const Page0 = () => {
         onCancel={modalCloseHandler}
         canFullScreen={true}
         showCancelButton={false}
+        cantCloseIn={5000}
       >
         <div>
           <header>
