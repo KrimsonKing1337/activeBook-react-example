@@ -10,7 +10,6 @@ import { initialState as volumeInitialState } from 'store/volume/slice';
 import { configActions } from 'store/config';
 import { initialState as configInitialState } from 'store/config/slice';
 import { mainActions, mainSelectors } from 'store/main';
-import { bookmarksActions, bookmarksSelectors } from 'store/bookmarks';
 import { achievementsActions } from 'store/achievements';
 
 import { Achievement } from 'components/Achievement';
@@ -33,8 +32,6 @@ export const AppWrapper = ({ children }: PropsWithChildren<unknown>) => {
   const history = useHistory();
 
   const isLoading = useSelector(mainSelectors.isLoading);
-  const menuActiveState = useSelector(mainSelectors.menuActiveState);
-  const bookmarksIsOpen = useSelector(bookmarksSelectors.isOpen);
   const page = useSelector(mainSelectors.page);
   const pages = useSelector(mainSelectors.pages);
 
@@ -66,28 +63,6 @@ export const AppWrapper = ({ children }: PropsWithChildren<unknown>) => {
   useEffect(() => {
     removeCssHover();
   }, []);
-
-  // todo: перенести в Menu.tsx
-  // закрываю менюшки, если пользователь сделал navigator.goBack
-  useEffect(() => {
-    const unlisten = history.listen((location) => {
-      if (!location.hash) {
-        if (menuActiveState !== null) {
-          dispatch(mainActions.setMenuActiveState(null));
-        }
-
-        if (bookmarksIsOpen) {
-          dispatch(bookmarksActions.setIsOpen(false));
-        }
-      } else {
-        if (menuActiveState === 'tableOfContents' || menuActiveState === 'achievementsProgress') {
-          dispatch(mainActions.setMenuActiveState(null));
-        }
-      }
-    });
-
-    return () => unlisten();
-  }, [menuActiveState, bookmarksIsOpen]);
 
   useEffect(() => {
     const canVibrate = !!navigator.vibrate;
