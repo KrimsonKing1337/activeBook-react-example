@@ -74,6 +74,8 @@ export class Flashlight {
     if (cameras.length === 0) {
       console.log('no camera found on this device');
 
+      store.dispatch(mainActions.setFlashlightProblems('Камера не найдена'));
+
       return Promise.resolve();
     }
 
@@ -93,6 +95,8 @@ export class Flashlight {
 
     if (!torchSupported) {
       console.log('no torch found');
+
+      store.dispatch(mainActions.setFlashlightProblems('Вспышка не найдена'));
 
       this.mediaStreamTrackStop();
 

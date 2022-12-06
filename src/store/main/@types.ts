@@ -12,4 +12,5 @@ export interface State {
   isLoading: boolean;
   isVibrationAvailable: boolean;
   isFlashlightAvailable: FlashlightState;
+  flashlightProblems: string;
 }

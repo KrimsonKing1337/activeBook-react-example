@@ -16,14 +16,14 @@ export const Spoiler = ({
   setNeedToSetHeightToFalse = () => {},
   ...rest
 } : PropsWithChildren<SpoilerProps>) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   const contentRef = useRef<HTMLDivElement>(null);
 
   const buttonText = isOpen ? 'Закрыть' : 'Раскрыть';
   const buttonLabel = label ? label : buttonText;
 
-  const childrenIsText = typeof children === 'string';
+  // const childrenIsText = typeof children === 'string';
 
   const setHeight = (isOpen: boolean) => {
     const contentElement = contentRef.current;
@@ -72,7 +72,7 @@ export const Spoiler = ({
       </div>
 
       <div className={styles.content} ref={contentRef}>
-        {childrenIsText ? (<div>{children}</div>) : children}
+        <div>{children}</div>
       </div>
     </div>
   );

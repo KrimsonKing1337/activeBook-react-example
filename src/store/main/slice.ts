@@ -12,6 +12,7 @@ export const initialState: State = {
   isLoading: false,
   isVibrationAvailable: false,
   isFlashlightAvailable: false,
+  flashlightProblems: '',
 };
 
 const slice = createSlice({
@@ -37,6 +38,9 @@ const slice = createSlice({
     },
     setIsFlashlightAvailable(state, action: PayloadAction<State['isFlashlightAvailable']>) {
       state.isFlashlightAvailable = action.payload;
+    },
+    setFlashlightProblems(state, action: PayloadAction<State['flashlightProblems']>) {
+      state.flashlightProblems = action.payload;
     },
   },
 });

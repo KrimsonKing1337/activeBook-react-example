@@ -6,10 +6,13 @@ import { mainSelectors } from 'store/main';
 
 import { Toggle } from 'components/Toggle';
 import { playAchievement } from 'components/Menu/utils';
+import { Spoiler } from 'components/Spoiler';
 
 import { useFlashlight } from 'hooks/effects/flashlight';
 
 import { flashlightInst } from 'utils/effects/flashlight';
+
+import styles from './Flashlight.scss';
 
 export const Flashlight = () => {
   const dispatch = useDispatch();
@@ -18,6 +21,7 @@ export const Flashlight = () => {
 
   const flashlightState = useSelector(configSelectors.flashlight);
   const isFlashlightAvailable = useSelector(mainSelectors.isFlashlightAvailable);
+  const flashlightProblems = useSelector(mainSelectors.flashlightProblems);
 
   useEffect(() => {
     if (!isFlashlightAvailable) {
@@ -48,11 +52,25 @@ export const Flashlight = () => {
   };
 
   return (
-    <Toggle
-      label="Вспышка (там, где доступно)"
-      isActiveDefault={flashlightState}
-      onClickOn={() => toggleClickHandler(true)}
-      onClickOff={() => toggleClickHandler(false)}
-    />
+    <div className={styles.flashlight}>
+      <Toggle
+        label="Вспышка (там, где доступно)"
+        isActiveDefault={flashlightState}
+        onClickOn={() => toggleClickHandler(true)}
+        onClickOff={() => toggleClickHandler(false)}
+      />
+
+      <Spoiler label="Не работает вспышка?">
+        Проверьте, что дано разрешение для использования камеры.
+        <br />
+        (адресная строка браузера {'->'} замочек {'->'} разрешения)
+        <br />
+        Но иногда бывает, что даже если разрешения все есть, браузер не может достучаться до вспышки.
+        Ниже будет выводится, чего он не смог найти:
+        <br />
+        <br />
+        {flashlightProblems}
+      </Spoiler>
+    </div>
   );
 };
