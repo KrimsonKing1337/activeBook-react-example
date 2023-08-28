@@ -1,6 +1,6 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { ConnectedRouterProps, connectRouter, routerMiddleware } from 'connected-react-router';
+import { createReduxHistoryContext } from 'redux-first-history';
 import { createBrowserHistory } from 'history';
 import createSagaMiddleware from 'redux-saga';
 
@@ -18,14 +18,20 @@ import { sideTextReducer, watchSideTextActions } from './effects/side/text';
 import { bookmarksReducer, watchBookmarksActions } from './bookmarks';
 import { achievementsReducer } from './achievements';
 
-export const history = createBrowserHistory();
+const {
+  createReduxHistory,
+  routerMiddleware,
+  routerReducer,
+} = createReduxHistoryContext({
+  history: createBrowserHistory(),
+});
 
 const sagaMiddleware = createSagaMiddleware();
-const compose = composeWithDevTools(applyMiddleware(sagaMiddleware, routerMiddleware(history)));
+const compose = composeWithDevTools(applyMiddleware(sagaMiddleware, routerMiddleware));
 
-const makeRootReducer = (history: ConnectedRouterProps['history']) => {
+const makeRootReducer = () => {
   return combineReducers({
-    router: connectRouter(history),
+    router: routerReducer,
     main: mainReducer,
     config: configReducer,
     volume: volumeReducer,
@@ -42,11 +48,13 @@ const makeRootReducer = (history: ConnectedRouterProps['history']) => {
   });
 };
 
-const rootReducer = makeRootReducer(history);
+const rootReducer = makeRootReducer();
 
 export type RootState = ReturnType<typeof rootReducer>;
 
 export const store = createStore(rootReducer, compose);
+
+export const history = createReduxHistory(store);
 
 sagaMiddleware.run(watchConfigActions);
 sagaMiddleware.run(watchMainActions);

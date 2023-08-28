@@ -1,5 +1,5 @@
 import { PayloadAction } from '@reduxjs/toolkit';
-import { push } from 'connected-react-router';
+import { push } from 'redux-first-history';
 import { Location } from 'history';
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 

@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import { BrowserRouter, Route, Routes as ReactRouterRoutes } from 'react-router-dom';
+import { Route, Routes as ReactRouterRoutes } from 'react-router-dom';
 
 import { initialState } from 'store/main/slice';
 
@@ -25,20 +25,14 @@ export const Routes = ({ children }: PropsWithChildren<unknown>) => {
   const pageComponents = getPageComponents();
 
   return (
-    <BrowserRouter>
-      <ReactRouterRoutes>
-        <Route path="/">
-          {children}
-        </Route>
+    <ReactRouterRoutes>
+      <Route path="/" element={children} />
 
-        {pageComponents.map((PageComponent, i) => {
-          return (
-            <Route path={`/page-${i}`} key={i}>
-              <PageComponent />
-            </Route>
-          );
-        })}
-      </ReactRouterRoutes>
-    </BrowserRouter>
+      {pageComponents.map((PageComponent, i) => {
+        return (
+          <Route path={`/page-${i}`} key={i} element={<PageComponent />} />
+        );
+      })}
+    </ReactRouterRoutes>
   );
 };

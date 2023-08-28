@@ -15,12 +15,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "cypress": "cypress open",
-    "lint-staged": "lint-staged"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "lint-staged": "lint-staged",
+    "pre-commit": "lint-staged"
   },
   "lint-staged": {
     "*.{ts,tsx}": "eslint --fix",
@@ -127,7 +123,6 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "axios": "^1.5.0",
-    "connected-react-router": "^6.9.3",
     "encrypt-storage": "^2.12.16",
     "hammerjs": "^2.0.8",
     "howler": "^2.2.3",
@@ -141,13 +136,10 @@
     "react-toastify": "^9.1.3",
     "redux": "^4.2.1",
     "redux-devtools-extension": "^2.13.9",
+    "redux-first-history": "^5.1.1",
     "redux-mock-store": "^1.5.4",
     "redux-saga": "^1.2.3",
     "redux-saga-test-plan": "^4.0.6"
   },
-  "license": "MIT",
-  "optionalDependencies": {
-    "cypress": "^12.17.4",
-    "cypress-plugin-snapshots": "^1.4.4"
-  }
+  "license": "MIT"
 }
