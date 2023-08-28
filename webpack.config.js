@@ -140,7 +140,9 @@ module.exports = (env = {}, argv) => {
     mode: webpackMode,
     devtool: !isProd ? 'eval-source-map' : false,
     devServer: {
-      contentBase: buildDir,
+      static: {
+        directory: buildDir,
+      },
       port: 3001, // todo
       historyApiFallback: true,
       hot: true,

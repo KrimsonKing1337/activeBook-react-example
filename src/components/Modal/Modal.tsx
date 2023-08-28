@@ -1,5 +1,5 @@
 import { PropsWithChildren, useEffect, useRef, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import Hammer from 'hammerjs';
 import { nanoid } from 'nanoid';
@@ -36,7 +36,8 @@ export const Modal = ({
   canCrop = false,
   cropDefault = true,
 }: PropsWithChildren<ModalProps>) => {
-  const history = useHistory();
+  const history = useNavigate();
+  const location = useLocation();
 
   // здесь реф-версии нужны для хаммера, обычные для того чтобы ре-рендер срабатывал
   const isFullScreenRef = useRef(false);
@@ -65,6 +66,16 @@ export const Modal = ({
       return;
     }
 
+    if (!location.hash) {
+      close();
+    }
+  }, [location, isOpen]);
+
+  /*useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
     const unlisten = history.listen((location) => {
       if (!location.hash) {
         unlisten();
@@ -73,7 +84,7 @@ export const Modal = ({
     });
 
     return () => unlisten();
-  }, [isOpen]);
+  }, [isOpen]);*/
 
   const escPressHandler = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
@@ -90,7 +101,7 @@ export const Modal = ({
 
     const path = `#/modal/${componentUuid}`;
 
-    history.push(path);
+    history(path);
 
     document.addEventListener('keydown', escPressHandler);
   }, [isOpen]);
@@ -159,11 +170,11 @@ export const Modal = ({
     }
 
     const locationWithoutHash = {
-      ...history.location,
+      ...location,
       hash: '',
     };
 
-    history.push(locationWithoutHash);
+    history(locationWithoutHash);
 
     if (onClose) {
       onClose();

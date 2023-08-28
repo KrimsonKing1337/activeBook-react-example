@@ -1,4 +1,4 @@
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom/client';
 
 import { App } from 'components/App';
 
@@ -16,7 +16,13 @@ import 'styles/reset.scss';
 import 'styles/fonts.scss';
 
 function initApp(component: React.ReactNode) {
-  render(<App>{component}</App>, document.getElementById('root'));
+  const root = ReactDOM.createRoot(document.getElementById('root') as HTMLDivElement);
+
+  root.render(
+    <App>
+      {component}
+    </App>
+  );
 }
 
 export function init(component: React.ReactNode) {

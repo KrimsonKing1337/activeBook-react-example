@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 import { mainActions, mainSelectors } from 'store/main';
 import { achievementsSelectors } from 'store/achievements';
@@ -19,7 +19,7 @@ import { Footer } from './components/Footer';
 
 export const Menu = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
+  const location = useLocation();
 
   const menuActiveState = useSelector(mainSelectors.menuActiveState);
   const achievements = useSelector(achievementsSelectors.achievements);
@@ -31,24 +31,20 @@ export const Menu = () => {
 
   // закрываю менюшки, если пользователь сделал navigator.goBack
   useEffect(() => {
-    const unlisten = history.listen((location) => {
-      if (!location.hash) {
-        if (menuActiveState !== null) {
-          dispatch(mainActions.setMenuActiveState(null));
-        }
-
-        if (bookmarksIsOpen) {
-          dispatch(bookmarksActions.setIsOpen(false));
-        }
-      } else {
-        if (menuActiveState === 'tableOfContents' || menuActiveState === 'achievementsProgress') {
-          dispatch(mainActions.setMenuActiveState(null));
-        }
+    if (!location.hash) {
+      if (menuActiveState !== null) {
+        dispatch(mainActions.setMenuActiveState(null));
       }
-    });
 
-    return () => unlisten();
-  }, [menuActiveState, bookmarksIsOpen]);
+      if (bookmarksIsOpen) {
+        dispatch(bookmarksActions.setIsOpen(false));
+      }
+    } else {
+      if (menuActiveState === 'tableOfContents' || menuActiveState === 'achievementsProgress') {
+        dispatch(mainActions.setMenuActiveState(null));
+      }
+    }
+  }, [location, menuActiveState, bookmarksIsOpen]);
 
   return (
     <Overflow isOpen={isOpen}>

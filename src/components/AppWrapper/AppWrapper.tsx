@@ -1,6 +1,6 @@
 import { PropsWithChildren, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import classNames from 'classnames';
 import { Howler } from 'howler';
@@ -29,7 +29,7 @@ import styles from './AppWrapper.scss';
 
 export const AppWrapper = ({ children }: PropsWithChildren<unknown>) => {
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const isLoading = useSelector(mainSelectors.isLoading);
   const page = useSelector(mainSelectors.page);
@@ -56,7 +56,7 @@ export const AppWrapper = ({ children }: PropsWithChildren<unknown>) => {
 
   // сбрасываю адресную строку
   useEffect(() => {
-    history.push('/');
+    navigate('/');
   }, []);
 
   // если тач-устройство - убираю :hover

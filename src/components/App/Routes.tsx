@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Routes as ReactRouterRoutes } from 'react-router-dom';
 
 import { initialState } from 'store/main/slice';
 
@@ -25,18 +25,20 @@ export const Routes = ({ children }: PropsWithChildren<unknown>) => {
   const pageComponents = getPageComponents();
 
   return (
-    <Switch>
-      <Route exact path="/">
-        {children}
-      </Route>
+    <BrowserRouter>
+      <ReactRouterRoutes>
+        <Route path="/">
+          {children}
+        </Route>
 
-      {pageComponents.map((PageComponent, i) => {
-        return (
-          <Route exact path={`/page-${i}`} key={i}>
-            <PageComponent />
-          </Route>
-        );
-      })}
-    </Switch>
+        {pageComponents.map((PageComponent, i) => {
+          return (
+            <Route path={`/page-${i}`} key={i}>
+              <PageComponent />
+            </Route>
+          );
+        })}
+      </ReactRouterRoutes>
+    </BrowserRouter>
   );
 };

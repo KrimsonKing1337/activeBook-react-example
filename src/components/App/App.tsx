@@ -9,8 +9,6 @@ import { AppWrapper } from 'components/AppWrapper';
 import { hideAddressBarInMobileDevices } from 'utils/mobile/hideAddressBarInMobileDevices';
 import { addKeyboardControl } from 'utils/control/keyboardControl';
 
-import { Routes } from './Routes';
-
 export const App = ({ children }: PropsWithChildren<unknown>) => {
   useEffect(() => {
     // addTouchSupportForCssHover(); // вместо этого просто "удаляю" :hover везде, возможно так и оставлю
@@ -22,9 +20,7 @@ export const App = ({ children }: PropsWithChildren<unknown>) => {
     <Provider store={store}>
       <ConnectedRouter history={history}>
         <AppWrapper>
-          <Routes>
-            {children}
-          </Routes>
+          {children}
         </AppWrapper>
       </ConnectedRouter>
     </Provider>
