@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import { PropsWithChildren } from 'react';
 
 import classNames from 'classnames';
 
@@ -13,7 +13,8 @@ export type ActionProps = {
 export const Action = ({
   children,
   fullWidth = false,
-  onClick = () => {},
+  onClick = () => {
+  },
   ...props
 }: PropsWithChildren<ActionProps>) => {
   const actionClassNames = classNames({

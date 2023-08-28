@@ -35,7 +35,7 @@ export function useRain() {
     letItBe = true;
 
     (async () => {
-      for (letItBe ; ;) {
+      for (letItBe; ;) {
         if (!letItBe) {
           return;
         }

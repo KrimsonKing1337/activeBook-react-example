@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { PageWrapper } from 'components/PageWrapper';
 import { ExternalLink as ExtLink } from 'components/ExternalLink/ExternalLink';
 import { WithModal } from 'components/ColoredTextTrigger/WithModal';

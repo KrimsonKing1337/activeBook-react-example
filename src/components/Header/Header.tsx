@@ -1,5 +1,3 @@
-import React from 'react';
-
 import styles from './Header.scss';
 
 export type HeaderProps = {
@@ -10,7 +8,7 @@ export const Header = ({ label }: HeaderProps) => {
   return (
     <>
       <div className={styles.header}>
-        { label }
+        {label}
       </div>
     </>
   );

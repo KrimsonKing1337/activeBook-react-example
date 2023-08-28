@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useEffect, useRef } from 'react';
+import { PropsWithChildren, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 
 import classNames from 'classnames';

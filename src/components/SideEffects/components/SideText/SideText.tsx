@@ -14,7 +14,7 @@ export const SideText = ({ children }: PropsWithChildren<unknown>) => {
       <div className={styles.sideTextScrollLeftWrapper}>
         <div className={styles.sideTextScrollLeft}>
           <div className={styles.sideTextScrollContent}>
-            { childrenAsArray[0] }
+            {childrenAsArray[0]}
           </div>
         </div>
       </div>
@@ -22,7 +22,7 @@ export const SideText = ({ children }: PropsWithChildren<unknown>) => {
       <div className={styles.sideTextScrollRightWrapper}>
         <div className={styles.sideTextScrollRight}>
           <div className={styles.sideTextScrollContent}>
-            { childrenAsArray[1] }
+            {childrenAsArray[1]}
           </div>
         </div>
       </div>

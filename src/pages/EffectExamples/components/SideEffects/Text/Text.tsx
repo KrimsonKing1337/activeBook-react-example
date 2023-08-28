@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Toggle } from 'components/Toggle';
 import { SideText } from 'components/SideEffects/components/SideText';
 import sideTextStyles from 'components/SideEffects/components/SideText/SideText.scss';

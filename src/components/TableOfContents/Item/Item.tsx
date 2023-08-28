@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { mainSelectors } from 'store/main';
@@ -29,15 +28,15 @@ export const Item = ({ title, subtitle, pageNumber }: ItemProps) => {
   return (
     <div className={styles.item} onClick={clickHandler}>
       <div className={styles.title}>
-        { title }
+        {title}
       </div>
 
       <div className={styles.subtitle}>
-        { subtitle }
+        {subtitle}
       </div>
 
       <div className={styles.pageNumber}>
-        { pageNumber }
+        {pageNumber}
       </div>
     </div>
   );

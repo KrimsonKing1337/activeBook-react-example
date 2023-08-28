@@ -1,5 +1,3 @@
-import React from 'react';
-
 type ImgProps = {
   [key: string]: any;
   className?: string;

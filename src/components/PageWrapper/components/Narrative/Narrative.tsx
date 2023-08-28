@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useEffect, useRef } from 'react';
+import { PropsWithChildren, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 
 import Hammer from 'hammerjs';
@@ -59,7 +59,7 @@ export const Narrative = ({ children }: PropsWithChildren<PageWrapperProps>) => 
       tabIndex={0}
     >
       <div className={styles.text} style={textStyle}>
-        { children }
+        {children}
       </div>
     </div>
   );

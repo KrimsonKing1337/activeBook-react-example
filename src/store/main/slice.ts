@@ -25,8 +25,10 @@ const slice = createSlice({
     setPage(state, action: PayloadAction<State['page']>) {
       state.page = action.payload;
     },
-    prevPage(_state) {},
-    nextPage(_state) {},
+    prevPage(_state) {
+    },
+    nextPage(_state) {
+    },
     setMenuActiveState(state, action: PayloadAction<State['menuActiveState']>) {
       state.menuActiveState = action.payload;
     },

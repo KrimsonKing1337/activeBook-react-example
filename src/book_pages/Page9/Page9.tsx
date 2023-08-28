@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Timer } from '@types';
 
 import { PageWrapper } from 'components/PageWrapper';

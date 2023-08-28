@@ -12,7 +12,8 @@ const slice = createSlice({
   name: '@effects/audio/sound',
   initialState,
   reducers: {
-    setSound(_state, _action: PayloadAction<HowlInst>) {},
+    setSound(_state, _action: PayloadAction<HowlInst>) {
+    },
     setHowlInst1(state, action: PayloadAction<HowlInst>) {
       state.howlInst1 = action.payload;
     },

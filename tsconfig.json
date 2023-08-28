@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "noEmit": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "strict": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
@@ -13,6 +13,6 @@
     "resolveJsonModule": true,
     "baseUrl": "./src",
   },
-  "exclude": ["node_modules", "dist", "lib"],
+  "exclude": ["node_modules", "dist"],
   "include": ["./**/*"]
 }

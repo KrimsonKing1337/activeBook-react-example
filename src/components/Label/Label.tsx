@@ -1,5 +1,3 @@
-import React from 'react';
-
 import styles from './Label.scss';
 
 export type LabelProps = {
@@ -9,7 +7,7 @@ export type LabelProps = {
 export const Label = ({ label }: LabelProps) => {
   return (
     <div className={styles.label}>
-      { label }
+      {label}
     </div>
   );
 };

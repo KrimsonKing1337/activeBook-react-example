@@ -1,5 +1,3 @@
-import React from 'react';
-
 import classNames from 'classnames';
 
 import { Color } from 'utils/effects/achievements/utils';
@@ -23,11 +21,11 @@ export const Item = ({ title, status, type }: ItemProps) => {
   return (
     <div className={itemClassNames}>
       <div className={styles.title}>
-        { title }
+        {title}
       </div>
 
       <div className={styles.status}>
-        { statusLabel }
+        {statusLabel}
       </div>
     </div>
   );

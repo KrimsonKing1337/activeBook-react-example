@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Interval } from '@types';
 
 import { PageWrapper } from 'components/PageWrapper';

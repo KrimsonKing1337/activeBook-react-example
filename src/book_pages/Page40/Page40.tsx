@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { PageWrapper } from 'components/PageWrapper';
 import { EasterEgg as EasterEggComponent } from 'components/ColoredTextTrigger/EasterEgg';
 import { WithModal } from 'components/ColoredTextTrigger/WithModal';

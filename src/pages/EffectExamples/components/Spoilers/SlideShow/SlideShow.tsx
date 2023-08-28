@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { Img } from 'components/Img';
 import { Label } from 'components/Label';
@@ -21,7 +21,7 @@ export const SlideShow = () => {
       >
         <SlideShowComponent isWithoutBorders={true} onSlideChange={() => setNeedToSetHeight(true)}>
           <Img src="/assets/img/1.jpg" />
-          <Img src="/assets/img/2.jpg"/>
+          <Img src="/assets/img/2.jpg" />
           <Img src="/assets/img/3.jpg" />
           <Img src="/assets/img/4.jpg" />
         </SlideShowComponent>

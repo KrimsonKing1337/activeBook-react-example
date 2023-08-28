@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import { PropsWithChildren } from 'react';
 import { useSelector } from 'react-redux';
 
 import classNames from 'classnames';

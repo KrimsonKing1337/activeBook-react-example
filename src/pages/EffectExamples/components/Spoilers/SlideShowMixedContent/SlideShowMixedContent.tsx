@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { Label } from 'components/Label';
 import { Spoiler } from 'components/Spoiler';

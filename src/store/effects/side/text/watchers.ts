@@ -1,4 +1,4 @@
-import  { PayloadAction } from '@reduxjs/toolkit';
+import { PayloadAction } from '@reduxjs/toolkit';
 import { takeLatest } from 'redux-saga/effects';
 
 import { setCssVariable } from 'utils/styles/setCssVariable';

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Action } from 'components/ColoredTextTrigger/Action';
 import { ExternalLink } from 'components/ExternalLink';
 import { AuthorComment } from 'components/ColoredTextTrigger/AuthorComment';

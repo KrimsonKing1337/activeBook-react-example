@@ -28,7 +28,8 @@ export class SlideShow extends React.Component<PropsWithChildren<SlideShowProp>,
     isVisible: false,
     isWithoutBorders: false,
     mode: null,
-    onSlideChange: () => {},
+    onSlideChange: () => {
+    },
   };
 
   private hammertime: HammerManager | null;
@@ -225,11 +226,11 @@ export class SlideShow extends React.Component<PropsWithChildren<SlideShowProp>,
     return (
       <div ref={this.wrapperRef} className={wrapperClassNames}>
         <div className="SlideShowToolbar">
-          <div className={styles.left} onClick={(e) => this.arrowClickHandler(e,false)}>
+          <div className={styles.left} onClick={(e) => this.arrowClickHandler(e, false)}>
             <FontAwesomeIcon icon={faArrowLeft} />
           </div>
 
-          <div className={styles.right} onClick={(e) => this.arrowClickHandler(e,true)}>
+          <div className={styles.right} onClick={(e) => this.arrowClickHandler(e, true)}>
             <FontAwesomeIcon icon={faArrowRight} />
           </div>
         </div>

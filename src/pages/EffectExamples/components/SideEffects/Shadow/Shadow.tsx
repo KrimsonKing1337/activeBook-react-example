@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Toggle } from 'components/Toggle';
 
 import { useSideShadow } from 'hooks/effects/side/shadow';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import classNames from 'classnames';
@@ -52,7 +51,7 @@ export const LineHeight = () => {
         </div>
 
         <div className={getClassNames(styles.isValue)}>
-          { currentValueLabel }
+          {currentValueLabel}
         </div>
 
         <div className={getClassNames(styles.isPlus)} onClick={plusClickHandler}>

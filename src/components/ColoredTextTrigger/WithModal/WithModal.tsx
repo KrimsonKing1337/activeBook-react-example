@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useEffect, useRef, useState } from 'react';
+import { PropsWithChildren, useEffect, useRef, useState } from 'react';
 
 import { Modal as ModalComponent, ModalProps } from 'components/Modal';
 import { Action } from 'components/ColoredTextTrigger/Action';

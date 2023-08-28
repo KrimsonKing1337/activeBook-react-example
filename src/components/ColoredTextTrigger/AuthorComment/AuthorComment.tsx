@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import { PropsWithChildren } from 'react';
 import { useSelector } from 'react-redux';
 
 import { achievementsSelectors } from 'store/achievements';
@@ -16,7 +16,10 @@ export type ActionProps = {
   onClick?: () => void;
 };
 
-export const AuthorComment = ({ onClick = () => {}, children, ...props }: PropsWithChildren<ActionProps>) => {
+export const AuthorComment = ({
+  onClick = () => {
+  }, children, ...props
+}: PropsWithChildren<ActionProps>) => {
   const achievements = useSelector(achievementsSelectors.achievements);
   const authorCommentsIsOn = useSelector(configSelectors.authorComments);
   const authorCommentsLength = useSelector(mainSelectors.authorComments);

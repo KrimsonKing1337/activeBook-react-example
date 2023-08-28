@@ -28,7 +28,10 @@ export class HowlWrapper {
   public type: AudioType = 'sfx';
   public onPlay: () => void;
 
-  constructor({ id, src, loop, type = 'sfx', screamer = false, onPlay = () => {} }: HowlWrapperOptions) {
+  constructor({
+    id, src, loop, type = 'sfx', screamer = false, onPlay = () => {
+    },
+  }: HowlWrapperOptions) {
     const volume = this.getVolume();
 
     let volumeValue = volume.sfx / 100;

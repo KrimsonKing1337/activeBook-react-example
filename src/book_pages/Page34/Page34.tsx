@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { ModalDialog } from 'components/ModalDialog';
 import { PageWrapper } from 'components/PageWrapper';
 import { SideText } from 'components/SideEffects/components/SideText';

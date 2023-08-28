@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { Img } from 'components/Img';
 import { Modal } from 'components/Modal';

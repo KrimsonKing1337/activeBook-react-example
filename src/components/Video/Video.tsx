@@ -1,5 +1,3 @@
-import React from 'react';
-
 type VideoProps = {
   [key: string]: any;
   className?: string;

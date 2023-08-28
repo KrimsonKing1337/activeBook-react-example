@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { PageWrapper } from 'components/PageWrapper';
 import { WithModal } from 'components/ColoredTextTrigger/WithModal';
 import { Img } from 'components/Img';

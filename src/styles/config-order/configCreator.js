@@ -7,9 +7,9 @@ const animation = require('./groups/animation');
 const misc = require('./groups/misc');
 
 module.exports = ({
-  'border-in-box-model': borderInBoxModel = false,
-  'empty-line-between-groups': emptyLineBetweenGroups = true,
-} = {}) =>
+                    'border-in-box-model': borderInBoxModel = false,
+                    'empty-line-between-groups': emptyLineBetweenGroups = true,
+                  } = {}) =>
   [
     ['ContentForPseudoElement', ['content']],
     ['Special', special],

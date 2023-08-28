@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Flags } from 'utils/effects/achievements/utils';
 import { play } from 'utils/effects/achievements';

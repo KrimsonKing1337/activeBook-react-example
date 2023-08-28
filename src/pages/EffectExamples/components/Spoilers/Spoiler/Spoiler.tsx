@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Label } from 'components/Label';
 import { Spoiler as SpoilerComponent } from 'components/Spoiler';
 

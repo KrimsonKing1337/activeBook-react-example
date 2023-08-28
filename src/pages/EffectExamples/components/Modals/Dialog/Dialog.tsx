@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { ModalDialog } from 'components/ModalDialog';
 import { Toggle } from 'components/Toggle';

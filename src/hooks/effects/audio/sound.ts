@@ -29,8 +29,10 @@ export function useSound({
   stopBy = 0,
   delay = 0,
   screamer = false,
-  onPlay = () => {},
-  onUnmount = () => {},
+  onPlay = () => {
+  },
+  onUnmount = () => {
+  },
 }: UseSoundProps) {
   const dispatch = useDispatch();
 

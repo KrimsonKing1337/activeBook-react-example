@@ -21,7 +21,8 @@ export const SlideShow = ({
   isVisible = true,
   mode = null,
   isWithoutBorders = false,
-  onSlideChange = () => {},
+  onSlideChange = () => {
+  },
 }: PropsWithChildren<SlideShowProps>) => {
   const childrenAsArray = React.Children.toArray(children);
 

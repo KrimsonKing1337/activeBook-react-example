@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useEffect, useRef, useState } from 'react';
+import { PropsWithChildren, useEffect, useRef, useState } from 'react';
 
 import classNames from 'classnames';
 
@@ -18,7 +18,8 @@ export type ModalDialogProps = ModalProps & {
   onCancel: Func;
 }
 
-const defaultFunc = () => {};
+const defaultFunc = () => {
+};
 
 let timer: Timer = null;
 let interval: Interval = null;

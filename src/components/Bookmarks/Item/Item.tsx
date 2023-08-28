@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
@@ -26,7 +24,7 @@ export const Item = ({ pageNumber, onDelete }: ItemProps) => {
   return (
     <div className={styles.item} onClick={clickHandler}>
       <div className={styles.pageNumber}>
-        Страница { pageNumber }
+        Страница {pageNumber}
       </div>
 
       <div className={styles.deleteIcon} onClick={deleteIconClickHandler}>
