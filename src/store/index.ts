@@ -1,5 +1,4 @@
-import { applyMiddleware, combineReducers, createStore } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { configureStore } from '@reduxjs/toolkit';
 import { createReduxHistoryContext } from 'redux-first-history';
 import { createBrowserHistory } from 'history';
 import createSagaMiddleware from 'redux-saga';
@@ -18,41 +17,42 @@ import { sideTextReducer, watchSideTextActions } from './effects/side/text';
 import { bookmarksReducer, watchBookmarksActions } from './bookmarks';
 import { achievementsReducer } from './achievements';
 
-const {
-  createReduxHistory,
-  routerMiddleware,
-  routerReducer,
-} = createReduxHistoryContext({
+const sagaMiddleware = createSagaMiddleware();
+
+const reduxHistoryContextMiddleware = createReduxHistoryContext({
   history: createBrowserHistory(),
 });
 
-const sagaMiddleware = createSagaMiddleware();
-const compose = composeWithDevTools(applyMiddleware(sagaMiddleware, routerMiddleware));
+const { createReduxHistory, routerMiddleware, routerReducer } = reduxHistoryContextMiddleware;
 
-const makeRootReducer = () => {
-  return combineReducers({
-    router: routerReducer,
-    main: mainReducer,
-    config: configReducer,
-    volume: volumeReducer,
-    effects: effectsReducer,
-    soundEffects: soundEffectsReducer,
-    soundBgEffects: soundBgEffectsReducer,
-    musicEffects: musicEffectsReducer,
-    sideShadowEffect: sideShadowReducer,
-    sideTextEffect: sideTextReducer,
-    backgroundVideoEffect: backgroundVideoEffectReducer,
-    backgroundImgEffect: backgroundImgEffectReducer,
-    bookmarks: bookmarksReducer,
-    achievements: achievementsReducer,
-  });
+const reducer = {
+  router: routerReducer,
+  main: mainReducer,
+  config: configReducer,
+  volume: volumeReducer,
+  effects: effectsReducer,
+  soundEffects: soundEffectsReducer,
+  soundBgEffects: soundBgEffectsReducer,
+  musicEffects: musicEffectsReducer,
+  sideShadowEffect: sideShadowReducer,
+  sideTextEffect: sideTextReducer,
+  backgroundVideoEffect: backgroundVideoEffectReducer,
+  backgroundImgEffect: backgroundImgEffectReducer,
+  bookmarks: bookmarksReducer,
+  achievements: achievementsReducer,
 };
 
-const rootReducer = makeRootReducer();
+const middleware = [
+  sagaMiddleware,
+  routerMiddleware,
+];
 
-export type RootState = ReturnType<typeof rootReducer>;
+export const store = configureStore({
+  reducer,
+  middleware,
+});
 
-export const store = createStore(rootReducer, compose);
+export type RootState = ReturnType<typeof store.getState>
 
 export const history = createReduxHistory(store);
 
