@@ -39,7 +39,7 @@ export const Menu = () => {
       if (bookmarksIsOpen) {
         dispatch(bookmarksActions.setIsOpen(false));
       }
-    } else {
+    } else if (location.hash === '#menu') {
       if (menuActiveState === 'tableOfContents' || menuActiveState === 'achievementsProgress') {
         dispatch(mainActions.setMenuActiveState(null));
       }
