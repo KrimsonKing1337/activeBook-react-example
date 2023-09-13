@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 
+import { play as playAchievement } from 'activeBook-core/utils/effects/achievements';
+import { Flags } from 'activeBook-core/utils/effects/achievements/utils';
+
 import { PageWrapper } from 'components/PageWrapper';
 import { WithModal } from 'components/ColoredTextTrigger/WithModal';
 
 import { useSound } from 'hooks/effects/audio/sound';
-
-import { play as playAchievement } from 'utils/effects/achievements';
-import { Flags } from 'utils/effects/achievements/utils';
 
 export const Page1 = () => {
   useEffect(() => {

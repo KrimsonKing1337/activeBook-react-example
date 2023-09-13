@@ -2,8 +2,7 @@ import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'activeBook-core/store';
 import { musicEffectsActions, musicEffectsSelectors } from 'activeBook-core/store/effects/audio/music';
-
-import { HowlWrapper } from 'utils/effects/audio/HowlWrapper';
+import { HowlWrapper } from 'activeBook-core/utils/effects/audio/HowlWrapper';
 
 type UseMusicProps = {
   src: string;

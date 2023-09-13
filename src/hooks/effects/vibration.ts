@@ -2,8 +2,7 @@ import { useEffect } from 'react';
 
 import { useSelector } from 'activeBook-core/store';
 import { mainSelectors } from 'activeBook-core/store/main';
-
-import { off as vibrationOff, on as vibrationOn } from 'utils/effects/vibration';
+import { off as vibrationOff, on as vibrationOn } from 'activeBook-core/utils/effects/vibration';
 
 export function useVibration() {
   const isVibrationAvailable = useSelector(mainSelectors.isVibrationAvailable);

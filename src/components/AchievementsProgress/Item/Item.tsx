@@ -1,6 +1,5 @@
 import classNames from 'classnames';
-
-import { Color } from 'utils/effects/achievements/utils';
+import { Color } from 'activeBook-core/utils/effects/achievements/utils';
 
 import styles from './Item.scss';
 

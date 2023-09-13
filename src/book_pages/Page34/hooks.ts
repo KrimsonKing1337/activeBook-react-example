@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { Flags, modalsWereShowed } from 'utils/localStorage/modalsWereShowed';
+import { Flags, modalsWereShowed } from 'activeBook-core/utils/localStorage/modalsWereShowed';
 
 export function useModal() {
   const initValue = !modalsWereShowed.get(Flags.inverseColor);

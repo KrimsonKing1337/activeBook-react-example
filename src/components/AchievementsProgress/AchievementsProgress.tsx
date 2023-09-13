@@ -3,11 +3,10 @@ import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'activeBook-core/store';
 import { achievementsSelectors } from 'activeBook-core/store/achievements';
 import { mainActions, mainSelectors } from 'activeBook-core/store/main';
+import { FlagsWithoutHidden, hiddenAchievements, voc } from 'activeBook-core/utils/effects/achievements/utils';
 
 import { Header } from 'components/Header';
 import { Overflow } from 'components/Overflow';
-
-import { FlagsWithoutHidden, hiddenAchievements, voc } from 'utils/effects/achievements/utils';
 
 import { Item, ItemProps } from './Item';
 

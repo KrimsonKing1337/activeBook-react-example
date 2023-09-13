@@ -1,12 +1,11 @@
 import { useDispatch, useSelector } from 'activeBook-core/store';
 import { configActions, configSelectors } from 'activeBook-core/store/config';
 import { mainSelectors } from 'activeBook-core/store/main';
+import { on as vibrationOn } from 'activeBook-core/utils/effects/vibration';
 
 import { Toggle } from 'components/Toggle';
 import { Spoiler } from 'components/Spoiler';
 import { playAchievement } from 'components/Menu/utils';
-
-import { on as vibrationOn } from 'utils/effects/vibration';
 
 import styles from './Vibration.scss';
 

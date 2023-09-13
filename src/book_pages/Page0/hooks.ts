@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
-import { konamiCodeHandler } from 'utils/effects/achievements/konamiCodeHandler';
-import { modalsWereShowed } from 'utils/localStorage/modalsWereShowed';
-import { changeBgColor, show } from 'utils/effects/achievements/utils';
-import { Flags as ModalsFlags } from 'utils/localStorage/modalsWereShowed';
+import { konamiCodeHandler } from 'activeBook-core/utils/effects/achievements/konamiCodeHandler';
+import { modalsWereShowed } from 'activeBook-core/utils/localStorage/modalsWereShowed';
+import { changeBgColor, show } from 'activeBook-core/utils/effects/achievements/utils';
+import { Flags as ModalsFlags } from 'activeBook-core/utils/localStorage/modalsWereShowed';
 
 export function useKonamiCode() {
   useEffect(() => {

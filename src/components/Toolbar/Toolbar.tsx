@@ -2,13 +2,12 @@ import { useDispatch, useSelector } from 'activeBook-core/store';
 import { mainActions } from 'activeBook-core/store/main';
 import { configActions, configSelectors } from 'activeBook-core/store/config';
 import { bookmarksActions } from 'activeBook-core/store/bookmarks';
+import { getNewValueForNarrativeTextStyle } from 'activeBook-core/utils/styles/getNewValueForNarrativeTextStyle';
 
 import BookmarkIcon from 'assets/img/toolbar/i-bookmark.svg';
 import FontSmallIcon from 'assets/img/toolbar/i-font-small.svg';
 import FontBigIcon from 'assets/img/toolbar/i-font-big.svg';
 import EtcIcon from 'assets/img/toolbar/i-etc.svg';
-
-import { getNewValueForNarrativeTextStyle } from 'utils/styles/getNewValueForNarrativeTextStyle';
 
 import { Item } from './components/Item';
 import { Nav } from './components/Nav';

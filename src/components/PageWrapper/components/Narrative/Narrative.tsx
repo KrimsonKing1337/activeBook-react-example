@@ -3,10 +3,9 @@ import { PropsWithChildren, useEffect, useRef } from 'react';
 import { useSelector } from 'activeBook-core/store';
 import Hammer from 'hammerjs';
 import { configSelectors } from 'activeBook-core/store/config';
+import { goNextPage, goPrevPage } from 'activeBook-core/utils/control/goToPage';
 
 import { PageWrapperProps } from 'components/PageWrapper/PageWrapper';
-
-import { goNextPage, goPrevPage } from 'utils/control/goToPage';
 
 import styles from './Narrative.scss';
 

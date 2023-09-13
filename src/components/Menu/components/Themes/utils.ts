@@ -1,9 +1,8 @@
 import classNames from 'classnames';
+import { play } from 'activeBook-core/utils/effects/achievements';
+import { Flags } from 'activeBook-core/utils/effects/achievements/utils';
 
-import { Theme } from '@types';
-
-import { play } from 'utils/effects/achievements';
-import { Flags } from 'utils/effects/achievements/utils';
+import { Theme } from 'activeBook-core/@types';
 
 import styles from './Themes.scss';
 

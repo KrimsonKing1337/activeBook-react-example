@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 
+import effects from 'book_pages/effects.json';
 import { useDispatch, useSelector } from 'activeBook-core/store';
 import { soundBgEffectsActions, soundBgEffectsSelectors } from 'activeBook-core/store/effects/audio/soundBg';
 import { mainSelectors } from 'activeBook-core/store/main';
+import { HowlWrapper } from 'activeBook-core/utils/effects/audio/HowlWrapper';
+import { getEffectInRange } from 'activeBook-core/utils/effects/rangeEffects';
 
-import { AudioRangeEffect, Timer } from '@types';
-
-import { HowlWrapper } from 'utils/effects/audio/HowlWrapper';
-import { getEffectInRange } from 'utils/effects/rangeEffects';
+import { AudioRangeEffect, Timer } from 'activeBook-core/@types';
 
 export function useAudioInRange() {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ export function useAudioInRange() {
   const soundInst = useSelector(soundBgEffectsSelectors.soundInst);
 
   useEffect(() => {
-    const soundOnPage: AudioRangeEffect = getEffectInRange(page, 'bg');
+    const soundOnPage = getEffectInRange(effects as any, page, 'bg') as AudioRangeEffect;
 
     if (!soundOnPage) {
       soundInst?.unload(true);

@@ -2,13 +2,12 @@ import { useDispatch, useSelector } from 'activeBook-core/store';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { configActions, configSelectors } from 'activeBook-core/store/config';
-
-import { Theme } from '@types';
+import { getIsMobile } from 'activeBook-core/utils/mobile/getIsMobile';
 
 import { Label } from 'components/Label';
 import { Spoiler } from 'components/Spoiler';
 
-import { getIsMobile } from 'utils/mobile/getIsMobile';
+import { Theme } from 'activeBook-core/@types';
 
 import { getClassNames, playAchievement, themes } from './utils';
 

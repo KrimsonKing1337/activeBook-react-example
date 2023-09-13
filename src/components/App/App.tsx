@@ -4,11 +4,10 @@ import { Provider } from 'react-redux';
 import { history, store, StoreProvider } from 'activeBook-core/store';
 import { Counter } from 'activeBook-core/components';
 import { HistoryRouter } from 'redux-first-history/rr6';
+import { hideAddressBarInMobileDevices } from 'activeBook-core/utils/mobile/hideAddressBarInMobileDevices';
+import { addKeyboardControl } from 'activeBook-core/utils/control/keyboardControl';
 
 import { AppWrapper } from 'components/AppWrapper';
-
-import { hideAddressBarInMobileDevices } from 'utils/mobile/hideAddressBarInMobileDevices';
-import { addKeyboardControl } from 'utils/control/keyboardControl';
 
 import { Routes } from './Routes';
 

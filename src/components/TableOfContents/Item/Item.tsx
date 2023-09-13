@@ -1,7 +1,6 @@
 import { useSelector } from 'activeBook-core/store';
 import { mainSelectors } from 'activeBook-core/store/main';
-
-import { goToPage } from 'utils/control/goToPage';
+import { goToPage } from 'activeBook-core/utils/control/goToPage';
 
 import { playAchievement } from './utils';
 

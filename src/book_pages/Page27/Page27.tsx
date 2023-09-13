@@ -1,10 +1,10 @@
-import { Interval } from '@types';
-
 import { PageWrapper } from 'components/PageWrapper';
 import { WithModal } from 'components/ColoredTextTrigger/WithModal';
 
 import { useSound } from 'hooks/effects/audio/sound';
 import { useVibration } from 'hooks/effects/vibration';
+
+import { Interval } from 'activeBook-core/@types';
 
 let interval: Interval = null;
 

@@ -4,10 +4,9 @@ import { useSelector } from 'activeBook-core/store';
 import { achievementsSelectors } from 'activeBook-core/store/achievements';
 import { configSelectors } from 'activeBook-core/store/config';
 import { mainSelectors } from 'activeBook-core/store/main';
-
-import { seenAuthorComments } from 'utils/localStorage/seenAuthorComments';
-import { play } from 'utils/effects/achievements';
-import { Flags as AchievementsFlags } from 'utils/effects/achievements/utils';
+import { seenAuthorComments } from 'activeBook-core/utils/localStorage/seenAuthorComments';
+import { play } from 'activeBook-core/utils/effects/achievements';
+import { Flags as AchievementsFlags } from 'activeBook-core/utils/effects/achievements/utils';
 
 import styles from './AuthorComment.scss';
 

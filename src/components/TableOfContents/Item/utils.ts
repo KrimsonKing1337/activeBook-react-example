@@ -1,5 +1,5 @@
-import { play } from 'utils/effects/achievements';
-import { Flags } from 'utils/effects/achievements/utils';
+import { play } from 'activeBook-core/utils/effects/achievements';
+import { Flags } from 'activeBook-core/utils/effects/achievements/utils';
 
 export const playAchievement = () => {
   play({

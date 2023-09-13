@@ -1,10 +1,9 @@
 import { useSelector } from 'activeBook-core/store';
 import { configSelectors } from 'activeBook-core/store/config';
+import { flashlightInst } from 'activeBook-core/utils/effects/flashlight';
+import { sleep } from 'activeBook-core/utils/sleep';
 
 import { useSideShadow } from 'hooks/effects/side/shadow';
-
-import { flashlightInst } from 'utils/effects/flashlight';
-import { sleep } from 'utils/sleep';
 
 export function useFlashlight(withSideShadow = false, speed = 150) {
   const theme = useSelector(configSelectors.theme);

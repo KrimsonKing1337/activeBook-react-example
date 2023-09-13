@@ -2,10 +2,9 @@ import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'activeBook-core/store';
 import { soundEffectsActions, soundEffectsSelectors } from 'activeBook-core/store/effects/audio/sound';
+import { HowlWrapper, HowlWrapperOptions } from 'activeBook-core/utils/effects/audio/HowlWrapper';
 
-import { Timer } from '@types';
-
-import { HowlWrapper, HowlWrapperOptions } from 'utils/effects/audio/HowlWrapper';
+import { Timer } from 'activeBook-core/@types';
 
 type UseSoundProps = {
   src: string;

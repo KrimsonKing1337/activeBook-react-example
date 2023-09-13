@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 
+import effects from 'book_pages/effects.json';
 import { useDispatch, useSelector } from 'activeBook-core/store';
 import { effectsActions } from 'activeBook-core/store/effects/common';
 import { mainSelectors } from 'activeBook-core/store/main';
+import { getEffectInRange } from 'activeBook-core/utils/effects/rangeEffects';
 
-import { DotsRangeEffect } from '@types';
-
-import { getEffectInRange } from 'utils/effects/rangeEffects';
+import { DotsRangeEffect } from 'activeBook-core/@types';
 
 export function useDotsInRange() {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ export function useDotsInRange() {
   const page = useSelector(mainSelectors.page);
 
   useEffect(() => {
-    const dotsInRange: DotsRangeEffect = getEffectInRange(page, 'dots');
+    const dotsInRange = getEffectInRange(effects, page, 'dots') as DotsRangeEffect;
 
     if (!dotsInRange) {
       dispatch(effectsActions.setDotsActiveState(false));

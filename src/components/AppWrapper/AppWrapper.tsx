@@ -10,18 +10,17 @@ import { configActions } from 'activeBook-core/store/config';
 import { initialState as configInitialState } from 'activeBook-core/store/config/slice';
 import { mainActions, mainSelectors } from 'activeBook-core/store/main';
 import { achievementsActions } from 'activeBook-core/store/achievements';
+import { seenPages } from 'activeBook-core/utils/localStorage/seenPages';
+import { play as achievementPlay } from 'activeBook-core/utils/effects/achievements';
+import { achievements as achievementsUtils } from 'activeBook-core/utils/localStorage/achievements';
+import { Flags as AchievementsFlags, getInitValues } from 'activeBook-core/utils/effects/achievements/utils';
+import { removeCssHover } from 'activeBook-core/utils/touch/removeCssHover';
+import { flashlightInst } from 'activeBook-core/utils/effects/flashlight';
 
 import { Achievement } from 'components/Achievement';
 
 import { useEffectsInRange } from 'hooks/effects/range';
 import { useVibration } from 'hooks/effects/vibration';
-
-import { seenPages } from 'utils/localStorage/seenPages';
-import { play as achievementPlay } from 'utils/effects/achievements';
-import { achievements as achievementsUtils } from 'utils/localStorage/achievements';
-import { Flags as AchievementsFlags, getInitValues } from 'utils/effects/achievements/utils';
-import { removeCssHover } from 'utils/touch/removeCssHover';
-import { flashlightInst } from 'utils/effects/flashlight';
 
 import styles from './AppWrapper.scss';
 

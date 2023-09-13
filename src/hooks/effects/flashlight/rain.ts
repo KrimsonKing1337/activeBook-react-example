@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 
-import { useFlashlight } from 'hooks/effects/flashlight';
+import { sleep } from 'activeBook-core/utils/sleep';
 
-import { sleep } from 'utils/sleep';
+import { useFlashlight } from 'hooks/effects/flashlight';
 
 let letItBe = false;
 

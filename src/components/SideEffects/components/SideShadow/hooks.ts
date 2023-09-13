@@ -2,8 +2,7 @@ import { RefObject, useEffect } from 'react';
 
 import { useSelector } from 'activeBook-core/store';
 import { sideShadowEffectSelectors } from 'activeBook-core/store/effects/side/shadow';
-
-import { setCssVariable } from 'utils/styles/setCssVariable';
+import { setCssVariable } from 'activeBook-core/utils/styles/setCssVariable';
 
 export function useColorPolice(sideShadowRef: RefObject<HTMLDivElement>) {
   const color = useSelector(sideShadowEffectSelectors.color);

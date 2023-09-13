@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
-import { Flags } from 'utils/effects/achievements/utils';
-import { play } from 'utils/effects/achievements';
-import { achievements } from 'utils/localStorage/achievements';
+import { Flags } from 'activeBook-core/utils/effects/achievements/utils';
+import { play } from 'activeBook-core/utils/effects/achievements';
+import { achievements } from 'activeBook-core/utils/localStorage/achievements';
 
 import { createDotsAsArray, getPlaceInLineByLocationStyles, orderDefaultState } from './utils';
 

@@ -1,7 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-
-import { goToPage } from 'utils/control/goToPage';
+import { goToPage } from 'activeBook-core/utils/control/goToPage';
 
 import styles from './Item.scss';
 

@@ -9,7 +9,7 @@ import { EffectExamples } from 'pages/EffectExamples';
 import { Page0 } from 'book_pages/Page0';
 /// #endif
 
-import { getIsMobile } from 'utils/mobile/getIsMobile';
+import { getIsMobile } from 'activeBook-core/utils/mobile/getIsMobile';
 
 import 'modern-css-reset/dist/reset.min.css';
 import 'styles/reset.scss';

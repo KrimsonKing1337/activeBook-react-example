@@ -2,10 +2,9 @@ import { PropsWithChildren } from 'react';
 
 import { useSelector } from 'activeBook-core/store';
 import { mainSelectors } from 'activeBook-core/store/main';
-
-import { foundEasterEggs } from 'utils/localStorage/foundEasterEggs';
-import { Flags } from 'utils/effects/achievements/utils';
-import { play } from 'utils/effects/achievements';
+import { foundEasterEggs } from 'activeBook-core/utils/localStorage/foundEasterEggs';
+import { Flags } from 'activeBook-core/utils/effects/achievements/utils';
+import { play } from 'activeBook-core/utils/effects/achievements';
 
 import styles from './EasterEgg.scss';
 

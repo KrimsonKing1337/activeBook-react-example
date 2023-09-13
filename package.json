@@ -110,7 +110,7 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
-    "activeBook-core": "file:../activeBook-core/tgz/activeBook-core-0.0.9.tgz",
+    "activeBook-core": "file:../activeBook-core/tgz/activeBook-core-0.0.10.tgz",
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",

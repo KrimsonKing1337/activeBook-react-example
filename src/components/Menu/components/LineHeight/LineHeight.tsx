@@ -1,10 +1,9 @@
 import { useDispatch, useSelector } from 'activeBook-core/store';
 import classNames from 'classnames';
 import { configActions, configSelectors } from 'activeBook-core/store/config';
+import { getNewValueForNarrativeTextStyle } from 'activeBook-core/utils/styles/getNewValueForNarrativeTextStyle';
 
 import { Label } from 'components/Label';
-
-import { getNewValueForNarrativeTextStyle } from 'utils/styles/getNewValueForNarrativeTextStyle';
 
 import styles from './LineHeight.scss';
 

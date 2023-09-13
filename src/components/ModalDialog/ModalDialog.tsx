@@ -2,9 +2,9 @@ import { PropsWithChildren, useEffect, useRef, useState } from 'react';
 
 import classNames from 'classnames';
 
-import { Interval, Timer } from '@types';
-
 import { Modal, ModalProps } from 'components/Modal';
+
+import { Interval, Timer } from 'activeBook-core/@types';
 
 import styles from './ModalDialog.scss';
 
@@ -29,6 +29,7 @@ export const ModalDialog = ({
   cantCloseIn = 0,
   showOkButton = true,
   showCancelButton = true,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   onClose = defaultFunc,
   onConfirm = defaultFunc,
   onCancel = defaultFunc,
