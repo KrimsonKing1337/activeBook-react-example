@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-import { useSelector } from 'react-redux';
 
+import { useSelector } from 'activeBook-core/store';
 import classNames from 'classnames';
-
-import { mainSelectors } from 'store/main';
+import { mainSelectors } from 'activeBook-core/store/main';
 
 import ArrowLeft from 'assets/img/toolbar/i-arrow-left.svg';
 import ArrowRight from 'assets/img/toolbar/i-arrow-right.svg';

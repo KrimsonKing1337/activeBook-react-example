@@ -1,8 +1,8 @@
-import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
-import { sideShadowActions } from 'store/effects/side/shadow';
-import { initialState } from 'store/effects/side/shadow/slice';
+import { useDispatch } from 'activeBook-core/store';
+import { sideShadowActions } from 'activeBook-core/store/effects/side/shadow';
+import { initialState } from 'activeBook-core/store/effects/side/shadow/slice';
 
 export type useSideShadowProps = {
   isActiveDefault?: boolean;

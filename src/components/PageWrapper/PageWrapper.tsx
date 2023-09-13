@@ -1,10 +1,9 @@
 import { PropsWithChildren } from 'react';
-import { useSelector } from 'react-redux';
 
+import { useSelector } from 'activeBook-core/store';
 import classNames from 'classnames';
-
-import { effectsSelectors } from 'store/effects/common';
-import { mainSelectors } from 'store/main';
+import { effectsSelectors } from 'activeBook-core/store/effects/common';
+import { mainSelectors } from 'activeBook-core/store/main';
 
 import { Toolbar } from 'components/Toolbar';
 import { Menu } from 'components/Menu';

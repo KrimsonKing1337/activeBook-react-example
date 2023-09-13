@@ -1,6 +1,5 @@
-import { store } from 'store';
-
-import { mainActions } from 'store/main';
+import { store } from 'activeBook-core/store';
+import { mainActions } from 'activeBook-core/store/main';
 
 export class Flashlight {
   private track: MediaStreamTrack | null;

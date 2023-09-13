@@ -1,6 +1,5 @@
-import { useSelector } from 'react-redux';
-
-import { mainSelectors } from 'store/main';
+import { useSelector } from 'activeBook-core/store';
+import { mainSelectors } from 'activeBook-core/store/main';
 
 import { goToPage } from 'utils/control/goToPage';
 

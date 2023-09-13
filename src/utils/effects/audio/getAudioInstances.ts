@@ -1,4 +1,4 @@
-import { store } from 'store';
+import { store } from 'activeBook-core/store';
 
 export function getAudioInstances() {
   const storeState = store.getState();

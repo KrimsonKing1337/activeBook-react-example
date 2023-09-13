@@ -1,6 +1,5 @@
-import { useDispatch, useSelector } from 'react-redux';
-
-import { configActions, configSelectors } from 'store/config';
+import { useDispatch, useSelector } from 'activeBook-core/store';
+import { configActions, configSelectors } from 'activeBook-core/store/config';
 
 import { Toggle } from 'components/Toggle';
 import { playAchievement } from 'components/Menu/utils';

@@ -1,16 +1,15 @@
 import { PropsWithChildren, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+import { useDispatch, useSelector } from 'activeBook-core/store';
 import classNames from 'classnames';
 import { Howler } from 'howler';
-
-import { volumeActions } from 'store/volume';
-import { initialState as volumeInitialState } from 'store/volume/slice';
-import { configActions } from 'store/config';
-import { initialState as configInitialState } from 'store/config/slice';
-import { mainActions, mainSelectors } from 'store/main';
-import { achievementsActions } from 'store/achievements';
+import { volumeActions } from 'activeBook-core/store/volume';
+import { initialState as volumeInitialState } from 'activeBook-core/store/volume/slice';
+import { configActions } from 'activeBook-core/store/config';
+import { initialState as configInitialState } from 'activeBook-core/store/config/slice';
+import { mainActions, mainSelectors } from 'activeBook-core/store/main';
+import { achievementsActions } from 'activeBook-core/store/achievements';
 
 import { Achievement } from 'components/Achievement';
 
@@ -20,9 +19,8 @@ import { useVibration } from 'hooks/effects/vibration';
 import { seenPages } from 'utils/localStorage/seenPages';
 import { play as achievementPlay } from 'utils/effects/achievements';
 import { achievements as achievementsUtils } from 'utils/localStorage/achievements';
-import { Flags as AchievementsFlags } from 'utils/effects/achievements/utils';
+import { Flags as AchievementsFlags, getInitValues } from 'utils/effects/achievements/utils';
 import { removeCssHover } from 'utils/touch/removeCssHover';
-import { getInitValues } from 'utils/effects/achievements/utils';
 import { flashlightInst } from 'utils/effects/flashlight';
 
 import styles from './AppWrapper.scss';

@@ -1,8 +1,7 @@
-import { useDispatch, useSelector } from 'react-redux';
-
-import { mainActions } from 'store/main';
-import { configActions, configSelectors } from 'store/config';
-import { bookmarksActions } from 'store/bookmarks';
+import { useDispatch, useSelector } from 'activeBook-core/store';
+import { mainActions } from 'activeBook-core/store/main';
+import { configActions, configSelectors } from 'activeBook-core/store/config';
+import { bookmarksActions } from 'activeBook-core/store/bookmarks';
 
 import BookmarkIcon from 'assets/img/toolbar/i-bookmark.svg';
 import FontSmallIcon from 'assets/img/toolbar/i-font-small.svg';

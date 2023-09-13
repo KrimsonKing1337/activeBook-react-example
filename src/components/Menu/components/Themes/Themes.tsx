@@ -1,11 +1,9 @@
-import { useDispatch, useSelector } from 'react-redux';
-
+import { useDispatch, useSelector } from 'activeBook-core/store';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { configActions, configSelectors } from 'activeBook-core/store/config';
 
 import { Theme } from '@types';
-
-import { configActions, configSelectors } from 'store/config';
 
 import { Label } from 'components/Label';
 import { Spoiler } from 'components/Spoiler';

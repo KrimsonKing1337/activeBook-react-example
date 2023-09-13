@@ -1,9 +1,8 @@
 import { PropsWithChildren, useEffect, useRef } from 'react';
-import { useSelector } from 'react-redux';
 
+import { useSelector } from 'activeBook-core/store';
 import Hammer from 'hammerjs';
-
-import { configSelectors } from 'store/config';
+import { configSelectors } from 'activeBook-core/store/config';
 
 import { PageWrapperProps } from 'components/PageWrapper/PageWrapper';
 

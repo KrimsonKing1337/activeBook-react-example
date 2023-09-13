@@ -1,8 +1,8 @@
-import { useSelector } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { achievementsSelectors } from 'store/achievements';
+import { useSelector } from 'activeBook-core/store';
+import { achievementsSelectors } from 'activeBook-core/store/achievements';
 
 import './Achievement.scss';
 

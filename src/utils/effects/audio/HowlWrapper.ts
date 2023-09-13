@@ -1,5 +1,5 @@
 import { Howl, HowlOptions } from 'howler';
-import { store } from 'store';
+import { store } from 'activeBook-core/store';
 
 type AudioType = 'bg' | 'music' | 'sfx';
 

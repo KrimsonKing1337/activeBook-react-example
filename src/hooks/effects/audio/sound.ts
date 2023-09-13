@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+
+import { useDispatch, useSelector } from 'activeBook-core/store';
+import { soundEffectsActions, soundEffectsSelectors } from 'activeBook-core/store/effects/audio/sound';
 
 import { Timer } from '@types';
-
-import { soundEffectsActions, soundEffectsSelectors } from 'store/effects/audio/sound';
 
 import { HowlWrapper, HowlWrapperOptions } from 'utils/effects/audio/HowlWrapper';
 

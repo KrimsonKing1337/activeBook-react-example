@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
-import { selectors } from 'store/bookmarks/selectors';
-import { bookmarksActions } from 'store/bookmarks';
+import { useDispatch, useSelector } from 'activeBook-core/store';
+import { selectors } from 'activeBook-core/store/bookmarks/selectors';
+import { bookmarksActions } from 'activeBook-core/store/bookmarks';
 
 export function useBookmarks() {
   const dispatch = useDispatch();

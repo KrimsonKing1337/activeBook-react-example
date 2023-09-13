@@ -1,7 +1,6 @@
-import { useSelector } from 'react-redux';
-
-import { sideShadowEffectSelectors } from 'store/effects/side/shadow';
-import { sideTextEffectSelectors } from 'store/effects/side/text';
+import { useSelector } from 'activeBook-core/store';
+import { sideShadowEffectSelectors } from 'activeBook-core/store/effects/side/shadow';
+import { sideTextEffectSelectors } from 'activeBook-core/store/effects/side/text';
 
 import { SideShadow } from './components/SideShadow';
 

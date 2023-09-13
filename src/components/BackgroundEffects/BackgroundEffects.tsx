@@ -1,8 +1,7 @@
-import { useSelector } from 'react-redux';
-
-import { effectsSelectors } from 'store/effects/common';
-import { backgroundVideoEffectSelectors } from 'store/effects/background/video';
-import { backgroundImgEffectSelectors } from 'store/effects/background/img';
+import { useSelector } from 'activeBook-core/store';
+import { effectsSelectors } from 'activeBook-core/store/effects/common';
+import { backgroundVideoEffectSelectors } from 'activeBook-core/store/effects/background/video';
+import { backgroundImgEffectSelectors } from 'activeBook-core/store/effects/background/img';
 
 import { Video } from 'components/Video';
 import { Img } from 'components/Img';

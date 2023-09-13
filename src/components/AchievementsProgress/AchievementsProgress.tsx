@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
-import { achievementsSelectors } from 'store/achievements';
-import { mainActions, mainSelectors } from 'store/main';
+import { useDispatch, useSelector } from 'activeBook-core/store';
+import { achievementsSelectors } from 'activeBook-core/store/achievements';
+import { mainActions, mainSelectors } from 'activeBook-core/store/main';
 
 import { Header } from 'components/Header';
 import { Overflow } from 'components/Overflow';

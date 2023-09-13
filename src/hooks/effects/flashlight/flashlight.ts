@@ -1,6 +1,5 @@
-import { useSelector } from 'react-redux';
-
-import { configSelectors } from 'store/config';
+import { useSelector } from 'activeBook-core/store';
+import { configSelectors } from 'activeBook-core/store/config';
 
 import { useSideShadow } from 'hooks/effects/side/shadow';
 

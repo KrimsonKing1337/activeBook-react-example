@@ -1,6 +1,5 @@
-import { useDispatch } from 'react-redux';
-
-import { effectsActions } from 'store/effects/common';
+import { useDispatch } from 'activeBook-core/store';
+import { effectsActions } from 'activeBook-core/store/effects/common';
 
 export function useInverseColor() {
   const dispatch = useDispatch();

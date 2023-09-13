@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
-import { mainActions, mainSelectors } from 'store/main';
-import { achievementsSelectors } from 'store/achievements';
-import { bookmarksActions, bookmarksSelectors } from 'store/bookmarks';
+import { useDispatch, useSelector } from 'activeBook-core/store';
+import { mainActions, mainSelectors } from 'activeBook-core/store/main';
+import { achievementsSelectors } from 'activeBook-core/store/achievements';
+import { bookmarksActions, bookmarksSelectors } from 'activeBook-core/store/bookmarks';
 
 import { Overflow } from 'components/Overflow';
 import { Header } from 'components/Header';

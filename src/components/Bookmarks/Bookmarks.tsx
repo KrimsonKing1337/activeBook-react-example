@@ -1,10 +1,7 @@
-import { useDispatch, useSelector } from 'react-redux';
-
+import { useDispatch, useSelector } from 'activeBook-core/store';
 import classNames from 'classnames';
-
-import { mainSelectors } from 'store/main';
-import { bookmarksActions } from 'store/bookmarks';
-import { bookmarksSelectors } from 'store/bookmarks';
+import { mainSelectors } from 'activeBook-core/store/main';
+import { bookmarksActions, bookmarksSelectors } from 'activeBook-core/store/bookmarks';
 
 import { Header } from 'components/Header';
 import { Overflow } from 'components/Overflow';

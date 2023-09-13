@@ -1,8 +1,6 @@
-import { useDispatch } from 'react-redux';
-
+import { useDispatch } from 'activeBook-core/store';
 import classNames from 'classnames';
-
-import { mainActions } from 'store/main';
+import { mainActions } from 'activeBook-core/store/main';
 
 import styles from './Footer.scss';
 

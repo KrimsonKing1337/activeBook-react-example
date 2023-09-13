@@ -1,8 +1,9 @@
 import { PropsWithChildren, useEffect } from 'react';
 import { Provider } from 'react-redux';
 
+import { history, store, StoreProvider } from 'activeBook-core/store';
+import { Counter } from 'activeBook-core/components';
 import { HistoryRouter } from 'redux-first-history/rr6';
-import { history, store } from 'store';
 
 import { AppWrapper } from 'components/AppWrapper';
 
@@ -19,14 +20,18 @@ export const App = ({ children }: PropsWithChildren<unknown>) => {
   }, []);
 
   return (
-    <Provider store={store}>
-      <HistoryRouter history={history}>
-        <AppWrapper>
-          <Routes>
-            {children}
-          </Routes>
-        </AppWrapper>
-      </HistoryRouter>
-    </Provider>
+    <StoreProvider>
+      <Provider store={store}>
+        <HistoryRouter history={history}>
+          <AppWrapper>
+            <Counter />
+
+            <Routes>
+              {children}
+            </Routes>
+          </AppWrapper>
+        </HistoryRouter>
+      </Provider>
+    </StoreProvider>
   );
 };

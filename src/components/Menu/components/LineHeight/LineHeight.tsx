@@ -1,8 +1,6 @@
-import { useDispatch, useSelector } from 'react-redux';
-
+import { useDispatch, useSelector } from 'activeBook-core/store';
 import classNames from 'classnames';
-
-import { configActions, configSelectors } from 'store/config';
+import { configActions, configSelectors } from 'activeBook-core/store/config';
 
 import { Label } from 'components/Label';
 

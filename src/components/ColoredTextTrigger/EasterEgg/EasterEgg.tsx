@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react';
-import { useSelector } from 'react-redux';
 
-import { mainSelectors } from 'store/main';
+import { useSelector } from 'activeBook-core/store';
+import { mainSelectors } from 'activeBook-core/store/main';
 
 import { foundEasterEggs } from 'utils/localStorage/foundEasterEggs';
 import { Flags } from 'utils/effects/achievements/utils';

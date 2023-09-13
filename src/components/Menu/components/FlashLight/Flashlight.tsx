@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
-import { configActions, configSelectors } from 'store/config';
-import { mainSelectors } from 'store/main';
+import { useDispatch, useSelector } from 'activeBook-core/store';
+import { configActions, configSelectors } from 'activeBook-core/store/config';
+import { mainSelectors } from 'activeBook-core/store/main';
 
 import { Toggle } from 'components/Toggle';
 import { playAchievement } from 'components/Menu/utils';

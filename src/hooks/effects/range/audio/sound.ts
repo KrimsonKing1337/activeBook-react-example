@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+
+import { useDispatch, useSelector } from 'activeBook-core/store';
+import { soundBgEffectsActions, soundBgEffectsSelectors } from 'activeBook-core/store/effects/audio/soundBg';
+import { mainSelectors } from 'activeBook-core/store/main';
 
 import { AudioRangeEffect, Timer } from '@types';
-
-import { soundBgEffectsActions, soundBgEffectsSelectors } from 'store/effects/audio/soundBg';
-import { mainSelectors } from 'store/main';
 
 import { HowlWrapper } from 'utils/effects/audio/HowlWrapper';
 import { getEffectInRange } from 'utils/effects/rangeEffects';

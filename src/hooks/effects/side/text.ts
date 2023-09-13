@@ -1,8 +1,8 @@
-import { useDispatch } from 'react-redux';
 import { ReactNode, useEffect } from 'react';
 
-import { sideTextActions } from 'store/effects/side/text';
-import { initialState } from 'store/effects/side/text/slice';
+import { useDispatch } from 'activeBook-core/store';
+import { sideTextActions } from 'activeBook-core/store/effects/side/text';
+import { initialState } from 'activeBook-core/store/effects/side/text/slice';
 
 export type useSideTextProps = {
   isActiveDefault?: boolean;

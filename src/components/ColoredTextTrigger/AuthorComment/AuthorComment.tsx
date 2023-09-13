@@ -1,9 +1,9 @@
 import { PropsWithChildren } from 'react';
-import { useSelector } from 'react-redux';
 
-import { achievementsSelectors } from 'store/achievements';
-import { configSelectors } from 'store/config';
-import { mainSelectors } from 'store/main';
+import { useSelector } from 'activeBook-core/store';
+import { achievementsSelectors } from 'activeBook-core/store/achievements';
+import { configSelectors } from 'activeBook-core/store/config';
+import { mainSelectors } from 'activeBook-core/store/main';
 
 import { seenAuthorComments } from 'utils/localStorage/seenAuthorComments';
 import { play } from 'utils/effects/achievements';

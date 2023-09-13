@@ -1,6 +1,5 @@
-import { useDispatch, useSelector } from 'react-redux';
-
-import { volumeActions, volumeSelectors } from 'store/volume';
+import { useDispatch, useSelector } from 'activeBook-core/store';
+import { volumeActions, volumeSelectors } from 'activeBook-core/store/volume';
 
 import { Label } from 'components/Label';
 

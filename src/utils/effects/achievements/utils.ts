@@ -1,12 +1,12 @@
 import { toast } from 'react-toastify';
 
-import { store } from 'store';
-
-import { achievementsActions } from 'store/achievements';
-import { Achievement } from 'store/achievements/@types';
+import { store } from 'activeBook-core/store';
+import { achievementsActions } from 'activeBook-core/store/achievements';
 
 import { HowlWrapper } from 'utils/effects/audio/HowlWrapper';
 import { achievements as achievementsLocalStorage } from 'utils/localStorage/achievements';
+
+import { Achievement } from 'activeBook-core/store/achievements/@types';
 
 export enum Flags {
   firstMove = 'firstMove',

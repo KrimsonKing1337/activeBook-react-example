@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 
-import { backgroundImgEffectActions } from 'store/effects/background/img';
+import { useDispatch } from 'activeBook-core/store';
+import { backgroundImgEffectActions } from 'activeBook-core/store/effects/background/img';
 
 import { Toggle } from 'components/Toggle';
 

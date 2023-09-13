@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react';
 import { Route, Routes as ReactRouterRoutes } from 'react-router-dom';
 
-import { initialState } from 'store/main/slice';
+import { initialState } from 'activeBook-core/store/main/slice';
 
 // todo: сделать все страницы либо через ленивую загрузку, либо по-обычному
 // todo: в кордове проблемы с подгрузкой компонента через ленивую загрузку

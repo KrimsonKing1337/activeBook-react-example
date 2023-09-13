@@ -1,9 +1,8 @@
 import { PropsWithChildren, useEffect, useRef } from 'react';
-import { useDispatch } from 'react-redux';
 
+import { useDispatch } from 'activeBook-core/store';
 import classNames from 'classnames';
-
-import { mainActions } from 'store/main';
+import { mainActions } from 'activeBook-core/store/main';
 
 import { getNarrativeElement } from 'components/PageWrapper/components/Narrative/utils';
 
