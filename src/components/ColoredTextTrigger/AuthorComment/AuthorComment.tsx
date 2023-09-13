@@ -41,7 +41,7 @@ export const AuthorComment = ({
   };
 
   const allPagesSeen = achievements?.allPagesSeen;
-  const showComment = (allPagesSeen && authorCommentsIsOn) || isSbMode;
+  const showComment = (allPagesSeen && authorCommentsIsOn) || isDemoMode;
 
   return showComment ? (
     <div className={styles.authorComment} onClick={clickHandler} {...props}>

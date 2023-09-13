@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom/client';
 
 import { App } from 'components/App';
 
-/// #if env.sb
+/// #if env.demo
 import { EffectExamples } from 'pages/EffectExamples';
 /// #else
 // eslint-disable-next-line
@@ -21,7 +21,7 @@ function initApp(component: React.ReactNode) {
   root.render(
     <App>
       {component}
-    </App>
+    </App>,
   );
 }
 
@@ -40,7 +40,7 @@ if (module.hot) {
   module.hot.accept();
 }
 
-/// #if env.sb
+/// #if env.demo
 init(<EffectExamples />);
 /// #else
 init(<Page0 />);

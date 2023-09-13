@@ -6,4 +6,4 @@ declare module '*.svg' {
   export default content;
 }
 
-declare const isSbMode: boolean;
+declare const isDemoMode: boolean;
