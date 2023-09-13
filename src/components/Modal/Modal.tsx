@@ -1,5 +1,4 @@
 import { PropsWithChildren, useEffect, useRef, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
 
 import Hammer from 'hammerjs';
 import { nanoid } from 'nanoid';
@@ -25,6 +24,12 @@ export type ModalProps = {
   cropDefault?: boolean;
 };
 
+/*
+* ниже я реализовал механику на window.location и window.history,
+* потому что при использовании хуков из react-router - location неактуальный,
+* из-за чего модалка открывается и сразу же закрывается.
+* мб дело в redux-first-history, что все действия с location нужно производить через стор и саги.
+*/
 export const Modal = ({
   children,
   onClose,
@@ -36,9 +41,6 @@ export const Modal = ({
   canCrop = false,
   cropDefault = true,
 }: PropsWithChildren<ModalProps>) => {
-  const history = useNavigate();
-  const location = useLocation();
-
   // здесь реф-версии нужны для хаммера, обычные для того чтобы ре-рендер срабатывал
   const isFullScreenRef = useRef(false);
   const isCropRef = useRef(true);
@@ -61,36 +63,19 @@ export const Modal = ({
     setComponentUuid(uuidValue);
   }, []);
 
-  useEffect(() => {
-    if (!isOpen) {
-      return;
-    }
-
-    if (!location.hash) {
-      close();
-    }
-  }, [location, isOpen]);
-
-  /*useEffect(() => {
-    if (!isOpen) {
-      return;
-    }
-
-    const unlisten = history.listen((location) => {
-      if (!location.hash) {
-        unlisten();
-        close();
-      }
-    });
-
-    return () => unlisten();
-  }, [isOpen]);*/
-
   const escPressHandler = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
       close();
     }
   };
+
+  useEffect(() => {
+    window.addEventListener('popstate', () => {
+      if (!window.location.hash) {
+        close();
+      }
+    });
+  }, []);
 
   useEffect(() => {
     if (!isOpen) {
@@ -101,7 +86,7 @@ export const Modal = ({
 
     const path = `#/modal/${componentUuid}`;
 
-    history(path);
+    window.history.pushState('', '', path);
 
     document.addEventListener('keydown', escPressHandler);
   }, [isOpen]);
@@ -169,12 +154,7 @@ export const Modal = ({
       return;
     }
 
-    const locationWithoutHash = {
-      ...location,
-      hash: '',
-    };
-
-    history(locationWithoutHash);
+    window.history.pushState(null, '', '/');
 
     if (onClose) {
       onClose();
