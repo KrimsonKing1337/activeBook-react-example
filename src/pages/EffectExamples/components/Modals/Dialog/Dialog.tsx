@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { ModalDialog } from 'components/ModalDialog';
-import { Toggle } from 'components/Toggle';
+import { ModalDialog } from 'activeBook-core/components/ModalDialog';
+import { Toggle } from 'activeBook-core/components/Toggle';
 
 export const Dialog = () => {
   const [modalIsActive, setModalIsActive] = useState(false);

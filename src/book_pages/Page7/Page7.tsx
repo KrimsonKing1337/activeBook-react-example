@@ -1,10 +1,9 @@
 import { useSound } from 'activeBook-core/hooks/effects/audio/sound';
 import { useVibration } from 'activeBook-core/hooks/effects/vibration';
 import { useMusic } from 'activeBook-core/hooks/effects/audio/music';
-
-import { EasterEgg as EasterEggComponent } from 'components/ColoredTextTrigger/EasterEgg';
-import { PageWrapper } from 'components/PageWrapper';
-import { WithModal } from 'components/ColoredTextTrigger/WithModal';
+import { EasterEgg as EasterEggComponent } from 'activeBook-core/components/ColoredTextTrigger/EasterEgg';
+import { PageWrapper } from 'activeBook-core/components/PageWrapper';
+import { WithModal } from 'activeBook-core/components/ColoredTextTrigger/WithModal';
 
 export const Page7 = () => {
   const { vibrationOn } = useVibration();

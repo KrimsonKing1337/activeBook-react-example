@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import { Modal } from 'components/Modal';
-import { Toggle } from 'components/Toggle';
-import { Video as VideoComponent } from 'components/Video';
+import { Modal } from 'activeBook-core/components/Modal';
+import { Toggle } from 'activeBook-core/components/Toggle';
+import { Video as VideoComponent } from 'activeBook-core/components/Video';
 
 export const Video = () => {
   const [modalIsActive, setModalIsActive] = useState(false);

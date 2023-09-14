@@ -6,8 +6,8 @@ import { Counter } from 'activeBook-core/components';
 import { HistoryRouter } from 'redux-first-history/rr6';
 import { hideAddressBarInMobileDevices } from 'activeBook-core/utils/mobile/hideAddressBarInMobileDevices';
 import { addKeyboardControl } from 'activeBook-core/utils/control/keyboardControl';
-
-import { AppWrapper } from 'components/AppWrapper';
+import { AppWrapper } from 'activeBook-core/components/AppWrapper';
+import effectsJson from 'book_pages/effects.json';
 
 import { Routes } from './Routes';
 
@@ -22,7 +22,7 @@ export const App = ({ children }: PropsWithChildren<unknown>) => {
     <StoreProvider>
       <Provider store={store}>
         <HistoryRouter history={history}>
-          <AppWrapper>
+          <AppWrapper effectsJson={effectsJson}>
             <Counter />
 
             <Routes>

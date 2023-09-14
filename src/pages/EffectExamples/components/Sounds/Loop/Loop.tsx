@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { Howl } from 'howler';
-
-import { Toggle } from 'components/Toggle';
+import { Toggle } from 'activeBook-core/components/Toggle';
 
 export const Loop = () => {
   const [loopSound, setLoopSound] = useState<Howl>();

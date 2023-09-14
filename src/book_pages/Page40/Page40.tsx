@@ -1,9 +1,8 @@
 import { useMusic } from 'activeBook-core/hooks/effects/audio/music';
 import { useSideShadow } from 'activeBook-core/hooks/effects/side/shadow';
-
-import { PageWrapper } from 'components/PageWrapper';
-import { EasterEgg as EasterEggComponent } from 'components/ColoredTextTrigger/EasterEgg';
-import { WithModal } from 'components/ColoredTextTrigger/WithModal';
+import { PageWrapper } from 'activeBook-core/components/PageWrapper';
+import { EasterEgg as EasterEggComponent } from 'activeBook-core/components/ColoredTextTrigger/EasterEgg';
+import { WithModal } from 'activeBook-core/components/ColoredTextTrigger/WithModal';
 
 export const Page40 = () => {
   const music = useMusic({

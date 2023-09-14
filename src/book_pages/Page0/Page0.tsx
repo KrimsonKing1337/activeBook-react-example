@@ -6,10 +6,9 @@ import { flashlightInst } from 'activeBook-core/utils/effects/flashlight';
 import { useSound } from 'activeBook-core/hooks/effects/audio/sound';
 import { useFlashlight } from 'activeBook-core/hooks/effects/flashlight';
 import { useVibration } from 'activeBook-core/hooks/effects/vibration';
-
-import { ModalDialog } from 'components/ModalDialog';
-import { PageWrapper } from 'components/PageWrapper';
-import { Action } from 'components/ColoredTextTrigger/Action';
+import { ModalDialog } from 'activeBook-core/components/ModalDialog';
+import { PageWrapper } from 'activeBook-core/components/PageWrapper';
+import { Action } from 'activeBook-core/components/ColoredTextTrigger/Action';
 
 import { useKonamiCode, useModal } from './hooks';
 

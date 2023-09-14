@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-import { Label } from 'components/Label';
-import { Spoiler } from 'components/Spoiler';
-import { SlideShow } from 'components/SlideShow';
-import { Video } from 'components/Video';
-import { Img } from 'components/Img';
+import { Label } from 'activeBook-core/components/Label';
+import { Spoiler } from 'activeBook-core/components/Spoiler';
+import { SlideShow } from 'activeBook-core/components/SlideShow';
+import { Video } from 'activeBook-core/components/Video';
+import { Img } from 'activeBook-core/components/Img';
 
 import { Item } from 'pages/EffectExamples/components/Item';
 

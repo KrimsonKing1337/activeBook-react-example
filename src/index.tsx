@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom/client';
 
-import { App } from 'components/App';
+import { App } from 'activeBook-core/components/App';
 
 /// #if env.demo
 import { EffectExamples } from 'pages/EffectExamples';

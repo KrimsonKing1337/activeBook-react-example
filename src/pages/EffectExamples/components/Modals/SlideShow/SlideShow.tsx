@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
-import { Img } from 'components/Img';
-import { Modal } from 'components/Modal';
-import { Toggle } from 'components/Toggle';
-import { SlideShow as SlideShowComponent } from 'components/SlideShow';
+import { Img } from 'activeBook-core/components/Img';
+import { Modal } from 'activeBook-core/components/Modal';
+import { Toggle } from 'activeBook-core/components/Toggle';
+import { SlideShow as SlideShowComponent } from 'activeBook-core/components/SlideShow';
 
 export const SlideShow = () => {
   const [modalIsActive, setModalIsActive] = useState(false);

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import { Modal } from 'components/Modal';
-import { Toggle } from 'components/Toggle';
-import { Img as ImgComponent } from 'components/Img';
+import { Modal } from 'activeBook-core/components/Modal';
+import { Toggle } from 'activeBook-core/components/Toggle';
+import { Img as ImgComponent } from 'activeBook-core/components/Img';
 
 export const Img = () => {
   const [modalIsActive, setModalIsActive] = useState(false);

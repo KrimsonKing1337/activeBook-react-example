@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
-import { Img } from 'components/Img';
-import { Label } from 'components/Label';
-import { Spoiler } from 'components/Spoiler';
-import { SlideShow as SlideShowComponent } from 'components/SlideShow';
+import { Img } from 'activeBook-core/components/Img';
+import { Label } from 'activeBook-core/components/Label';
+import { Spoiler } from 'activeBook-core/components/Spoiler';
+import { SlideShow as SlideShowComponent } from 'activeBook-core/components/SlideShow';
 
 import { Item } from 'pages/EffectExamples/components/Item';
 

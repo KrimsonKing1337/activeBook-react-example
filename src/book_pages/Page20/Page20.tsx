@@ -1,7 +1,7 @@
-import { PageWrapper } from 'components/PageWrapper';
-import { ExternalLink as ExtLink } from 'components/ExternalLink/ExternalLink';
-import { WithModal } from 'components/ColoredTextTrigger/WithModal';
-import { Img } from 'components/Img';
+import { PageWrapper } from 'activeBook-core/components/PageWrapper';
+import { ExternalLink as ExtLink } from 'activeBook-core/components/ExternalLink/ExternalLink';
+import { WithModal } from 'activeBook-core/components/ColoredTextTrigger/WithModal';
+import { Img } from 'activeBook-core/components/Img';
 
 export const Page20 = () => {
   const Link = (

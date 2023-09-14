@@ -1,9 +1,9 @@
 import { useSideText } from 'activeBook-core/hooks/effects/side/text';
+import { PageWrapper } from 'activeBook-core/components/PageWrapper';
+import { SideText } from 'activeBook-core/components/SideEffects/components/SideText';
+import { WithModal } from 'activeBook-core/components/ColoredTextTrigger/WithModal';
 
-import { PageWrapper } from 'components/PageWrapper';
-import { SideText } from 'components/SideEffects/components/SideText';
-import sideTextStyles from 'components/SideEffects/components/SideText/SideText.scss';
-import { WithModal } from 'components/ColoredTextTrigger/WithModal';
+import sideTextStyles from 'activeBook-core/components/SideEffects/components/SideText/SideText.scss';
 
 export const Page19 = () => {
   const SideTextTemplate = (

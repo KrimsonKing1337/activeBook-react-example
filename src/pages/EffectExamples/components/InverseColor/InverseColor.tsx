@@ -1,7 +1,6 @@
 import { useDispatch } from 'activeBook-core/store';
 import { effectsActions } from 'activeBook-core/store/effects/common';
-
-import { Toggle } from 'components/Toggle';
+import { Toggle } from 'activeBook-core/components/Toggle';
 
 export const InverseColor = () => {
   const dispatch = useDispatch();

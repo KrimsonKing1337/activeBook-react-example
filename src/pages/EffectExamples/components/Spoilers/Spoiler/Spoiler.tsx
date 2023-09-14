@@ -1,5 +1,5 @@
-import { Label } from 'components/Label';
-import { Spoiler as SpoilerComponent } from 'components/Spoiler';
+import { Label } from 'activeBook-core/components/Label';
+import { Spoiler as SpoilerComponent } from 'activeBook-core/components/Spoiler';
 
 import { Item } from 'pages/EffectExamples/components/Item';
 

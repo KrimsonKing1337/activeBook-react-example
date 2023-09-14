@@ -1,4 +1,4 @@
-import { PageWrapper } from 'components/PageWrapper';
+import { PageWrapper } from 'activeBook-core/components/PageWrapper';
 
 import { FishText } from './components/FishText';
 import { Shadow as SideShadow } from './components/SideEffects/Shadow';

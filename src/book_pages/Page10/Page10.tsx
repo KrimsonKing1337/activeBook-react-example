@@ -1,8 +1,7 @@
 import { useSound } from 'activeBook-core/hooks/effects/audio/sound';
 import { useSideShadow } from 'activeBook-core/hooks/effects/side/shadow';
-
-import { PageWrapper } from 'components/PageWrapper';
-import { WithModal } from 'components/ColoredTextTrigger/WithModal';
+import { PageWrapper } from 'activeBook-core/components/PageWrapper';
+import { WithModal } from 'activeBook-core/components/ColoredTextTrigger/WithModal';
 
 export const Page10 = () => {
   useSound({

@@ -1,6 +1,6 @@
-import { PageWrapper } from 'components/PageWrapper';
-import { WithModal } from 'components/ColoredTextTrigger/WithModal';
-import { Video } from 'components/Video';
+import { PageWrapper } from 'activeBook-core/components/PageWrapper';
+import { WithModal } from 'activeBook-core/components/ColoredTextTrigger/WithModal';
+import { Video } from 'activeBook-core/components/Video';
 
 export const Page21 = () => {
   const EasterEgg = (

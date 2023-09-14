@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { EasterEgg as EasterEggComponent } from 'components/ColoredTextTrigger/EasterEgg';
-import { Modal } from 'components/Modal';
+import { EasterEgg as EasterEggComponent } from 'activeBook-core/components/ColoredTextTrigger/EasterEgg';
+import { Modal } from 'activeBook-core/components/Modal';
 
 import { Item } from 'pages/EffectExamples/components/Item';
 

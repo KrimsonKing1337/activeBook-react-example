@@ -2,8 +2,7 @@ import { useEffect } from 'react';
 
 import { useDispatch } from 'activeBook-core/store';
 import { backgroundVideoEffectActions } from 'activeBook-core/store/effects/background/video';
-
-import { Toggle } from 'components/Toggle';
+import { Toggle } from 'activeBook-core/components/Toggle';
 
 export const Video = () => {
   const dispatch = useDispatch();

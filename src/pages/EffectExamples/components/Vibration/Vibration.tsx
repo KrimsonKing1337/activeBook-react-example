@@ -1,8 +1,7 @@
 import { useState } from 'react';
 
 import { on as vibrationOn } from 'activeBook-core/utils/effects/vibration';
-
-import { Toggle } from 'components/Toggle';
+import { Toggle } from 'activeBook-core/components/Toggle';
 
 export const Vibration = () => {
   const [buttonForVibrationIsActive, setButtonForVibrationIsActive] = useState(false);

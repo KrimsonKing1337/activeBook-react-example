@@ -1,5 +1,5 @@
-import { PageWrapper } from 'components/PageWrapper';
-import { WithModal } from 'components/ColoredTextTrigger/WithModal';
+import { PageWrapper } from 'activeBook-core/components/PageWrapper';
+import { WithModal } from 'activeBook-core/components/ColoredTextTrigger/WithModal';
 
 export const Page30 = () => {
   const Comment = (

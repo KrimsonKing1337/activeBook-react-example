@@ -1,7 +1,6 @@
 import { useMusic } from 'activeBook-core/hooks/effects/audio/music';
-
-import { PageWrapper } from 'components/PageWrapper';
-import { WithModal } from 'components/ColoredTextTrigger/WithModal';
+import { PageWrapper } from 'activeBook-core/components/PageWrapper';
+import { WithModal } from 'activeBook-core/components/ColoredTextTrigger/WithModal';
 
 export const Page43 = () => {
   useMusic({

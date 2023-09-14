@@ -3,9 +3,8 @@ import { useEffect } from 'react';
 import { play as playAchievement } from 'activeBook-core/utils/effects/achievements';
 import { Flags } from 'activeBook-core/utils/effects/achievements/utils';
 import { useSound } from 'activeBook-core/hooks/effects/audio/sound';
-
-import { PageWrapper } from 'components/PageWrapper';
-import { WithModal } from 'components/ColoredTextTrigger/WithModal';
+import { PageWrapper } from 'activeBook-core/components/PageWrapper';
+import { WithModal } from 'activeBook-core/components/ColoredTextTrigger/WithModal';
 
 export const Page1 = () => {
   useEffect(() => {

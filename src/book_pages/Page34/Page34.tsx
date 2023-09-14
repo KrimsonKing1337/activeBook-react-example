@@ -1,12 +1,12 @@
 import { useSideText } from 'activeBook-core/hooks/effects/side/text';
-
-import { ModalDialog } from 'components/ModalDialog';
-import { PageWrapper } from 'components/PageWrapper';
-import { SideText } from 'components/SideEffects/components/SideText';
-import { WithModal } from 'components/ColoredTextTrigger/WithModal';
-import sideTextStyles from 'components/SideEffects/components/SideText/SideText.scss';
+import { ModalDialog } from 'activeBook-core/components/ModalDialog';
+import { PageWrapper } from 'activeBook-core/components/PageWrapper';
+import { SideText } from 'activeBook-core/components/SideEffects/components/SideText';
+import { WithModal } from 'activeBook-core/components/ColoredTextTrigger/WithModal';
 
 import { useModal } from './hooks';
+
+import sideTextStyles from 'activeBook-core/components/SideEffects/components/SideText/SideText.scss';
 
 export const Page34 = () => {
   const { modalIsActive, modalOnClose } = useModal();

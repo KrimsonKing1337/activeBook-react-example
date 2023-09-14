@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-import { Modal } from 'components/Modal';
-import { SlideShow } from 'components/SlideShow';
-import { Toggle } from 'components/Toggle';
-import { Video } from 'components/Video';
-import { Img } from 'components/Img';
+import { Modal } from 'activeBook-core/components/Modal';
+import { SlideShow } from 'activeBook-core/components/SlideShow';
+import { Toggle } from 'activeBook-core/components/Toggle';
+import { Video } from 'activeBook-core/components/Video';
+import { Img } from 'activeBook-core/components/Img';
 
 export const SlideShowMixedContent = () => {
   const [modalIsActive, setModalIsActive] = useState(false);

@@ -1,6 +1,6 @@
-import { Action } from 'components/ColoredTextTrigger/Action';
-import { ExternalLink } from 'components/ExternalLink';
-import { AuthorComment } from 'components/ColoredTextTrigger/AuthorComment';
+import { Action } from 'activeBook-core/components/ColoredTextTrigger/Action';
+import { ExternalLink } from 'activeBook-core/components/ExternalLink';
+import { AuthorComment } from 'activeBook-core/components/ColoredTextTrigger/AuthorComment';
 
 import { Item } from 'pages/EffectExamples/components/Item';
 

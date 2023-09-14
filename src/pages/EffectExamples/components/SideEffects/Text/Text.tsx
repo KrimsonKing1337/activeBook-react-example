@@ -1,8 +1,8 @@
 import { useSideText } from 'activeBook-core/hooks/effects/side/text';
+import { Toggle } from 'activeBook-core/components/Toggle';
+import { SideText } from 'activeBook-core/components/SideEffects/components/SideText';
 
-import { Toggle } from 'components/Toggle';
-import { SideText } from 'components/SideEffects/components/SideText';
-import sideTextStyles from 'components/SideEffects/components/SideText/SideText.scss';
+import sideTextStyles from 'activeBook-core/components/SideEffects/components/SideText/SideText.scss';
 
 export const Text = () => {
   const SideTextTemplate = (

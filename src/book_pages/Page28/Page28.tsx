@@ -1,4 +1,4 @@
-import { PageWrapper } from 'components/PageWrapper';
+import { PageWrapper } from 'activeBook-core/components/PageWrapper';
 
 export const Page28 = () => {
   return (

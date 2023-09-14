@@ -2,8 +2,7 @@ import { useEffect } from 'react';
 
 import { useDispatch } from 'activeBook-core/store';
 import { backgroundImgEffectActions } from 'activeBook-core/store/effects/background/img';
-
-import { Toggle } from 'components/Toggle';
+import { Toggle } from 'activeBook-core/components/Toggle';
 
 export const Img = () => {
   const dispatch = useDispatch();
