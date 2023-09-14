@@ -8,6 +8,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const path = require('path');
 
 const dotenv = require('dotenv').config({ path: __dirname + '/.env' });
+const activeBookCorePath = path.resolve(__dirname, 'node_modules/activeBook-core');
 
 module.exports = (env = {}, argv) => {
   const webpackMode = argv.mode;
@@ -36,6 +37,7 @@ module.exports = (env = {}, argv) => {
     new CopyWebpackPlugin({
       patterns: [
         { from: 'assets', to: 'assets' },
+        { from: path.resolve(activeBookCorePath, './assets'), to: 'assets' },
       ],
     }),
   ];
@@ -118,7 +120,11 @@ module.exports = (env = {}, argv) => {
         },
       ],
     },
-    { test: /\.(woff|woff2|eot|ttf)$/, use: ['url-loader?limit=100000'] },
+    {
+      test: /\.(woff|woff2|eot|ttf)$/,
+      use: ['url-loader?limit=100000'],
+      exclude: [path.join(activeBookCorePath, './assets/fonts')],
+    },
   ];
 
   if (mobile) {
@@ -164,10 +170,7 @@ module.exports = (env = {}, argv) => {
         path.resolve(__dirname, './assets'),
       ],
       alias: {
-        '@src': path.resolve(__dirname, 'src'),
-        '@components': path.resolve(__dirname, 'src/components'),
-        '@assets': path.resolve(__dirname, './assets'),
-        '@utils': path.resolve(__dirname, 'src/utils'),
+        'styles': path.resolve(activeBookCorePath, './styles'),
       },
       fallback: {
         crypto: false,

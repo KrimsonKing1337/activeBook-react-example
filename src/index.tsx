@@ -2,20 +2,12 @@ import ReactDOM from 'react-dom/client';
 
 import effectsJson from 'book_pages/effects.json';
 import { App } from 'activeBook-core/components/App';
-/// #else
-// eslint-disable-next-line
 import { Page0 } from 'book_pages/Page0';
 import { getIsMobile } from 'activeBook-core/utils/mobile/getIsMobile';
 
 import { EffectExamples } from 'pages/EffectExamples';
 
-import 'modern-css-reset/dist/reset.min.css';
-import 'styles/reset.scss';
-import 'styles/fonts.scss';
-
-/// #if env.demo
-/// #endif
-
+import 'activeBook-core/styles/styles.scss';
 
 function initApp(component: React.ReactNode) {
   const root = ReactDOM.createRoot(document.getElementById('root') as HTMLDivElement);
