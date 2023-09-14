@@ -1,6 +1,6 @@
-import { Toggle } from 'components/Toggle';
+import { useSideShadow } from 'activeBook-core/hooks/effects/side/shadow';
 
-import { useSideShadow } from 'hooks/effects/side/shadow';
+import { Toggle } from 'components/Toggle';
 
 export const Shadow = () => {
   const { sideShadowOn, sideShadowOff } = useSideShadow({

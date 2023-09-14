@@ -1,7 +1,7 @@
+import { useSound } from 'activeBook-core/hooks/effects/audio/sound';
+
 import { PageWrapper } from 'components/PageWrapper';
 import { WithModal } from 'components/ColoredTextTrigger/WithModal';
-
-import { useSound } from 'hooks/effects/audio/sound';
 
 export const Page2 = () => {
   useSound({

@@ -1,7 +1,7 @@
-import { PageWrapper } from 'components/PageWrapper';
+import { useSound } from 'activeBook-core/hooks/effects/audio/sound';
+import { useVibration } from 'activeBook-core/hooks/effects/vibration';
 
-import { useSound } from 'hooks/effects/audio/sound';
-import { useVibration } from 'hooks/effects/vibration';
+import { PageWrapper } from 'components/PageWrapper';
 
 export const Page14 = () => {
   const { vibrationOn } = useVibration();

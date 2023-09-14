@@ -1,8 +1,8 @@
+import { useSound } from 'activeBook-core/hooks/effects/audio/sound';
+import { useVibration } from 'activeBook-core/hooks/effects/vibration';
+
 import { PageWrapper } from 'components/PageWrapper';
 import { WithModal } from 'components/ColoredTextTrigger/WithModal';
-
-import { useSound } from 'hooks/effects/audio/sound';
-import { useVibration } from 'hooks/effects/vibration';
 
 import { Interval } from 'activeBook-core/@types';
 

@@ -1,8 +1,8 @@
+import { useSound } from 'activeBook-core/hooks/effects/audio/sound';
+import { useRain } from 'activeBook-core/hooks/effects/flashlight/rain';
+
 import { PageWrapper } from 'components/PageWrapper';
 import { WithModal } from 'components/ColoredTextTrigger/WithModal';
-
-import { useSound } from 'hooks/effects/audio/sound';
-import { useRain } from 'hooks/effects/flashlight/rain';
 
 export const Page13 = () => {
   useSound({

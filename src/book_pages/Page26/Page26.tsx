@@ -1,6 +1,6 @@
-import { PageWrapper } from 'components/PageWrapper';
+import { useSound } from 'activeBook-core/hooks/effects/audio/sound';
 
-import { useSound } from 'hooks/effects/audio/sound';
+import { PageWrapper } from 'components/PageWrapper';
 
 export const Page26 = () => {
   useSound({

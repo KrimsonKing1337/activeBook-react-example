@@ -16,11 +16,11 @@ import { achievements as achievementsUtils } from 'activeBook-core/utils/localSt
 import { Flags as AchievementsFlags, getInitValues } from 'activeBook-core/utils/effects/achievements/utils';
 import { removeCssHover } from 'activeBook-core/utils/touch/removeCssHover';
 import { flashlightInst } from 'activeBook-core/utils/effects/flashlight';
+import { useEffectsInRange } from 'activeBook-core/hooks/effects/range';
+import { useVibration } from 'activeBook-core/hooks/effects/vibration';
+import effectsJson from 'book_pages/effects.json';
 
 import { Achievement } from 'components/Achievement';
-
-import { useEffectsInRange } from 'hooks/effects/range';
-import { useVibration } from 'hooks/effects/vibration';
 
 import styles from './AppWrapper.scss';
 
@@ -121,7 +121,7 @@ export const AppWrapper = ({ children }: PropsWithChildren<unknown>) => {
     };
   }, [page]);
 
-  useEffectsInRange();
+  useEffectsInRange(effectsJson);
 
   const appWrapperClassNames = classNames({
     [styles.appWrapper]: true,

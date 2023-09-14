@@ -1,10 +1,10 @@
+import { useSideText } from 'activeBook-core/hooks/effects/side/text';
+
 import { ModalDialog } from 'components/ModalDialog';
 import { PageWrapper } from 'components/PageWrapper';
 import { SideText } from 'components/SideEffects/components/SideText';
-import sideTextStyles from 'components/SideEffects/components/SideText/SideText.scss';
 import { WithModal } from 'components/ColoredTextTrigger/WithModal';
-
-import { useSideText } from 'hooks/effects/side/text';
+import sideTextStyles from 'components/SideEffects/components/SideText/SideText.scss';
 
 import { useModal } from './hooks';
 

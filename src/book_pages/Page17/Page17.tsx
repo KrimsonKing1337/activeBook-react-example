@@ -1,7 +1,7 @@
-import { PageWrapper } from 'components/PageWrapper';
+import { useSound } from 'activeBook-core/hooks/effects/audio/sound';
+import { useSideShadow } from 'activeBook-core/hooks/effects/side/shadow';
 
-import { useSound } from 'hooks/effects/audio/sound';
-import { useSideShadow } from 'hooks/effects/side/shadow';
+import { PageWrapper } from 'components/PageWrapper';
 
 export const Page17 = () => {
   useSound({

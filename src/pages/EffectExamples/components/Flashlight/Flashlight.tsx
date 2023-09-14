@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import { Toggle } from 'components/Toggle';
+import { useFlashlight } from 'activeBook-core/hooks/effects/flashlight';
 
-import { useFlashlight } from 'hooks/effects/flashlight';
+import { Toggle } from 'components/Toggle';
 
 export const Flashlight = () => {
   const { flashlightOn, flashlightOff } = useFlashlight();

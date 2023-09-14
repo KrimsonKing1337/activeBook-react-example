@@ -3,14 +3,13 @@ import { useEffect, useState } from 'react';
 import { goToPage } from 'activeBook-core/utils/control/goToPage';
 import { Flags, modalsWereShowed } from 'activeBook-core/utils/localStorage/modalsWereShowed';
 import { flashlightInst } from 'activeBook-core/utils/effects/flashlight';
+import { useSound } from 'activeBook-core/hooks/effects/audio/sound';
+import { useFlashlight } from 'activeBook-core/hooks/effects/flashlight';
+import { useVibration } from 'activeBook-core/hooks/effects/vibration';
 
 import { ModalDialog } from 'components/ModalDialog';
 import { PageWrapper } from 'components/PageWrapper';
 import { Action } from 'components/ColoredTextTrigger/Action';
-
-import { useSound } from 'hooks/effects/audio/sound';
-import { useFlashlight } from 'hooks/effects/flashlight';
-import { useVibration } from 'hooks/effects/vibration';
 
 import { useKonamiCode, useModal } from './hooks';
 

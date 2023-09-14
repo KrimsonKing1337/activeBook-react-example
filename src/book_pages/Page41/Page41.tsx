@@ -1,9 +1,9 @@
+import { useMusic } from 'activeBook-core/hooks/effects/audio/music';
+import { useSideShadow } from 'activeBook-core/hooks/effects/side/shadow';
+
 import { PageWrapper } from 'components/PageWrapper';
 import { WithModal } from 'components/ColoredTextTrigger/WithModal';
 import { Img } from 'components/Img';
-
-import { useMusic } from 'hooks/effects/audio/music';
-import { useSideShadow } from 'hooks/effects/side/shadow';
 
 export const Page41 = () => {
   useMusic({
