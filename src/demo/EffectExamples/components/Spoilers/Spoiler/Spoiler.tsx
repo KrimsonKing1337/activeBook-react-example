@@ -1,7 +1,6 @@
 import { Label } from 'activeBook-core/components/Label';
 import { Spoiler as SpoilerComponent } from 'activeBook-core/components/Spoiler';
-
-import { Item } from 'pages/EffectExamples/components/Item';
+import { Item } from 'demo/EffectExamples/components/Item';
 
 export const Spoiler = () => {
   return (

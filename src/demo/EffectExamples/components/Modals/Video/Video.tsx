@@ -31,7 +31,7 @@ export const Video = () => {
       >
         {/* todo: видеоплеер, controls тут мешают элементам управления модалки */}
         <VideoComponent
-          src="/assets/videos/TV_static-2.mp4"
+          src="/assets/demo_data/videos/TV_static-2.mp4"
           loop
           autoPlay
           muted

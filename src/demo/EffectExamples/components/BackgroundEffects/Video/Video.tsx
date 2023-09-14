@@ -8,7 +8,7 @@ export const Video = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(backgroundVideoEffectActions.setSrc('/assets/videos/TV_static-2.mp4'));
+    dispatch(backgroundVideoEffectActions.setSrc('/assets/demo_data/videos/TV_static-2.mp4'));
   }, []);
 
   const buttonClickHandler = (value: boolean) => {

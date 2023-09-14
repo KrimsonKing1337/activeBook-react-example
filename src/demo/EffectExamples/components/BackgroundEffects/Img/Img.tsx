@@ -8,7 +8,7 @@ export const Img = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(backgroundImgEffectActions.setSrc('/assets/img/cinemagraph.gif'));
+    dispatch(backgroundImgEffectActions.setSrc('/assets/demo_data/img/cinemagraph.gif'));
   }, []);
 
   const buttonClickHandler = (value: boolean) => {

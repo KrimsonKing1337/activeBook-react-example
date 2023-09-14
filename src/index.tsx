@@ -1,11 +1,12 @@
 import ReactDOM from 'react-dom/client';
 
-import effectsJson from 'book_pages/effects.json';
-import { App } from 'activeBook-core/components/App';
-import { Page0 } from 'book_pages/Page0';
+import { App } from 'activeBook-core/components';
 import { getIsMobile } from 'activeBook-core/utils/mobile/getIsMobile';
+import { EffectExamples } from 'demo/EffectExamples';
 
-import { EffectExamples } from 'pages/EffectExamples';
+import { Page0 } from 'pages/Page0';
+
+import rangeEffectsJson from './rangeEffects.json';
 
 import 'activeBook-core/styles/styles.scss';
 
@@ -13,7 +14,7 @@ function initApp(component: React.ReactNode) {
   const root = ReactDOM.createRoot(document.getElementById('root') as HTMLDivElement);
 
   root.render(
-    <App effectsJson={effectsJson}>
+    <App rangeEffectsJson={rangeEffectsJson}>
       {component}
     </App>,
   );

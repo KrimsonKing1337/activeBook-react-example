@@ -27,7 +27,7 @@ export const MixedContent = () => {
     <>
       <Modal isOpen={modalIsActive} onClose={modalOnClose}>
         <div>
-          <Img src="/assets/img/cinemagraph.gif" />
+          <Img src="/assets/demo_data/img/cinemagraph.gif" />
 
           Товарищи! начало повседневной работы по формированию позиции играет важную роль в формировании систем
           массового участия. С другой стороны дальнейшее развитие различных форм деятельности играет важную роль в
@@ -36,7 +36,7 @@ export const MixedContent = () => {
           повседневной работы по формированию позиции играет важную роль в формировании новых предложений.
 
           <Video
-            src="/assets/videos/TV_static-2.mp4"
+            src="/assets/demo_data/videos/TV_static-2.mp4"
             loop
             autoPlay
             muted

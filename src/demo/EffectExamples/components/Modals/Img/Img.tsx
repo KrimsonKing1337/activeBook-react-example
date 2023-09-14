@@ -1,11 +1,10 @@
 import { useState } from 'react';
 
-import { Img } from 'activeBook-core/components/Img';
 import { Modal } from 'activeBook-core/components/Modal';
 import { Toggle } from 'activeBook-core/components/Toggle';
-import { SlideShow as SlideShowComponent } from 'activeBook-core/components/SlideShow';
+import { Img as ImgComponent } from 'activeBook-core/components/Img';
 
-export const SlideShow = () => {
+export const Img = () => {
   const [modalIsActive, setModalIsActive] = useState(false);
   const [buttonIsActive, setButtonIsActive] = useState(false);
 
@@ -19,8 +18,8 @@ export const SlideShow = () => {
       return;
     }
 
-    setModalIsActive(true);
     setButtonIsActive(true);
+    setModalIsActive(true);
   };
 
   return (
@@ -29,18 +28,13 @@ export const SlideShow = () => {
         isOpen={modalIsActive}
         onClose={modalOnClose}
         mode="media"
-        canCrop={true}
+        canFullScreen={true}
       >
-        <SlideShowComponent isVisible={modalIsActive} mode="modal">
-          <Img src="/assets/img/1.jpg" />
-          <Img src="/assets/img/2.jpg" />
-          <Img src="/assets/img/3.jpg" />
-          <Img src="/assets/img/4.jpg" />
-        </SlideShowComponent>
+        <ImgComponent src="/assets/demo_data/img/cinemagraph.gif" />
       </Modal>
 
       <Toggle
-        label="Модалка со слайдшоу"
+        label="Модалка с изображением"
         isActiveDefault={false}
         isActive={buttonIsActive}
         onClickOn={() => buttonClickHandler(true)}

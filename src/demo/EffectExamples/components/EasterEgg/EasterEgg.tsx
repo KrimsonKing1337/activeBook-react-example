@@ -2,8 +2,7 @@ import { useState } from 'react';
 
 import { EasterEgg as EasterEggComponent } from 'activeBook-core/components/ColoredTextTrigger/EasterEgg';
 import { Modal } from 'activeBook-core/components/Modal';
-
-import { Item } from 'pages/EffectExamples/components/Item';
+import { Item } from 'demo/EffectExamples/components/Item';
 
 export const EasterEgg = () => {
   const [modalIsActive, setModalIsActive] = useState(false);
