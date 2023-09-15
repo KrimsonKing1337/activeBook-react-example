@@ -1,6 +1,5 @@
 import { PageWrapper } from 'activeBook-core/components/PageWrapper';
 
-// шаблон
 export const Page = () => {
   return (
     <PageWrapper>
