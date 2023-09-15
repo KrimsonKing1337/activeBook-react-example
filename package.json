@@ -13,7 +13,8 @@
     "lint:css": "stylelint \"src/**/*.scss\" --fix",
     "test": "jest",
     "lint-staged": "lint-staged",
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged",
+    "addOrRemovePages": "node ./scripts/addOrRemovePages.js"
   },
   "lint-staged": {
     "*.{ts,tsx}": "eslint --fix",
@@ -110,7 +111,7 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
-    "activeBook-core": "file:../activeBook-core/tgz/activeBook-core-0.0.21.tgz",
+    "activeBook-core": "file:../activeBook-core/tgz/activeBook-core-0.0.32.tgz",
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
