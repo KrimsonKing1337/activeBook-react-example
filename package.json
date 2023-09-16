@@ -94,6 +94,7 @@
     "style-loader": "^3.3.3",
     "stylelint": "^15.10.3",
     "stylelint-config-standard": "^34.0.0",
+    "stylelint-config-standard-scss": "^11.0.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.7.0",
     "stylelint-order": "^6.0.3",
     "stylelint-scss": "^5.1.0",
@@ -111,11 +112,11 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
-    "activeBook-core": "file:../activeBook-core/tgz/activeBook-core-0.0.32.tgz",
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "activeBook-core": "file:../activeBook-core/tgz/activeBook-core-0.0.32.tgz",
     "axios": "^1.5.0",
     "encrypt-storage": "^2.12.16",
     "hammerjs": "^2.0.8",
